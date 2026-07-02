@@ -145,14 +145,21 @@ export default function HomePage() {
       </section>
 
       <section className="bg-stone-50 py-16 md:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-sm">
+            <Image
+              src="/images/airbnb/airbnb_01.jpg"
+              alt="A master suite at The Rittenhouse Residence — a mahogany four-poster beneath a crystal chandelier, with the home's original 1854 millwork and a leaded-glass cabinet"
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+            />
+          </div>
           <div>
             <Eyebrow>
               The House
             </Eyebrow>
-          </div>
-          <div>
-            <h2 className="max-w-4xl font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
+            <h2 className="mt-4 max-w-4xl font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               One of the last great Victorian townhouses on Pine Street — kept, not gutted.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
