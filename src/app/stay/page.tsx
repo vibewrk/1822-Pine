@@ -2,517 +2,338 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Bed,
+  ArrowRight,
   Bath,
+  Bed,
+  Calendar,
+  DoorOpen,
+  Home,
+  LayoutGrid,
+  Tv,
   Users,
   Wifi,
-  Car,
-  UtensilsCrossed,
-  Tv,
-  Wind,
-  Waves,
-  Home,
-  Sun,
-  Crown,
-  Star,
 } from "lucide-react";
 import { BookingCTA } from "@/components/BookingCTA";
+import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "The Property",
+  title: "Stay at The Rittenhouse Residence",
   description:
-    "Tour The Rittenhouse Residence — a historic 1854 mansion with 8 bedrooms across 5 floors. Features 3 VIP suites, master suite with sitting room, 2 full kitchens, and private roof deck. Steps from Rittenhouse Square, Philadelphia.",
-  keywords: [
-    "The Rittenhouse Residence",
-    "Philadelphia mansion rental",
-    "Rittenhouse Square vacation home",
-    "large group accommodation Philadelphia",
-    "historic home rental",
-    "8 bedroom rental Philadelphia",
-    "whole house rental Center City",
-    "family reunion Philadelphia",
-  ],
+    "A floor-by-floor tour of The Rittenhouse Residence: 8 bedrooms, 6 baths, two parlors, dining for 21, two kitchens, and a private roof deck near Rittenhouse Square.",
 };
 
-const floors = [
+const floorWalk = [
   {
-    floor: "Ground Floor",
-    floorNum: 1,
-    name: "Grand Public Rooms",
-    description: "Historic entertaining spaces and the primary kitchen",
-    spaces: [
-      {
-        name: "Parlor",
-        type: "living",
-        description: "Formal receiving room with original fireplace and ornate millwork.",
-      },
-      {
-        name: "Gallery",
-        type: "living",
-        description: "Central hall connecting the ground floor spaces.",
-      },
-      {
-        name: "Dining Room",
-        type: "dining",
-        description: "Seats 16 guests for formal dinners beneath crystal chandeliers.",
-      },
-      {
-        name: "Primary Kitchen",
-        type: "kitchen",
-        description: "Professional-grade appliances, generous counter space, and butler's pantry.",
-      },
-      {
-        name: "Pantry",
-        type: "kitchen",
-        description: "Additional storage and prep area connected to the kitchen.",
-      },
-      {
-        name: "Courtyard",
-        type: "outdoor",
-        description: "Private outdoor space accessible from the ground floor.",
-      },
+    floor: "Parlor floor",
+    note: "The public rooms do the receiving.",
+    image: "/images/airbnb/airbnb_04.jpg",
+    alt: "Grand parlor with original fireplace and full-size pool table",
+    rooms: [
+      "Two parlors for conversation, games, and the first round of coffee.",
+      "Dining room set for the whole group, with room for twenty-one at the table.",
+      "Primary kitchen and pantry close to the dining room, so the house works for a long meal.",
+      "Rear access toward Waverly Street for luggage and practical arrivals.",
     ],
   },
   {
-    floor: "Second Floor",
-    floorNum: 2,
-    name: "Master Suite & Library",
-    description: "The principal living and sleeping floor with the finest accommodations",
-    spaces: [
-      {
-        name: "Master Bedroom",
-        type: "master",
-        beds: "King bed",
-        description: "The residence's premier bedroom with adjoining sitting room—ideal for the hosts or honored guests.",
-      },
-      {
-        name: "Master Sitting Room",
-        type: "living",
-        description: "Private parlor adjoining the master bedroom for reading or quiet retreat.",
-      },
-      {
-        name: "Library Bedroom (VIP 1)",
-        type: "vip",
-        beds: "Queen bed",
-        sqft: "600+ sq ft",
-        description: "Elegant VIP suite with 22 feet of frontage along Pine Street's historic row.",
-      },
-      {
-        name: "Library",
-        type: "living",
-        description: "Formal library with floor-to-ceiling bookshelves and period furnishings.",
-      },
+    floor: "Second floor",
+    note: "The principal suite sits above the street.",
+    image: "/images/property/DSC00082.jpg",
+    alt: "Master suite with four-poster bed",
+    rooms: [
+      "Master bedroom with king bed, private sitting room, and private bath.",
+      "Library suite with a queen bed and Pine Street frontage.",
+      "Formal library for the guest who wants a quieter hour away from the group.",
     ],
   },
   {
-    floor: "Third Floor",
-    floorNum: 3,
-    name: "Family Living & VIP Suite",
-    description: "Communal gathering space with full kitchen plus private sleeping quarters",
-    spaces: [
-      {
-        name: "Family Room",
-        type: "living",
-        description: "Spacious gathering area perfect for group movie nights or casual lounging.",
-      },
-      {
-        name: "Second Kitchen",
-        type: "kitchen",
-        description: "Fully equipped secondary kitchen for larger groups or separate meal prep.",
-      },
-      {
-        name: "Second Bedroom",
-        type: "primary",
-        beds: "Queen bed",
-        description: "Primary bedroom adjacent to the family room.",
-      },
-      {
-        name: "VIP Bedroom 2",
-        type: "vip",
-        beds: "Queen bed",
-        sqft: "600+ sq ft",
-        description: "Grand suite with 22 feet of Pine Street frontage and period details.",
-      },
+    floor: "Third and fourth floors",
+    note: "Bedrooms stack upward, with space between them.",
+    image: "/images/airbnb/airbnb_08.jpg",
+    alt: "Upper-floor guest bedroom",
+    rooms: [
+      "Two more queen bedrooms on the third floor, including a large VIP suite.",
+      "Three bedrooms on the fourth floor: two connecting family rooms and a king VIP suite.",
+      "Six full bathrooms across the house keep mornings moving.",
     ],
   },
   {
-    floor: "Fourth Floor",
-    floorNum: 4,
-    name: "Family Bedrooms & VIP Suite",
-    description: "Two connecting family bedrooms plus a spacious VIP suite",
-    spaces: [
-      {
-        name: "Family Bedroom 1",
-        type: "family",
-        beds: "Queen bed",
-        description: "Connecting room ideal for families traveling with children.",
-      },
-      {
-        name: "Family Bedroom 2",
-        type: "family",
-        beds: "Queen bed",
-        description: "Links directly to Family Bedroom 1 for flexible family configurations.",
-      },
-      {
-        name: "Third Bedroom",
-        type: "primary",
-        beds: "Queen bed",
-        description: "Comfortable primary bedroom with historic details.",
-      },
-      {
-        name: "VIP Bedroom 3",
-        type: "vip",
-        beds: "King bed",
-        sqft: "600+ sq ft",
-        description: "Expansive suite with king bed and 22 feet of frontage along tree-lined Pine Street.",
-      },
-    ],
-  },
-  {
-    floor: "Fifth Floor",
-    floorNum: 5,
-    name: "Roof Deck",
-    description: "Private outdoor entertaining space with panoramic city views",
-    spaces: [
-      {
-        name: "Private Roof Deck",
-        type: "outdoor",
-        description: "Furnished outdoor terrace perfect for morning coffee or evening gatherings under the Philadelphia skyline.",
-      },
+    floor: "Fifth floor",
+    note: "The roof deck is the exhale.",
+    image: "/images/airbnb/airbnb_02.jpg",
+    alt: "Private roof deck with city views",
+    rooms: [
+      "Private furnished terrace for morning coffee and an evening look over Center City.",
+      "Enough separation from the bedrooms below that the house still has quiet corners.",
     ],
   },
 ];
 
-const bedroomSummary = [
-  {
-    category: "VIP Bedrooms",
-    count: 3,
-    icon: Crown,
-    description: "600+ sq ft each with 22ft Pine Street frontage",
-    color: "amber",
-  },
-  {
-    category: "Master Suite",
-    count: 1,
-    icon: Star,
-    description: "King bed with adjoining private sitting room",
-    color: "amber",
-  },
-  {
-    category: "Primary Bedrooms",
-    count: 2,
-    icon: Bed,
-    description: "Comfortable queen accommodations",
-    color: "gray",
-  },
-  {
-    category: "Family Bedrooms",
-    count: 2,
-    icon: Users,
-    description: "Connecting rooms ideal for families",
-    color: "gray",
-  },
+const bedrooms = [
+  ["Master Suite", "King bed", "Second floor", "Private bath"],
+  ["Library Bedroom", "Queen bed", "Second floor", "Shared full bath nearby"],
+  ["Second Bedroom", "Queen bed", "Third floor", "Full bath nearby"],
+  ["VIP Bedroom 2", "Queen bed", "Third floor", "Full bath nearby"],
+  ["Family Bedroom 1", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["Family Bedroom 2", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["Third Bedroom", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["VIP Bedroom 3", "King bed", "Fourth floor", "Full bath nearby"],
 ];
 
 const amenities = [
-  { icon: Wifi, name: "Gigabit WiFi", description: "High-speed fiber throughout all floors" },
-  { icon: UtensilsCrossed, name: "Two Full Kitchens", description: "Professional appliances on ground and third floors" },
-  { icon: Tv, name: "Smart TVs", description: "65\" screens in living areas" },
-  { icon: Wind, name: "Central A/C", description: "Zoned climate control on every floor" },
-  { icon: Car, name: "Street Parking", description: "Nearby garage recommendations provided" },
-  { icon: Waves, name: "Washer/Dryer", description: "Full-size in-unit laundry" },
+  {
+    group: "For the group",
+    items: [
+      ["Dining seats 21", "One table for the whole stay, not three scattered reservations."],
+      ["Two parlors", "Original fireplace, crystal chandelier, and full-size pool table."],
+      ["Two full kitchens", "Primary kitchen on the parlor floor, secondary kitchen upstairs."],
+      ["Roof deck", "Private outdoor space above the house."],
+    ],
+  },
+  {
+    group: "In every room",
+    items: [
+      ["Linens and towels", "Beds made before arrival, bathrooms stocked for the stay."],
+      ["Smart TVs", "Screens in the main living areas and guest-ready entertainment setup."],
+      ["Climate control", "Central air and heat for a five-floor house."],
+    ],
+  },
+  {
+    group: "Practical",
+    items: [
+      ["Gigabit WiFi", "High-speed connection throughout the residence."],
+      ["Washer and dryer", "Full-size laundry for longer stays and large groups."],
+      ["Parking guidance", "Several garages are within two blocks; exact options are sent before check-in."],
+    ],
+  },
 ];
+
+const amenityIcons = [Users, Tv, Wifi];
 
 export default function StayPage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gray-900">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/property/DSC00066.jpg"
-            alt="Rittenhouse Residence grand parlor with original fireplace"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-amber-400 mb-4">
-              Whole-Home Rental
-            </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white">
-              Stay at the Rittenhouse Residence
+    <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
+      <section className="relative min-h-[620px] overflow-hidden">
+        <Image
+          src="/images/property/DSC00066.jpg"
+          alt="Rittenhouse Residence parlor with historic millwork"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/20" />
+        <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-end px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <Eyebrow light className="mb-5">
+              The House
+            </Eyebrow>
+            <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-white md:text-7xl">
+              Seven thousand square feet, arranged for a houseful.
             </h1>
-            <p className="mt-2 text-2xl text-amber-300 font-medium">
-              8 Bedrooms Across 5 Floors of Historic Luxury
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
+              The Rittenhouse Residence is a whole-house stay across five floors: parlors for gathering, a dining room for twenty-one, eight bedrooms, six baths, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
             </p>
-            <p className="mt-6 text-xl text-gray-300">
-              An 1854 Philadelphia mansion restored for modern group travel.
-              Three expansive VIP suites, a master bedroom with private sitting room,
-              two full kitchens, and a private roof deck, two blocks from Rittenhouse Square.
-            </p>
-
-            {/* Quick stats */}
-            <div className="mt-8 flex flex-wrap gap-6">
-              <div className="flex items-center gap-2 text-white">
-                <Bed className="h-5 w-5 text-amber-400" />
-                <span>8 Bedrooms</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Bath className="h-5 w-5 text-amber-400" />
-                <span>6 Bathrooms</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Home className="h-5 w-5 text-amber-400" />
-                <span>5 Floors</span>
-              </div>
-              <div className="flex items-center gap-2 text-white">
-                <Sun className="h-5 w-5 text-amber-400" />
-                <span>Private Roof Deck</span>
-              </div>
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
+              <span className="inline-flex items-center gap-2"><Bed className="h-4 w-4" />8 bedrooms</span>
+              <span className="inline-flex items-center gap-2"><Bath className="h-4 w-4" />6 baths</span>
+              <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />Sleeps 21</span>
+              <span className="inline-flex items-center gap-2"><Home className="h-4 w-4" />5 floors</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Booking CTA Section */}
-      <section className="py-12 bg-white">
+      <section className="border-y border-stone-200 bg-white py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <BookingCTA />
         </div>
       </section>
 
-      {/* Bedroom Overview */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold text-gray-900">
-              8 Bedrooms, Thoughtfully Arranged
-            </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Our bedrooms are categorized by size and position. VIP suites offer 600+ square feet
-              with 22 feet of frontage along tree-lined Pine Street. The master suite includes
-              a private sitting room. Family bedrooms connect for flexible configurations.
-            </p>
+          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+            <Eyebrow>Floor by Floor</Eyebrow>
+            <div>
+              <h2 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
+                A guided walk through the house.
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-700">
+                The plan is old Philadelphia: public rooms on the lower floor, bedrooms rising above, and the service logic still running toward Waverly Street. The renovation keeps that rhythm intact.
+              </p>
+            </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {bedroomSummary.map((item) => (
-              <div
-                key={item.category}
-                className={`p-6 rounded-xl ${
-                  item.color === "amber" ? "bg-amber-50 border-2 border-amber-200" : "bg-white border border-gray-200"
-                }`}
+          <div className="mt-14 space-y-16">
+            {floorWalk.map((floor, index) => (
+              <article
+                key={floor.floor}
+                className="grid items-center gap-8 border-t border-stone-200 pt-10 lg:grid-cols-2"
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                    item.color === "amber" ? "bg-amber-100" : "bg-gray-100"
-                  }`}>
-                    <item.icon className={`h-5 w-5 ${
-                      item.color === "amber" ? "text-amber-700" : "text-gray-600"
-                    }`} />
-                  </div>
-                  <span className={`text-2xl font-bold ${
-                    item.color === "amber" ? "text-amber-700" : "text-gray-900"
-                  }`}>
-                    {item.count}
-                  </span>
+                <div className={index % 2 ? "lg:order-2" : ""}>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-800">
+                    {floor.floor}
+                  </p>
+                  <h3 className="mt-3 font-serif text-3xl font-semibold text-stone-950">
+                    {floor.note}
+                  </h3>
+                  <ul className="mt-6 space-y-4 text-base leading-7 text-stone-700">
+                    {floor.rooms.map((room) => (
+                      <li key={room} className="flex gap-3">
+                        <DoorOpen className="mt-1 h-4 w-4 flex-none text-amber-800" />
+                        <span>{room}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-semibold text-gray-900">{item.category}</h3>
-                <p className="mt-1 text-sm text-gray-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Floor by Floor */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl font-bold text-gray-900">
-              Floor by Floor
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Explore all five floors of the residence
-            </p>
-          </div>
-
-          <div className="space-y-16">
-            {floors.map((floor) => (
-              <div key={floor.floor}>
-                <div className="flex items-center gap-4 mb-6 pb-4 border-b border-gray-200">
-                  <div className="w-12 h-12 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold">
-                    {floor.floorNum}
-                  </div>
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-gray-900">
-                      {floor.floor}: {floor.name}
-                    </h3>
-                    <p className="text-gray-600">{floor.description}</p>
-                  </div>
+                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+                  <Image src={floor.image} alt={floor.alt} fill className="object-cover" />
                 </div>
-
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                  {floor.spaces.map((space) => (
-                    <div
-                      key={space.name}
-                      className={`p-5 rounded-xl transition-colors ${
-                        space.type === "vip"
-                          ? "bg-amber-50 border-2 border-amber-200"
-                          : space.type === "master"
-                          ? "bg-amber-50 border-2 border-amber-300"
-                          : space.type === "family"
-                          ? "bg-blue-50 border border-blue-200"
-                          : space.type === "primary"
-                          ? "bg-gray-50 border border-gray-200"
-                          : "bg-gray-50 border border-gray-100"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <h4 className="font-semibold text-gray-900">{space.name}</h4>
-                        {space.type === "vip" && (
-                          <span className="text-xs font-medium bg-amber-200 text-amber-800 px-2 py-1 rounded">
-                            VIP Suite
-                          </span>
-                        )}
-                        {space.type === "master" && (
-                          <span className="text-xs font-medium bg-amber-300 text-amber-900 px-2 py-1 rounded">
-                            Master
-                          </span>
-                        )}
-                      </div>
-
-                      {(space.beds || space.sqft) && (
-                        <div className="mt-2 flex flex-wrap gap-3 text-sm">
-                          {space.beds && (
-                            <span className="flex items-center gap-1 text-gray-600">
-                              <Bed className="h-4 w-4 text-gray-400" />
-                              {space.beds}
-                            </span>
-                          )}
-                          {space.sqft && (
-                            <span className="text-amber-700 font-medium">
-                              {space.sqft}
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      <p className="mt-2 text-sm text-gray-600">{space.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12">
             <Link
               href="/stay/floor-plans"
-              className="inline-flex items-center text-amber-700 font-semibold hover:text-amber-800"
+              className="inline-flex items-center gap-2 rounded-md border border-stone-300 bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-stone-950 transition-colors hover:border-amber-800 hover:text-amber-900"
             >
-              View Detailed Floor Plans
-              <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <LayoutGrid className="h-4 w-4" />
+              View floor plans
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Photo Grid */}
-      <section className="py-24 bg-gray-50">
+      <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold text-gray-900">
-              Inside the Residence
+          <div className="max-w-3xl">
+            <Eyebrow>Bedrooms</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              Eight rooms, labeled plainly.
             </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-700">
+              The mix is simple: two kings, six queens, and enough floor separation that a group of twenty-one can still find a quiet landing.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {["DSC00068", "DSC00070", "DSC00072", "DSC00074", "DSC00076", "DSC00078"].map((filename) => (
-              <div key={filename} className="relative aspect-[4/3] rounded-lg overflow-hidden">
+          <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 md:grid-cols-2 lg:grid-cols-4">
+            {bedrooms.map(([name, bed, floor, bath]) => (
+              <div key={name} className="bg-stone-50 p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-800">
+                  {bed} · {floor} · {bath}
+                </p>
+                <h3 className="mt-3 font-serif text-2xl font-semibold text-stone-950">
+                  {name}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-stone-100 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <Eyebrow>Amenities</Eyebrow>
+              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+                Useful things, grouped by how you use them.
+              </h2>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {amenities.map((group, index) => {
+                const Icon = amenityIcons[index];
+                return (
+                  <div key={group.group} className="rounded-lg border border-stone-200 bg-white p-6">
+                    <Icon className="h-6 w-6 text-amber-800" />
+                    <h3 className="mt-5 font-serif text-2xl font-semibold">
+                      {group.group}
+                    </h3>
+                    <div className="mt-5 space-y-4">
+                      {group.items.map(([name, detail]) => (
+                        <div key={name}>
+                          <p className="font-semibold text-stone-950">{name}</p>
+                          <p className="mt-1 text-sm leading-6 text-stone-600">{detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#fbfaf7] py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div className="grid grid-cols-2 gap-4">
+            {["DSC00068", "DSC00070", "DSC00072", "DSC00074"].map((filename, index) => (
+              <div
+                key={filename}
+                className={`relative overflow-hidden rounded-lg ${index === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
+              >
                 <Image
                   src={`/images/property/${filename}.jpg`}
-                  alt="Rittenhouse Residence interior showing historic details"
+                  alt="Interior detail at The Rittenhouse Residence"
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-300"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             ))}
           </div>
-
-          <div className="mt-8 text-center">
+          <div className="self-center">
+            <Eyebrow>Gallery</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              See the rooms before you choose your floor.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-700">
+              The gallery shows the scale better than a list can: tall windows, old mantels, broad rooms, and the roof deck above it all.
+            </p>
             <Link
               href="/gallery"
-              className="inline-flex items-center justify-center rounded-md bg-gray-900 px-6 py-3 text-base font-semibold text-white hover:bg-gray-800 transition-colors"
+              className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-amber-800 transition-colors hover:text-amber-900"
             >
-              View Full Gallery
+              View full gallery
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Amenities */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl font-bold text-gray-900">
-              Modern Amenities, Historic Character
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Everything you need for a comfortable group stay
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {amenities.map((amenity) => (
-              <div key={amenity.name} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
-                  <amenity.icon className="h-6 w-6 text-amber-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">{amenity.name}</h3>
-                  <p className="mt-1 text-sm text-gray-600">{amenity.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ideal For */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-2xl font-bold text-gray-900">
-              Perfect For
-            </h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "Family Reunions",
-              "Wedding Parties",
-              "Corporate Retreats",
-              "Friends Getaways",
-              "Multi-Generational Travel",
-              "Philadelphia Weekends",
-              "Holiday Gatherings",
-              "Special Celebrations",
-            ].map((use) => (
-              <span
-                key={use}
-                className="px-4 py-2 bg-white rounded-full text-gray-700 border border-gray-200 text-sm"
-              >
-                {use}
-              </span>
-            ))}
+      <section className="relative py-20 md:py-28">
+        <Image
+          src="/images/airbnb/airbnb_03.jpg"
+          alt="Parlor at The Rittenhouse Residence"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">
+            Bring the whole group under one roof.
+          </h2>
+          <p className="mt-5 text-lg text-stone-200 md:text-xl">
+            8 bedrooms · 6 baths · from $1,600 / night
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="/book"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-stone-950 shadow-lg transition-colors hover:bg-stone-100"
+            >
+              <Calendar className="h-5 w-5" />
+              Check Availability
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-md border border-white/70 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Ask a question
+            </Link>
           </div>
         </div>
       </section>
-
     </div>
   );
 }
