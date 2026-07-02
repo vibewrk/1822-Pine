@@ -1,1291 +1,376 @@
 import { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  MapPin,
-  Utensils,
-  Wine,
-  Coffee,
-  ShoppingBag,
-  TreePine,
+  ArrowRight,
   Building2,
-  Car,
-  Train,
-  Clock,
-  Phone,
-  Star,
+  Coffee,
   ExternalLink,
+  MapPin,
+  ShoppingBag,
+  Train,
+  TreePine,
+  Utensils,
 } from "lucide-react";
+import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Neighborhood Guide",
+  title: "Rittenhouse Square Neighborhood Guide",
   description:
-    "Your complete guide to Rittenhouse Square — Philadelphia's most prestigious neighborhood. Restaurants, bars, coffee shops, parking, transit, museums, and local tips from The Rittenhouse Residence.",
+    "An editorial guide to restaurants near Rittenhouse Square, coffee, museums, shopping, transit, parking, and things to do in Center City Philadelphia.",
   openGraph: {
-    title: "Neighborhood Guide | The Rittenhouse Residence",
+    title: "Rittenhouse Square Neighborhood Guide | The Rittenhouse Residence",
     description:
-      "Explore Philadelphia's most prestigious neighborhood — top restaurants, bars, coffee shops, and local tips steps from The Rittenhouse Residence.",
+      "Restaurants, coffee, museums, shopping, transit, and practical local notes from 1822 Pine Street.",
     images: ["/images/venues/parc.jpg"],
   },
 };
 
-const restaurants = {
-  fineDining: [
-    {
-      name: "Parc",
-      cuisine: "French Bistro",
-      description: "Iconic sidewalk cafe overlooking the Square. Classic French with perfect people-watching.",
-      price: "$$$",
-      distance: "1 min walk",
-      address: "227 S 18th St",
-      phone: "(215) 545-2262",
-      website: "https://parc-restaurant.com",
-      image: "/images/venues/parc.jpg",
-    },
-    {
-      name: "Vernick Food & Drink",
-      cuisine: "New American",
-      description: "James Beard Award-winning chef Greg Vernick. Reservations essential.",
-      price: "$$$$",
-      distance: "3 min walk",
-      address: "2031 Walnut St",
-      phone: "(267) 639-6644",
-      website: "https://www.vernickphilly.com",
-      image: "/images/venues/vernick.jpg",
-    },
-    {
-      name: "Zahav",
-      cuisine: "Israeli",
-      description: "James Beard Outstanding Restaurant winner. Modern Israeli cuisine from Michael Solomonov. Reservations essential.",
-      price: "$$$$",
-      distance: "10 min walk",
-      address: "237 St James Pl",
-      phone: "(215) 625-8800",
-      website: "https://www.zahavrestaurant.com",
-      image: null,
-    },
-    {
-      name: "Lacroix",
-      cuisine: "French Contemporary",
-      description: "Refined dining at The Rittenhouse hotel. Tasting menus and exceptional wine list.",
-      price: "$$$$",
-      distance: "2 min walk",
-      address: "210 W Rittenhouse Sq",
-      phone: "(215) 790-2533",
-      website: "https://www.lacroixrestaurant.com",
-      image: "/images/venues/lacroix.jpg",
-    },
-    {
-      name: "Kalaya",
-      cuisine: "Thai",
-      description: "Acclaimed Southern Thai cuisine in Fishtown. Packs serious heat and bold flavors.",
-      price: "$$$",
-      distance: "15 min drive",
-      address: "1544 Frankford Ave",
-      phone: "(215) 385-3777",
-      website: "https://www.kalayaphilly.com",
-      image: null,
-    },
-    {
-      name: "Suraya Restaurant",
-      cuisine: "Lebanese",
-      description: "Beautiful Lebanese restaurant with stunning garden patio. Fresh mezze and grilled meats.",
-      price: "$$$",
-      distance: "15 min drive",
-      address: "1528 Frankford Ave",
-      phone: "(215) 302-1900",
-      website: "https://surayaphilly.com",
-      image: null,
-    },
-    {
-      name: "Alpen Rose",
-      cuisine: "Austrian",
-      description: "Alpine-inspired dishes in a charming setting. Wiener schnitzel and seasonal fare.",
-      price: "$$$",
-      distance: "15 min drive",
-      address: "104 S 13th St",
-      phone: "(215) 515-5115",
-      website: "https://alpenrosephilly.com",
-      image: null,
-    },
-    {
-      name: "Friday Saturday Sunday",
-      cuisine: "New American",
-      description: "Michelin-starred. James Beard Outstanding Restaurant 2023. Eight-course tasting menu.",
-      price: "$$$$",
-      distance: "5 min walk",
-      address: "261 S 21st St",
-      phone: "(215) 546-4232",
-      website: "https://www.fridaysaturdaysunday.com",
-      image: "/images/venues/friday-saturday-sunday.jpg",
-    },
-  ],
-  casual: [
-    {
-      name: "Dizengoff",
-      cuisine: "Israeli/Hummus",
-      description: "Famous hummus bowls from Michael Solomonov. Counter service, big flavors.",
-      price: "$",
-      distance: "4 min walk",
-      address: "1625 Sansom St",
-      phone: "(215) 867-8181",
-      website: "https://www.dizengoffphilly.com",
-      image: "/images/venues/dizengoff.jpg",
-    },
-    {
-      name: "Middle Child",
-      cuisine: "Deli/Sandwiches",
-      description: "Hip Jewish-Italian deli with creative sandwiches. Perfect for a casual lunch.",
-      price: "$",
-      distance: "10 min walk",
-      address: "248 S 11th St",
-      phone: "(267) 930-8344",
-      website: "https://www.middlechildphilly.com",
-      image: null,
-    },
-    {
-      name: "Cafe La Maude",
-      cuisine: "French Cafe",
-      description: "Charming French cafe with excellent brunch. Fresh pastries and classic dishes.",
-      price: "$$",
-      distance: "10 min walk",
-      address: "816 N 4th St",
-      phone: "(215) 925-9222",
-      website: "https://www.cafelamaude.com",
-      image: null,
-    },
-    {
-      name: "JJ Thai Cuisine",
-      cuisine: "Thai (BYOB)",
-      description: "Reliably excellent Thai. BYOB makes it perfect for groups.",
-      price: "$$",
-      distance: "6 min walk",
-      address: "2028 Chestnut St",
-      phone: "(215) 568-7058",
-      website: "https://www.jjthaicuisine.com",
-      image: null,
-    },
-    {
-      name: "Good Dog Bar",
-      cuisine: "American Gastropub",
-      description: "Famous Roquefort-stuffed burger. Great beer selection on 3 floors.",
-      price: "$$",
-      distance: "5 min walk",
-      address: "224 S 15th St",
-      phone: "(215) 985-9600",
-      website: "https://gooddogbar.com",
-      image: null,
-    },
-    {
-      name: "Huda",
-      cuisine: "Gourmet Sandwiches",
-      description: "Chef-driven sandwiches on house-made milk buns. From a Zahav alum.",
-      price: "$",
-      distance: "4 min walk",
-      address: "32 S 18th St",
-      phone: "(445) 544-8025",
-      website: "https://hudaphl.com",
-      image: null,
-    },
-  ],
-  italian: [
-    {
-      name: "Vetri Cucina",
-      cuisine: "Italian Fine Dining",
-      description: "Marc Vetri's flagship. Legendary tasting menus and one of Philadelphia's best dining experiences.",
-      price: "$$$$",
-      distance: "5 min walk",
-      address: "1312 Spruce St",
-      phone: "(215) 732-3478",
-      website: "https://www.vetricucina.com",
-      image: null,
-    },
-    {
-      name: "Borromini",
-      cuisine: "Italian",
-      description: "100-layer lasagna and Aperol spritzes on tap. Stunning 15,000 sq ft interior.",
-      price: "$$$",
-      distance: "3 min walk",
-      address: "1805 Walnut St",
-      phone: "(215) 596-1000",
-      website: "https://borrominiristorante.com",
-      image: "/images/venues/borromini.jpg",
-    },
-    {
-      name: "Via Locusta",
-      cuisine: "Italian",
-      description: "Jeff Michaud's handmade pasta with locally-sourced ingredients.",
-      price: "$$$",
-      distance: "4 min walk",
-      address: "1723 Locust St",
-      phone: "(215) 642-0020",
-      website: "https://www.vialocusta.com",
-      image: "/images/venues/via-locusta.jpg",
-    },
-    {
-      name: "Fiorella Pasta",
-      cuisine: "Italian",
-      description: "Fresh handmade pasta in a cozy setting. Simple, authentic, delicious.",
-      price: "$$",
-      distance: "12 min walk",
-      address: "817 Christian St",
-      phone: "(215) 625-8880",
-      website: "https://fiorellapasta.com",
-      image: null,
-    },
-    {
-      name: "Ambrosia Ristorante",
-      cuisine: "Italian BYOB",
-      description: "Intimate Northern Italian BYOB. Beloved neighborhood gem with seasonal menus.",
-      price: "$$",
-      distance: "5 min walk",
-      address: "276 S 20th St",
-      phone: "(215) 731-1701",
-      website: "https://www.ambrosia-byob.com",
-      image: null,
-    },
-  ],
-  cheesesteaks: [
-    {
-      name: "Angelo's Pizzeria",
-      cuisine: "Cheesesteaks & Italian",
-      description: "South Philly institution. Famous for their cheesesteaks and roast pork sandwiches.",
-      price: "$",
-      distance: "10 min drive",
-      address: "736 S 9th St",
-      phone: "(215) 922-9322",
-      website: "https://angelospizzeriaphilly.com",
-      image: null,
-    },
-    {
-      name: "Jim's South St.",
-      cuisine: "Philly Cheesesteaks",
-      description: "Classic South Street cheesesteak spot. Reopened after the 2022 fire, better than ever.",
-      price: "$",
-      distance: "12 min walk",
-      address: "400 South St",
-      phone: "(215) 928-1911",
-      website: "https://jimssteaks.com",
-      image: null,
-    },
-    {
-      name: "Dalessandro's Steaks",
-      cuisine: "Philly Cheesesteaks",
-      description: "Cash-only institution since 1960. Many locals call it the best cheesesteak in the city. Worth the drive to Roxborough.",
-      price: "$",
-      distance: "20 min drive",
-      address: "600 Wendover St",
-      phone: "(215) 482-5407",
-      website: "https://dalessandros.com",
-      image: "/images/venues/dalessandros.jpg",
-    },
-    {
-      name: "McNally's Tavern",
-      cuisine: "The Schmitter",
-      description: "Home of the legendary Schmitter—beef, cheese, onions, tomato, grilled salami, and secret sauce on a Kaiser roll. A Chestnut Hill landmark since 1921.",
-      price: "$",
-      distance: "25 min drive",
-      address: "8634 Germantown Ave",
-      phone: "(215) 247-9736",
-      website: "https://www.mcnallys.com",
-      image: null,
-    },
-  ],
-};
-
-const bars = [
-  {
-    name: "SkyHigh",
-    type: "Rooftop Bar & Lounge",
-    description: "Philadelphia's highest bar on the 60th floor of the Four Seasons. Panoramic views, craft cocktails, live music.",
-    vibe: "Glamorous, special occasion",
-    address: "1 N 19th St, Fl 60",
-    phone: "(215) 419-5000",
-    website: "https://www.skyhighphiladelphia.com",
-    image: null,
-  },
-  {
-    name: "The Library Bar",
-    type: "Hotel Lounge",
-    description: "At The Rittenhouse Hotel. Hand-crafted cocktails, rare spirits, elegant setting overlooking the Square.",
-    vibe: "Upscale, quiet",
-    address: "210 W Rittenhouse Sq",
-    phone: "(215) 790-2533",
-    website: "https://www.rittenhousehotel.com/dining/librarybar",
-    image: "/images/venues/library-bar.jpg",
-  },
-  {
-    name: "Monk's Cafe",
-    type: "Belgian Beer Bar",
-    description: "Institution since 1997. 200+ Belgian beers, excellent mussels and burgers.",
-    vibe: "Casual, locals' favorite",
-    address: "264 S 16th St",
-    phone: "(215) 545-7005",
-    website: "https://www.monkscafe.com",
-    image: "/images/venues/monks-cafe.jpg",
-  },
-  {
-    name: "The Ranstead Room",
-    type: "Speakeasy Cocktails",
-    description: "Hidden entrance behind El Rey, craft cocktails. Look for the double R door.",
-    vibe: "Intimate, date night",
-    address: "2013 Ranstead St",
-    phone: "(215) 563-3330",
-    website: "https://ransteadroom.com",
-    image: "/images/venues/ranstead-room.jpg",
-  },
-  {
-    name: "Tria Rittenhouse",
-    type: "Wine Bar",
-    description: "Curated wine, cheese, and beer. Perfect for a pre-dinner glass.",
-    vibe: "Cozy, sophisticated",
-    address: "123 S 18th St",
-    phone: "(215) 972-8742",
-    website: "https://www.triaphilly.com",
-    image: "/images/venues/tria.jpg",
-  },
-  {
-    name: "Good Dog Bar",
-    type: "Gastropub",
-    description: "Three floors of fun. Rooftop in summer, cozy basement bar.",
-    vibe: "Lively, all ages",
-    address: "224 S 15th St",
-    phone: "(215) 985-9600",
-    website: "https://gooddogbar.com",
-    image: null,
-  },
+const stats = [
+  ["2 blocks", "Rittenhouse Square"],
+  ["4 min", "Di Bruno Bros"],
+  ["8 min", "Mutter Museum"],
+  ["20 min", "30th Street Station"],
 ];
 
-const coffeeShops = [
-  {
-    name: "Vernick Coffee Bar",
-    specialty: "Specialty Coffee & Breakfast",
-    hours: "Mon-Fri 7:30am-4pm",
-    notes: "From James Beard winner Greg Vernick. Try the grain bowls.",
-    address: "1800 Arch St, Fl 2",
-    phone: "(215) 419-5052",
-    website: "https://www.vernickcoffeebar.com",
-    image: null,
-  },
-  {
-    name: "The Bread Room",
-    specialty: "Bakery & Pastries",
-    hours: "Mon-Fri 7am-4pm, Sat-Sun 8am-3pm",
-    notes: "Ellen Yin's bakery. Fresh pastries daily, exceptional croissants.",
-    address: "834 Chestnut St",
-    phone: "(215) 419-5820",
-    website: "https://thebreadroomphl.com",
-    image: null,
-  },
-  {
-    name: "P.S. & Co.",
-    specialty: "Vegan Cafe",
-    hours: "Mon-Fri 7am-7pm, Sat-Sun 9am-5pm",
-    notes: "100% organic, plant-based, and gluten-free. Great for health-conscious guests.",
-    address: "1706 Locust St",
-    phone: "(215) 985-1706",
-    website: "https://psandco.com",
-    image: null,
-  },
-  {
-    name: "La Colombe",
-    specialty: "Third Wave Coffee",
-    hours: "Daily 6am-7pm",
-    notes: "Philadelphia-born roaster. Draft lattes are a local favorite.",
-    address: "130 S 19th St",
-    phone: "(215) 563-0860",
-    website: "https://www.lacolombe.com",
-    image: "/images/venues/la-colombe.jpg",
-  },
+const coffee = [
+  ["La Colombe", "130 S 19th St", "Philadelphia-born coffee, close enough for the first walk of the morning.", "https://www.lacolombe.com"],
+  ["P.S. & Co.", "1706 Locust St", "Organic, plant-based breakfast and pastries for guests with dietary needs.", "https://psandco.com"],
+  ["Vernick Coffee Bar", "1800 Arch St", "A polished breakfast stop from Greg Vernick near the Parkway side of Center City.", "https://www.vernickcoffeebar.com"],
+  ["Rittenhouse Market", "1733 Spruce St", "Neighborhood grocery basics two minutes from the house.", ""],
 ];
 
-const groceryStores = [
-  {
-    name: "Di Bruno Bros",
-    type: "Gourmet Market",
-    distance: "4 min walk",
-    description: "Legendary Italian market. Cheese, charcuterie, prepared foods, wine. Everything you need for an in-house dinner party.",
-    address: "1730 Chestnut St",
-    phone: "(215) 665-9220",
-    website: "https://dibruno.com",
-  },
-  {
-    name: "Rittenhouse Market",
-    type: "Neighborhood Grocery",
-    distance: "2 min walk",
-    description: "Open 6:30am-10pm daily. Basics, snacks, beer, wine. 70+ years serving the neighborhood.",
-    address: "1733 Spruce St",
-    phone: "(215) 985-5930",
-    website: null,
-  },
-  {
-    name: "Trader Joe's",
-    type: "Grocery Chain",
-    distance: "8 min walk",
-    description: "Budget-friendly specialty items, wine, and prepared foods.",
-    address: "2121 Market St",
-    phone: "(215) 569-9282",
-    website: "https://www.traderjoes.com",
-  },
-  {
-    name: "Whole Foods Market",
-    type: "Natural Foods",
-    distance: "12 min walk",
-    description: "Full-service grocery with prepared foods bar.",
-    address: "2101 Pennsylvania Ave",
-    phone: "(215) 557-0015",
-    website: "https://www.wholefoodsmarket.com",
-  },
-];
-
-const museums = [
-  {
-    name: "Philadelphia Museum of Art",
-    type: "Art Museum",
-    distance: "15 min walk / 5 min Uber",
-    description: "World-class collection spanning 2,000 years. The famous 'Rocky Steps' are here.",
-    highlight: "Van Gogh, Impressionists, Arms & Armor",
-    address: "2600 Benjamin Franklin Pkwy",
-    phone: "(215) 763-8100",
-    website: "https://philamuseum.org",
-    image: "/images/neighborhood/philadelphia-museum-of-art.jpg",
-  },
-  {
-    name: "Barnes Foundation",
-    type: "Art Collection",
-    distance: "18 min walk / 6 min Uber",
-    description: "Extraordinary private collection. Renoir, Cezanne, Matisse in intimate galleries.",
-    highlight: "Largest Renoir collection in the world",
-    address: "2025 Benjamin Franklin Pkwy",
-    phone: "(215) 278-7000",
-    website: "https://www.barnesfoundation.org",
-    image: "/images/venues/barnes-foundation.jpg",
-  },
-  {
-    name: "Mütter Museum",
-    type: "Medical History",
-    distance: "8 min walk",
-    description: "Fascinating (and slightly macabre) medical artifacts and anatomical specimens.",
-    highlight: "Einstein's brain, Soap Lady",
-    address: "19 S 22nd St",
-    phone: "(215) 560-8564",
-    website: "https://muttermuseum.org",
-    image: "/images/venues/mutter-museum.jpg",
-  },
-  {
-    name: "Rosenbach Museum",
-    type: "Rare Books & Manuscripts",
-    distance: "3 min walk",
-    description: "Intimate museum in a historic townhouse. Rare books and literary artifacts.",
-    highlight: "Bram Stoker's Dracula notes",
-    address: "2008-2010 Delancey Pl",
-    phone: "(215) 732-1600",
-    website: "https://rosenbach.org",
-    image: "/images/venues/rosenbach.jpg",
-  },
-  {
-    name: "Academy of Music",
-    type: "Performing Arts",
-    distance: "6 min walk",
-    description: "America's oldest opera house still in use. Home to Philadelphia Orchestra.",
-    highlight: "Stunning 19th-century interior",
-    address: "240 S Broad St",
-    phone: "(215) 893-1999",
-    website: "https://www.academyofmusic.org",
-    image: null,
-  },
+const restaurants = [
+  ["Parc", "French bistro", "227 S 18th St", "Sidewalk tables facing the Square; useful for a first-night dinner everyone can find.", "1 min walk", "https://parc-restaurant.com"],
+  ["Vernick Food & Drink", "New American", "2031 Walnut St", "A serious reservation within an easy walk of Pine Street.", "3 min walk", "https://www.vernickphilly.com"],
+  ["Friday Saturday Sunday", "New American", "261 S 21st St", "A compact, high-demand dining room for a smaller group splinter night.", "5 min walk", "https://www.fridaysaturdaysunday.com"],
+  ["Via Locusta", "Italian", "1723 Locust St", "Handmade pasta close to the Square.", "4 min walk", "https://www.vialocusta.com"],
+  ["Dizengoff", "Israeli", "1625 Sansom St", "Hummus bowls and fast counter service for a low-lift lunch.", "4 min walk", "https://www.dizengoffphilly.com"],
+  ["JJ Thai Cuisine", "Thai BYOB", "2028 Chestnut St", "Reliable BYOB option when the group wants something casual.", "6 min walk", "https://www.jjthaicuisine.com"],
+  ["Good Dog Bar", "Gastropub", "224 S 15th St", "A neighborhood bar with a known burger and multiple floors.", "5 min walk", "https://gooddogbar.com"],
+  ["Di Bruno Bros", "Gourmet market", "1730 Chestnut St", "Cheese, prepared foods, and pantry supplies for dinner at the house.", "4 min walk", "https://dibruno.com"],
 ];
 
 const parks = [
-  {
-    name: "Rittenhouse Square",
-    distance: "1 min walk",
-    description: "The crown jewel. One of William Penn's original five squares. Perfect for morning coffee, afternoon reading, or evening strolls.",
-    activities: ["People watching", "Picnics", "Dog spotting", "Seasonal festivals"],
-  },
-  {
-    name: "Schuylkill River Trail",
-    distance: "10 min walk",
-    description: "Miles of paved trail along the river. Running, biking, or a scenic walk to the Art Museum.",
-    activities: ["Running", "Cycling", "Kayaking", "Boathouse Row views"],
-  },
-  {
-    name: "Washington Square",
-    distance: "12 min walk",
-    description: "Another of Penn's squares. Quieter, historic, with the Tomb of the Unknown Soldier.",
-    activities: ["History", "Reading", "Squirrel watching"],
-  },
+  ["Rittenhouse Square", "Two blocks north", "One of William Penn's original five squares, with benches, paths, and the city's daily theater."],
+  ["Schuylkill River Trail", "10 min walk", "A paved river path for running, biking, and the walk toward the Art Museum."],
+  ["Washington Square", "12 min walk", "A quieter historic square when the group wants a different corner of Center City."],
 ];
+
+const museums = [
+  ["Rosenbach Museum", "2008-2010 Delancey Pl", "Rare books and manuscripts in a historic townhouse, three minutes away.", "3 min walk", "https://rosenbach.org"],
+  ["Mutter Museum", "19 S 22nd St", "Medical history collections close to the Parkway.", "8 min walk", "https://muttermuseum.org"],
+  ["Academy of Music", "240 S Broad St", "America's oldest opera house still in use, a short walk east.", "6 min walk", "https://www.academyofmusic.org"],
+  ["Philadelphia Museum of Art", "2600 Benjamin Franklin Pkwy", "The major Parkway museum and the Rocky Steps.", "15 min walk / 5 min ride", "https://philamuseum.org"],
+  ["Barnes Foundation", "2025 Benjamin Franklin Pkwy", "A major private collection on the Parkway.", "18 min walk / 6 min ride", "https://www.barnesfoundation.org"],
+];
+
+const shopping = [
+  ["Walnut Street", "National brands and local storefronts run east and west from the Square."],
+  ["Boyds Philadelphia", "A long-running Center City department store for tailored clothing."],
+  ["Di Bruno Bros", "Also the best nearby stop for cheese, charcuterie, and prepared food."],
+  ["Trader Joe's", "2121 Market Street for budget-friendly groceries, about eight minutes away."],
+];
+
+const transit = [
+  ["Subway", "15th-16th & Locust Station is about an eight-minute walk; City Hall and 15th Street stations are also close."],
+  ["Regional Rail", "Suburban Station is about twelve minutes away on foot."],
+  ["Amtrak", "30th Street Station is about twenty minutes on foot or a short ride."],
+  ["PHL Airport", "Use the SEPTA Airport Line to Center City or a rideshare, depending on luggage and timing."],
+];
+
+const kids = [
+  ["The Square", "Short walks, benches, and open air without leaving the neighborhood."],
+  ["Schuylkill River Trail", "Room to move when children need a longer walk."],
+  ["Franklin Institute", "A Parkway classic for science exhibits; check hours before you go."],
+  ["At the house", "The pool table, roof deck, and multiple living rooms help the group spread out between outings."],
+];
+
+function ExternalVenueLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
+  if (!href) return <span>{children}</span>;
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1 transition-colors hover:text-amber-800"
+    >
+      {children}
+      <ExternalLink className="h-3.5 w-3.5" />
+    </a>
+  );
+}
+
+function SectionHeader({
+  eyebrow,
+  title,
+  body,
+}: {
+  eyebrow: string;
+  title: string;
+  body?: string;
+}) {
+  return (
+    <div className="mb-9 max-w-3xl">
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
+        {title}
+      </h2>
+      {body && <p className="mt-5 text-lg leading-8 text-stone-700">{body}</p>}
+    </div>
+  );
+}
 
 export default function NeighborhoodPage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gray-900">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/property/DSC00112.jpg"
-            alt="Rittenhouse Square neighborhood"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-amber-400 mb-4">
-              Your Local Guide
-            </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white">
-              Rittenhouse Square Neighborhood
+    <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
+      <section className="relative min-h-[620px] overflow-hidden">
+        <Image
+          src="/images/property/DSC00112.jpg"
+          alt="Tree-lined Rittenhouse Square neighborhood street"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/20" />
+        <div className="relative mx-auto flex min-h-[620px] max-w-7xl items-end px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <Eyebrow light className="mb-5">
+              Pine Street · Center City Philadelphia
+            </Eyebrow>
+            <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-white md:text-7xl">
+              Rittenhouse Square, from a residential block.
             </h1>
-            <p className="mt-6 text-xl text-gray-300">
-              Philadelphia&apos;s most prestigious neighborhood—and home to the Rittenhouse Residence.
-              World-class dining, boutique shopping, historic charm, and urban convenience—all
-              within walking distance of your door.
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
+              Pine Street is quieter than Walnut and closer than a hotel lobby. Step north and the Square opens in two blocks; step west and the river trail waits; step east and Center City turns into restaurants, shops, theaters, and museums. Morning here starts with coffee, old brick sidewalks, and the decision of which direction to walk first.
             </p>
           </div>
-
-          {/* Quick Stats */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-              <Utensils className="h-6 w-6 text-amber-400 mx-auto" />
-              <p className="mt-2 font-serif text-2xl font-bold text-white">100+</p>
-              <p className="text-sm text-gray-300">Restaurants</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-              <ShoppingBag className="h-6 w-6 text-amber-400 mx-auto" />
-              <p className="mt-2 font-serif text-2xl font-bold text-white">50+</p>
-              <p className="text-sm text-gray-300">Boutiques</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-              <Building2 className="h-6 w-6 text-amber-400 mx-auto" />
-              <p className="mt-2 font-serif text-2xl font-bold text-white">10+</p>
-              <p className="text-sm text-gray-300">Museums</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-              <MapPin className="h-6 w-6 text-amber-400 mx-auto" />
-              <p className="mt-2 font-serif text-2xl font-bold text-white">98</p>
-              <p className="text-sm text-gray-300">Walk Score</p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Restaurants */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-              <Utensils className="h-6 w-6 text-amber-700" />
+      <section className="border-y border-stone-200 bg-white py-5">
+        <div className="mx-auto grid max-w-7xl gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 px-0 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(([value, label]) => (
+            <div key={label} className="bg-stone-50 p-5 text-center">
+              <p className="font-serif text-3xl font-semibold text-stone-950">{value}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-stone-600">{label}</p>
             </div>
-            <div>
-              <h2 className="font-serif text-3xl font-bold text-gray-900">Dining</h2>
-              <p className="text-gray-600">From James Beard winners to casual favorites</p>
-            </div>
-          </div>
-
-          {/* Fine Dining */}
-          <div className="mb-12">
-            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Star className="h-5 w-5 text-amber-500" />
-              Fine Dining
-            </h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {restaurants.fineDining.map((restaurant) => (
-                <div key={restaurant.name} className="bg-white rounded-xl shadow-sm overflow-hidden flex">
-                  {restaurant.image && (
-                    <div className="relative w-28 flex-shrink-0">
-                      <Image
-                        src={restaurant.image}
-                        alt={restaurant.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 flex-1">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <a
-                          href={restaurant.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                        >
-                          {restaurant.name}
-                          <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                        </a>
-                        <p className="text-sm text-amber-700">{restaurant.cuisine}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-sm font-medium text-gray-500">{restaurant.price}</span>
-                        <p className="text-xs text-gray-400">{restaurant.distance}</p>
-                      </div>
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600 line-clamp-2">{restaurant.description}</p>
-                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {restaurant.address}
-                      </span>
-                    </div>
-                    {restaurant.image && (
-                      <p className="mt-1 text-[10px] text-gray-400 italic">Image: {restaurant.name}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Casual Dining */}
-          <div className="mb-12">
-            <h3 className="font-semibold text-gray-900 mb-4">Casual & Quick Bites</h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {restaurants.casual.map((restaurant) => (
-                <div key={restaurant.name} className="bg-white rounded-xl shadow-sm overflow-hidden flex">
-                  {restaurant.image && (
-                    <div className="relative w-28 flex-shrink-0">
-                      <Image
-                        src={restaurant.image}
-                        alt={restaurant.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className={`p-4 flex-1 ${!restaurant.image ? 'p-6' : ''}`}>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <a
-                          href={restaurant.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                        >
-                          {restaurant.name}
-                          <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                        </a>
-                        <p className="text-sm text-amber-700">{restaurant.cuisine}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-sm font-medium text-gray-500">{restaurant.price}</span>
-                        <p className="text-xs text-gray-400">{restaurant.distance}</p>
-                      </div>
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600 line-clamp-2">{restaurant.description}</p>
-                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {restaurant.address}
-                      </span>
-                    </div>
-                    {restaurant.image && (
-                      <p className="mt-1 text-[10px] text-gray-400 italic">Image: {restaurant.name}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Italian */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Italian</h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {restaurants.italian.map((restaurant) => (
-                <div key={restaurant.name} className="bg-white rounded-xl shadow-sm overflow-hidden flex">
-                  {restaurant.image && (
-                    <div className="relative w-28 flex-shrink-0">
-                      <Image
-                        src={restaurant.image}
-                        alt={restaurant.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className="p-4 flex-1">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <a
-                          href={restaurant.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                        >
-                          {restaurant.name}
-                          <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                        </a>
-                        <p className="text-sm text-amber-700">{restaurant.cuisine}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-sm font-medium text-gray-500">{restaurant.price}</span>
-                        <p className="text-xs text-gray-400">{restaurant.distance}</p>
-                      </div>
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600 line-clamp-2">{restaurant.description}</p>
-                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {restaurant.address}
-                      </span>
-                    </div>
-                    {restaurant.image && (
-                      <p className="mt-1 text-[10px] text-gray-400 italic">Image: {restaurant.name}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Philly Cheesesteaks */}
-          <div className="mt-12">
-            <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <Star className="h-5 w-5 text-amber-500" />
-              Philly Cheesesteaks
-              <span className="text-xs font-normal text-gray-500 ml-2">(Worth the trip)</span>
-            </h3>
-            <div className="grid gap-4 md:grid-cols-2">
-              {restaurants.cheesesteaks.map((restaurant) => (
-                <div key={restaurant.name} className="bg-white rounded-xl shadow-sm overflow-hidden flex border-2 border-amber-100">
-                  {restaurant.image && (
-                    <div className="relative w-28 flex-shrink-0">
-                      <Image
-                        src={restaurant.image}
-                        alt={restaurant.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div className={`p-4 flex-1 ${!restaurant.image ? 'p-6' : ''}`}>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <a
-                          href={restaurant.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                        >
-                          {restaurant.name}
-                          <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                        </a>
-                        <p className="text-sm text-amber-700">{restaurant.cuisine}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-sm font-medium text-gray-500">{restaurant.price}</span>
-                        <p className="text-xs text-gray-400">{restaurant.distance}</p>
-                      </div>
-                    </div>
-                    <p className="mt-2 text-sm text-gray-600 line-clamp-2">{restaurant.description}</p>
-                    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="h-3 w-3" />
-                        {restaurant.address}
-                      </span>
-                    </div>
-                    {restaurant.image && (
-                      <p className="mt-1 text-[10px] text-gray-400 italic">Image: {restaurant.name}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Bars & Nightlife */}
-      <section className="py-16 bg-white">
+      <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-              <Wine className="h-6 w-6 text-amber-700" />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl font-bold text-gray-900">Bars & Nightlife</h2>
-              <p className="text-gray-600">From hidden speakeasies to neighborhood institutions</p>
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {bars.map((bar) => (
-              <div key={bar.name} className="bg-gray-50 rounded-xl overflow-hidden">
-                {bar.image && (
-                  <div className="relative h-32">
-                    <Image
-                      src={bar.image}
-                      alt={bar.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className="p-4">
-                  <a
-                    href={bar.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                  >
-                    {bar.name}
-                    <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                  </a>
-                  <p className="text-sm text-amber-700">{bar.type}</p>
-                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">{bar.description}</p>
-                  <p className="mt-2 text-xs text-gray-500 italic">Vibe: {bar.vibe}</p>
-                  <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-gray-500">
-                    <span className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      {bar.address}
-                    </span>
-                  </div>
-                  {bar.image && (
-                    <p className="mt-1 text-[10px] text-gray-400 italic">Image: {bar.name}</p>
-                  )}
-                </div>
-              </div>
+          <SectionHeader
+            eyebrow="Coffee & Breakfast"
+            title="Start close, then keep walking."
+            body="The easiest mornings are the ones with no logistics: coffee nearby, groceries nearby, and enough options for a group that wakes at different speeds."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {coffee.map(([name, address, reason, website]) => (
+              <article key={name} className="rounded-lg border border-stone-200 bg-white p-6">
+                <Coffee className="h-5 w-5 text-amber-800" />
+                <h3 className="mt-5 font-serif text-2xl font-semibold">
+                  <ExternalVenueLink href={website}>{name}</ExternalVenueLink>
+                </h3>
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.16em] text-stone-500">
+                  {address}
+                </p>
+                <p className="mt-4 text-sm leading-6 text-stone-700">{reason}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Coffee & Cafes */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-              <Coffee className="h-6 w-6 text-amber-700" />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl font-bold text-gray-900">Coffee & Cafes</h2>
-              <p className="text-gray-600">Your morning ritual, sorted</p>
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {coffeeShops.map((shop) => (
-              <div key={shop.name} className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="flex justify-between items-start">
-                  <a
-                    href={shop.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                  >
-                    {shop.name}
-                    <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                  </a>
-                  <div className="flex items-center text-xs text-gray-500">
-                    <Clock className="h-3 w-3 mr-1" />
-                    {shop.hours}
-                  </div>
-                </div>
-                <p className="text-sm text-amber-700">{shop.specialty}</p>
-                <p className="mt-2 text-sm text-gray-600">{shop.notes}</p>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-3 w-3" />
-                    {shop.address}
-                  </span>
-                  <a href={`tel:${shop.phone}`} className="flex items-center gap-1 hover:text-amber-700">
-                    <Phone className="h-3 w-3" />
-                    {shop.phone}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Grocery & Essentials */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-              <ShoppingBag className="h-6 w-6 text-amber-700" />
-            </div>
-            <div>
-              <h2 className="font-serif text-3xl font-bold text-gray-900">Grocery & Essentials</h2>
-              <p className="text-gray-600">Stock your kitchen for home-cooked meals</p>
-            </div>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            {groceryStores.map((store) => (
-              <div key={store.name} className="bg-gray-50 rounded-xl p-6">
-                <div className="flex justify-between items-start">
+          <SectionHeader
+            eyebrow="Restaurants"
+            title="Restaurants near Rittenhouse Square."
+            body="Use the house as the anchor: reserve one serious dinner, keep one casual option ready, and let everyone else choose their own lunch radius."
+          />
+          <div className="grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 md:grid-cols-2">
+            {restaurants.map(([name, cuisine, address, reason, distance, website]) => (
+              <article key={name} className="bg-stone-50 p-5">
+                <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    {store.website ? (
-                      <a
-                        href={store.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                      >
-                        {store.name}
-                        <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                      </a>
-                    ) : (
-                      <h4 className="font-semibold text-gray-900">{store.name}</h4>
-                    )}
-                    <p className="text-sm text-amber-700">{store.type}</p>
+                    <h3 className="font-serif text-2xl font-semibold">
+                      <ExternalVenueLink href={website}>{name}</ExternalVenueLink>
+                    </h3>
+                    <p className="mt-1 text-sm text-amber-800">{cuisine}</p>
                   </div>
-                  <span className="text-xs text-gray-500 bg-gray-200 px-2 py-1 rounded">
-                    {store.distance}
+                  <span className="rounded-full border border-stone-300 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-stone-600">
+                    {distance}
                   </span>
                 </div>
-                <p className="mt-3 text-sm text-gray-600">{store.description}</p>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-3 w-3" />
-                    {store.address}
-                  </span>
-                  <a href={`tel:${store.phone}`} className="flex items-center gap-1 hover:text-amber-700">
-                    <Phone className="h-3 w-3" />
-                    {store.phone}
-                  </a>
-                </div>
-              </div>
+                <p className="mt-4 text-base leading-7 text-stone-700">{reason}</p>
+                <p className="mt-3 inline-flex items-center gap-2 text-sm text-stone-500">
+                  <MapPin className="h-4 w-4" />
+                  {address}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Museums & Culture */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <Building2 className="h-6 w-6 text-amber-700" />
+      <section className="bg-stone-100 py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            <Image
+              src="/images/neighborhood/schuylkill-river.jpg"
+              alt="Schuylkill River Trail near Center City Philadelphia"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <SectionHeader
+              eyebrow="The Square & Green Space"
+              title="Two blocks north, the city opens."
+              body="Rittenhouse Square gives the neighborhood its daily rhythm: office lunches, dog walks, weekend benches, and a shaded route home after dinner."
+            />
+            <div className="space-y-4">
+              {parks.map(([name, distance, reason]) => (
+                <div key={name} className="border-t border-stone-300 pt-4">
+                  <h3 className="flex items-center gap-2 font-serif text-2xl font-semibold">
+                    <TreePine className="h-5 w-5 text-amber-800" />
+                    {name}
+                  </h3>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-stone-500">{distance}</p>
+                  <p className="mt-2 leading-7 text-stone-700">{reason}</p>
                 </div>
-                <div>
-                  <h2 className="font-serif text-3xl font-bold text-gray-900">Museums & Culture</h2>
-                  <p className="text-gray-600">World-class institutions and hidden gems</p>
-                </div>
-              </div>
-              <p className="text-gray-600 mt-4">
-                From the iconic Philadelphia Museum of Art (yes, the Rocky steps!) to intimate galleries
-                and the wonderfully peculiar Mütter Museum, Philadelphia punches well above its weight
-                in cultural offerings. Most are an easy walk, Uber, or scenic stroll along the Parkway.
-              </p>
-            </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/neighborhood/philadelphia-museum-of-art.jpg"
-                alt="Philadelphia Museum of Art"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                <p className="text-white text-sm font-medium">Philadelphia Museum of Art</p>
-                <p className="text-white/80 text-xs">15 min walk from Rittenhouse Residence</p>
-              </div>
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {museums.map((museum) => (
-              <div key={museum.name} className="bg-white rounded-xl shadow-sm overflow-hidden flex">
-                {museum.image && (
-                  <div className="relative w-28 flex-shrink-0">
-                    <Image
-                      src={museum.image}
-                      alt={museum.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div className={`p-4 flex-1 ${!museum.image ? 'p-6' : ''}`}>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <a
-                      href={museum.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-semibold text-gray-900 hover:text-amber-700 transition-colors"
-                    >
-                      {museum.name}
-                      <ExternalLink className="inline-block ml-1 h-3 w-3" />
-                    </a>
-                    <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-                      {museum.distance}
-                    </span>
-                  </div>
-                  <p className="text-sm text-amber-700">{museum.type}</p>
-                  <p className="mt-2 text-sm text-gray-600 line-clamp-2">{museum.description}</p>
-                  <p className="mt-2 text-xs text-gray-500">
-                    <span className="font-medium">Don&apos;t miss:</span> {museum.highlight}
-                  </p>
-                  <div className="mt-2 text-xs text-gray-500">
-                    <span className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3" />
-                      {museum.address}
-                    </span>
-                  </div>
-                  {museum.image && (
-                    <p className="mt-1 text-[10px] text-gray-400 italic">Image: {museum.name}</p>
-                  )}
-                </div>
-              </div>
+      <section className="bg-[#fbfaf7] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Museums & Culture"
+            title="Things to do in Center City Philadelphia."
+            body="The Parkway is close enough for a museum morning without turning the day into a production, and smaller institutions sit even closer to Pine Street."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {museums.map(([name, address, reason, distance, website]) => (
+              <article key={name} className="rounded-lg border border-stone-200 bg-white p-6">
+                <Building2 className="h-5 w-5 text-amber-800" />
+                <h3 className="mt-5 font-serif text-2xl font-semibold">
+                  <ExternalVenueLink href={website}>{name}</ExternalVenueLink>
+                </h3>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-stone-500">{distance}</p>
+                <p className="mt-4 leading-7 text-stone-700">{reason}</p>
+                <p className="mt-3 text-sm text-stone-500">{address}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Parks & Outdoors */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg order-2 lg:order-1">
-              <Image
-                src="/images/neighborhood/schuylkill-river.jpg"
-                alt="Schuylkill River Trail"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                <p className="text-white text-sm font-medium">Schuylkill River Trail</p>
-                <p className="text-white/80 text-xs">10 min walk from Rittenhouse Residence</p>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center order-1 lg:order-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <TreePine className="h-6 w-6 text-amber-700" />
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div>
+            <SectionHeader
+              eyebrow="Shopping"
+              title="Walnut Street and the useful errands."
+              body="The shopping district starts almost immediately north of Pine Street, with Walnut Street carrying most of the retail weight."
+            />
+            <div className="space-y-4">
+              {shopping.map(([name, reason]) => (
+                <div key={name} className="rounded-lg border border-stone-200 bg-stone-50 p-5">
+                  <h3 className="flex items-center gap-2 font-semibold">
+                    <ShoppingBag className="h-4 w-4 text-amber-800" />
+                    {name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-stone-700">{reason}</p>
                 </div>
-                <div>
-                  <h2 className="font-serif text-3xl font-bold text-gray-900">Parks & Green Spaces</h2>
-                  <p className="text-gray-600">Urban oases for relaxation and recreation</p>
-                </div>
-              </div>
-              <p className="text-gray-600 mt-4">
-                Rittenhouse Square—one of William Penn&apos;s original five squares—is quite literally at your
-                doorstep. But the neighborhood offers even more: the scenic Schuylkill River Trail for
-                morning runs, historic Washington Square, and easy access to Fairmount Park.
-              </p>
+              ))}
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {parks.map((park) => (
-              <div key={park.name} className="bg-gray-50 rounded-xl p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-semibold text-gray-900">{park.name}</h4>
-                  <span className="text-xs text-gray-500">{park.distance}</span>
+          <div id="getting-here-parking" className="scroll-mt-24">
+            <SectionHeader
+              eyebrow="Getting Around"
+              title="SEPTA, 30th Street, PHL, and parking."
+              body="Most guests can leave the car parked. When you do drive, use a nearby garage and treat street parking as a short errand, not a plan."
+            />
+            <div className="space-y-4">
+              {transit.map(([name, reason]) => (
+                <div key={name} className="rounded-lg border border-stone-200 bg-stone-50 p-5">
+                  <h3 className="flex items-center gap-2 font-semibold">
+                    <Train className="h-4 w-4 text-amber-800" />
+                    {name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-stone-700">{reason}</p>
                 </div>
-                <p className="text-sm text-gray-600 mb-4">{park.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {park.activities.map((activity) => (
-                    <span
-                      key={activity}
-                      className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded"
-                    >
-                      {activity}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Local Tips */}
-      <section className="py-16 bg-gray-900">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold text-white">Local Tips</h2>
-            <p className="mt-4 text-gray-300">Insider knowledge from your hosts</p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">Best Time to Visit the Square</h4>
-              <p className="text-sm text-gray-300">
-                Early morning (before 9am) or golden hour (5-7pm) for the best atmosphere.
-                Weekday lunchtimes see the business crowd, weekends are more relaxed.
-              </p>
-            </div>
-                <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                  <h4 className="font-semibold text-white mb-2">Reservation Strategy</h4>
-                  <p className="text-sm text-gray-300">
-                    Book Vernick 2-3 weeks ahead. Parc doesn’t take reservations—go at off-peak times.
-                    Most others, a few days notice is fine.
-                  </p>
-                </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">BYOB Culture</h4>
-              <p className="text-sm text-gray-300">
-                Many restaurants are BYOB with no corkage fee. Grab a bottle at Di Bruno Bros
-                and save on your dinner bill.
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">Farmers Market</h4>
-              <p className="text-sm text-gray-300">
-                Rittenhouse Farmers Market runs Saturdays year-round (10am-2pm). Local produce,
-                artisan breads, fresh flowers.
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">Seasonal Highlights</h4>
-              <p className="text-sm text-gray-300">
-                Spring Festival (May), Fine Art Show (Fall), and the magical Christmas Tree
-                Lighting with 5,000+ lights.
-              </p>
-            </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">Day Trip from Here</h4>
-              <p className="text-sm text-gray-300">
-                30th Street Station offers easy Amtrak access. New York (90 min), Washington DC (2 hr),
-                or the Main Line suburbs (20 min).
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Getting Here & Parking */}
-      <section id="getting-here-parking" className="py-16 bg-white scroll-mt-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold text-gray-900">
-              Getting Here & Parking
-            </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Everything you need to know about arriving and getting around
-            </p>
-          </div>
-
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Parking */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <Car className="h-6 w-6 text-amber-700" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-gray-900">Parking</h3>
-              </div>
-
-              <div className="space-y-4">
-                <div className="border-l-4 border-amber-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">Nearby Parking Garages</h4>
-                  <ul className="text-sm text-gray-600 mt-1 space-y-1">
-                    <li><strong>Parkway Corp - 1845 Walnut</strong> • 2 min walk • ~$25/day</li>
-                    <li><strong>LAZ Parking - 1919 Spruce</strong> • 3 min walk • ~$22/day</li>
-                    <li><strong>Icon Parking - 1616 Walnut</strong> • 4 min walk • ~$28/day</li>
-                    <li><strong>PMC Parking - 17th & Sansom</strong> • 5 min walk • ~$20/day</li>
-                  </ul>
-                </div>
-                <div className="border-l-4 border-gray-200 pl-4">
-                  <h4 className="font-semibold text-gray-900">Street Parking</h4>
-                  <p className="text-sm text-gray-600">
-                    Limited 2-hour metered parking. $4.50-$6/hour during peak times.
-                    Free evenings after 8pm and Sundays in some areas.
-                  </p>
-                </div>
-                <div className="border-l-4 border-gray-200 pl-4">
-                  <h4 className="font-semibold text-gray-900">Our Recommendation</h4>
-                  <p className="text-sm text-gray-600">
-                    Skip the car if possible. The neighborhood is extremely walkable (98 Walk Score),
-                    and Uber/Lyft are readily available for longer trips.
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href="https://spothero.com/destination/philadelphia/rittenhouse-square-parking"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center text-amber-700 font-semibold hover:text-amber-800"
-              >
-                Reserve Parking on SpotHero
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-
-              {/* Back Entry Tip */}
-              <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
-                <h4 className="font-semibold text-amber-900 text-sm">Luggage Drop-Off Tip</h4>
-                <p className="text-sm text-amber-800 mt-1">
-                  Arriving with lots of luggage or supplies? Our rear entrance on Waverly Street
-                  offers direct access to the house on a quiet, rarely-trafficked lane—perfect
-                  for unloading. Pull up, drop off, then park your car at a nearby garage.
+              ))}
+              <div className="rounded-lg border border-amber-200 bg-amber-50 p-5 text-amber-950">
+                <h3 className="font-semibold">Parking</h3>
+                <p className="mt-2 text-sm leading-6">
+                  Several garages are within two blocks. We send current garage options before check-in instead of publishing stale rates. Waverly Street can be useful for luggage drop-off before you park.
                 </p>
               </div>
             </div>
-
-            {/* Public Transit */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <Train className="h-6 w-6 text-amber-700" />
-                </div>
-                <h3 className="font-serif text-xl font-semibold text-gray-900">Public Transit</h3>
-              </div>
-
-              <div className="space-y-4">
-                <div className="border-l-4 border-amber-400 pl-4">
-                  <h4 className="font-semibold text-gray-900">SEPTA Subway</h4>
-                  <p className="text-sm text-gray-600">
-                    Broad Street Line: 15th Street Station (10 min walk).
-                    Market-Frankford Line: 15th-16th & Locust (8 min walk).
-                  </p>
-                </div>
-                <div className="border-l-4 border-gray-200 pl-4">
-                  <h4 className="font-semibold text-gray-900">Regional Rail</h4>
-                  <p className="text-sm text-gray-600">
-                    Suburban Station (12 min walk) and 30th Street Station (20 min walk or quick Uber).
-                    Direct service to Philadelphia Airport.
-                  </p>
-                </div>
-                <div className="border-l-4 border-gray-200 pl-4">
-                  <h4 className="font-semibold text-gray-900">Bus Lines</h4>
-                  <p className="text-sm text-gray-600">
-                    Multiple routes on Walnut, Chestnut, and Market Streets.
-                    Fare: $2.50 cash or use SEPTA Key card.
-                  </p>
-                </div>
-                <div className="border-l-4 border-gray-200 pl-4">
-                  <h4 className="font-semibold text-gray-900">From the Airport</h4>
-                  <p className="text-sm text-gray-600">
-                    SEPTA Airport Line to Suburban Station (~35 min, $8).
-                    Uber/Lyft (~25 min, $25-40 depending on traffic).
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-white border-t border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="font-serif text-2xl font-bold text-gray-900">
-            Ready to Experience Rittenhouse?
-          </h3>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Book your stay at the Rittenhouse Residence and explore Philadelphia’s
-            finest neighborhood from our historic 1854 mansion.
+      <section className="bg-stone-100 py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="With Kids"
+            title="Enough room to leave, enough room to stay in."
+          />
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {kids.map(([name, reason]) => (
+              <article key={name} className="rounded-lg border border-stone-200 bg-white p-6">
+                <h3 className="font-serif text-2xl font-semibold">{name}</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-700">{reason}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 md:py-28">
+        <Image
+          src="/images/venues/parc.jpg"
+          alt="Parc restaurant near Rittenhouse Square"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" />
+        <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">
+            Stay where the city is walkable.
+          </h2>
+          <p className="mt-5 text-lg text-stone-200 md:text-xl">
+            Two blocks from the Square, with Center City at the door.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/book"
-              className="inline-flex items-center justify-center rounded-md bg-gray-900 px-8 py-3 text-base font-semibold text-white hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center justify-center rounded-md bg-white px-8 py-4 text-base font-semibold text-stone-950 shadow-lg transition-colors hover:bg-stone-100"
             >
-              Book Your Stay
+              Check Availability
             </Link>
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
+              href="/stay"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/70 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Ask Us Anything
+              Tour the house
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>
