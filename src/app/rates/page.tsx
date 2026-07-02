@@ -21,7 +21,7 @@ export default function RatesPage() {
               Rittenhouse Residence Rates
             </h1>
             <p className="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
-              Rates vary by date. Use the booking calendar for exact pricing and availability.
+              Rates vary by date. Check Vrbo for current pricing and availability.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function RatesPage() {
             <div className="mt-8 flex items-start gap-3 rounded-xl bg-amber-50 p-4 text-amber-900">
               <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-700" />
               <p className="text-sm">
-                Final pricing, taxes, fees, and minimum stays are shown during booking.
+                Final pricing, taxes, fees, and minimum stays are shown on Vrbo before you reserve.
               </p>
             </div>
 
@@ -82,4 +82,3 @@ export default function RatesPage() {
     </div>
   );
 }
-

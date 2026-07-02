@@ -16,7 +16,7 @@ import {
   Crown,
   Star,
 } from "lucide-react";
-import { GuestyBookingWidget } from "@/components/GuestyBookingWidget";
+import { BookingCTA } from "@/components/BookingCTA";
 
 export const metadata: Metadata = {
   title: "The Property",
@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     "8 bedroom rental Philadelphia",
     "whole house rental Center City",
     "family reunion Philadelphia",
-    "corporate retreat Philadelphia",
   ],
 };
 
@@ -251,7 +250,7 @@ export default function StayPage() {
             <p className="mt-6 text-xl text-gray-300">
               An 1854 Philadelphia mansion restored for modern group travel.
               Three expansive VIP suites, a master bedroom with private sitting room,
-              two full kitchens, and a private roof deck—all steps from Rittenhouse Square.
+              two full kitchens, and a private roof deck, two blocks from Rittenhouse Square.
             </p>
 
             {/* Quick stats */}
@@ -277,17 +276,10 @@ export default function StayPage() {
         </div>
       </section>
 
-      {/* Booking Widget Section */}
+      {/* Booking CTA Section */}
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 text-center mb-6">
-              Check Availability & Book
-            </h2>
-            <div className="min-h-[200px]">
-              <GuestyBookingWidget />
-            </div>
-          </div>
+          <BookingCTA />
         </div>
       </section>
 

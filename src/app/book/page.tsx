@@ -2,18 +2,18 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Shield, Clock, Users } from "lucide-react";
-import { GuestyBookingWidget } from "@/components/GuestyBookingWidget";
+import { BookingCTA } from "@/components/BookingCTA";
 
 export const metadata: Metadata = {
   title: "Book Your Stay",
   description:
-    "Book The Rittenhouse Residence — a whole-home 8-bedroom, 6-bathroom rental for groups. Historic 1854 mansion steps from Rittenhouse Square, Philadelphia. From $1,600/night.",
+    "Book The Rittenhouse Residence — a whole-home 8-bedroom, 6-bathroom rental for groups. Historic 1854 mansion two blocks from Rittenhouse Square, Philadelphia. From $1,600/night.",
 };
 
 const highlights = [
   { icon: Users, text: "8 bedrooms" },
   { icon: Clock, text: "2-night minimum" },
-  { icon: Shield, text: "Instant confirmation" },
+  { icon: Shield, text: "Vrbo availability" },
 ];
 
 export default function BookPage() {
@@ -54,19 +54,10 @@ export default function BookPage() {
         </div>
       </section>
 
-      {/* Booking Widget Section */}
+      {/* Booking CTA Section */}
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100">
-            <h2 className="font-serif text-2xl font-bold text-gray-900 text-center mb-6">
-              Check Availability & Book
-            </h2>
-
-            {/* Guesty Widget Container */}
-            <div className="min-h-[200px]">
-              <GuestyBookingWidget />
-            </div>
-          </div>
+          <BookingCTA />
         </div>
       </section>
 
@@ -103,9 +94,9 @@ export default function BookPage() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h3 className="font-semibold text-gray-900">Prime Location</h3>
+              <h3 className="font-semibold text-gray-900">Rittenhouse Location</h3>
               <p className="mt-2 text-sm text-gray-600">
-                Steps from Rittenhouse Square, walkable to restaurants and attractions
+                Two blocks from Rittenhouse Square, walkable to restaurants and attractions
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">

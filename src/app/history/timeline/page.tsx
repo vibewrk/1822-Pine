@@ -249,8 +249,8 @@ export default function HistoryTimelinePage() {
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
             8 bedrooms, original fireplaces, marble mantels, and a private garden—all
-            steps from Rittenhouse Square. Perfect for reunions, celebrations, and
-            unforgettable gatherings.
+            two blocks from Rittenhouse Square. Built for reunions, celebrations,
+            and long dinners under one roof.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link

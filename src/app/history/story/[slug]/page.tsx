@@ -304,7 +304,7 @@ export default async function ChapterPage({ params }: Props) {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm text-gray-600">
             Ready to experience this remarkable house for yourself? 8 bedrooms, original
-            fireplaces, and 170 years of stories—all steps from Rittenhouse Square.
+            fireplaces, and 170 years of stories, two blocks from Rittenhouse Square.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
             <Link

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -225,12 +226,12 @@ export default async function DocumentDetailPage({
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-8">
           {(doc.web_images ?? []).map((img) => (
             <div key={img} className="rounded-xl border border-gray-200 overflow-hidden">
-              <img
+              <Image
                 src={webImageUrl(img)}
                 alt={`${title} document page`}
-                className="w-full h-auto"
-                loading="lazy"
-                decoding="async"
+                width={1400}
+                height={1800}
+                className="h-auto w-full"
               />
             </div>
           ))}

@@ -13,8 +13,6 @@
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
 
@@ -24,8 +22,6 @@
       } else {
         navbar.classList.remove('scrolled');
       }
-
-      lastScroll = currentScroll;
     });
   }
 

@@ -12,7 +12,7 @@ function FAQSchema() {
         name: "How do I check availability?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Use the booking calendar on /book for real-time availability and pricing.",
+          text: "Use /book to check current Vrbo availability and pricing.",
         },
       },
       {
@@ -160,11 +160,11 @@ export default function FaqPage() {
                     How do I check availability?
                   </h3>
                   <p className="mt-2">
-                    Use the booking calendar on{" "}
+                    Use{" "}
                     <Link className="text-amber-700 hover:text-amber-800" href="/book">
                       /book
                     </Link>{" "}
-                    for real-time availability and pricing.
+                    to check current Vrbo availability and pricing.
                   </p>
                 </div>
                 <div>
@@ -291,4 +291,3 @@ export default function FaqPage() {
     </>
   );
 }
-

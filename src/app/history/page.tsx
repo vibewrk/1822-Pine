@@ -67,8 +67,6 @@ export default function HistoryPage() {
     {} as Record<string, TimelineEvent[]>
   );
 
-  const totalDocs = (timeline as TimelineEvent[]).filter((e) => e.source).length;
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -364,9 +362,9 @@ export default function HistoryPage() {
             Stay at the Rittenhouse Residence
           </h2>
           <p className="mt-3 md:mt-4 text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-            8 bedrooms, original fireplaces, marble mantels, and a private garden—all
-            steps from Rittenhouse Square. Perfect for family reunions, celebrations,
-            and unforgettable gatherings.
+            8 bedrooms, original fireplaces, marble mantels, and a private garden,
+            two blocks from Rittenhouse Square. Built for family reunions,
+            celebrations, and long dinners under one roof.
           </p>
           <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <Link

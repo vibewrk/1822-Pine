@@ -539,7 +539,7 @@ export default function NeighborhoodPage() {
               Rittenhouse Square Neighborhood
             </h1>
             <p className="mt-6 text-xl text-gray-300">
-              Philadelphia's most prestigious neighborhood—and home to the Rittenhouse Residence.
+              Philadelphia&apos;s most prestigious neighborhood—and home to the Rittenhouse Residence.
               World-class dining, boutique shopping, historic charm, and urban convenience—all
               within walking distance of your door.
             </p>
@@ -1020,7 +1020,7 @@ export default function NeighborhoodPage() {
                   <p className="text-sm text-amber-700">{museum.type}</p>
                   <p className="mt-2 text-sm text-gray-600 line-clamp-2">{museum.description}</p>
                   <p className="mt-2 text-xs text-gray-500">
-                    <span className="font-medium">Don't miss:</span> {museum.highlight}
+                    <span className="font-medium">Don&apos;t miss:</span> {museum.highlight}
                   </p>
                   <div className="mt-2 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
@@ -1065,7 +1065,7 @@ export default function NeighborhoodPage() {
                 </div>
               </div>
               <p className="text-gray-600 mt-4">
-                Rittenhouse Square—one of William Penn's original five squares—is quite literally at your
+                Rittenhouse Square—one of William Penn&apos;s original five squares—is quite literally at your
                 doorstep. But the neighborhood offers even more: the scenic Schuylkill River Trail for
                 morning runs, historic Washington Square, and easy access to Fairmount Park.
               </p>

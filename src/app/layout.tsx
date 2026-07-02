@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { VacationRentalSchema, LocalBusinessSchema } from "@/components/StructuredData";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rittenhouseresidence.com"),
@@ -12,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | The Rittenhouse Residence",
   },
   description:
-    "The Rittenhouse Residence — an 1854 mansion on Philadelphia's Rittenhouse Square. 8 bedrooms, 6 bathrooms, 5 floors. The premier whole-home rental for family reunions & group celebrations. From $1,600/night.",
+    "The Rittenhouse Residence — an 1854 mansion near Philadelphia's Rittenhouse Square. 8 bedrooms, 6 bathrooms, 5 floors. A whole-home rental for family reunions and group celebrations. From $1,600/night.",
   keywords: [
     "The Rittenhouse Residence",
     "Rittenhouse Residence",
@@ -43,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion Since 1854",
     description:
-      "An 1854 mansion with 8 bedrooms, 6 bathrooms, original fireplaces and marble mantels. The premier whole-home rental for groups, steps from Rittenhouse Square.",
+      "An 1854 mansion with 8 bedrooms, 6 bathrooms, original fireplaces and marble mantels. A whole-home rental for groups, two blocks from Rittenhouse Square.",
     url: "https://rittenhouseresidence.com",
     siteName: "The Rittenhouse Residence",
     locale: "en_US",
@@ -61,12 +74,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion",
     description:
-      "An 1854 mansion with 8 bedrooms, steps from Rittenhouse Square. Philadelphia's premier whole-home rental.",
+      "An 1854 mansion with 8 bedrooms, two blocks from Rittenhouse Square. A whole-home Philadelphia rental for groups.",
     images: ["/images/airbnb/airbnb_03.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -80,12 +96,6 @@ export default function RootLayout({
       <head>
         <VacationRentalSchema />
         <LocalBusinessSchema />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
@@ -114,7 +124,7 @@ gtag('config', 'G-YYXHNWZ4PK');`,
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-gray-900">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 text-stone-900`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
