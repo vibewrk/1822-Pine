@@ -10,6 +10,7 @@ import {
   Star,
   Users,
 } from "lucide-react";
+import { Eyebrow } from "@/components/Eyebrow";
 
 const spaces = [
   {
@@ -73,9 +74,9 @@ export default function HomePage() {
 
         <div className="absolute inset-0 flex flex-col justify-end pb-14 md:pb-20">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-amber-200">
+            <Eyebrow light className="mb-4">
               Rittenhouse Square · Built 1854
-            </p>
+            </Eyebrow>
             <h1 className="max-w-5xl font-serif text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-8xl">
               <span className="block text-white/80">The</span>
               <span className="block text-amber-100">Rittenhouse Residence</span>
@@ -146,9 +147,9 @@ export default function HomePage() {
       <section className="bg-stone-50 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-800">
+            <Eyebrow>
               The House
-            </p>
+            </Eyebrow>
           </div>
           <div>
             <h2 className="max-w-4xl font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
@@ -168,9 +169,9 @@ export default function HomePage() {
       <section className="bg-white py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 md:mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-800">
+            <Eyebrow>
               The Rooms
-            </p>
+            </Eyebrow>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               Built for gathering, room by room.
             </h2>
@@ -209,9 +210,9 @@ export default function HomePage() {
       <section className="bg-stone-100 py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-800">
+            <Eyebrow>
               Accommodations
-            </p>
+            </Eyebrow>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               Eight bedrooms. Nobody drives home.
             </h2>
@@ -258,9 +259,9 @@ export default function HomePage() {
             />
           </div>
           <div className="order-1 lg:order-2">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-800">
+            <Eyebrow>
               Location
-            </p>
+            </Eyebrow>
             <h2 className="mt-3 flex items-center gap-3 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               <MapPin className="h-8 w-8 text-amber-700" />
               Rittenhouse Square
@@ -300,7 +301,7 @@ export default function HomePage() {
             ))}
           </div>
           <blockquote className="font-serif text-2xl italic leading-relaxed text-white md:text-3xl">
-            &ldquo;This house is absolutely stunning. The photos don&apos;t do it justice.
+            &ldquo;This house is remarkable. The photos don&apos;t do it justice.
             We had our family reunion here and everyone was in awe of the beautiful
             spaces, the history, and the perfect location.&rdquo;
           </blockquote>
@@ -313,9 +314,9 @@ export default function HomePage() {
       <section className="bg-stone-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-800">
+            <Eyebrow>
               Ideal For
-            </p>
+            </Eyebrow>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               The house was made for a full table.
             </h2>
