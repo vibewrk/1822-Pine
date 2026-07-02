@@ -22,8 +22,8 @@ export default function HomePage() {
           priority
           className="object-cover"
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        {/* Gradient Overlay (stronger on mobile for text contrast) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/20 md:from-black/70 md:via-black/20 md:to-transparent" />
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col justify-end pb-16 md:pb-24">
@@ -32,7 +32,7 @@ export default function HomePage() {
               Est. 1854 · Rittenhouse Square
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white max-w-4xl leading-tight">
-              <span className="text-white/70 font-normal">The</span>{" "}
+              <span className="text-white/80 md:text-white/70 font-normal">The</span>{" "}
               <span className="text-amber-200">Rittenhouse Residence</span>
             </h1>
             <p className="mt-4 text-xl md:text-2xl text-white/90 font-medium">
