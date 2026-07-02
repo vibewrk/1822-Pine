@@ -67,8 +67,6 @@ export default function HistoryPage() {
     {} as Record<string, TimelineEvent[]>
   );
 
-  const totalDocs = (timeline as TimelineEvent[]).filter((e) => e.source).length;
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}

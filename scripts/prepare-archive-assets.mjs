@@ -83,9 +83,6 @@ async function main() {
       return;
     }
 
-    const lifecycle = process.env.npm_lifecycle_event ?? "";
-    const shouldFail = lifecycle.includes("build") && !process.env.SKIP_ARCHIVE_SYNC;
-
     const lines = [
       "Archive sync skipped (missing source folders):",
       ...missingSources.map((src) => `- ${src}`),

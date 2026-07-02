@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Filter, ChevronDown } from "lucide-react";
 import ImageLightbox, { GalleryImage } from "@/components/ImageLightbox";
 

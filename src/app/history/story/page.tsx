@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, Calendar, FileText, ArrowRight, ChevronRight } from "lucide-react";
+import { BookOpen, Calendar, FileText, ChevronRight } from "lucide-react";
 
 import storyData from "@/data/story-chapters.json";
 
@@ -124,7 +124,7 @@ export default function StoryIndexPage() {
           </div>
 
           <div className="space-y-6">
-            {chapters.map((chapter, index) => (
+            {chapters.map((chapter) => (
               <Link
                 key={chapter.slug}
                 href={`/history/story/${chapter.slug}`}

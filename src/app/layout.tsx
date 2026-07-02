@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { VacationRentalSchema, LocalBusinessSchema } from "@/components/StructuredData";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rittenhouseresidence.com"),
@@ -68,6 +81,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -80,12 +96,6 @@ export default function RootLayout({
       <head>
         <VacationRentalSchema />
         <LocalBusinessSchema />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"
@@ -114,7 +124,7 @@ gtag('config', 'G-YYXHNWZ4PK');`,
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-gray-900">
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-stone-50 text-stone-900`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
