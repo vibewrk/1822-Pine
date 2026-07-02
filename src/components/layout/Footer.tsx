@@ -28,8 +28,7 @@ const footerNavigation = {
   ],
 };
 
-// Direct booking URL - skips property selection
-const DIRECT_BOOKING_URL = "https://rittenhouseresidence.guestybookings.com/en/properties/69584f75d11b4200144404b8";
+const VRBO_BOOKING_URL = "https://www.vrbo.com/757481";
 
 export function Footer() {
   return (
@@ -42,27 +41,25 @@ export function Footer() {
               Book the Rittenhouse Residence
             </h3>
             <p className="mt-2 text-gray-300">
-              8 bedrooms · 6 bathrooms · Steps from Rittenhouse Square
+              8 bedrooms · 6 bathrooms · Two blocks from Rittenhouse Square
             </p>
 
-            {/* Primary: Direct booking */}
             <div className="mt-8">
               <a
-                href={DIRECT_BOOKING_URL}
+                href={VRBO_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-600 px-10 py-4 text-lg font-semibold text-white shadow-md hover:bg-amber-700 hover:shadow-lg transition-all"
               >
                 <Calendar className="h-5 w-5" />
-                Check Availability & Book Direct
+                Check Availability on Vrbo
                 <ExternalLink className="h-4 w-4" />
               </a>
-              <p className="mt-3 text-amber-400 text-sm">No booking fees when you reserve direct</p>
+              <p className="mt-3 text-amber-400 text-sm">Direct booking is coming soon</p>
             </div>
 
-            {/* Secondary: OTA options */}
             <div className="mt-8 pt-6 border-t border-gray-700">
-              <p className="text-gray-400 text-sm mb-4">The Rittenhouse Residence is also available to book on:</p>
+              <p className="text-gray-400 text-sm mb-4">The Rittenhouse Residence is also listed on:</p>
               <div className="flex flex-row gap-4 justify-center">
                 <a
                   href="https://www.airbnb.com/rooms/6000930"
@@ -80,7 +77,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
                 >
-                  VRBO
+                  Vrbo
                   <ExternalLink className="h-3 w-3" />
                 </a>
                 <span className="text-gray-600">·</span>
@@ -101,7 +98,7 @@ export function Footer() {
               Rittenhouse Residence
             </h2>
             <p className="text-sm text-gray-600 max-w-xs">
-              A Philadelphia landmark since 1854. 8 bedrooms, original fireplaces, steps from Rittenhouse Square.
+              A Philadelphia landmark since 1854. 8 bedrooms, original fireplaces, two blocks from Rittenhouse Square.
             </p>
             <div className="flex space-x-4">
               <p className="text-xs text-gray-500">
