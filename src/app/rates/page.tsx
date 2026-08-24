@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const rateFacts = [
   ["From $1,600 / night", "Starting rate before date-specific taxes, fees, and seasonal changes."],
   ["2-night minimum", "Certain holidays, peak weekends, and high-demand dates may require longer stays."],
-  ["Sleeps 21", "The rate is for the whole house, not per room."],
+  ["Sleeps 16", "The rate is for the whole house, not per room."],
   ["8 bedrooms · 6 baths", "Five floors of private space for one group."],
 ];
 
@@ -35,7 +35,7 @@ const included = [
   "The entire 8-bedroom residence",
   "Six full bathrooms",
   "Two full kitchens",
-  "Dining space for 21",
+  "Dining space for 16",
   "Two parlors and a full-size pool table",
   "Private roof deck",
   "Linens, towels, WiFi, central air, and washer/dryer",

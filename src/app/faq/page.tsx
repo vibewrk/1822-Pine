@@ -43,7 +43,7 @@ const faqSections = [
     questions: [
       {
         q: "How many guests can stay?",
-        a: "The house sleeps up to 21 guests across 8 bedrooms and 6 full bathrooms.",
+        a: "The house sleeps up to 16 guests across 8 bedrooms and 6 full bathrooms.",
       },
       {
         q: "Do we rent the whole house?",
@@ -51,11 +51,11 @@ const faqSections = [
       },
       {
         q: "How is the house arranged?",
-        a: "The residence spans five floors, with two parlors, a dining room for 21, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
+        a: "The residence spans five floors, with two parlors, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
       },
       {
         q: "What amenities are included?",
-        a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 21, and the private roof deck are included.",
+        a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
       },
     ],
   },

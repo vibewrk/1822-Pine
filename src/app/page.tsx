@@ -92,7 +92,7 @@ export default function HomePage() {
               An 8-bedroom Victorian mansion in the heart of Center City Philadelphia — the whole house, for your whole group.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-7 text-stone-100 md:text-lg">
-              Nearly 7,000 square feet across five floors, two blocks from Rittenhouse Square. Twenty-one guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
+              Nearly 7,000 square feet across five floors, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
@@ -106,7 +106,7 @@ export default function HomePage() {
               </span>
               <span className="inline-flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                Sleeps 21
+                Sleeps 16
               </span>
               {/* Review data sourced from Airbnb listing; update periodically. */}
               <TrackedLink
@@ -172,7 +172,7 @@ export default function HomePage() {
               One of the last great Victorian townhouses on Pine Street — kept, not gutted.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
-              Built in 1854 and lived in for the better part of two centuries, No. 1822 has been home to Drexel banking heirs and a meeting place for the city&apos;s suffrage movement, its parlors witness to both. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
+              Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and served as a meeting place for the city&apos;s suffrage movement, its parlors witness to both. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
               <Link href="/history" className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900">
                 documented past you can actually read
               </Link>
@@ -234,7 +234,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of twenty-one sleeps comfortably and still finds a quiet corner. A master suite with a four-poster and private bath; six queens and two kings across the upper floors; six full bathrooms with period fixtures.
+              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. A master suite with a four-poster and private bath; six queens and two kings across the upper floors; six full bathrooms with period fixtures.
             </p>
             <Link
               href="/stay"

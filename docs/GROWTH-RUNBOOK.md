@@ -119,16 +119,23 @@ The form delivers via Resend to `1822pinestreetpa@gmail.com`.
 These are published claims with weak or contradictory sourcing. Verify and
 correct (or confirm) each — they affect trust, and some affect compliance:
 
-1. **"Sleeps 21."** The bed inventory is 2 kings + 6 queens (16 at 2/bed);
-   the Airbnb listing says 16; the site's old schema said 16; legacy docs say
-   16–18. If 21 is real (sofa beds/air mattresses), document it; otherwise
-   correct sitewide. The schema currently mirrors the visible "21" with a
-   code note.
-2. **STR license number.** The site claims "Licensed Philadelphia short-term
-   rental" but publishes no number; Philadelphia requires the license number
-   to be displayed on listings/ads. The Airbnb listing text ends with
-   "Registration Details 903781" — if that's the license, display it in the
-   footer and add it to the schema.
+1. ~~**"Sleeps 21."**~~ **RESOLVED 2026-08-24 (owner-confirmed): the house
+   sleeps 16.** Corrected sitewide — homepage, /stay, /rates, /book, /faq,
+   BookingCTA, root metadata, JSON-LD occupancy, and /llms.txt. This matches
+   the 8-bedroom inventory (2 king + 6 queen) and the Airbnb listing.
+   *Note:* dining copy that read "seats 21" was aligned to 16 in the same
+   pass. If the table genuinely seats more than the sleeping capacity (day
+   guests), tell me and I'll split the two numbers back apart.
+2. **STR license number — IN PROGRESS (renewal underway as of 2026-08-24).**
+   The site claims "Licensed Philadelphia short-term rental" but publishes no
+   number; Philadelphia requires the license number to be displayed on
+   listings/ads. Once the renewal issues, add the number in exactly two
+   places and it will propagate: the `trustItems` array in
+   `src/app/page.tsx` (e.g. "Philadelphia STR License #XXXXXX") and the
+   footer line in `src/components/layout/Footer.tsx`. Consider also adding
+   it to the JSON-LD as a `license` field on the LodgingBusiness node.
+   The Airbnb listing text currently ends with "Registration Details
+   903781" — confirm whether that is the same number.
 3. **Spencer family naming.** The repo's own research
    (DEEP-RESEARCH-REPORT.md) says the 1893 purchaser/1896 decedent was
    **Graham** Spencer and "Howard" was the young son who died in 1891; the

@@ -7,7 +7,7 @@ import { BookingCTA } from "@/components/BookingCTA";
 export const metadata: Metadata = {
   title: "Check Availability & Book",
   description:
-    "Check live availability for The Rittenhouse Residence — the whole 8-bedroom, 6-bath mansion two blocks from Rittenhouse Square. From $1,600/night, sleeps 21.",
+    "Check live availability for The Rittenhouse Residence — the whole 8-bedroom, 6-bath mansion two blocks from Rittenhouse Square. From $1,600/night, sleeps 16.",
   alternates: { canonical: "/book" },
   openGraph: {
     title: "Book The Rittenhouse Residence",

@@ -37,7 +37,7 @@ const floorWalk = [
     alt: "Grand parlor with original fireplace and full-size pool table",
     rooms: [
       "Two parlors for conversation, games, and the first round of coffee.",
-      "Dining room set for the whole group, with room for twenty-one at the table.",
+      "Dining room set for the whole group, with room for sixteen at the table.",
       "Primary kitchen and pantry close to the dining room, so the house works for a long meal.",
       "Rear access toward Waverly Street for luggage and practical arrivals.",
     ],
@@ -91,7 +91,7 @@ const amenities = [
   {
     group: "For the group",
     items: [
-      ["Dining seats 21", "One table for the whole stay, not three scattered reservations."],
+      ["Dining seats 16", "One table for the whole stay, not three scattered reservations."],
       ["Two parlors", "Original fireplace, crystal chandelier, and full-size pool table."],
       ["Two full kitchens", "Primary kitchen on the parlor floor, secondary kitchen upstairs."],
       ["Roof deck", "Private outdoor space above the house."],
@@ -139,12 +139,12 @@ export default function StayPage() {
               Seven thousand square feet, arranged for a houseful.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The Rittenhouse Residence is a whole-house stay across five floors: parlors for gathering, a dining room for twenty-one, eight bedrooms, six baths, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
+              The Rittenhouse Residence is a whole-house stay across five floors: parlors for gathering, a dining room for sixteen, eight bedrooms, six baths, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
             </p>
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
               <span className="inline-flex items-center gap-2"><Bed className="h-4 w-4" />8 bedrooms</span>
               <span className="inline-flex items-center gap-2"><Bath className="h-4 w-4" />6 baths</span>
-              <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />Sleeps 21</span>
+              <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />Sleeps 16</span>
               <span className="inline-flex items-center gap-2"><Home className="h-4 w-4" />5 floors</span>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function StayPage() {
               Eight rooms, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: two kings, six queens, and enough floor separation that a group of twenty-one can still find a quiet landing.
+              The mix is simple: two kings, six queens, and enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 

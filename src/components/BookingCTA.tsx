@@ -31,7 +31,7 @@ export function BookingCTA() {
           </span>
           <span className="inline-flex items-center gap-2">
             <Users className="h-4 w-4 text-amber-700" />
-            Sleeps 21
+            Sleeps 16
           </span>
           <span className="inline-flex items-center gap-2">
             <Calendar className="h-4 w-4 text-amber-700" />

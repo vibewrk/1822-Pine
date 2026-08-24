@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | The Rittenhouse Residence",
   },
   description:
-    "An 1854 Victorian mansion two blocks from Rittenhouse Square. 8 bedrooms, 6 baths, sleeps 21 — the whole house for your whole group. From $1,600/night.",
+    "An 1854 Victorian mansion two blocks from Rittenhouse Square. 8 bedrooms, 6 baths, sleeps 16 — the whole house for your whole group. From $1,600/night.",
   keywords: [
     "The Rittenhouse Residence",
     "Rittenhouse Residence",

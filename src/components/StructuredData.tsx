@@ -112,10 +112,10 @@ export function LocalBusinessSchema() {
       numberOfBathroomsTotal: 6,
       occupancy: {
         "@type": "QuantitativeValue",
-        // Matches the "Sleeps 21" shown across the site. NOTE for the owner:
-        // the Airbnb listing and the 8-bed inventory suggest 16; verify the
-        // true permitted maximum and update site + schema together.
-        value: 21,
+        // Owner-confirmed 2026-08-24: maximum 16 overnight guests, which
+        // matches the 8-bedroom inventory (2 king + 6 queen) and the Airbnb
+        // listing. Keep in sync with the "Sleeps 16" copy sitewide.
+        value: 16,
       },
       bed: [
         { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "King" },
