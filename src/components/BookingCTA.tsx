@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Bed, Bath, Calendar, ExternalLink, Mail, Star, Users } from "lucide-react";
+import TrackedLink from "@/components/TrackedLink";
 
 const VRBO_URL = "https://www.vrbo.com/757481";
 const AIRBNB_URL = "https://www.airbnb.com/rooms/6000930";
@@ -15,8 +16,8 @@ export function BookingCTA() {
           Reserve The Rittenhouse Residence.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-stone-600">
-          Availability and current rates are shown on Vrbo. Direct booking is
-          coming soon.
+          Check live availability and rates on Vrbo, or email us to book direct
+          and skip the platform fees.
         </p>
 
         <div className="mt-7 flex flex-wrap justify-center gap-3 text-sm text-stone-700">
@@ -39,41 +40,47 @@ export function BookingCTA() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <a
+          <TrackedLink
             href={VRBO_URL}
+            event="ota_click"
+            eventParams={{ platform: "vrbo", location: "booking_cta" }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md bg-stone-950 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-stone-800"
           >
             Check Availability on Vrbo
             <ExternalLink className="h-4 w-4" />
-          </a>
-          <a
+          </TrackedLink>
+          <TrackedLink
             href={AIRBNB_URL}
+            event="ota_click"
+            eventParams={{ platform: "airbnb", location: "booking_cta" }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-6 py-3 text-base font-semibold text-stone-950 transition-colors hover:bg-stone-100"
           >
             View on Airbnb
             <Star className="h-4 w-4 text-amber-700" />
-          </a>
+          </TrackedLink>
         </div>
 
         <p className="mt-5 text-sm text-stone-600">
-          Prefer to book directly?{" "}
+          Prefer to book direct?{" "}
           <Link
             href="/contact"
             className="inline-flex items-center gap-1 font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
           >
-            Email us
+            Send an inquiry
             <Mail className="h-3.5 w-3.5" />
           </Link>{" "}
-          — direct booking is coming soon.
+          — we confirm availability and hold dates within 24 hours.
         </p>
 
         {/* Review data sourced from Airbnb listing; update periodically. */}
-        <a
+        <TrackedLink
           href={AIRBNB_URL}
+          event="ota_click"
+          eventParams={{ platform: "airbnb", location: "booking_cta_reviews" }}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-950"
@@ -81,7 +88,7 @@ export function BookingCTA() {
           <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
           4.89 · 93 reviews on Airbnb
           <ExternalLink className="h-3.5 w-3.5" />
-        </a>
+        </TrackedLink>
       </div>
     </section>
   );

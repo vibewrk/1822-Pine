@@ -11,6 +11,12 @@ import {
   Users,
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import TrackedLink from "@/components/TrackedLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const spaces = [
   {
@@ -67,6 +73,7 @@ export default function HomePage() {
           src="/images/airbnb/airbnb_03.jpg"
           alt="Grand parlor inside The Rittenhouse Residence, an 1854 Philadelphia mansion"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -102,15 +109,17 @@ export default function HomePage() {
                 Sleeps 21
               </span>
               {/* Review data sourced from Airbnb listing; update periodically. */}
-              <a
+              <TrackedLink
                 href="https://www.airbnb.com/rooms/6000930"
+                event="ota_click"
+                eventParams={{ platform: "airbnb", location: "home_hero_reviews" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-colors hover:text-white"
               >
                 <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
                 4.89 · 93 Reviews
-              </a>
+              </TrackedLink>
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -197,6 +206,7 @@ export default function HomePage() {
                   src={space.image}
                   alt={space.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -240,6 +250,7 @@ export default function HomePage() {
                 src="/images/property/DSC00082.jpg"
                 alt="Master suite with four-poster bed at The Rittenhouse Residence"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -248,6 +259,7 @@ export default function HomePage() {
                 src="/images/airbnb/airbnb_08.jpg"
                 alt="Upper-floor guest bedroom inside the Philadelphia mansion"
                 fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -262,6 +274,7 @@ export default function HomePage() {
               src="/images/property/DSC00088.jpg"
               alt="Historic interior detail inside The Rittenhouse Residence"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -350,6 +363,7 @@ export default function HomePage() {
           src="/images/airbnb/airbnb_04.jpg"
           alt="Grand Parlor at The Rittenhouse Residence"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/65" />

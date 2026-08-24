@@ -4,9 +4,10 @@ import { ArrowRight, Calendar, CheckCircle2 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Frequently Asked Questions",
   description:
-    "Frequently asked questions about booking, payment, the house, check-in, rules, parking, location, and accessibility at The Rittenhouse Residence.",
+    "Answers on booking an 8-bedroom Philadelphia mansion: rates, deposits, check-in, parking, house rules, accessibility, and group stays near Rittenhouse Square.",
+  alternates: { canonical: "/faq" },
 };
 
 const faqSections = [
@@ -32,7 +33,7 @@ const faqSections = [
       },
       {
         q: "Can I book directly?",
-        a: "Direct booking is coming soon. For now, use Vrbo for live availability and secure checkout; contact us for group questions that need a human answer.",
+        a: "Yes. Send an inquiry through the contact page with your dates and group size — we confirm availability and hold dates within 24 hours, with no platform service fees. Vrbo remains available for instant online checkout.",
       },
     ],
   },
