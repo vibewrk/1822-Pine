@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Rental Agreement",
   description:
     "High-level rental agreement information for The Rittenhouse Residence.",
+  alternates: { canonical: "/rental-agreement" },
 };
 
 export default function RentalAgreementPage() {

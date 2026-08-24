@@ -8,7 +8,8 @@ import storyData from "@/data/story-chapters.json";
 export const metadata: Metadata = {
   title: "The Story of 1822 Pine Street",
   description:
-    "Explore 170 years of Philadelphia history through the story of The Rittenhouse Residence at 1822 Pine Street. From Victorian society to women's suffrage, discover the documented narrative of Rittenhouse Square's most storied residence.",
+    "The story of 1822 Pine Street in 14 chapters — from its 1854 completion through Gilded Age society, women's suffrage, apartment years, and restoration.",
+  alternates: { canonical: "/history/story" },
   keywords: [
     "Philadelphia history",
     "Rittenhouse Square history",
@@ -26,6 +27,7 @@ export const metadata: Metadata = {
     description:
       "A documented narrative of one of Philadelphia's most historic addresses, from 1854 to present.",
     type: "article",
+    images: ["/images/property/DSC00064.jpg"],
   },
 };
 
@@ -54,6 +56,7 @@ export default function StoryIndexPage() {
             src="/images/property/DSC00064.jpg"
             alt="1822 Pine Street - Historic Philadelphia Mansion"
             fill
+            sizes="100vw"
             className="object-cover opacity-20"
             priority
           />
@@ -138,6 +141,7 @@ export default function StoryIndexPage() {
                         src={chapter.heroImage}
                         alt={`${chapter.title} - ${chapter.era}`}
                         fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent md:bg-gradient-to-t" />

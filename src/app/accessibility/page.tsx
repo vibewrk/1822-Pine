@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Accessibility",
   description:
     "Accessibility information for The Rittenhouse Residence website and property.",
+  alternates: { canonical: "/accessibility" },
 };
 
 export default function AccessibilityPage() {

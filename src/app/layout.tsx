@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { VacationRentalSchema, LocalBusinessSchema } from "@/components/StructuredData";
+
+// Measurement IDs are env-overridable so staging/preview deploys don't pollute
+// production analytics. Defaults preserve the live IDs.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-YYXHNWZ4PK";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-N5XCRVPL";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | The Rittenhouse Residence",
   },
   description:
-    "The Rittenhouse Residence — an 1854 mansion near Philadelphia's Rittenhouse Square. 8 bedrooms, 6 bathrooms, 5 floors. A whole-home rental for family reunions and group celebrations. From $1,600/night.",
+    "An 1854 Victorian mansion two blocks from Rittenhouse Square. 8 bedrooms, 6 baths, sleeps 21 — the whole house for your whole group. From $1,600/night.",
   keywords: [
     "The Rittenhouse Residence",
     "Rittenhouse Residence",
@@ -81,9 +87,17 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: "/",
-  },
+  // IMPORTANT: no `alternates.canonical` here. A previous root-level
+  // `canonical: "/"` was inherited by every route, declaring the entire site
+  // a duplicate of the homepage — a sitewide indexing suppressor. Canonicals
+  // are now set per route.
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export default function RootLayout({
@@ -105,22 +119,22 @@ export default function RootLayout({
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N5XCRVPL');`,
+})(window,document,'script','dataLayer','${GTM_ID}');`,
           }}
         />
-        {/* Google Analytics 4 - beforeInteractive for Search Console verification */}
+        {/* Google Analytics 4 (afterInteractive: GA is not render-critical) */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YYXHNWZ4PK"
-          strategy="beforeInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
         />
         <Script
           id="ga4-config"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-YYXHNWZ4PK');`,
+gtag('config', '${GA_ID}');`,
           }}
         />
       </head>
@@ -128,7 +142,7 @@ gtag('config', 'G-YYXHNWZ4PK');`,
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-N5XCRVPL"
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
@@ -137,6 +151,7 @@ gtag('config', 'G-YYXHNWZ4PK');`,
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

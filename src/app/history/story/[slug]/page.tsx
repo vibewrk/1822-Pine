@@ -60,9 +60,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "Epilogue"
       : `Chapter ${chapter.number}`;
 
+  const description =
+    chapter.excerpt.length > 157
+      ? `${chapter.excerpt.slice(0, 154).trimEnd()}...`
+      : chapter.excerpt;
+
   return {
     title: `${chapter.title} | ${chapterLabel} | The Story of 1822 Pine Street`,
-    description: chapter.excerpt,
+    description,
+    alternates: { canonical: `/history/story/${chapter.slug}` },
     keywords: [
       "Philadelphia history",
       "Rittenhouse Square",
@@ -74,7 +80,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ],
     openGraph: {
       title: `${chapter.title} - ${chapter.subtitle}`,
-      description: chapter.excerpt,
+      description,
       type: "article",
       images: [
         {
@@ -116,6 +122,7 @@ export default async function ChapterPage({ params }: Props) {
             src={chapter.heroImage}
             alt={`${chapter.title} - ${chapter.era}`}
             fill
+            sizes="100vw"
             className="object-cover opacity-30"
             priority
           />

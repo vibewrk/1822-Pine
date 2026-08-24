@@ -115,6 +115,10 @@ function documentSummary(doc: ArchiveDocument) {
   return "Primary-source document connected to 1822 Pine Street.";
 }
 
+export function generateStaticParams() {
+  return (archive as ArchiveDocument[]).map((doc) => ({ slug: doc.slug }));
+}
+
 export function generateMetadata({
   params,
 }: {
@@ -134,6 +138,7 @@ export function generateMetadata({
     return {
       title: `${titleFromFilename(doc.filename)} | Documents`,
       description,
+      alternates: { canonical: `/history/documents/${doc.slug}` },
       keywords: [
         "Rittenhouse Residence archive",
         "1822 Pine Street",
