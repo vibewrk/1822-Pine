@@ -17,9 +17,16 @@ import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Stay at The Rittenhouse Residence",
+  title: "The House — 8 Bedrooms, 5 Floors",
   description:
-    "A floor-by-floor tour of The Rittenhouse Residence: 8 bedrooms, 6 baths, two parlors, dining for 21, two kitchens, and a private roof deck near Rittenhouse Square.",
+    "Tour the mansion floor by floor — two parlors, dining for the whole group, 8 bedrooms, 6 baths, two kitchens, and a private roof deck near Rittenhouse Square.",
+  alternates: { canonical: "/stay" },
+  openGraph: {
+    title: "Inside The Rittenhouse Residence",
+    description:
+      "Two parlors, dining for the whole group, 8 bedrooms, 6 baths, and a private roof deck across five floors.",
+    images: ["/images/airbnb/airbnb_04.jpg"],
+  },
 };
 
 const floorWalk = [
@@ -118,6 +125,7 @@ export default function StayPage() {
           src="/images/property/DSC00066.jpg"
           alt="Rittenhouse Residence parlor with historic millwork"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -186,7 +194,7 @@ export default function StayPage() {
                   </ul>
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  <Image src={floor.image} alt={floor.alt} fill className="object-cover" />
+                  <Image src={floor.image} alt={floor.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                 </div>
               </article>
             ))}
@@ -269,15 +277,33 @@ export default function StayPage() {
       <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div className="grid grid-cols-2 gap-4">
-            {["DSC00068", "DSC00070", "DSC00072", "DSC00074"].map((filename, index) => (
+            {[
+              {
+                file: "DSC00068",
+                alt: "Entry hall with round brass mirror, console table and glass-paneled door crowned by a stained-glass transom",
+              },
+              {
+                file: "DSC00070",
+                alt: "Main staircase with red patterned runner and brass lantern pendant, framed by carved black corbels",
+              },
+              {
+                file: "DSC00072",
+                alt: "Grand parlor with pool table opening through towering pocket doors beneath carved plaster friezes",
+              },
+              {
+                file: "DSC00074",
+                alt: "Powder room wrapped in black-and-white chinoiserie wallpaper with a sculpted white mirror",
+              },
+            ].map(({ file, alt }, index) => (
               <div
-                key={filename}
+                key={file}
                 className={`relative overflow-hidden rounded-lg ${index === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
               >
                 <Image
-                  src={`/images/property/${filename}.jpg`}
-                  alt="Interior detail at The Rittenhouse Residence"
+                  src={`/images/property/${file}.jpg`}
+                  alt={alt}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -307,6 +333,7 @@ export default function StayPage() {
           src="/images/airbnb/airbnb_03.jpg"
           alt="Parlor at The Rittenhouse Residence"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/65" />
