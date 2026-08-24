@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "History | The Rittenhouse Residence",
     description:
       "Discover the rich history of this Victorian mansion — Drexel family connections, original deeds, and 170 years of Philadelphia history.",
-    images: ["/images/documents/deed_1854_p1_web.jpg"],
+    images: ["/images/documents/1854-deed.jpg"],
   },
 };
 

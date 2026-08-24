@@ -4,9 +4,11 @@ import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(scriptDir, "..");
-const repoRoot = path.resolve(siteRoot, "..");
 
-const SOURCE_ROOT = path.resolve(repoRoot, "Rittenhouse-Residence");
+// Archive sources live inside this repository (images/web, raw_documents, refs
+// at the repo root). They are copied into public/archive at build time so the
+// originals stay out of the Next.js static pipeline until then.
+const SOURCE_ROOT = siteRoot;
 const PUBLIC_ROOT = path.resolve(siteRoot, "public", "archive");
 
 const COPY_TARGETS = [
@@ -59,12 +61,10 @@ async function ensureDir(p) {
 }
 
 async function main() {
-  // Skip on Vercel/CI - assets should already be in public/archive
-  if (process.env.VERCEL || process.env.CI) {
-    console.log("Archive sync skipped (Vercel/CI environment)");
-    return;
-  }
-
+  // NOTE: this must run on Vercel/CI too. public/archive is gitignored, so the
+  // deployed site has archive imagery ONLY if this build step copies it. (A
+  // previous version skipped CI builds, which shipped ~130 broken images
+  // across /history/timeline and /history/documents.)
   if (process.env.SKIP_ARCHIVE_SYNC) {
     console.log("Archive sync skipped (SKIP_ARCHIVE_SYNC=1)");
     return;
