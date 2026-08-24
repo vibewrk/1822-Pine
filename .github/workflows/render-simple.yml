@@ -1,9 +1,8 @@
 name: Build and Deploy Website
 
 on:
-  push:
-    branches:
-      - main
+  # Disarmed 2026-08-24: production is the Next.js app on Vercel (rittenhouseresidence.com).
+  # This legacy Quarto/GitHub-Pages deploy now runs only when triggered manually.
   workflow_dispatch:
 
 permissions:
