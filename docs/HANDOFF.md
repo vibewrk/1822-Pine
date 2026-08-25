@@ -44,11 +44,37 @@ That's the whole handoff. Everything below is detail.
 
 | | Status |
 |---|---|
-| Branch | `claude/review-pine-homepage-011CUe7HDMPLe3UWXpKpUQHe`, pushed, 8 commits ahead of `main` |
+| Branch | merged |
 | Build | Clean — 101 static pages, 0 TS errors, 0 lint errors |
-| PR | **Not opened** (no `gh` in the cloud container) |
-| Deployed | **No.** The live site still runs the old code |
-| Live baseline | `bash scripts/verify-seo.sh` → 10 pass / 25 fail |
+| PR | [#14](https://github.com/vibewrk/1822-Pine/pull/14) — **MERGED 2026-08-25** via verified merge commit `faffa44` |
+| Deployed | **YES.** Production built in 43s and is serving this work |
+| Live result | `bash scripts/verify-seo.sh` → **31 pass / 4 fail** (was 10 / 25) |
+
+### Post-deploy verification, 2026-08-25
+
+Twenty-one checks flipped from FAIL to PASS on the first deploy. Confirmed
+against the live domain, not a preview:
+
+- per-route canonicals correct on `/`, `/stay`, `/rates`, `/faq`, `/book`,
+  `/gallery`, `/history` — the sitewide duplicate-content suppressor is gone
+- `sitemap.xml` is valid XML with 95 URLs, all 63 document pages present, no
+  dead story slugs
+- history archive images serve 200 both raw and through `next/image`
+  (spot-checked across the collection) — the ~130 broken images are fixed
+- `robots.txt` allows GPTBot / ClaudeBot / PerplexityBot / OAI-SearchBot;
+  `/llms.txt` serves 200
+- schema clean: no fabricated review, no `starRating`, no "Free parking"
+- homepage says "Sleeps 16", no "coming soon" anywhere
+- logo 51KB, TTFB 0.056s, contact API validates
+
+**The 4 remaining failures are all account actions, not code** — three GoDaddy
+domain items and the Vercel Analytics toggle. See `GROWTH-RUNBOOK.md` §3 and
+§4. Nothing further can be fixed from this repository.
+
+Also confirmed 2026-08-25: `rittenhouseresidence.com` has **no TXT records at
+all**, so Search Console has never been verified by DNS — the token stored at
+`public/google-site-verification.txt` was never published. There are also no MX
+records, so the Resend setup in §5 starts from a clean slate.
 
 **The single most important finding:** the live site's root layout declared
 `alternates.canonical: "/"`, which every route inherited — telling Google that
