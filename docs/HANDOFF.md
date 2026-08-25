@@ -104,9 +104,14 @@ Full click-by-click is in `docs/GROWTH-RUNBOOK.md`. Summary:
    (2026-08-02) found no mapped property collecting. Confirm you own it or
    create a new one, then mark `ota_click` and `contact_submit` as key events.
 3. **Vercel Analytics** — one toggle; the component is already in the layout.
-4. **Domain redirects** — `therittenhouseresidence.com` and `1822pine.com`
-   both 301 through insecure `http://`, and `1822pine.com` is the domain
-   Google actually indexed. `www.1822pine.com` doesn't resolve at all.
+4. **Domain redirects — in GoDaddy, not Vercel (corrected 2026-08-25).**
+   `therittenhouseresidence.com` and `1822pine.com` both 301 through insecure
+   `http://`, and `1822pine.com` is the domain Google actually indexed.
+   `www.1822pine.com` doesn't resolve at all. Neither broken domain is in the
+   Vercel team — both sit on GoDaddy nameservers using GoDaddy forwarding
+   (`Server: awselb/2.0`), so the Vercel dashboard cannot fix them. Runbook §4
+   now has both routes: move them onto Vercel (recommended) or switch the
+   GoDaddy forwarding to `https://`.
 5. **Resend** — confirm `RESEND_API_KEY` is set in Vercel, then verify the
    domain and set `CONTACT_FROM_EMAIL`. Until then the sandbox sender only
    reliably delivers to the Resend account owner's inbox.
