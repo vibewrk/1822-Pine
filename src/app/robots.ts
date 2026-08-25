@@ -24,7 +24,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/"],
+        // Do NOT disallow /_next/. It serves the CSS, JS, fonts, and — via
+        // /_next/image — every optimised image on the site. Blocking it stops
+        // Googlebot rendering pages the way a visitor sees them, and makes the
+        // whole history archive invisible to Google Images, since those scans
+        // are all delivered through the image optimiser.
+        disallow: ["/api/"],
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
