@@ -64,27 +64,67 @@ The `@vercel/analytics` component is already in the layout; it activates the
 moment the dashboard toggle is on. This gives cookie-free traffic data
 immediately — useful while GA/GSC warm up.
 
-## 4. Domain repairs (10 minutes, Vercel Dashboard → Domains)
+## 4. Domain repairs — CORRECTED 2026-08-25 (GoDaddy, NOT Vercel)
 
-Current, verified 2026-08-24:
+An earlier draft of this section said to fix these in the Vercel dashboard.
+**That is wrong, and following it would waste your time** — the two broken
+domains are not in the Vercel team at all. Verified from a logged-in machine
+on 2026-08-25:
 
-| Domain | Behavior | Problem |
+| Domain | Nameservers | Behavior |
 |---|---|---|
-| rittenhouseresidence.com | 200, canonical host | OK |
-| www.rittenhouseresidence.com | 307 → apex | OK |
-| therittenhouseresidence.com | 301 → **http://**rittenhouseresidence.com | insecure hop; brand-matching domain |
-| 1822pine.com | 301 → **http://**rittenhouseresidence.com | **this is the domain Google has indexed**; insecure hop leaks equity |
-| www.1822pine.com | NXDOMAIN | doesn't resolve at all |
+| rittenhouseresidence.com | `ns1/ns2.vercel-dns.com` (**Vercel**) | 200, canonical host — OK |
+| www.rittenhouseresidence.com | Vercel | 307 → apex — OK |
+| 1822pine.com | `ns29/ns30.domaincontrol.com` (**GoDaddy**) | 301 → **http://**rittenhouseresidence.com |
+| therittenhouseresidence.com | `ns03/ns04.domaincontrol.com` (**GoDaddy**) | 301 → **http://**rittenhouseresidence.com |
+| www.1822pine.com | none | NXDOMAIN — no record exists |
 
-Fixes:
-1. For `therittenhouseresidence.com` and `1822pine.com`: edit the redirect so
-   the destination is `https://rittenhouseresidence.com` (with the scheme),
-   permanent (308/301).
-2. Add a DNS record for `www.1822pine.com` (CNAME to the Vercel target) so it
-   resolves and redirects like the apex.
-3. Optional but recommended: add both alternate domains as properties in
-   Search Console and use **Change of Address** from `1822pine.com` →
-   `rittenhouseresidence.com` to migrate its indexed equity cleanly.
+`vercel domains ls --scope rpcoding` returns 20 domains and **neither
+`1822pine.com` nor `therittenhouseresidence.com` is among them.** Both resolve
+to `3.33.251.168` / `15.197.225.128` and answer with `Server: awselb/2.0` —
+that is GoDaddy's domain-forwarding service, not Vercel. So the insecure hop is
+configured in GoDaddy and can only be changed there.
+
+The actual chain today is two hops, the first one insecure:
+
+```
+http://1822pine.com  →301→  http://rittenhouseresidence.com  →→  https://rittenhouseresidence.com
+```
+
+This matters more than it looks: **`1822pine.com` is the domain Google actually
+indexed.** Redirect equity passes through an unencrypted hop, and the forwarding
+is a weaker, slower signal than a redirect served from the site's own edge.
+
+### Fix — pick one
+
+**Option A (recommended): move the domains onto Vercel.** Best SEO outcome and
+it puts everything in one dashboard.
+
+1. Vercel → project `rittenhouse-website` → Settings → Domains → Add
+   `1822pine.com`, `www.1822pine.com`, `therittenhouseresidence.com`.
+2. Vercel shows the records to create. In GoDaddy → the domain → DNS, either
+   point the nameservers at `ns1.vercel-dns.com` / `ns2.vercel-dns.com`, or add
+   the A/CNAME records Vercel gives you. Turn **off** GoDaddy Forwarding first —
+   it overrides DNS records while it is on.
+3. In Vercel, set each added domain to **Redirect to** `rittenhouseresidence.com`
+   with status **308 Permanent**. Vercel then serves a single clean
+   `https://` hop and issues certificates automatically.
+
+**Option B (quick patch, ~5 min): keep GoDaddy, just make it HTTPS.**
+GoDaddy → the domain → Forwarding → edit. Set the destination to
+`https://rittenhouseresidence.com` (with the scheme) and forward type
+**Permanent (301)**. Repeat for both domains. Add a forwarding entry or CNAME
+for `www.1822pine.com` so it stops NXDOMAINing. This removes the insecure hop
+but leaves you managing two dashboards.
+
+**Either way, also:** add `1822pine.com` as its own property in Search Console
+and use **Change of Address** → `rittenhouseresidence.com`. That is the only
+mechanism that formally migrates indexed equity; a redirect alone is slower and
+lossier.
+
+*Note: GoDaddy has no usable CLI for forwarding config, and both accounts need
+a browser login — these steps are yours to click, not something this repo can
+automate.*
 
 ## 5. Contact-form email (10 minutes)
 
@@ -103,16 +143,29 @@ The form delivers via Resend to `1822pinestreetpa@gmail.com`.
 3. Optional: `CONTACT_TO_EMAIL` overrides the destination inbox.
 4. Send yourself a test inquiry from the live site and confirm receipt.
 
-## 6. Environment variables summary (Vercel → Settings → Environment Variables)
+## 6. Environment variables — ACTUAL STATE as of 2026-08-25
 
-| Var | Purpose | Required |
-|---|---|---|
-| `RESEND_API_KEY` | contact form delivery | YES — form fails loudly without it |
-| `CONTACT_FROM_EMAIL` | verified sender after Resend domain setup | recommended |
-| `CONTACT_TO_EMAIL` | override inquiry destination | optional |
-| `NEXT_PUBLIC_GA_ID` | override GA4 id (defaults to G-YYXHNWZ4PK) | optional |
-| `NEXT_PUBLIC_GTM_ID` | override GTM id (defaults to GTM-N5XCRVPL) | optional |
-| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | GSC meta-tag verification | optional |
+Read live from `vercel env ls` on project `rpcoding/rittenhouse-website`:
+
+| Var | Set? | Environments | Purpose / action |
+|---|---|---|---|
+| `RESEND_API_KEY` | **YES** | **Production only** | Contact form delivery. Present in Production, so the live form can send. Not set for Preview/Development, so the form fails loudly on preview builds — that is the intended behavior, not a bug, but add it to Preview if you want to test inquiries there. |
+| `NEXT_PUBLIC_SUPABASE_URL` | YES | Production | Legacy, unrelated to this work — left alone |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | YES | Production | Legacy, unrelated to this work — left alone |
+| `CONTACT_FROM_EMAIL` | **NO** | — | Set after verifying the domain in Resend (§5). Until then the sandbox sender only reliably reaches the Resend account owner's inbox. |
+| `CONTACT_TO_EMAIL` | no | — | Optional; overrides the destination inbox |
+| `NEXT_PUBLIC_GA_ID` | **NO** | — | Not set, so the build falls back to the hardcoded `G-YYXHNWZ4PK`. If §2 shows you do not own that property, set this to your own ID and redeploy. |
+| `NEXT_PUBLIC_GTM_ID` | no | — | Falls back to hardcoded `GTM-N5XCRVPL` |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | **NO** | — | Only needed if you verify Search Console by HTML tag instead of DNS (§1, option 6) |
+
+To add one from a terminal instead of the dashboard:
+
+```bash
+vercel env add CONTACT_FROM_EMAIL production
+```
+
+Changing any `NEXT_PUBLIC_*` var requires a redeploy to take effect — they are
+inlined at build time, not read at runtime.
 
 ## 7. Content facts the owner must confirm (surfaced by the 2026-08 audit)
 
