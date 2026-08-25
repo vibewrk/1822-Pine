@@ -10,7 +10,14 @@ import timeline from "@/data/timeline.json";
 export const metadata: Metadata = {
   title: "History of 1822 Pine Street",
   description:
-    "The documented history of The Rittenhouse Residence: built in 1854, tied to Drexel banking heirs, suffrage activism, deeds, documents, and a verified timeline.",
+    "The documented history of The Rittenhouse Residence: an 1854 townhouse with a Drexel family connection, suffrage-era stories, deeds, and a verified timeline.",
+  alternates: { canonical: "/history" },
+  openGraph: {
+    title: "History | The Rittenhouse Residence",
+    description:
+      "Deeds, documents, and 170 years of Philadelphia history at 1822 Pine Street.",
+    images: ["/images/documents/1854-deed.jpg"],
+  },
 };
 
 const chapterCount = story.chapters.length;
@@ -50,7 +57,7 @@ const readingRoom = [
 
 const proofNotes = [
   ["1854", "John McCrea sells the newly completed townhouse at 1822 Pine Street to John Roset."],
-  ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to Howard Spencer."],
+  ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to the Spencer family."],
   ["1899", "Agnes M. Spencer commissions Duhring, Okie & Ziegler for alterations and additions."],
   ["1915", "Miss Martha Davis of 1822 Pine Street sells Equal Franchise Society luncheon tickets."],
 ];
@@ -63,6 +70,7 @@ export default function HistoryPage() {
           src="/images/property/DSC00064.jpg"
           alt="Historic interior at 1822 Pine Street"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -174,6 +182,7 @@ export default function HistoryPage() {
               src="/images/documents/1854-deed.jpg"
               alt="1854 deed document for 1822 Pine Street"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>

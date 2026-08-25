@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact & Booking Inquiries",
   description:
-    "Get in touch with The Rittenhouse Residence for booking questions or inquiries about our historic Philadelphia property.",
+    "Ask about dates, rates, group fit, or the house itself — direct inquiries for this 8-bedroom Philadelphia mansion are answered within 24 hours.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactLayout({

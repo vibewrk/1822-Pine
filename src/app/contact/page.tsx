@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -26,6 +27,7 @@ export default function ContactPage() {
           inquiryType: formData.get("inquiryType"),
           dates: formData.get("dates"),
           message: formData.get("message"),
+          website: formData.get("website"),
         }),
       });
 
@@ -34,9 +36,14 @@ export default function ContactPage() {
         throw new Error(data.error || "Failed to send message");
       }
 
+      trackEvent("contact_submit", {
+        status: "success",
+        inquiry_type: String(formData.get("inquiryType") ?? ""),
+      });
       setFormState("success");
       form.reset();
     } catch (err) {
+      trackEvent("contact_submit", { status: "error" });
       setFormState("error");
       setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     }
@@ -94,6 +101,17 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                  {/* Honeypot — invisible to people, filled by bots */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
                   {formState === "error" && (
                     <div className="rounded-lg bg-red-50 border border-red-200 p-4 flex items-start gap-3">
                       <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />

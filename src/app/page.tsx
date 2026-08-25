@@ -11,6 +11,12 @@ import {
   Users,
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import TrackedLink from "@/components/TrackedLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const spaces = [
   {
@@ -67,6 +73,7 @@ export default function HomePage() {
           src="/images/airbnb/airbnb_03.jpg"
           alt="Grand parlor inside The Rittenhouse Residence, an 1854 Philadelphia mansion"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -85,7 +92,7 @@ export default function HomePage() {
               An 8-bedroom Victorian mansion in the heart of Center City Philadelphia — the whole house, for your whole group.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-7 text-stone-100 md:text-lg">
-              Nearly 7,000 square feet across five floors, two blocks from Rittenhouse Square. Twenty-one guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
+              Nearly 7,000 square feet across five floors, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
@@ -99,18 +106,20 @@ export default function HomePage() {
               </span>
               <span className="inline-flex items-center gap-2">
                 <Users className="h-4 w-4" />
-                Sleeps 21
+                Sleeps 16
               </span>
               {/* Review data sourced from Airbnb listing; update periodically. */}
-              <a
+              <TrackedLink
                 href="https://www.airbnb.com/rooms/6000930"
+                event="ota_click"
+                eventParams={{ platform: "airbnb", location: "home_hero_reviews" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-colors hover:text-white"
               >
                 <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
                 4.89 · 93 Reviews
-              </a>
+              </TrackedLink>
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -163,7 +172,7 @@ export default function HomePage() {
               One of the last great Victorian townhouses on Pine Street — kept, not gutted.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
-              Built in 1854 and lived in for the better part of two centuries, No. 1822 has been home to Drexel banking heirs and a meeting place for the city&apos;s suffrage movement, its parlors witness to both. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
+              Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and served as a meeting place for the city&apos;s suffrage movement, its parlors witness to both. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
               <Link href="/history" className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900">
                 documented past you can actually read
               </Link>
@@ -197,6 +206,7 @@ export default function HomePage() {
                   src={space.image}
                   alt={space.alt}
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
@@ -224,7 +234,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of twenty-one sleeps comfortably and still finds a quiet corner. A master suite with a four-poster and private bath; six queens and two kings across the upper floors; six full bathrooms with period fixtures.
+              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. A master suite with a four-poster and private bath; six queens and two kings across the upper floors; six full bathrooms with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -240,6 +250,7 @@ export default function HomePage() {
                 src="/images/property/DSC00082.jpg"
                 alt="Master suite with four-poster bed at The Rittenhouse Residence"
                 fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>
@@ -248,6 +259,7 @@ export default function HomePage() {
                 src="/images/airbnb/airbnb_08.jpg"
                 alt="Upper-floor guest bedroom inside the Philadelphia mansion"
                 fill
+                sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
@@ -262,6 +274,7 @@ export default function HomePage() {
               src="/images/property/DSC00088.jpg"
               alt="Historic interior detail inside The Rittenhouse Residence"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -350,6 +363,7 @@ export default function HomePage() {
           src="/images/airbnb/airbnb_04.jpg"
           alt="Grand Parlor at The Rittenhouse Residence"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/65" />

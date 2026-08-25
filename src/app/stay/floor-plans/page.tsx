@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Floor Plans",
+  title: "Floor Plans of the 1854 Mansion",
   description:
-    "Floor plans for The Rittenhouse Residence, organized by level across five floors.",
+    "Floor plans for all five levels of The Rittenhouse Residence — the parlor floor, three bedroom floors, and the roof deck of the 1854 Philadelphia mansion.",
+  alternates: { canonical: "/stay/floor-plans" },
+  openGraph: {
+    title: "Floor Plans | The Rittenhouse Residence",
+    description: "All five levels of the 1854 mansion, floor by floor.",
+    images: ["/images/floor-plans/floor-1.jpg"],
+  },
 };
 
 const plans = [
@@ -43,6 +49,7 @@ export default function FloorPlansPage() {
                     src={plan.image}
                     alt={`${plan.label} floor plan`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-contain p-3"
                   />
                 </div>

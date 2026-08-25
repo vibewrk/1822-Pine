@@ -17,9 +17,16 @@ import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Stay at The Rittenhouse Residence",
+  title: "The House — 8 Bedrooms, 5 Floors",
   description:
-    "A floor-by-floor tour of The Rittenhouse Residence: 8 bedrooms, 6 baths, two parlors, dining for 21, two kitchens, and a private roof deck near Rittenhouse Square.",
+    "Tour the mansion floor by floor — two parlors, dining for the whole group, 8 bedrooms, 6 baths, two kitchens, and a private roof deck near Rittenhouse Square.",
+  alternates: { canonical: "/stay" },
+  openGraph: {
+    title: "Inside The Rittenhouse Residence",
+    description:
+      "Two parlors, dining for the whole group, 8 bedrooms, 6 baths, and a private roof deck across five floors.",
+    images: ["/images/airbnb/airbnb_04.jpg"],
+  },
 };
 
 const floorWalk = [
@@ -30,7 +37,7 @@ const floorWalk = [
     alt: "Grand parlor with original fireplace and full-size pool table",
     rooms: [
       "Two parlors for conversation, games, and the first round of coffee.",
-      "Dining room set for the whole group, with room for twenty-one at the table.",
+      "Dining room set for the whole group, with room for sixteen at the table.",
       "Primary kitchen and pantry close to the dining room, so the house works for a long meal.",
       "Rear access toward Waverly Street for luggage and practical arrivals.",
     ],
@@ -84,7 +91,7 @@ const amenities = [
   {
     group: "For the group",
     items: [
-      ["Dining seats 21", "One table for the whole stay, not three scattered reservations."],
+      ["Dining seats 16", "One table for the whole stay, not three scattered reservations."],
       ["Two parlors", "Original fireplace, crystal chandelier, and full-size pool table."],
       ["Two full kitchens", "Primary kitchen on the parlor floor, secondary kitchen upstairs."],
       ["Roof deck", "Private outdoor space above the house."],
@@ -118,6 +125,7 @@ export default function StayPage() {
           src="/images/property/DSC00066.jpg"
           alt="Rittenhouse Residence parlor with historic millwork"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -131,12 +139,12 @@ export default function StayPage() {
               Seven thousand square feet, arranged for a houseful.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The Rittenhouse Residence is a whole-house stay across five floors: parlors for gathering, a dining room for twenty-one, eight bedrooms, six baths, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
+              The Rittenhouse Residence is a whole-house stay across five floors: parlors for gathering, a dining room for sixteen, eight bedrooms, six baths, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
             </p>
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
               <span className="inline-flex items-center gap-2"><Bed className="h-4 w-4" />8 bedrooms</span>
               <span className="inline-flex items-center gap-2"><Bath className="h-4 w-4" />6 baths</span>
-              <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />Sleeps 21</span>
+              <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />Sleeps 16</span>
               <span className="inline-flex items-center gap-2"><Home className="h-4 w-4" />5 floors</span>
             </div>
           </div>
@@ -186,7 +194,7 @@ export default function StayPage() {
                   </ul>
                 </div>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  <Image src={floor.image} alt={floor.alt} fill className="object-cover" />
+                  <Image src={floor.image} alt={floor.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
                 </div>
               </article>
             ))}
@@ -213,7 +221,7 @@ export default function StayPage() {
               Eight rooms, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: two kings, six queens, and enough floor separation that a group of twenty-one can still find a quiet landing.
+              The mix is simple: two kings, six queens, and enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 
@@ -269,15 +277,33 @@ export default function StayPage() {
       <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div className="grid grid-cols-2 gap-4">
-            {["DSC00068", "DSC00070", "DSC00072", "DSC00074"].map((filename, index) => (
+            {[
+              {
+                file: "DSC00068",
+                alt: "Entry hall with round brass mirror, console table and glass-paneled door crowned by a stained-glass transom",
+              },
+              {
+                file: "DSC00070",
+                alt: "Main staircase with red patterned runner and brass lantern pendant, framed by carved black corbels",
+              },
+              {
+                file: "DSC00072",
+                alt: "Grand parlor with pool table opening through towering pocket doors beneath carved plaster friezes",
+              },
+              {
+                file: "DSC00074",
+                alt: "Powder room wrapped in black-and-white chinoiserie wallpaper with a sculpted white mirror",
+              },
+            ].map(({ file, alt }, index) => (
               <div
-                key={filename}
+                key={file}
                 className={`relative overflow-hidden rounded-lg ${index === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
               >
                 <Image
-                  src={`/images/property/${filename}.jpg`}
-                  alt="Interior detail at The Rittenhouse Residence"
+                  src={`/images/property/${file}.jpg`}
+                  alt={alt}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
@@ -307,6 +333,7 @@ export default function StayPage() {
           src="/images/airbnb/airbnb_03.jpg"
           alt="Parlor at The Rittenhouse Residence"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/65" />

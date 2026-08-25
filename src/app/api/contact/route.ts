@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const RECIPIENT_EMAIL = "1822pinestreetpa@gmail.com";
+const RECIPIENT_EMAIL = process.env.CONTACT_TO_EMAIL || "1822pinestreetpa@gmail.com";
+// Resend requires a verified sender. Until rittenhouseresidence.com is verified
+// in Resend (see docs/GROWTH-RUNBOOK.md), the sandbox sender only delivers to
+// the Resend account owner's address — set CONTACT_FROM_EMAIL after verifying.
+const SENDER_EMAIL =
+  process.env.CONTACT_FROM_EMAIL || "Rittenhouse Residence <onboarding@resend.dev>";
 
 // Simple spam detection
 function isLikelySpam(data: {
@@ -37,7 +42,13 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const { firstName, lastName, email, inquiryType, dates, message } = body;
+    const { firstName, lastName, email, inquiryType, dates, message, website } = body;
+
+    // Honeypot: the visible form never fills this field. Bots that do get a
+    // fake success so they don't adapt.
+    if (website) {
+      return NextResponse.json({ success: true });
+    }
 
     // Validate required fields
     if (!firstName || !lastName || !email || !inquiryType || !message) {
@@ -93,10 +104,20 @@ This message was sent from the contact form at rittenhouseresidence.com
     const resendApiKey = process.env.RESEND_API_KEY;
 
     if (!resendApiKey) {
-      console.error("RESEND_API_KEY not configured");
-      // In development or if not configured, log the message
-      console.log("Would send email:", { to: RECIPIENT_EMAIL, subject: emailSubject, body: emailBody });
-      return NextResponse.json({ success: true });
+      // Fail LOUDLY. A previous version returned {success:true} here, which
+      // showed visitors "message sent" while delivering nothing — silently
+      // discarding booking inquiries whenever the env var was missing.
+      console.error(
+        "RESEND_API_KEY not configured — contact form cannot deliver mail. " +
+          "Set it in the Vercel project environment."
+      );
+      return NextResponse.json(
+        {
+          error:
+            `Our inquiry form is temporarily unavailable. Please email us directly at ${RECIPIENT_EMAIL} — we respond within one business day.`,
+        },
+        { status: 503 }
+      );
     }
 
     const response = await fetch("https://api.resend.com/emails", {
@@ -106,7 +127,7 @@ This message was sent from the contact form at rittenhouseresidence.com
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Rittenhouse Residence <onboarding@resend.dev>",
+        from: SENDER_EMAIL,
         to: RECIPIENT_EMAIL,
         reply_to: email,
         subject: emailSubject,
@@ -118,8 +139,10 @@ This message was sent from the contact form at rittenhouseresidence.com
       const errorData = await response.json();
       console.error("Resend API error:", errorData);
       return NextResponse.json(
-        { error: "Failed to send message. Please try again later." },
-        { status: 500 }
+        {
+          error: `We couldn't send your message just now. Please email us directly at ${RECIPIENT_EMAIL}.`,
+        },
+        { status: 502 }
       );
     }
 

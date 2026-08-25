@@ -5,15 +5,22 @@ import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Rates & Pricing",
+  title: "Rates & Availability",
   description:
-    "Rates and booking policies for The Rittenhouse Residence: from $1,600/night, 2-night minimum, whole-house pricing, deposits, cancellation, and live Vrbo availability.",
+    "From $1,600 per night for the entire 8-bedroom mansion — about $76 per guest at full occupancy. Whole-house pricing, 2-night minimum, live Vrbo availability.",
+  alternates: { canonical: "/rates" },
+  openGraph: {
+    title: "Rates & Availability | The Rittenhouse Residence",
+    description:
+      "Whole-house pricing for the 8-bedroom mansion: from $1,600/night, 2-night minimum.",
+    images: ["/images/airbnb/airbnb_03.jpg"],
+  },
 };
 
 const rateFacts = [
   ["From $1,600 / night", "Starting rate before date-specific taxes, fees, and seasonal changes."],
   ["2-night minimum", "Certain holidays, peak weekends, and high-demand dates may require longer stays."],
-  ["Sleeps 21", "The rate is for the whole house, not per room."],
+  ["Sleeps 16", "The rate is for the whole house, not per room."],
   ["8 bedrooms · 6 baths", "Five floors of private space for one group."],
 ];
 
@@ -28,7 +35,7 @@ const included = [
   "The entire 8-bedroom residence",
   "Six full bathrooms",
   "Two full kitchens",
-  "Dining space for 21",
+  "Dining space for 16",
   "Two parlors and a full-size pool table",
   "Private roof deck",
   "Linens, towels, WiFi, central air, and washer/dryer",
@@ -125,10 +132,10 @@ export default function RatesPage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <Eyebrow>Direct Booking</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Direct booking is coming soon.
+            Book direct and skip the platform fees.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700">
-            For now, use Vrbo for live availability and secure checkout. For group questions that are not answered there, contact us and we will route you to the right next step.
+            Vrbo shows live availability and handles secure checkout. Prefer to work with a person? Send an inquiry with your dates and group size — we confirm availability, hold dates, and answer within 24 hours.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

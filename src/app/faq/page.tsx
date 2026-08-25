@@ -4,9 +4,10 @@ import { ArrowRight, Calendar, CheckCircle2 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "FAQ",
+  title: "Frequently Asked Questions",
   description:
-    "Frequently asked questions about booking, payment, the house, check-in, rules, parking, location, and accessibility at The Rittenhouse Residence.",
+    "Answers on booking an 8-bedroom Philadelphia mansion: rates, deposits, check-in, parking, house rules, accessibility, and group stays near Rittenhouse Square.",
+  alternates: { canonical: "/faq" },
 };
 
 const faqSections = [
@@ -32,7 +33,7 @@ const faqSections = [
       },
       {
         q: "Can I book directly?",
-        a: "Direct booking is coming soon. For now, use Vrbo for live availability and secure checkout; contact us for group questions that need a human answer.",
+        a: "Yes. Send an inquiry through the contact page with your dates and group size — we confirm availability and hold dates within 24 hours, with no platform service fees. Vrbo remains available for instant online checkout.",
       },
     ],
   },
@@ -42,7 +43,7 @@ const faqSections = [
     questions: [
       {
         q: "How many guests can stay?",
-        a: "The house sleeps up to 21 guests across 8 bedrooms and 6 full bathrooms.",
+        a: "The house sleeps up to 16 guests across 8 bedrooms and 6 full bathrooms.",
       },
       {
         q: "Do we rent the whole house?",
@@ -50,11 +51,11 @@ const faqSections = [
       },
       {
         q: "How is the house arranged?",
-        a: "The residence spans five floors, with two parlors, a dining room for 21, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
+        a: "The residence spans five floors, with two parlors, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
       },
       {
         q: "What amenities are included?",
-        a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 21, and the private roof deck are included.",
+        a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
       },
     ],
   },

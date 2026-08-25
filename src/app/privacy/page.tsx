@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "Privacy policy for The Rittenhouse Residence website and booking inquiries.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

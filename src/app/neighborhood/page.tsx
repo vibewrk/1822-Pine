@@ -11,7 +11,6 @@ import {
   ShoppingBag,
   Train,
   TreePine,
-  Utensils,
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 
@@ -19,6 +18,7 @@ export const metadata: Metadata = {
   title: "Rittenhouse Square Neighborhood Guide",
   description:
     "An editorial guide to restaurants near Rittenhouse Square, coffee, museums, shopping, transit, parking, and things to do in Center City Philadelphia.",
+  alternates: { canonical: "/neighborhood" },
   openGraph: {
     title: "Rittenhouse Square Neighborhood Guide | The Rittenhouse Residence",
     description:
@@ -135,8 +135,9 @@ export default function NeighborhoodPage() {
       <section className="relative min-h-[620px] overflow-hidden">
         <Image
           src="/images/property/DSC00112.jpg"
-          alt="Tree-lined Rittenhouse Square neighborhood street"
+          alt="Gallery-hung hallway and staircase inside The Rittenhouse Residence"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -164,6 +165,64 @@ export default function NeighborhoodPage() {
               <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-stone-600">{label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="The Neighborhood in Pictures"
+            title="What two blocks in any direction looks like."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                src: "/images/neighborhood/love-park.jpg",
+                alt: "Robert Indiana's red LOVE sculpture at LOVE Park with the Benjamin Franklin Parkway beyond",
+                label: "LOVE Park & the Parkway",
+              },
+              {
+                src: "/images/venues/barnes-foundation.jpg",
+                alt: "Visitors among salon-style walls of Impressionist masterworks inside the Barnes Foundation galleries",
+                label: "Inside the Barnes Foundation",
+              },
+              {
+                src: "/images/neighborhood/philadelphia-museum-of-art.jpg",
+                alt: "Aerial view of the Philadelphia Museum of Art with the Center City skyline beyond",
+                label: "Philadelphia Museum of Art",
+              },
+              {
+                src: "/images/venues/rosenbach.jpg",
+                alt: "Delancey Place brownstones and the historical marker outside the Rosenbach Museum and Library",
+                label: "The Rosenbach, three minutes away",
+              },
+              {
+                src: "/images/venues/mutter-museum.jpg",
+                alt: "Glass-topped drawers of catalogued objects from the Mutter Museum's Chevalier Jackson collection",
+                label: "Mutter Museum collections",
+              },
+              {
+                src: "/images/neighborhood/philly-skyline.jpg",
+                alt: "Center City Philadelphia skyline reflected in the Schuylkill River along the Schuylkill Banks boardwalk",
+                label: "Center City from the Schuylkill Banks",
+              },
+            ].map(({ src, alt, label }) => (
+              <figure key={src} className="group overflow-hidden rounded-lg border border-stone-200 bg-stone-50">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="p-4 text-sm font-semibold uppercase tracking-[0.14em] text-stone-600">
+                  {label}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -230,6 +289,7 @@ export default function NeighborhoodPage() {
               src="/images/neighborhood/schuylkill-river.jpg"
               alt="Schuylkill River Trail near Center City Philadelphia"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -348,6 +408,7 @@ export default function NeighborhoodPage() {
           src="/images/venues/parc.jpg"
           alt="Parc restaurant near Rittenhouse Square"
           fill
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-black/65" />

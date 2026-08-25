@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import { Calendar, ExternalLink } from "lucide-react";
 
 const footerNavigation = {
@@ -45,7 +46,9 @@ export function Footer() {
             </p>
 
             <div className="mt-8">
-              <a
+              <TrackedLink
+                event="ota_click"
+                eventParams={{ platform: "vrbo", location: "footer_cta" }}
                 href={VRBO_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -54,32 +57,36 @@ export function Footer() {
                 <Calendar className="h-5 w-5" />
                 Check Availability on Vrbo
                 <ExternalLink className="h-4 w-4" />
-              </a>
-              <p className="mt-3 text-amber-400 text-sm">Direct booking is coming soon</p>
+              </TrackedLink>
+              <p className="mt-3 text-amber-400 text-sm">Or book direct: <Link href="/contact" className="underline underline-offset-4 hover:text-amber-300">send an inquiry</Link> — we reply within 24 hours</p>
             </div>
 
             <div className="mt-8 pt-6 border-t border-gray-700">
               <p className="text-gray-400 text-sm mb-4">The Rittenhouse Residence is also listed on:</p>
               <div className="flex flex-row gap-4 justify-center">
-                <a
+                <TrackedLink
                   href="https://www.airbnb.com/rooms/6000930"
+                  event="ota_click"
+                  eventParams={{ platform: "airbnb", location: "footer_listings" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Airbnb
                   <ExternalLink className="h-3 w-3" />
-                </a>
+                </TrackedLink>
                 <span className="text-gray-600">·</span>
-                <a
+                <TrackedLink
                   href="https://www.vrbo.com/757481"
+                  event="ota_click"
+                  eventParams={{ platform: "vrbo", location: "footer_listings" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
                 >
                   Vrbo
                   <ExternalLink className="h-3 w-3" />
-                </a>
+                </TrackedLink>
                 <span className="text-gray-600">·</span>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Contact Us

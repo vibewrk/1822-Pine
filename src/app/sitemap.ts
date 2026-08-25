@@ -1,4 +1,11 @@
 import { MetadataRoute } from "next";
+import storyData from "@/data/story-chapters.json";
+import archiveData from "@/data/document-archive.json";
+
+// Content changes when this repo changes; a stable date beats stamping every
+// URL with the build time (which tells crawlers nothing). Bump on real
+// content updates.
+const CONTENT_UPDATED = new Date("2026-08-24");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rittenhouseresidence.com";
@@ -24,26 +31,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/history/provenance", priority: 0.6, changeFrequency: "monthly" as const },
   ];
 
-  // Story chapters
-  const storyChapters = [
-    "prologue",
-    "before-the-threshold",
-    "the-roser-years",
-    "the-quiet-after",
-    "the-spencer-era",
-    "between-mourning-and-modernity",
-    "the-turning-point",
-    "new-century-new-purpose",
-    "the-baird-years",
-    "the-long-decline",
-    "fragments-and-silence",
-    "awakening",
-    "the-restoration",
-    "epilogue",
-  ].map((slug) => ({
-    url: `/history/story/${slug}`,
+  // Story chapters — generated from the same data file that builds the routes,
+  // so the sitemap can never drift from reality again. (A previous hand-typed
+  // list contained 10 slugs that 404'd and omitted 10 real chapters.)
+  const storyChapters = storyData.chapters.map((chapter) => ({
+    url: `/history/story/${chapter.slug}`,
     priority: 0.5,
     changeFrequency: "monthly" as const,
+  }));
+
+  // Document archive detail pages — 63 primary-source documents, the site's
+  // deepest unique content.
+  const documentPages = archiveData.map((doc) => ({
+    url: `/history/documents/${doc.slug}`,
+    priority: 0.4,
+    changeFrequency: "yearly" as const,
   }));
 
   // Legal/info pages
@@ -63,13 +65,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...corePages,
     ...historyPages,
     ...storyChapters,
+    ...documentPages,
     ...propertyPages,
     ...legalPages,
   ];
 
   return allPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
-    lastModified: new Date(),
+    lastModified: CONTENT_UPDATED,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));

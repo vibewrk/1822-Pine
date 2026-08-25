@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Terms of Use",
   description:
     "Terms and important information for bookings and use of The Rittenhouse Residence website.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

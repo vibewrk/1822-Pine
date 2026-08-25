@@ -5,9 +5,16 @@ import { Mail, Shield, Clock, Users } from "lucide-react";
 import { BookingCTA } from "@/components/BookingCTA";
 
 export const metadata: Metadata = {
-  title: "Book Your Stay",
+  title: "Check Availability & Book",
   description:
-    "Book The Rittenhouse Residence — a whole-home 8-bedroom, 6-bathroom rental for groups. Historic 1854 mansion two blocks from Rittenhouse Square, Philadelphia. From $1,600/night.",
+    "Check live availability for The Rittenhouse Residence — the whole 8-bedroom, 6-bath mansion two blocks from Rittenhouse Square. From $1,600/night, sleeps 16.",
+  alternates: { canonical: "/book" },
+  openGraph: {
+    title: "Book The Rittenhouse Residence",
+    description:
+      "The whole 8-bedroom mansion, two blocks from Rittenhouse Square. From $1,600/night.",
+    images: ["/images/airbnb/airbnb_03.jpg"],
+  },
 };
 
 const highlights = [
@@ -26,6 +33,7 @@ export default function BookPage() {
             src="/images/property/DSC00082.jpg"
             alt="Rittenhouse Residence Master Suite"
             fill
+            sizes="100vw"
             className="object-cover opacity-20"
           />
         </div>
@@ -84,13 +92,13 @@ export default function BookPage() {
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-gray-900">Flexible Sleeping</h3>
               <p className="mt-2 text-sm text-gray-600">
-                8 bedrooms with king, queen, and twin bed configurations
+                8 bedrooms — two kings and six queens — arranged across three floors
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-gray-900">Historic Experience</h3>
               <p className="mt-2 text-sm text-gray-600">
-                Original fireplaces, millwork, and documented Drexel dynasty connection
+                Original fireplaces and millwork, plus a documented history reaching back to 1854
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-sm">
@@ -102,7 +110,7 @@ export default function BookPage() {
             <div className="bg-white rounded-xl p-6 shadow-sm">
               <h3 className="font-semibold text-gray-900">Dedicated Support</h3>
               <p className="mt-2 text-sm text-gray-600">
-                24/7 guest support and local concierge recommendations
+                Responsive host support before and throughout your stay
               </p>
             </div>
           </div>
@@ -116,10 +124,13 @@ export default function BookPage() {
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
               <div>
                 <h2 className="font-serif text-2xl font-bold text-white">
-                  Need Help Planning Your Stay?
+                  Prefer to Book Direct?
                 </h2>
                 <p className="mt-4 text-gray-300">
-                  Questions about dates, group size, or the home? Contact us and we’ll help you find the best fit.
+                  Send your dates and group size. We confirm availability and hold
+                  dates within 24 hours, and direct bookings skip the platform
+                  service fees. Three steps: inquire, confirm, reserve with a 50%
+                  deposit.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
