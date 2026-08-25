@@ -58,6 +58,10 @@ rb=$(fetch "$SITE/robots.txt")
 for bot in GPTBot ClaudeBot PerplexityBot OAI-SearchBot; do
   printf '%s' "$rb" | grep -qi "$bot" && ok "robots.txt allows $bot" || bad "robots.txt missing $bot"
 done
+if printf '%s' "$rb" | awk '/^User-Agent: \*/{f=1;next} /^User-Agent:/{f=0} f' | grep -qi 'Disallow:[[:space:]]*/_next/'; then
+  bad "robots.txt blocks /_next/ for Googlebot — hides CSS/JS and ALL next/image assets"
+else ok "robots.txt does not block /_next/ (CSS, JS and images crawlable)"
+fi
 lc=$(fetch -o /dev/null -w '%{http_code}' "$SITE/llms.txt")
 [ "$lc" = "200" ] && ok "/llms.txt served" || bad "/llms.txt returns $lc"
 
