@@ -5,7 +5,7 @@ import archiveData from "@/data/document-archive.json";
 // Content changes when this repo changes; a stable date beats stamping every
 // URL with the build time (which tells crawlers nothing). Bump on real
 // content updates.
-const CONTENT_UPDATED = new Date("2026-08-24");
+const CONTENT_UPDATED = new Date("2026-08-25");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rittenhouseresidence.com";
@@ -22,6 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/faq", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
+  // Groups cluster — occasion landing pages (2026-08 uplift)
+  const groupsPages = [
+    { url: "/groups", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/groups/weddings", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/hotel-alternative", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/neighborhood/group-dining", priority: 0.6, changeFrequency: "monthly" as const },
+  ];
+
   // History section - rich content for SEO
   const historyPages = [
     { url: "/history", priority: 0.8, changeFrequency: "monthly" as const },
@@ -29,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/history/timeline", priority: 0.7, changeFrequency: "monthly" as const },
     { url: "/history/documents", priority: 0.6, changeFrequency: "monthly" as const },
     { url: "/history/provenance", priority: 0.6, changeFrequency: "monthly" as const },
+    { url: "/history/suffrage", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
   // Story chapters — generated from the same data file that builds the routes,
@@ -59,10 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Property detail pages
   const propertyPages = [
     { url: "/stay/floor-plans", priority: 0.6, changeFrequency: "monthly" as const },
+    { url: "/stay/rooms", priority: 0.6, changeFrequency: "monthly" as const },
   ];
 
   const allPages = [
     ...corePages,
+    ...groupsPages,
     ...historyPages,
     ...storyChapters,
     ...documentPages,

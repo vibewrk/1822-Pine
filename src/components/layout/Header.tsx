@@ -5,9 +5,22 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import TrackedLink from "@/components/TrackedLink";
 
 const navigation = [
   { name: "Stay", href: "/stay" },
+  { name: "Rates", href: "/rates" },
+  {
+    name: "Groups",
+    href: "/groups",
+    submenu: [
+      { name: "Group Stays", href: "/groups" },
+      { name: "Wedding Guest Housing", href: "/groups/weddings" },
+      { name: "Hotel Alternative", href: "/hotel-alternative" },
+      { name: "Group Dining", href: "/neighborhood/group-dining" },
+      { name: "Room Planner", href: "/stay/rooms" },
+    ],
+  },
   {
     name: "History",
     href: "/history",
@@ -26,7 +39,7 @@ const navigation = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [historyDropdownOpen, setHistoryDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-gray-100">
@@ -50,24 +63,31 @@ export function Header() {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden md:flex md:items-center md:space-x-6 lg:space-x-8">
             {navigation.map((item) =>
               item.submenu ? (
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => setHistoryDropdownOpen(true)}
-                  onMouseLeave={() => setHistoryDropdownOpen(false)}
+                  onMouseEnter={() => setOpenDropdown(item.name)}
+                  onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <button
                     className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
-                    onClick={() => setHistoryDropdownOpen(!historyDropdownOpen)}
+                    onClick={() =>
+                      setOpenDropdown(openDropdown === item.name ? null : item.name)
+                    }
                   >
                     {item.name}
-                    <ChevronDown className={cn("h-4 w-4 transition-transform", historyDropdownOpen && "rotate-180")} />
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform",
+                        openDropdown === item.name && "rotate-180"
+                      )}
+                    />
                   </button>
-                  {historyDropdownOpen && (
-                    <div className="absolute left-0 top-full pt-2 w-48">
+                  {openDropdown === item.name && (
+                    <div className="absolute left-0 top-full pt-2 w-56">
                       <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2">
                         {item.submenu.map((subitem) => (
                           <Link
@@ -102,12 +122,14 @@ export function Header() {
                 </Link>
               )
             )}
-            <Link
+            <TrackedLink
               href="/book"
+              event="book_cta_click"
+              eventParams={{ location: "header" }}
               className="inline-flex items-center justify-center rounded-md bg-amber-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-amber-700 hover:shadow-lg transition-all"
             >
               Book Now
-            </Link>
+            </TrackedLink>
           </div>
 
           {/* Mobile menu button */}
@@ -179,13 +201,16 @@ export function Header() {
                 </Link>
               )
             )}
-            <Link
+            {/* TrackedLink renders a plain anchor, so navigation fully reloads the
+                page and the open-menu state resets on its own. */}
+            <TrackedLink
               href="/book"
+              event="book_cta_click"
+              eventParams={{ location: "header" }}
               className="mt-4 block w-full rounded-md bg-amber-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-md hover:bg-amber-700"
-              onClick={() => setMobileMenuOpen(false)}
             >
               Book Now
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </nav>

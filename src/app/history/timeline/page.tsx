@@ -38,6 +38,10 @@ function formatDate(dateStr: string | undefined): string {
     year: "numeric",
     month: "long",
     day: "numeric",
+    // The source dates are bare YYYY-MM-DD strings, which new Date() parses
+    // as UTC midnight; formatting in local time rendered every date a day
+    // early for viewers west of Greenwich.
+    timeZone: "UTC",
   });
 }
 

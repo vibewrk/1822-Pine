@@ -224,7 +224,7 @@ export default function StoryIndexPage() {
                 { year: "1893", event: "Spencer family acquires property" },
                 { year: "1899", event: "Major renovation by Duhring, Okie & Ziegler" },
                 { year: "1905", event: "Fireplace installed, still in use today" },
-                { year: "1911-1918", event: "Suffrage activism documented at address" },
+                { year: "1913-1918", event: "Suffrage activism documented at address" },
                 { year: "1930s-50s", event: "Apartment conversion preserves fabric" },
                 { year: "1995", event: "Historic district designation" },
                 { year: "Today", event: "The Rittenhouse Residence welcomes guests" },

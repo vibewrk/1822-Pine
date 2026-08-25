@@ -279,6 +279,16 @@ export default function NeighborhoodPage() {
               </article>
             ))}
           </div>
+          <p className="mt-6 text-base leading-7 text-stone-700">
+            Feeding all 12 to 16 at once?{" "}
+            <Link
+              href="/neighborhood/group-dining"
+              className="inline-flex items-center gap-1 font-semibold text-amber-800 transition-colors hover:text-amber-900"
+            >
+              Read the group dining playbook
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -378,7 +388,11 @@ export default function NeighborhoodPage() {
               <div className="rounded-lg border border-amber-200 bg-amber-50 p-5 text-amber-950">
                 <h3 className="font-semibold">Parking</h3>
                 <p className="mt-2 text-sm leading-6">
-                  Several garages are within two blocks. We send current garage options before check-in instead of publishing stale rates. Waverly Street can be useful for luggage drop-off before you park.
+                  Several garages are within two blocks. We send current garage options before check-in instead of publishing stale rates. Waverly Street can be useful for luggage drop-off before you park. Tell us your group&apos;s arrival plan in{" "}
+                  <Link href="/contact" className="font-semibold underline underline-offset-4 transition-colors hover:text-amber-900">
+                    your inquiry
+                  </Link>{" "}
+                  and we&apos;ll send current garage, shuttle, and luggage-drop options.
                 </p>
               </div>
             </div>

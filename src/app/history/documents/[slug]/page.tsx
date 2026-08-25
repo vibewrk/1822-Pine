@@ -129,14 +129,19 @@ export function generateMetadata({
     if (!doc) return { title: "Document Not Found | Rittenhouse Residence" };
     const kindLabel = documentKindLabel(documentKind(doc));
     const dateLabel = formatDate(doc.extracted_date);
+    const baseTitle = titleFromFilename(doc.filename);
+    // Duplicate scans share a filename stem (…-2); disambiguate so no two
+    // archive pages emit identical <title>s or descriptions.
+    const isAlternateScan = /[-_]2$/.test(doc.slug);
+    const scanSuffix = isAlternateScan ? " (Alternate Scan)" : "";
     const description = dateLabel
-      ? `${kindLabel} dated ${dateLabel}. Primary-source record for the Rittenhouse Residence.`
-      : `${kindLabel} from the Rittenhouse Residence archive.`;
+      ? `${baseTitle}${scanSuffix} — ${kindLabel.toLowerCase()} dated ${dateLabel}, from the primary-source archive of the Rittenhouse Residence, 1822 Pine Street.`
+      : `${baseTitle}${scanSuffix} — ${kindLabel.toLowerCase()} from the primary-source archive of the Rittenhouse Residence, 1822 Pine Street.`;
     const previewImage = doc.web_images?.[0]
       ? webImageUrl(doc.web_images[0])
       : undefined;
     return {
-      title: `${titleFromFilename(doc.filename)} | Documents`,
+      title: `${baseTitle}${scanSuffix} | Documents`,
       description,
       alternates: { canonical: `/history/documents/${doc.slug}` },
       keywords: [
