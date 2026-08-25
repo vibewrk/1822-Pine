@@ -120,23 +120,59 @@ Full click-by-click is in `docs/GROWTH-RUNBOOK.md`. Summary:
 
 ---
 
-## Deploy topology — read before merging
+## Deploy topology — CORRECTED 2026-08-24
 
-**Vercel builds from `vibewrk/1822-Pine`, not `ragurob/1822-Pine`.** Merging
-this branch here will *not* deploy anything. Either:
+An earlier draft of this file warned that Vercel builds from a *different*
+repo (`vibewrk/1822-Pine`) and that merging here would not deploy. **That was
+wrong.** Verified via the Vercel API:
 
-- **(preferred)** repoint the Vercel project `rittenhouse-website`
-  (`prj_apj9caF9tFggcQU97TJAPKRWraJV`, team `RPCoding`) at
-  `ragurob/1822-Pine` and retire the duplicate; or
-- land the same commits on `vibewrk/1822-Pine`'s `main`.
+- `ragurob/1822-Pine` and `vibewrk/1822-Pine` are the **same repository** —
+  GitHub repo id `1047452068` for both. One name is a rename/redirect alias,
+  and Vercel still stores the older org name in deployment metadata.
+- Vercel project `rittenhouse-website`
+  (`prj_apj9caF9tFggcQU97TJAPKRWraJV`, team `RPCoding`) is connected to it and
+  **auto-deploys every push to this branch as a preview.**
 
-Two repos at the same commit is how this drift started — the cloud session
-found a 35k-line Astro rewrite on one branch that production never adopted.
+So: **merging the PR to `main` will deploy to production automatically.** No
+repo repointing needed. Nothing else to reconcile.
 
-PR link:
-https://github.com/ragurob/1822-Pine/compare/main...claude/review-pine-homepage-011CUe7HDMPLe3UWXpKpUQHe
+### Preview deployments already built from this branch
 
----
+| Commit | Deployment | State |
+|---|---|---|
+| `1daf020` handoff + verify script | `dpl_C4j6dtnLC9zeadBeA2x4skGqmmA4` | READY |
+| `75df49a` sleeps 16 | `dpl_5UCvqZbX7oBpX5F9GX7daeBt5JyR` | READY |
+| `a439260` runbook | `dpl_DTdHRzUmUp8vprQfoXkCh8tF3vcE` | READY |
+
+Branch preview alias:
+`rittenhouse-website-git-claude-review-pine-home-53f122-rpcoding.vercel.app`
+(Vercel Authentication is on, so you need to be logged in — or generate a
+temporary share link from the Vercel dashboard.)
+
+**Production is still commit `bc64353`** (`dpl_5n8acRenLjTqd7XwjCvqBUMg9reg`,
+deployed ~2026-07-27). That is why `scripts/verify-seo.sh` fails against the
+live domain — production has none of this work yet.
+
+### Verified on the preview build (2026-08-24)
+
+Every fix confirmed working on real Vercel infrastructure, not just locally:
+
+- **archive images return 200** — the build-script fix works in CI, which is
+  exactly where it used to hard-skip and ship ~130 broken images
+- per-route canonicals correct on `/`, `/rates`, `/faq`, `/book`, `/history`
+- sitemap: 95 URLs including all 63 document pages
+- `robots.txt` allows GPTBot; `/llms.txt` serves 200
+- no fabricated review, no `starRating`, no "Free parking", no "coming soon"
+- "Sleeps 16" throughout; logo 52,796 bytes
+
+### To ship
+
+1. Open and merge the PR:
+   https://github.com/ragurob/1822-Pine/compare/main...claude/review-pine-homepage-011CUe7HDMPLe3UWXpKpUQHe
+2. Vercel auto-deploys `main` to production.
+3. Run `bash scripts/verify-seo.sh` — should flip from 10/25 to near-all-pass.
+4. Two checks will still fail until you act in the dashboard: **Vercel
+   Analytics** (toggle) and the **domain redirects** (DNS). See the runbook.
 
 ## Map
 
