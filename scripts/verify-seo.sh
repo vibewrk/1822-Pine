@@ -95,7 +95,16 @@ head_ "Performance & measurement"
 sz=$(fetch -o /dev/null -w '%{size_download}' "$SITE/images/brand/logo.jpg")
 if [ "$sz" -lt 200000 ]; then ok "logo is $((sz/1024))KB"; else bad "logo is $((sz/1024))KB (should be ~52KB)"; fi
 printf '%s' "$home" | grep -q 'googletagmanager.com/gtag/js' && ok "GA4 tag present" || bad "GA4 tag missing"
-printf '%s' "$home" | grep -q '_vercel/insights\|/_vercel/speed' && ok "Vercel Analytics active" || bad "Vercel Analytics not active (enable in dashboard)"
+# The owned property is G-ZCR1ZQVTKH ("1822 Pine", account RPLogic New
+# Analytics). The old hardcoded fallback G-YYXHNWZ4PK collects nothing.
+if printf '%s' "$home" | grep -q 'G-ZCR1ZQVTKH'; then ok "GA4 id is G-ZCR1ZQVTKH (owned property)"
+elif printf '%s' "$home" | grep -q 'G-YYXHNWZ4PK'; then bad "GA4 id is the dead fallback G-YYXHNWZ4PK — NEXT_PUBLIC_GA_ID env var lost?"
+else bad "GA4 id is neither the owned property nor the known fallback"; fi
+# The <Analytics /> component injects its tag client-side after hydration, so
+# grepping server-rendered HTML always misses it. The reliable signal is the
+# insights endpoint: it serves 200 when Web Analytics is enabled, 404 when not.
+vi=$(fetch -o /dev/null -w '%{http_code}' "$SITE/_vercel/insights/script.js")
+[ "$vi" = "200" ] && ok "Vercel Analytics enabled (insights script serves 200)" || bad "Vercel Analytics not active (script -> $vi; enable in dashboard)"
 ttfb=$(fetch -o /dev/null -w '%{time_starttransfer}' "$SITE/")
 ok "TTFB ${ttfb}s"
 
