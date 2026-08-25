@@ -19,11 +19,22 @@ claude
 Then paste this to Claude:
 
 > Read docs/HANDOFF.md and docs/GROWTH-RUNBOOK.md, then run
-> `bash scripts/verify-seo.sh` to see the live baseline. Open the PR for this
-> branch, then walk me through the account setup in the runbook — Search
-> Console, GA4, Vercel Analytics, the two broken domain redirects, and Resend.
-> Use my gh and vercel CLIs where you can; stop and ask me when a step needs a
-> browser login.
+> `bash scripts/verify-seo.sh` to capture the live baseline (expect ~10 pass /
+> 25 fail — production has not shipped this work yet).
+>
+> Then, in order:
+> 1. Open the PR for branch claude/review-pine-homepage-011CUe7HDMPLe3UWXpKpUQHe
+>    with `gh`. Merging it to main auto-deploys production — the repo and the
+>    Vercel project are already connected, so nothing needs repointing.
+> 2. After the deploy goes READY, re-run `bash scripts/verify-seo.sh` and show
+>    me the diff against the baseline.
+> 3. Then walk me through the account setup in the runbook — Search Console
+>    first, then GA4, Vercel Analytics, the two broken domain redirects, and
+>    Resend. Use my gh and vercel CLIs where you can; stop and ask me when a
+>    step needs a browser login.
+>
+> Everything in this branch was already verified on a Vercel preview build, so
+> treat the code as working and focus on shipping plus the account setup.
 
 That's the whole handoff. Everything below is detail.
 
