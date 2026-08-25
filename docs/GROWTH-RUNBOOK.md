@@ -37,32 +37,47 @@ Nothing else in SEO can be evaluated until this exists.
 
 After verification, expect 2–4 weeks before meaningful query data appears.
 
-## 2. Google Analytics 4 (10 minutes)
+## 2. Google Analytics 4 — RESOLVED 2026-08-25
 
-The site ships GA4 (`G-YYXHNWZ4PK`) and GTM (`GTM-N5XCRVPL`) — but the 2026-08
-estate audit found no mapped GA property collecting data. Verify ownership:
+**The mystery of the dead tag is solved.** The site hardcoded `G-YYXHNWZ4PK`,
+which belongs to no property in your account — that is why the 2026-08 estate
+audit found nothing collecting. The property you actually own was found via the
+Analytics Admin API (through the `answers-network-analytics` service account):
 
-1. Go to https://analytics.google.com → Admin.
-2. Check whether a property with Measurement ID **G-YYXHNWZ4PK** exists in an
-   account you control and shows traffic in **Realtime** while you browse the
-   live site.
-3. **If it's not yours / shows nothing:** create a new GA4 property → Web
-   stream for `https://rittenhouseresidence.com`, copy the new `G-...` ID,
-   and set it in Vercel as `NEXT_PUBLIC_GA_ID` (and `NEXT_PUBLIC_GTM_ID` if
-   you rebuild the GTM container). Redeploy. No code change needed.
-4. Mark the conversion events: Admin → Events → after first data arrives,
-   toggle **ota_click** and **contact_submit** as key events. These fire from:
-   - `ota_click` — every outbound Vrbo/Airbnb click (params: platform, location)
-   - `contact_submit` — inquiry form success/error (params: status, inquiry_type)
-   - `direct_email_click` — reserved for future mailto links
-5. Link Search Console: Admin → Product links → Search Console.
+| | |
+|---|---|
+| Account | RPLogic New Analytics (`accounts/170285992`) |
+| Property | **1822 Pine** (`properties/360860668`) |
+| Web stream | `G-ZCR1ZQVTKH`, created 2023-03-30 for `https://1822pine.com` |
 
-## 3. Vercel Web Analytics (2 minutes)
+`NEXT_PUBLIC_GA_ID=G-ZCR1ZQVTKH` is now set in Vercel (all three
+environments) and production has been redeployed — the live site serves the
+correct tag, confirmed by fetching the homepage. Data collects from the next
+real visitor.
 
-Dashboard → project **rittenhouse-website** → **Analytics** tab → Enable.
-The `@vercel/analytics` component is already in the layout; it activates the
-moment the dashboard toggle is on. This gives cookie-free traffic data
-immediately — useful while GA/GSC warm up.
+**Still to do, in the GA UI (the service account only has read access):**
+
+1. Admin → Data streams → the stream still says `1822pine.com` as its default
+   URL and "1822 Pine" as its name — update to `https://rittenhouseresidence.com`
+   (cosmetic, but keeps reports coherent).
+2. After first data arrives: Admin → Events → toggle **ota_click** and
+   **contact_submit** as key events. (API attempts returned 403 — the service
+   account would need Editor on the account for this to be automatable.)
+3. Optional: grant `answers-network-analytics@answers-network.iam.gserviceaccount.com`
+   **Editor** on the GA account, and future sessions can manage all of this
+   headlessly.
+4. Link Search Console: Admin → Product links → Search Console.
+
+## 3. Vercel Web Analytics — ALREADY ENABLED (verified 2026-08-25)
+
+No action needed. The project has a Web Analytics store
+(`webAnalytics.id` present on the project record) and the live site serves
+`/_vercel/insights/script.js` with 200. Earlier "not active" reports came from
+a broken check: the `<Analytics />` component injects its tag client-side
+after hydration, so grepping server HTML always misses it. `verify-seo.sh`
+now probes the insights endpoint instead. The analytics data store
+materialises with the first real browser visit (curl checks don't run JS,
+so they never registered).
 
 ## 4. Domain repairs — CORRECTED 2026-08-25 (GoDaddy, NOT Vercel)
 
@@ -94,6 +109,21 @@ http://1822pine.com  →301→  http://rittenhouseresidence.com  →→  https:/
 This matters more than it looks: **`1822pine.com` is the domain Google actually
 indexed.** Redirect equity passes through an unencrypted hop, and the forwarding
 is a weaker, slower signal than a redirect served from the site's own edge.
+
+### Progress 2026-08-25: the Vercel half is DONE
+
+All four domains were added to the `rittenhouse-website` project via the API,
+each configured as a **308 permanent redirect** to `rittenhouseresidence.com`,
+and Vercel accepted ownership verification for all of them:
+
+- `1822pine.com`, `www.1822pine.com`
+- `therittenhouseresidence.com`, `www.therittenhouseresidence.com`
+
+**The only step left is at GoDaddy** (both domains are on GoDaddy
+nameservers): for each domain, turn OFF Forwarding, then set nameservers to
+`ns1.vercel-dns.com` / `ns2.vercel-dns.com`. The moment DNS propagates,
+Vercel serves the clean single-hop https 308 and provisions certificates.
+Nothing further to configure on the Vercel side.
 
 ### Fix — pick one
 
@@ -129,6 +159,15 @@ automate.*
 ## 5. Contact-form email (10 minutes)
 
 The form delivers via Resend to `1822pinestreetpa@gmail.com`.
+
+> **URGENT, found 2026-08-25: the `RESEND_API_KEY` in Vercel production is
+> INVALID.** The Resend API rejects it ("API key is invalid") — it was
+> presumably rotated or revoked at some point. The live contact form cannot
+> deliver email right now (it fails loudly with the direct-email fallback, so
+> inquiries aren't silently lost, but they aren't arriving either). Create a
+> new key at https://resend.com/api-keys and replace the env var:
+> `printf 'NEW_KEY' | vercel env add RESEND_API_KEY production` (remove the
+> old one first: `vercel env rm RESEND_API_KEY production`), then redeploy.
 
 1. Confirm `RESEND_API_KEY` is set in Vercel env (all environments). The
    route now returns a visible error with a direct-email fallback instead of
