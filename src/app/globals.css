@@ -42,3 +42,12 @@ html {
   background-color: #fef3c7;
   color: #78350f;
 }
+
+/* Print: strip the site chrome so printable pages (e.g. the /stay/rooms
+   room-assignment sheet) come out as clean sheets without nav or footer. */
+@media print {
+  header,
+  footer {
+    display: none !important;
+  }
+}

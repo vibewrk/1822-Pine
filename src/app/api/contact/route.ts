@@ -7,6 +7,14 @@ const RECIPIENT_EMAIL = process.env.CONTACT_TO_EMAIL || "1822pinestreetpa@gmail.
 const SENDER_EMAIL =
   process.env.CONTACT_FROM_EMAIL || "Rittenhouse Residence <onboarding@resend.dev>";
 
+const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+
+function addDaysISO(iso: string, days: number): string {
+  const d = new Date(iso + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
 // Simple spam detection
 function isLikelySpam(data: {
   firstName: string;
@@ -15,7 +23,7 @@ function isLikelySpam(data: {
   message: string;
 }): boolean {
   const spamPatterns = [
-    /\b(viagra|cialis|casino|lottery|winner|bitcoin|crypto|investment opportunity)\b/i,
+    /\b(viagra|cialis|casino|lottery|bitcoin|crypto|investment opportunity)\b/i,
     /\b(click here|act now|limited time|free money)\b/i,
     /<[^>]*script/i,
     /https?:\/\/[^\s]+\.(ru|cn|xyz|top|gq|ml|ga|cf)\b/i,
@@ -38,20 +46,50 @@ function isLikelySpam(data: {
   return false;
 }
 
+const inquiryTypeLabels: Record<string, string> = {
+  quote: "Quote Request",
+  booking: "Booking Inquiry", // legacy value from the pre-quote form
+  general: "General Question",
+  history: "Historical Research",
+  other: "Other",
+};
+
+const occasionLabels: Record<string, string> = {
+  "family-reunion": "Family reunion",
+  wedding: "Wedding-related stay",
+  "corporate-retreat": "Corporate retreat",
+  milestone: "Milestone celebration",
+  other: "Other",
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
-    const { firstName, lastName, email, inquiryType, dates, message, website } = body;
+    const {
+      firstName,
+      lastName,
+      email,
+      inquiryType,
+      arrival,
+      departure,
+      groupSize,
+      occasion,
+      dates, // legacy free-text field from the pre-quote form
+      message,
+      website,
+    } = body;
 
     // Honeypot: the visible form never fills this field. Bots that do get a
     // fake success so they don't adapt.
     if (website) {
+      // Logged so a real guest tripped up by browser autofill leaves a trace.
+      console.warn("Honeypot tripped, not sending:", { email, firstName });
       return NextResponse.json({ success: true });
     }
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !inquiryType || !message) {
+    if (!firstName || !lastName || !email || !inquiryType) {
       return NextResponse.json(
         { error: "All required fields must be filled out" },
         { status: 400 }
@@ -67,34 +105,91 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check for spam
-    if (isLikelySpam({ firstName, lastName, email, message })) {
-      // Return success to not alert spammers, but don't send email
-      console.log("Spam detected, not sending:", { email, firstName });
-      return NextResponse.json({ success: true });
+    const isQuote = inquiryType === "quote";
+
+    if (isQuote) {
+      if (!arrival || !departure || !groupSize || !occasion) {
+        return NextResponse.json(
+          { error: "Quote requests need arrival and departure dates, a group size, and an occasion." },
+          { status: 400 }
+        );
+      }
+      if (!ISO_DATE_REGEX.test(String(arrival)) || !ISO_DATE_REGEX.test(String(departure))) {
+        return NextResponse.json(
+          { error: "Please pick your dates using the date fields." },
+          { status: 400 }
+        );
+      }
+      const nights = Math.round(
+        (Date.parse(String(departure)) - Date.parse(String(arrival))) / 86400000
+      );
+      // Reject clearly past arrivals (1-day tolerance absorbs timezone skew
+      // between the guest's local date and the server's UTC date).
+      const todayUTC = new Date().toISOString().slice(0, 10);
+      if (String(arrival) < addDaysISO(todayUTC, -1)) {
+        return NextResponse.json(
+          { error: "The arrival date can't be in the past — please pick a future date." },
+          { status: 400 }
+        );
+      }
+      if (!Number.isFinite(nights) || nights < 2) {
+        return NextResponse.json(
+          {
+            error:
+              "The house has a 2-night minimum — please choose a departure date at least two nights after arrival.",
+          },
+          { status: 400 }
+        );
+      }
+    } else if (!message) {
+      return NextResponse.json(
+        { error: "All required fields must be filled out" },
+        { status: 400 }
+      );
     }
 
-    // Format the inquiry type for display
-    const inquiryTypeLabels: Record<string, string> = {
-      booking: "Booking Inquiry",
-      general: "General Question",
-      history: "Historical Research",
-      other: "Other",
-    };
+    // Check for spam. Soft-fail with a human path instead of silently
+    // discarding: a false positive here used to look like a sent message
+    // while the inquiry evaporated.
+    if (isLikelySpam({ firstName, lastName, email, message: message || "" })) {
+      console.warn("Spam filter tripped, not sending:", { email, firstName });
+      return NextResponse.json(
+        {
+          error:
+            `We couldn't send this message automatically. Please email us directly at ${RECIPIENT_EMAIL} — a person reads every message, and we reply within 24 hours.`,
+        },
+        { status: 422 }
+      );
+    }
+
+    const typeLabel = inquiryTypeLabels[inquiryType] || inquiryType;
 
     // Build the email content
-    const emailSubject = `[Rittenhouse Residence] ${inquiryTypeLabels[inquiryType] || inquiryType} from ${firstName} ${lastName}`;
+    const nightsForEmail = isQuote
+      ? Math.round((Date.parse(String(departure)) - Date.parse(String(arrival))) / 86400000)
+      : 0;
+
+    const emailSubject = isQuote
+      ? `[Rittenhouse Residence] Quote request — ${arrival} to ${departure}, ${groupSize} guests — ${firstName} ${lastName}`
+      : `[Rittenhouse Residence] ${typeLabel} from ${firstName} ${lastName}`;
+
+    const detailLines = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Inquiry Type: ${typeLabel}`,
+      isQuote ? `Arrival: ${arrival}` : "",
+      isQuote ? `Departure: ${departure} (${nightsForEmail} nights)` : "",
+      isQuote ? `Group Size: ${groupSize}` : "",
+      isQuote && occasion ? `Occasion: ${occasionLabels[occasion] || occasion}` : "",
+      !isQuote && dates ? `Preferred Dates: ${dates}` : "",
+    ].filter(Boolean);
 
     const emailBody = `
-New inquiry from the Rittenhouse Residence website:
+New ${isQuote ? "quote request" : "inquiry"} from the Rittenhouse Residence website:
 
-Name: ${firstName} ${lastName}
-Email: ${email}
-Inquiry Type: ${inquiryTypeLabels[inquiryType] || inquiryType}
-${dates ? `Preferred Dates: ${dates}` : ""}
+${detailLines.join("\n")}
 
-Message:
-${message}
+${message ? `Message:\n${message}` : "No additional message."}
 
 ---
 This message was sent from the contact form at rittenhouseresidence.com
@@ -114,7 +209,7 @@ This message was sent from the contact form at rittenhouseresidence.com
       return NextResponse.json(
         {
           error:
-            `Our inquiry form is temporarily unavailable. Please email us directly at ${RECIPIENT_EMAIL} — we respond within one business day.`,
+            `Our inquiry form is temporarily unavailable. Please email us directly at ${RECIPIENT_EMAIL} — we reply within 24 hours.`,
         },
         { status: 503 }
       );

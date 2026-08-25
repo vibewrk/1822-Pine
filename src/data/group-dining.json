@@ -1,0 +1,73 @@
+{
+  "strategy": "For a group of 12 to 16, contact restaurants 4–8 weeks ahead and ask about private-dining or large-party options. Policies, rooms, and minimums change often — confirm current details directly with the restaurant before you lock in the night.",
+  "plays": [
+    {
+      "title": "One serious reserved dinner",
+      "body": "Pick a single anchor night and book it early. Call the restaurant directly, give the honest size of your group, and ask what they can do for large-party seating or private dining — then build the rest of the weekend around that one reservation.",
+      "venues": [
+        {
+          "name": "Parc",
+          "note": "The classic French bistro facing the Square, one minute away — inquire about large-party seating when you call.",
+          "url": "https://parc-restaurant.com"
+        },
+        {
+          "name": "Vernick Food & Drink",
+          "note": "A serious New American reservation three minutes from Pine Street — inquire early about options for a bigger table.",
+          "url": "https://www.vernickphilly.com"
+        },
+        {
+          "name": "Via Locusta",
+          "note": "Handmade pasta four minutes away near the Square — ask what they can offer a larger group.",
+          "url": "https://www.vialocusta.com"
+        }
+      ]
+    },
+    {
+      "title": "The splinter plan",
+      "body": "Sixteen people rarely want the same dinner. Split into tables of four to six — casual spots within a few blocks handle that size without weeks of notice — then use the roof deck back at the house as the regroup point for a nightcap.",
+      "venues": [
+        {
+          "name": "Dizengoff",
+          "note": "Hummus bowls and fast counter service four minutes away — built for a low-lift table.",
+          "url": "https://www.dizengoffphilly.com"
+        },
+        {
+          "name": "JJ Thai Cuisine",
+          "note": "Reliable Thai BYOB six minutes away for the group that wants something casual.",
+          "url": "https://www.jjthaicuisine.com"
+        },
+        {
+          "name": "Good Dog Bar",
+          "note": "A neighborhood gastropub with a known burger and multiple floors, five minutes away.",
+          "url": "https://gooddogbar.com"
+        },
+        {
+          "name": "Friday Saturday Sunday",
+          "note": "A compact, high-demand dining room five minutes away — suited to a smaller splinter table.",
+          "url": "https://www.fridaysaturdaysunday.com"
+        }
+      ]
+    },
+    {
+      "title": "Dinner at the house",
+      "body": "The dining room seats all sixteen at one table, and two full kitchens keep the cooking from crowding the conversation. Provision from the neighborhood, or bring in help — the kitchens support a hired cook. Grocery delivery works too; coordinate timing with your host.",
+      "venues": [
+        {
+          "name": "Di Bruno Bros",
+          "note": "Cheese, charcuterie, prepared foods, and pantry supplies four minutes away.",
+          "url": "https://dibruno.com"
+        },
+        {
+          "name": "Trader Joe's",
+          "note": "Budget-friendly staples at 2121 Market Street, about eight minutes away.",
+          "url": ""
+        },
+        {
+          "name": "Rittenhouse Market",
+          "note": "Neighborhood grocery basics two minutes from the house.",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}

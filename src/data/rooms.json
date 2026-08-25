@@ -1,0 +1,76 @@
+{
+  "rooms": [
+    {
+      "name": "Master Suite",
+      "floor": "Second floor",
+      "bed": "King bed",
+      "bath": "Private bath",
+      "notes": "The principal suite above the street, with a private sitting room adjoining the bedroom.",
+      "suitability": "One flight up, with the house's only private bath — a natural pick for the guests of honor or the trip's organizers.",
+      "imageSrc": "/images/airbnb/airbnb_01.jpg"
+    },
+    {
+      "name": "Library Bedroom",
+      "floor": "Second floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "Queen bedroom with Pine Street frontage, on the same floor as the formal library.",
+      "suitability": "Suits the guest who wants a quieter corner — the formal library is steps away, and the climb stops at one flight.",
+      "imageSrc": "/images/airbnb/airbnb_08.jpg"
+    },
+    {
+      "name": "Second Bedroom",
+      "floor": "Third floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "One of two queen bedrooms on the third floor.",
+      "suitability": "A middle-of-the-house landing — fewer stairs than the fourth floor.",
+      "imageSrc": "/images/airbnb/airbnb_09.jpg"
+    },
+    {
+      "name": "VIP Bedroom 2",
+      "floor": "Third floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "The large VIP suite on the third floor.",
+      "suitability": "Room to spread out without climbing to the top of the house.",
+      "imageSrc": "/images/airbnb/airbnb_12.jpg"
+    },
+    {
+      "name": "Family Bedroom 1",
+      "floor": "Fourth floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "One of two connecting family rooms on the fourth floor.",
+      "suitability": "The connecting pair suits parents with kids — doors between the rooms, not floors. The fourth floor is the most stairs in a house with no elevator.",
+      "imageSrc": "/images/airbnb/airbnb_10.jpg"
+    },
+    {
+      "name": "Family Bedroom 2",
+      "floor": "Fourth floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "The second of the two connecting family rooms.",
+      "suitability": "Assign alongside Family Bedroom 1 for the family that wants to stay within earshot.",
+      "imageSrc": "/images/airbnb/airbnb_11.jpg"
+    },
+    {
+      "name": "Third Bedroom",
+      "floor": "Fourth floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "Queen bedroom at the top of the house.",
+      "suitability": "The most stairs and no elevator — assign to the sure-footed.",
+      "imageSrc": "/images/property/DSC08743.jpg"
+    },
+    {
+      "name": "VIP Bedroom 3",
+      "floor": "Fourth floor",
+      "bed": "King bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "The king VIP suite on the fourth floor.",
+      "suitability": "A king bed for whoever does not mind the climb — the most stairs, no elevator.",
+      "imageSrc": "/images/property/DSC08749.jpg"
+    }
+  ]
+}

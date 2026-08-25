@@ -1,20 +1,132 @@
 "use client";
 
-import { useState } from "react";
-import { MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  AlertCircle,
+  CheckCircle,
+  CheckCircle2,
+  Clock,
+  Mail,
+  MapPin,
+  Send,
+} from "lucide-react";
+import { Eyebrow } from "@/components/Eyebrow";
+import TrackedLink from "@/components/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
 
+const DIRECT_EMAIL = "1822pinestreetpa@gmail.com";
+
+const GROUP_SIZES = Array.from({ length: 16 }, (_, i) => i + 1);
+
+const OCCASIONS = [
+  ["family-reunion", "Family reunion"],
+  ["wedding", "Wedding-related stay"],
+  ["corporate-retreat", "Corporate retreat"],
+  ["milestone", "Milestone celebration"],
+  ["other", "Other"],
+];
+
+const QUESTION_TOPICS = [
+  ["general", "General question"],
+  ["history", "Historical research"],
+  ["other", "Other"],
+];
+
+const OUTCOME_PROMISES = [
+  "Confirmed availability for your dates",
+  "A full direct quote for your stay",
+  "A hold on your dates while you decide",
+];
+
+function addDays(iso: string, days: number): string {
+  const d = new Date(iso + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function localISODate(): string {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
+    now.getDate()
+  ).padStart(2, "0")}`;
+}
+
+function nightsBetween(arrival: string, departure: string): number {
+  const ms = Date.parse(departure) - Date.parse(arrival);
+  return Number.isFinite(ms) ? Math.round(ms / 86400000) : 0;
+}
+
+const inputClasses =
+  "mt-1 block w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600";
+
+const labelClasses = "block text-sm font-medium text-stone-700";
+
 export default function ContactPage() {
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [mode, setMode] = useState<"quote" | "question">("quote");
+  const [formState, setFormState] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [today, setToday] = useState<string>();
+  const [arrival, setArrival] = useState("");
+  const [departure, setDeparture] = useState("");
+  const [groupSize, setGroupSize] = useState("");
+
+  // Computed after mount so the prerendered HTML never carries a stale date.
+  // Also reads ?arrival=&departure=&guests= so the /book date picker can hand
+  // its dates straight into this form (window.location avoids a Suspense
+  // boundary that useSearchParams would require).
+  useEffect(() => {
+    setToday(localISODate());
+    const params = new URLSearchParams(window.location.search);
+    const qsArrival = params.get("arrival") ?? "";
+    const qsDeparture = params.get("departure") ?? "";
+    const qsGuests = params.get("guests") ?? "";
+    if (/^\d{4}-\d{2}-\d{2}$/.test(qsArrival)) setArrival(qsArrival);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(qsDeparture)) setDeparture(qsDeparture);
+    const guestsNum = Number(qsGuests);
+    if (Number.isInteger(guestsNum) && guestsNum >= 1 && guestsNum <= 16) {
+      setGroupSize(qsGuests);
+    }
+  }, []);
+
+  function switchMode(next: "quote" | "question") {
+    setMode(next);
+    setFormState("idle");
+    setErrorMessage("");
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setFormState("submitting");
     setErrorMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    if (mode === "quote") {
+      const arrivalValue = String(formData.get("arrival") ?? "");
+      const departureValue = String(formData.get("departure") ?? "");
+      // Recompute rather than trusting mount-time state: a tab left open for
+      // days would otherwise validate against a stale "today".
+      const todayNow = localISODate();
+      if (arrivalValue < todayNow) {
+        setFormState("error");
+        setErrorMessage("The arrival date can't be in the past — please pick a future date.");
+        return;
+      }
+      if (nightsBetween(arrivalValue, departureValue) < 2) {
+        setFormState("error");
+        setErrorMessage(
+          "The house has a 2-night minimum — please choose a departure date at least two nights after arrival."
+        );
+        return;
+      }
+    }
+
+    setFormState("submitting");
+
+    const inquiryType =
+      mode === "quote" ? "quote" : String(formData.get("topic") ?? "general");
 
     try {
       const response = await fetch("/api/contact", {
@@ -24,77 +136,95 @@ export default function ContactPage() {
           firstName: formData.get("firstName"),
           lastName: formData.get("lastName"),
           email: formData.get("email"),
-          inquiryType: formData.get("inquiryType"),
-          dates: formData.get("dates"),
+          inquiryType,
+          arrival: formData.get("arrival"),
+          departure: formData.get("departure"),
+          groupSize: formData.get("groupSize"),
+          occasion: formData.get("occasion"),
           message: formData.get("message"),
           website: formData.get("website"),
         }),
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Failed to send message");
+        // A gateway error page isn't JSON — don't surface a parser message.
+        let serverError = "";
+        try {
+          const data = await response.json();
+          serverError = typeof data.error === "string" ? data.error : "";
+        } catch {
+          serverError = "";
+        }
+        throw new Error(
+          serverError ||
+            "Something went wrong sending your message. Please try again, or email us directly at 1822pinestreetpa@gmail.com."
+        );
       }
 
       trackEvent("contact_submit", {
         status: "success",
-        inquiry_type: String(formData.get("inquiryType") ?? ""),
+        inquiry_type: inquiryType,
       });
       setFormState("success");
       form.reset();
+      setArrival("");
     } catch (err) {
-      trackEvent("contact_submit", { status: "error" });
+      trackEvent("contact_submit", { status: "error", inquiry_type: inquiryType });
       setFormState("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
     }
   }
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="py-16 bg-gray-900">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-medium text-amber-400 mb-4">
-              Get in Touch
-            </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white">
-              Contact the Rittenhouse Residence
-            </h1>
-            <p className="mt-4 text-xl text-gray-300 max-w-2xl mx-auto">
-              Questions about booking or our history? We&apos;d
-              love to hear from you.
-            </p>
-          </div>
+    <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
+      {/* Hero */}
+      <section className="bg-stone-950 py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <Eyebrow light className="mb-5">
+            Request a Quote
+          </Eyebrow>
+          <h1 className="font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
+            Your dates, quoted directly.
+          </h1>
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
+            Tell us your dates, group size, and occasion. A person replies within
+            24 hours with confirmed availability, a full direct quote, and a
+            hold on your dates while you decide.
+          </p>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-24 bg-white">
+      {/* Form + Info */}
+      <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-2">
-            {/* Contact Form */}
+          <div className="grid gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+            {/* Form column */}
             <div>
-              <h2 className="font-serif text-2xl font-bold text-gray-900">
-                Send Us a Message
+              <h2 className="font-serif text-3xl font-semibold text-stone-950">
+                {mode === "quote" ? "Request a quote" : "Ask a question"}
               </h2>
-              <p className="mt-2 text-gray-600">
-                Fill out the form below and we&apos;ll get back to you within 24
-                hours.
+              <p className="mt-2 text-stone-600">
+                {mode === "quote"
+                  ? "Dates and group size are all we need to get started."
+                  : "General and historical-research questions are welcome."}
               </p>
 
               {formState === "success" ? (
-                <div className="mt-8 rounded-xl bg-green-50 border border-green-200 p-8 text-center">
-                  <CheckCircle className="h-12 w-12 text-green-600 mx-auto" />
-                  <h3 className="mt-4 font-semibold text-green-900 text-lg">
-                    Message Sent!
+                <div className="mt-8 rounded-lg border border-green-200 bg-green-50 p-8 text-center">
+                  <CheckCircle className="mx-auto h-12 w-12 text-green-600" />
+                  <h3 className="mt-4 text-lg font-semibold text-green-900">
+                    {mode === "quote" ? "Quote request received" : "Message sent"}
                   </h3>
                   <p className="mt-2 text-green-700">
-                    Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+                    {mode === "quote"
+                      ? "Within 24 hours you'll have confirmed availability, a full direct quote for your dates, and a hold while you decide."
+                      : "Thank you for reaching out. We reply within 24 hours."}
                   </p>
                   <button
                     onClick={() => setFormState("idle")}
-                    className="mt-6 text-green-700 font-medium hover:text-green-800"
+                    className="mt-6 font-medium text-green-700 hover:text-green-800"
                   >
                     Send another message
                   </button>
@@ -109,22 +239,131 @@ export default function ContactPage() {
                       id="website"
                       name="website"
                       tabIndex={-1}
-                      autoComplete="off"
+                      aria-hidden="true"
+                      autoComplete="one-time-code"
                     />
                   </div>
+
                   {formState === "error" && (
-                    <div className="rounded-lg bg-red-50 border border-red-200 p-4 flex items-start gap-3">
-                      <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-                      <p className="text-red-700 text-sm">{errorMessage}</p>
+                    <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
+                      <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-600" />
+                      <p className="text-sm text-red-700">{errorMessage}</p>
+                    </div>
+                  )}
+
+                  {mode === "quote" && (
+                    <>
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div>
+                          <label htmlFor="arrival" className={labelClasses}>
+                            Arrival <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="date"
+                            id="arrival"
+                            name="arrival"
+                            required
+                            min={today}
+                            value={arrival}
+                            onChange={(e) => setArrival(e.target.value)}
+                            className={inputClasses}
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="departure" className={labelClasses}>
+                            Departure <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            type="date"
+                            id="departure"
+                            name="departure"
+                            required
+                            min={arrival ? addDays(arrival, 2) : today}
+                            value={departure}
+                            onChange={(e) => setDeparture(e.target.value)}
+                            className={inputClasses}
+                          />
+                          <p className="mt-1 text-xs text-stone-500">
+                            2-night minimum
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-6 sm:grid-cols-2">
+                        <div>
+                          <label htmlFor="groupSize" className={labelClasses}>
+                            Group Size <span className="text-red-500">*</span>
+                          </label>
+                          <select
+                            id="groupSize"
+                            name="groupSize"
+                            required
+                            value={groupSize}
+                            onChange={(e) => setGroupSize(e.target.value)}
+                            className={inputClasses}
+                          >
+                            <option value="" disabled>
+                              Select group size
+                            </option>
+                            {GROUP_SIZES.map((n) => (
+                              <option key={n} value={n}>
+                                {n} {n === 1 ? "guest" : "guests"}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="occasion" className={labelClasses}>
+                            Occasion <span className="text-red-500">*</span>
+                          </label>
+                          <select
+                            id="occasion"
+                            name="occasion"
+                            required
+                            defaultValue=""
+                            className={inputClasses}
+                          >
+                            <option value="" disabled>
+                              Select an occasion
+                            </option>
+                            {OCCASIONS.map(([value, label]) => (
+                              <option key={value} value={value}>
+                                {label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {mode === "question" && (
+                    <div>
+                      <label htmlFor="topic" className={labelClasses}>
+                        Topic <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="topic"
+                        name="topic"
+                        required
+                        defaultValue=""
+                        className={inputClasses}
+                      >
+                        <option value="" disabled>
+                          Select a topic
+                        </option>
+                        {QUESTION_TOPICS.map(([value, label]) => (
+                          <option key={value} value={value}>
+                            {label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   )}
 
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
+                      <label htmlFor="firstName" className={labelClasses}>
                         First Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -132,15 +371,13 @@ export default function ContactPage() {
                         id="firstName"
                         name="firstName"
                         required
-                        className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-amber-500 focus:ring-amber-500"
-                        placeholder="John"
+                        autoComplete="given-name"
+                        className={inputClasses}
+                        placeholder="First name"
                       />
                     </div>
                     <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-medium text-gray-700"
-                      >
+                      <label htmlFor="lastName" className={labelClasses}>
                         Last Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -148,17 +385,15 @@ export default function ContactPage() {
                         id="lastName"
                         name="lastName"
                         required
-                        className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-amber-500 focus:ring-amber-500"
-                        placeholder="Doe"
+                        autoComplete="family-name"
+                        className={inputClasses}
+                        placeholder="Last name"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700"
-                    >
+                    <label htmlFor="email" className={labelClasses}>
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -166,144 +401,180 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
-                      className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-amber-500 focus:ring-amber-500"
+                      autoComplete="email"
+                      className={inputClasses}
                       placeholder="you@example.com"
                     />
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="inquiryType"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Inquiry Type <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      id="inquiryType"
-                      name="inquiryType"
-                      required
-                      className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 focus:border-amber-500 focus:ring-amber-500"
-                    >
-                      <option value="">Select an option</option>
-                      <option value="booking">Booking Inquiry</option>
-                      <option value="general">General Question</option>
-                      <option value="history">Historical Research</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="dates"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Preferred Dates (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="dates"
-                      name="dates"
-                      className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-amber-500 focus:ring-amber-500"
-                      placeholder="e.g., March 15-18, 2026"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Message <span className="text-red-500">*</span>
+                    <label htmlFor="message" className={labelClasses}>
+                      {mode === "quote" ? (
+                        "Anything else we should know? (Optional)"
+                      ) : (
+                        <>
+                          Message <span className="text-red-500">*</span>
+                        </>
+                      )}
                     </label>
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      required
-                      className="mt-1 block w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-amber-500 focus:ring-amber-500"
-                      placeholder="Tell us about your plans..."
+                      required={mode === "question"}
+                      className={inputClasses}
+                      placeholder={
+                        mode === "quote"
+                          ? "Flexible dates, arrival plans, questions about the house..."
+                          : "Tell us what you're curious about..."
+                      }
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={formState === "submitting"}
-                    className="w-full rounded-md bg-gray-900 px-6 py-3 text-base font-semibold text-white hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="flex w-full items-center justify-center gap-2 rounded-md bg-stone-950 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {formState === "submitting" ? (
                       <>
-                        <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                         Sending...
                       </>
                     ) : (
                       <>
                         <Send className="h-5 w-5" />
-                        Send Message
+                        {mode === "quote" ? "Request My Quote" : "Send Message"}
                       </>
                     )}
                   </button>
+
+                  <p className="text-sm text-stone-500">
+                    {mode === "quote" ? (
+                      <>
+                        Not planning a stay?{" "}
+                        <button
+                          type="button"
+                          onClick={() => switchMode("question")}
+                          className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
+                        >
+                          Ask a general or historical-research question
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        Planning a stay?{" "}
+                        <button
+                          type="button"
+                          onClick={() => switchMode("quote")}
+                          className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
+                        >
+                          Request a quote instead
+                        </button>
+                      </>
+                    )}
+                  </p>
                 </form>
               )}
             </div>
 
-            {/* Contact Info */}
+            {/* Info column */}
             <div className="lg:pl-8">
-              <h2 className="font-serif text-2xl font-bold text-gray-900">
-                Location
-              </h2>
-              <p className="mt-2 text-gray-600">
-                Our historic mansion in the heart of Philadelphia.
-              </p>
+              {/* Outcome promise */}
+              <div className="rounded-lg border border-stone-200 bg-stone-50 p-6">
+                <Eyebrow>What Happens Next</Eyebrow>
+                <h2 className="mt-4 font-serif text-2xl font-semibold text-stone-950">
+                  Within 24 hours, you&apos;ll have:
+                </h2>
+                <ul className="mt-5 space-y-3">
+                  {OUTCOME_PROMISES.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-6 text-stone-700"
+                    >
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-amber-800" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <div className="mt-8 space-y-6">
+              {/* Direct email */}
+              <div className="mt-6 rounded-lg border border-stone-200 bg-white p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
+                    <Mail className="h-6 w-6 text-amber-700" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-stone-950">
+                      Prefer email?
+                    </h3>
+                    <p className="mt-1 text-sm leading-6 text-stone-600">
+                      Write to us directly — same inbox, same 24-hour reply.
+                    </p>
+                    <TrackedLink
+                      href={`mailto:${DIRECT_EMAIL}`}
+                      event="direct_email_click"
+                      eventParams={{ location: "contact_page" }}
+                      className="mt-2 inline-block break-all font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
+                    >
+                      {DIRECT_EMAIL}
+                    </TrackedLink>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location + response time */}
+              <div className="mt-6 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
                     <MapPin className="h-6 w-6 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Address</h3>
-                    <p className="mt-1 text-gray-600">
+                    <h3 className="font-semibold text-stone-950">Address</h3>
+                    <p className="mt-1 text-stone-600">
                       1800 Block of Pine Street
                       <br />
                       Philadelphia, PA 19103
                     </p>
                     <p className="mt-1 text-sm text-amber-700">
-                      Steps from Rittenhouse Square
+                      Two blocks from Rittenhouse Square
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
                     <Clock className="h-6 w-6 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Response Time</h3>
-                    <p className="mt-1 text-gray-600">
-                      We typically respond within 24 hours
+                    <h3 className="font-semibold text-stone-950">
+                      Response Time
+                    </h3>
+                    <p className="mt-1 text-stone-600">
+                      We reply within 24 hours
                     </p>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Teaser */}
-      <section className="py-16 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="font-serif text-2xl font-bold text-gray-900">
+      <section className="bg-stone-100 py-16">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h3 className="font-serif text-2xl font-semibold text-stone-950">
             Have Questions?
           </h3>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-stone-600">
             Check out our FAQ for answers to common questions about booking,
             check-in, amenities, and more.
           </p>
           <a
             href="/faq"
-            className="mt-6 inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
+            className="mt-6 inline-flex items-center justify-center rounded-md border border-stone-300 bg-white px-6 py-3 text-base font-semibold text-stone-950 transition-colors hover:border-amber-800 hover:text-amber-900"
           >
             View FAQ
           </a>

@@ -32,6 +32,10 @@ const faqSections = [
         a: "Cancellations require 60 days notice for a full refund of the deposit. Vrbo will show the applicable policy before checkout.",
       },
       {
+        q: "What happens if I cancel less than 60 days before arrival?",
+        a: "Inside 60 days the deposit is no longer refundable under the standard policy. The same rule appears before checkout, so there are no surprises after you reserve.",
+      },
+      {
         q: "Can I book directly?",
         a: "Yes. Send an inquiry through the contact page with your dates and group size — we confirm availability and hold dates within 24 hours, with no platform service fees. Vrbo remains available for instant online checkout.",
       },
@@ -56,6 +60,10 @@ const faqSections = [
       {
         q: "What amenities are included?",
         a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
+      },
+      {
+        q: "Who decides which guest gets which bedroom?",
+        a: "You do — the whole house is yours, so room assignments are up to your group. The room planner lists every bedroom with its bed, floor, and bath, plus a printable sheet for assigning all eight rooms.",
       },
     ],
   },
@@ -83,6 +91,14 @@ const faqSections = [
         q: "Are parties allowed?",
         a: "No. The house is for registered overnight guests and is not suitable for parties.",
       },
+      {
+        q: "Are pets allowed?",
+        a: "No. Pets are not permitted at the residence.",
+      },
+      {
+        q: "Can we drop luggage before the 4:00 PM check-in?",
+        a: "Ask your host when booking. An early luggage drop depends on the day's turnover, and Waverly Street at the rear of the house is often the practical spot to unload — we confirm what is possible for your dates.",
+      },
     ],
   },
   {
@@ -91,7 +107,7 @@ const faqSections = [
     questions: [
       {
         q: "Where is the house?",
-        a: "The address is 1822 Pine Street in Center City Philadelphia, two blocks from Rittenhouse Square.",
+        a: "The house is on the 1800 block of Pine Street in Center City Philadelphia, two blocks from Rittenhouse Square. The exact address is shared when you book.",
       },
       {
         q: "Is parking available?",
@@ -104,6 +120,10 @@ const faqSections = [
       {
         q: "Do we need a car?",
         a: "Most guests do not need one for a Center City stay. Restaurants, shops, museums, SEPTA, and Rittenhouse Square are walkable from Pine Street.",
+      },
+      {
+        q: "Where can a group of 12 to 16 have dinner together?",
+        a: "Reserve one anchor dinner well ahead, split into smaller tables on the other nights, or eat at the house — the dining room seats 16 and there are two full kitchens. The group dining guide walks through all three plays.",
       },
     ],
   },
@@ -204,6 +224,24 @@ export default function FaqPage() {
                             className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 transition-colors hover:text-amber-900"
                           >
                             Open booking page
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        )}
+                        {item.q === "Who decides which guest gets which bedroom?" && (
+                          <Link
+                            href="/stay/rooms"
+                            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 transition-colors hover:text-amber-900"
+                          >
+                            Open the room planner
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        )}
+                        {item.q === "Where can a group of 12 to 16 have dinner together?" && (
+                          <Link
+                            href="/neighborhood/group-dining"
+                            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 transition-colors hover:text-amber-900"
+                          >
+                            Read the group dining guide
                             <ArrowRight className="h-4 w-4" />
                           </Link>
                         )}

@@ -60,7 +60,7 @@ const floorWalk = [
     alt: "Upper-floor guest bedroom",
     rooms: [
       "Two more queen bedrooms on the third floor, including a large VIP suite.",
-      "Three bedrooms on the fourth floor: two connecting family rooms and a king VIP suite.",
+      "Four bedrooms on the fourth floor: two connecting family rooms, a further queen bedroom, and a king VIP suite.",
       "Six full bathrooms across the house keep mornings moving.",
     ],
   },

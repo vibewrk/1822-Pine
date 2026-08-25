@@ -4,8 +4,10 @@ import {
   ArrowRight,
   Bath,
   Bed,
+  Building2,
   Calendar,
   CheckCircle2,
+  Heart,
   MapPin,
   Star,
   Users,
@@ -15,6 +17,11 @@ import TrackedLink from "@/components/TrackedLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  // 59ch; `absolute` bypasses the layout's "%s | The Rittenhouse Residence"
+  // template, which would otherwise double-append the brand.
+  title: {
+    absolute: "The Rittenhouse Residence | Philadelphia Mansion, Sleeps 16",
+  },
   alternates: { canonical: "/" },
 };
 
@@ -39,28 +46,33 @@ const spaces = [
   },
 ];
 
-const idealFor = [
+const occasions = [
   {
     icon: Users,
-    title: "Family Reunions",
-    body: "Eight bedrooms keep the family under one roof. The dining room, parlors, and roof deck give every generation a place to land.",
+    title: "Group Stays",
+    href: "/groups",
+    body: "Family reunions, corporate retreats, and celebration weekends. Eight bedrooms keep everyone under one roof, with the dining room, parlors, and roof deck as common ground.",
+    cta: "Plan a group stay",
   },
   {
-    icon: Star,
-    title: "Milestone Celebrations",
-    body: "Birthdays, anniversaries, and graduations fit naturally in a house built for receiving. Stay together after dinner instead of scattering across hotels.",
+    icon: Heart,
+    title: "Wedding Guest Housing",
+    href: "/groups/weddings",
+    body: "Sleep the wedding party or sixteen out-of-town guests together near Center City venues — group breakfasts at a dining table that seats 16, not a hotel-lobby meetup.",
+    cta: "See wedding-stay details",
   },
   {
-    icon: MapPin,
-    title: "Friends' Getaways",
-    body: "Five floors give a large group real breathing room. Rittenhouse restaurants, museums, bars, and shopping are close enough to leave the cars parked.",
+    icon: Building2,
+    title: "A Hotel Alternative",
+    href: "/hotel-alternative",
+    body: "One house instead of eight scattered hotel rooms. Two parlors in place of a lobby, two kitchens instead of room service, and every door on the same staircase.",
+    cta: "Compare with hotels",
   },
 ];
 
+// Review figures sourced from the Airbnb listing; re-verify when updating.
 const trustItems = [
-  "4.89 ★",
-  "93 Airbnb reviews",
-  "Superhost-style stay",
+  "4.89 · 93 reviews on Airbnb, as of Aug 2026",
   "Licensed Philadelphia short-term rental",
   "Fully insured",
 ];
@@ -85,7 +97,10 @@ export default function HomePage() {
               Rittenhouse Square · Built 1854
             </Eyebrow>
             <h1 className="max-w-5xl font-serif text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              <span className="block text-white/80">The</span>
+              {/* Trailing space is deliberate: without it the H1's text
+                  content reads "TheRittenhouse Residence" when copied or
+                  crawled (the blocks only break lines visually). */}
+              <span className="block text-white/80">The </span>
               <span className="block text-amber-100">Rittenhouse Residence</span>
             </h1>
             <p className="mt-6 max-w-3xl text-xl font-medium leading-8 text-white md:text-2xl md:leading-9">
@@ -118,18 +133,20 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 transition-colors hover:text-white"
               >
                 <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
-                4.89 · 93 Reviews
+                4.89 · 93 reviews, as of Aug 2026
               </TrackedLink>
             </div>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedLink
                 href="/book"
+                event="book_cta_click"
+                eventParams={{ location: "home_hero" }}
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-base font-semibold text-stone-950 shadow-lg transition-colors hover:bg-stone-100"
               >
                 <Calendar className="h-5 w-5" />
                 Check Availability
-              </Link>
+              </TrackedLink>
               <Link
                 href="/gallery"
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-white/50 px-7 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
@@ -172,11 +189,21 @@ export default function HomePage() {
               One of the last great Victorian townhouses on Pine Street — kept, not gutted.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
-              Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and served as a meeting place for the city&apos;s suffrage movement, its parlors witness to both. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
+              Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and appears in the documented record of the city&apos;s suffrage movement. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
               <Link href="/history" className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900">
                 documented past you can actually read
               </Link>
               , and rooms you&apos;ll actually want to gather in.
+            </p>
+            <p className="mt-5 max-w-3xl text-base leading-7 text-stone-600">
+              The only Philadelphia rental that publishes its own paper trail —{" "}
+              <Link
+                href="/history/documents"
+                className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
+              >
+                63 primary documents from 1854 onward
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -234,7 +261,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. A master suite with a four-poster and private bath; six queens and two kings across the upper floors; six full bathrooms with period fixtures.
+              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — and six queens across the upper floors; six full bathrooms with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -326,7 +353,7 @@ export default function HomePage() {
             spaces, the history, and the perfect location.&rdquo;
           </blockquote>
           <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300">
-            — Verified guest · 4.89 average across 93 stays
+            — Verified guest · 4.89 across 93 Airbnb reviews, as of Aug 2026
           </p>
         </div>
       </section>
@@ -335,7 +362,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <Eyebrow>
-              Ideal For
+              Occasions
             </Eyebrow>
             <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
               The house was made for a full table.
@@ -343,8 +370,12 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {idealFor.map((item) => (
-              <div key={item.title} className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm">
+            {occasions.map((item) => (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group flex flex-col rounded-lg border border-stone-200 bg-white p-6 shadow-sm transition-all hover:border-amber-700/40 hover:shadow-md"
+              >
                 <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-full bg-amber-100">
                   <item.icon className="h-5 w-5 text-amber-800" />
                 </div>
@@ -352,7 +383,11 @@ export default function HomePage() {
                   {item.title}
                 </h3>
                 <p className="mt-3 text-base leading-7 text-stone-700">{item.body}</p>
-              </div>
+                <span className="mt-5 inline-flex items-center gap-2 pt-1 text-sm font-semibold text-amber-800 transition-colors group-hover:text-amber-900">
+                  {item.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -375,19 +410,23 @@ export default function HomePage() {
             8 bedrooms · 6 baths · from $1,600 / night
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
+            <TrackedLink
               href="/book"
+              event="book_cta_click"
+              eventParams={{ location: "home_final_cta" }}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-8 py-4 text-base font-semibold text-stone-950 shadow-lg transition-colors hover:bg-stone-100"
             >
               <Calendar className="h-5 w-5" />
               Check Availability
-            </Link>
-            <Link
+            </TrackedLink>
+            <TrackedLink
               href="/contact"
+              event="direct_inquiry_click"
+              eventParams={{ location: "home_final_cta" }}
               className="inline-flex items-center justify-center rounded-md border border-white/70 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Contact Us
-            </Link>
+              Request a Direct Quote
+            </TrackedLink>
           </div>
         </div>
       </section>
