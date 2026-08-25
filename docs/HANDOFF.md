@@ -181,6 +181,50 @@ Every fix confirmed working on real Vercel infrastructure, not just locally:
 - no fabricated review, no `starRating`, no "Free parking", no "coming soon"
 - "Sleeps 16" throughout; logo 52,796 bytes
 
+### Gotcha: this project requires VERIFIED commits (found 2026-08-25)
+
+The Vercel project has the **verified-commits** Git setting switched on. Any
+push whose head commit is not cryptographically verified by GitHub is
+**cancelled at 0ms, before the build starts.** It surfaces as a red "Vercel"
+check on the PR with the description *"Canceled from the Vercel Dashboard"* —
+which reads like a human cancelled it, or like a build failure. It is neither.
+
+Confirm it with:
+
+```bash
+gh api repos/vibewrk/1822-Pine/commits/<sha> --jq .commit.verification
+```
+
+`verified: false` on the head commit is the cause. The deployment record also
+carries `errorLink: .../git-settings#verified-commits`.
+
+Why the cloud session never hit this: its commits were authored as
+`Claude <noreply@anthropic.com>` **through the GitHub API**, and GitHub signs
+those server-side — they all show `verified: true (valid)`. A plain
+`git commit && git push` from a local machine does not.
+
+What does and does not work from a local machine:
+
+| Approach | Verified? |
+|---|---|
+| `git commit` unsigned | no |
+| `git commit -S` with an SSH key registered to a *different* GitHub account than the commit email resolves to | no — `reason: unknown_key` |
+| GitHub Contents API via a user OAuth token (`gh api --method PUT .../contents/...`) | no — `reason: unsigned` |
+| Merge commits GitHub creates when you merge a PR | **yes** — every merge commit in this repo's history is `verified: true` |
+
+**Practical consequence:** unverified commits on a feature branch only cost you
+the preview build. Merging the PR still deploys production correctly, because
+GitHub creates and signs the merge commit itself. So a red Vercel check caused
+by this is not a reason to hold the merge — but do verify the code some other
+way first, e.g. `npm run build` plus
+`SITE=http://localhost:3111 bash scripts/verify-seo.sh` against a local
+`next start`.
+
+To get verified commits locally, sign with an SSH key registered **to the same
+GitHub account that the commit's author email resolves to**, and add it as a
+*signing* key (not just an auth key) at
+https://github.com/settings/keys.
+
 ### To ship
 
 1. Open and merge the PR:
