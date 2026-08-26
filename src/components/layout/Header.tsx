@@ -33,7 +33,19 @@ const navigation = [
     ],
   },
   { name: "Gallery", href: "/gallery" },
-  { name: "Neighborhood", href: "/neighborhood" },
+  {
+    name: "Neighborhood",
+    href: "/neighborhood",
+    submenu: [
+      { name: "Neighborhood Guide", href: "/neighborhood" },
+      { name: "Rittenhouse Square", href: "/rittenhouse-square", highlight: true },
+      { name: "Things to Do", href: "/rittenhouse-square/things-to-do" },
+      { name: "Restaurants", href: "/rittenhouse-square/restaurants" },
+      { name: "Square History", href: "/rittenhouse-square/history" },
+      { name: "Public Art", href: "/rittenhouse-square/public-art" },
+      { name: "Where to Stay", href: "/rittenhouse-square/where-to-stay" },
+    ],
+  },
   { name: "Contact", href: "/contact" },
 ];
 

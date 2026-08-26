@@ -61,7 +61,7 @@ const parks = [
 const museums = [
   ["Rosenbach Museum", "2008-2010 Delancey Pl", "Rare books and manuscripts in a historic townhouse, three minutes away.", "3 min walk", "https://rosenbach.org"],
   ["Mutter Museum", "19 S 22nd St", "Medical history collections close to the Parkway.", "8 min walk", "https://muttermuseum.org"],
-  ["Academy of Music", "240 S Broad St", "America's oldest opera house still in use, a short walk east.", "6 min walk", "https://www.academyofmusic.org"],
+  ["Academy of Music", "240 S Broad St", "The oldest opera house in the United States still used for its original purpose, a short walk east.", "6 min walk", "https://www.academyofmusic.org"],
   ["Philadelphia Museum of Art", "2600 Benjamin Franklin Pkwy", "The major Parkway museum and the Rocky Steps.", "15 min walk / 5 min ride", "https://philamuseum.org"],
   ["Barnes Foundation", "2025 Benjamin Franklin Pkwy", "A major private collection on the Parkway.", "18 min walk / 6 min ride", "https://www.barnesfoundation.org"],
 ];
@@ -321,6 +321,17 @@ export default function NeighborhoodPage() {
                 </div>
               ))}
             </div>
+            <p className="mt-6 text-base leading-7 text-stone-700">
+              Want the Square itself in depth — its history, sculptures, and
+              seasons?{" "}
+              <Link
+                href="/rittenhouse-square"
+                className="inline-flex items-center gap-1 font-semibold text-amber-800 transition-colors hover:text-amber-900"
+              >
+                Read the full Rittenhouse Square guide
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </p>
           </div>
         </div>
       </section>

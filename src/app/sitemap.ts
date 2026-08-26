@@ -30,6 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/neighborhood/group-dining", priority: 0.6, changeFrequency: "monthly" as const },
   ];
 
+  // Rittenhouse Square hub — neighborhood content cluster (2026-08)
+  const rittenhouseSquarePages = [
+    { url: "/rittenhouse-square", priority: 0.9, changeFrequency: "weekly" as const },
+    { url: "/rittenhouse-square/history", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/rittenhouse-square/public-art", priority: 0.7, changeFrequency: "monthly" as const },
+    { url: "/rittenhouse-square/things-to-do", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/rittenhouse-square/restaurants", priority: 0.8, changeFrequency: "monthly" as const },
+    { url: "/rittenhouse-square/where-to-stay", priority: 0.8, changeFrequency: "monthly" as const },
+  ];
+
   // History section - rich content for SEO
   const historyPages = [
     { url: "/history", priority: 0.8, changeFrequency: "monthly" as const },
@@ -74,6 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allPages = [
     ...corePages,
     ...groupsPages,
+    ...rittenhouseSquarePages,
     ...historyPages,
     ...storyChapters,
     ...documentPages,
