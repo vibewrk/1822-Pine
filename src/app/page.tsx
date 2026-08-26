@@ -329,13 +329,22 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-            <Link
-              href="/neighborhood"
-              className="mt-8 inline-flex items-center gap-2 text-base font-semibold text-amber-800 transition-colors hover:text-amber-900"
-            >
-              Explore the neighborhood
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-8">
+              <Link
+                href="/neighborhood"
+                className="inline-flex items-center gap-2 text-base font-semibold text-amber-800 transition-colors hover:text-amber-900"
+              >
+                Explore the neighborhood
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link
+                href="/rittenhouse-square"
+                className="inline-flex items-center gap-2 text-base font-semibold text-amber-800 transition-colors hover:text-amber-900"
+              >
+                Read the Rittenhouse Square guide
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
