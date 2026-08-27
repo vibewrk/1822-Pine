@@ -31,7 +31,7 @@ const SITE = "https://rittenhouseresidence.com";
 const stats = [
   ["8 bedrooms", "Floors 2–4"],
   ["2 kings · 5 queens · 1 double", "The bed mix"],
-  ["6 baths", "Across the house"],
+  ["5 baths + powder", "Across the house"],
   ["No elevator", "Stairs between floors"],
 ];
 

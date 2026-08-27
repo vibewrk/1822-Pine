@@ -31,7 +31,7 @@ const spaces = [
     name: "Grand Parlor",
     image: "/images/airbnb/airbnb_04.jpg",
     alt: "Grand Parlor with original fireplace, crystal chandelier, and pool table",
-    caption: "Original 1854 fireplace · crystal chandelier · full-size pool table.",
+    caption: "Fourteen-foot ceilings · original 1854 fireplace · crystal chandelier · full-size pool table.",
   },
   {
     name: "Library Lounge",
@@ -252,7 +252,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -393,7 +393,7 @@ export default function HomePage() {
             Come see the house.
           </h2>
           <p className="mt-5 text-lg text-stone-200 md:text-xl">
-            8 bedrooms · 6 baths · from $1,600 / night
+            8 bedrooms · 5 baths + powder · from $1,600 / night
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <TrackedLink
