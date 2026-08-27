@@ -46,7 +46,7 @@ const tips = [
   ],
   [
     "One private bath",
-    "Only the Master Suite has a confirmed private bath. The other rooms use shared hall baths; the exact room-to-bath mapping is confirmed in your arrival packet.",
+    "The Master Suite has its own private bath. The other bedrooms share the hall baths between them, and we send you the exact room-to-bath map before you arrive so nobody is guessing on the first morning.",
   ],
 ];
 
@@ -259,7 +259,7 @@ export default function RoomPlannerPage() {
             </div>
 
             <p className="mt-4 text-sm leading-6 text-stone-600 print:mt-3">
-              Shared hall baths: the exact room-to-bath mapping is confirmed in your arrival packet. Five full baths and a powder room serve the house.
+              The bedrooms share the hall baths between them. We send the exact room-to-bath map before you arrive — five full baths and a powder room across the house.
             </p>
           </div>
         </div>

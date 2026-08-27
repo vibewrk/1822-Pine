@@ -55,7 +55,7 @@ export const HUB_PAGES = [
     title: "Philadelphia Events Calendar",
     short: "Events",
     blurb:
-      "Conventions, festivals, and the dates that book out the city — verified against organizers.",
+      "Conventions, festivals, and the dates that book out the city.",
   },
   {
     href: "/rittenhouse-square/where-to-stay",
@@ -126,7 +126,7 @@ export function SourceList({ sources }: { sources: Source[] }) {
         <SectionHeader
           eyebrow="Sources"
           title="Where these facts come from."
-          body="Every historical claim on this page traces to the sources below. If you find an error, tell us and we will correct it."
+          body="Where the history on this page comes from. If we have something wrong, tell us and we will put it right."
         />
         <ol className="grid gap-4 md:grid-cols-2">
           {sources.map((source, i) => (

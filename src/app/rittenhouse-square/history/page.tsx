@@ -307,7 +307,7 @@ export default function RittenhouseSquareHistoryPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Rittenhouse Square Guide · Every Claim Cited
+            Rittenhouse Square Guide · With Sources
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             The history of Rittenhouse Square.

@@ -12,7 +12,7 @@ import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
 // below the front room sharing their floor number. The master is at the rear,
 // which makes the grandest bedroom one of the shortest climbs — counterintuitive,
 // commercially useful, and the single most helpful thing on this page.
-// This page exists because a group organiser bringing a parent with limited
+// This page exists because a group organizer bringing a parent with limited
 // mobility cannot plan from "four stories, no elevator" — they need the number,
 // and if they have to email for it, most will simply book elsewhere. Answering
 // it plainly also pre-qualifies: the people who book after reading this are
@@ -178,7 +178,7 @@ export default function StairsAndAccessPage() {
           <div className="mb-9 max-w-3xl">
             <Eyebrow>Common Questions</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              What organisers ask us.
+              What organizers ask us.
             </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
