@@ -73,7 +73,7 @@ const occasions = [
 
 // Review figures sourced from the Airbnb listing; re-verify when updating.
 const trustItems = [
-  "168 guest reviews across Airbnb and Vrbo, as of Aug 2026",
+  "168 guest reviews across Airbnb and Vrbo",
   "Philadelphia STR License #903781",
   "Superhost · 11 years hosting",
 ];

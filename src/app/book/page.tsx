@@ -159,8 +159,8 @@ export default function BookPage() {
               <Star className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Airbnb</h3>
               <p className="mt-3 flex-1 leading-7 text-stone-700">
-                Instant booking where the reviews live — 4.88 from 102 reviews,
-                as of Aug 2026. The same guest service fee applies at checkout.
+                Instant booking where the reviews live — 4.88 from 102 reviews. The
+                same guest service fee applies at checkout.
               </p>
               <TrackedLink
                 href={AIRBNB_URL}

@@ -23,7 +23,6 @@ export const AIRBNB_COUNT = 102;
 export const VRBO_RATING = "9.8";
 export const VRBO_COUNT = 66;
 export const TOTAL_REVIEWS = AIRBNB_COUNT + VRBO_COUNT;
-export const AS_OF = "August 2026";
 
 // Airbnb's per-category averages, shown on the listing.
 const RATINGS = [
@@ -181,8 +180,8 @@ export function SocialProof() {
           ))}
         </div>
         <p className="mb-10 text-sm text-stone-600">
-          Airbnb category averages across {AIRBNB_COUNT} reviews, as of{" "}
-          {AS_OF}. Airbnb lists the house as a{" "}
+          Airbnb category averages across {AIRBNB_COUNT} reviews. Airbnb
+          lists the house as a{" "}
           <strong className="font-semibold text-stone-900">Guest Favorite</strong>{" "}
           — &ldquo;one of the most loved homes on Airbnb, according to
           guests&rdquo; — and the host as a Superhost with an 11-year record and

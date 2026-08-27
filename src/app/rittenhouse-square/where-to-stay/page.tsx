@@ -228,8 +228,7 @@ export default function WhereToStayPage() {
             <h3 className="font-semibold">Recently closed</h3>
             <p className="mt-2 text-sm leading-6">
               ROOST Apartment Hotel&apos;s Rittenhouse location (1831 Chestnut
-              St) closed in July 2025 and is not taking guests as of August
-              2026. Older &ldquo;where to stay&rdquo; roundups still list it.
+              St) closed in July 2025 and has not reopened. Older &ldquo;where to stay&rdquo; roundups still list it.
             </p>
           </div>
         </div>

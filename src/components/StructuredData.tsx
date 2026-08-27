@@ -15,7 +15,7 @@
 //   Pages that reference the house use `@id: ${SITE}/#vacation-rental`.
 // - One aggregateRating only, matching the figure visible on the page
 //   (4.88 / 102 Airbnb reviews, as of Aug 2026). Update both together, and
-//   keep the on-page "as of" date in sync when refreshing.
+//   the counts on the page in sync when refreshing.
 // - Amenities must match what the site actually tells guests (a "Free
 //   parking" claim was removed; the FAQ says guests use paid garages nearby).
 // - Bed inventory must match the Airbnb listing (2 King + 5 Queen + 1 Double
@@ -112,7 +112,7 @@ export function VacationRentalSchema() {
     },
     // Review data sourced from the live Airbnb listing, as of Aug 2026;
     // update periodically and keep in sync with the visible
-    // "4.88 on Airbnb across 102 reviews, as of Aug 2026" on the page.
+    // "4.88 on Airbnb across 102 reviews" on the page.
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.88",
