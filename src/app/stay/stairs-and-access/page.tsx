@@ -5,7 +5,13 @@ import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
 
-// Owner-measured 2026-08-27: 62 steps from the entrance to the top floor.
+// Owner-measured 2026-08-27: 62 steps entrance to top floor. Ceiling heights,
+// also from the owner: 14 ft front entrance level, 12 ft front second floor,
+// 10 ft third. The REAR of the house runs on shallower ~9 ft floors and is
+// deliberately OFFSET from the front, so rear rooms land on half-landings well
+// below the front room sharing their floor number. The master is at the rear,
+// which makes the grandest bedroom one of the shortest climbs — counterintuitive,
+// commercially useful, and the single most helpful thing on this page.
 // This page exists because a group organiser bringing a parent with limited
 // mobility cannot plan from "five floors, no elevator" — they need the number,
 // and if they have to email for it, most will simply book elsewhere. Answering
@@ -20,7 +26,7 @@ const SITE = "https://rittenhouseresidence.com";
 export const metadata: Metadata = {
   title: "Stairs & Access",
   description:
-    "How the stairs work at The Rittenhouse Residence: 62 steps from the entrance to the top floor, five levels, no elevator, and which bedrooms sit closest to the front door. Written for groups travelling with someone who finds stairs hard.",
+    "How the stairs work at The Rittenhouse Residence: 62 steps entrance to top, five levels, no elevator — and why the rear bedrooms, including the master, are a much shorter climb than the front. Written for groups travelling with someone who finds stairs hard.",
   alternates: { canonical: "/stay/stairs-and-access" },
   openGraph: {
     title: "Stairs & Access | The Rittenhouse Residence",
@@ -32,20 +38,20 @@ export const metadata: Metadata = {
 };
 
 const numbers = [
-  ["62", "steps from the entrance to the top floor"],
-  ["5", "levels, connected by one main staircase"],
+  ["62", "steps from the entrance to the very top"],
+  ["14 ft", "ceilings on the front of the entrance level"],
+  ["9 ft", "at the rear — where the master sits, and far fewer steps up"],
   ["0", "elevators — the house predates them by decades"],
-  ["2–4", "the floors every bedroom sits on"],
 ] as const;
 
 const faqs = [
   {
     q: "Can someone with limited mobility stay here?",
-    a: "It depends on what they can manage, and we would rather you decide with the number in front of you. There are 62 steps from the front door to the top floor, and every one of the eight bedrooms is above the entrance level. Someone who can climb one flight slowly, with a handrail and time, will do fine in a second-floor room. Someone who cannot manage a flight of stairs at all will not be comfortable here, and we will say so rather than take the booking.",
+    a: "It depends on what they can manage, and we would rather you decide with the numbers in front of you. There are 62 steps from the front door to the very top, and every one of the eight bedrooms is above the entrance level. But they are not all the same climb: the rear of the house sits on shallower floors than the front, so a back bedroom — the master included — is a notably shorter run of stairs than its floor number suggests. Someone who can manage one flight slowly, with a handrail and time, will be comfortable at the back. Someone who cannot manage a flight at all will not be comfortable here, and we will say so rather than take the booking.",
   },
   {
     q: "Which bedroom involves the fewest stairs?",
-    a: "The second-floor rooms. From the sidewalk there are entrance steps, then one flight to the second floor — that is where anyone who minds stairs should sleep. Groups usually give those rooms to grandparents and put the sure-footed on the third and fourth floors. Tell us before arrival and we will make sure the room assignment matches.",
+    a: "One at the rear — and the happy surprise is that the master suite is among them. The house is split-level front to back: the front rooms carry grand ceilings, 14 feet on the entrance level and 12 on the floor above, while the rear section sits on shallower nine-foot floors. Because the two halves are offset, a rear room lands on a half-landing well below the front room that shares its floor number. If someone in your group is counting steps, put them at the back of the house.",
   },
   {
     q: "Is there a bedroom or full bathroom on the entrance level?",
@@ -133,16 +139,20 @@ export default function StairsAndAccessPage() {
                 "Hall, Grand Parlour, dining room seating sixteen, main kitchen, powder room. No bedrooms, no full bathroom.",
               ],
               [
-                "Second floor",
-                "Bedrooms and the Library Suite with its wet bar. One flight up — this is where anyone who minds stairs should sleep.",
+                "The rear, at every level",
+                "Nine-foot ceilings and half-landings that sit below the front rooms sharing their floor number. The master suite is back here — the grandest bedroom in the house is also one of the shortest climbs.",
+              ],
+              [
+                "Second floor, front",
+                "Bedrooms and the Library Suite with its wet bar, under twelve-foot ceilings. A full flight of the tall front stair.",
               ],
               [
                 "Third floor",
-                "More bedrooms and shared bathrooms. Two flights.",
+                "More bedrooms and shared bathrooms, ceilings easing to ten feet.",
               ],
               [
                 "Fourth floor",
-                "The top bedrooms and the second kitchen. Three flights.",
+                "The top bedrooms and the second kitchen.",
               ],
               [
                 "Roof deck",
