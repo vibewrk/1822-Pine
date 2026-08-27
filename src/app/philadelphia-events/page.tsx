@@ -35,7 +35,7 @@ import {
 export const metadata: Metadata = {
   title: "Philadelphia Events Calendar 2026–2027",
   description:
-    "What's coming to Philadelphia through early 2028: Army-Navy 2027, BIO International, the Flower Show, marathon weekend, Star Wars at the Franklin Institute — every date verified with the organizer, plus what's NOT happening.",
+    "What's coming to Philadelphia through early 2028: Army-Navy 2027, BIO International, the Flower Show, marathon weekend, Star Wars at the Franklin Institute — every date checked with the organizer, plus what's NOT happening.",
   alternates: { canonical: "/philadelphia-events" },
   openGraph: {
     title:
@@ -470,7 +470,7 @@ const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   "@id": `${SITE}/philadelphia-events#article`,
-  headline: "Philadelphia Events Calendar 2026–2027: Verified Dates for Visitors",
+  headline: "Philadelphia Events Calendar 2026–2027: Dates for Visitors",
   description:
     "Conventions, festivals, exhibitions, and sports coming to Philadelphia from fall 2026 into early 2028 — every date verified against the organizer, including what is not happening.",
   url: `${SITE}/philadelphia-events`,
@@ -547,7 +547,7 @@ export default function PhiladelphiaEventsPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Verified August 2026 · Updated as Dates Are Announced
+            Checked with the organizers, August 2026
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             What&apos;s coming to Philadelphia.
@@ -555,7 +555,7 @@ export default function PhiladelphiaEventsPage() {
           <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
             The conventions, festivals, exhibitions, and games headed to
             Philadelphia from now through early 2028 — every date checked
-            against the organizer&apos;s own site, the not-yet-announced ones
+            with the organizer, the not-yet-announced ones
             marked as unannounced, and the events that <em>aren&apos;t</em>{" "}
             happening called out so you don&apos;t plan around a ghost. Written
             by the hosts of an 8-bedroom house two blocks from Rittenhouse
@@ -635,7 +635,7 @@ export default function PhiladelphiaEventsPage() {
           <SectionHeader
             eyebrow="Conventions"
             title="Who's bringing thousands to town."
-            body="Major meetings at the Pennsylvania Convention Center (12th & Arch — about 20 minutes' walk from Rittenhouse Square), verified with each organizer. When these are in town, Center City hotel blocks fill first."
+            body="Major meetings at the Pennsylvania Convention Center (12th & Arch — about 20 minutes' walk from Rittenhouse Square), checked with each organizer. When these are in town, Center City hotel blocks fill first."
           />
           <div className="overflow-x-auto rounded-lg border border-stone-200 bg-white">
             <table className="w-full min-w-[640px] text-left text-sm">
@@ -828,7 +828,7 @@ export default function PhiladelphiaEventsPage() {
               How this page stays honest
             </p>
             <p className="mt-4 text-base leading-7 text-stone-700">
-              Every date above was verified against the organizer&apos;s own
+              We checked every date above against the organizer&apos;s own
               site on August 27, 2026. Entries marked &ldquo;dates TBA&rdquo;
               are reliably annual events whose next edition hasn&apos;t been
               announced. Spot an error

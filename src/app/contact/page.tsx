@@ -33,7 +33,7 @@ const QUESTION_TOPICS = [
 ];
 
 const OUTCOME_PROMISES = [
-  "Confirmed availability for your dates",
+  "A straight answer on your dates",
   "A full direct quote for your stay",
   "A hold on your dates while you decide",
 ];
@@ -190,7 +190,7 @@ export default function ContactPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
             Tell us your dates, group size, and occasion. A person replies within
-            24 hours with confirmed availability, a full direct quote, and a
+            24 hours with your dates answered, a full quote, and a
             hold on your dates while you decide.
           </p>
         </div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                   </h3>
                   <p className="mt-2 text-green-700">
                     {mode === "quote"
-                      ? "Within 24 hours you'll have confirmed availability, a full direct quote for your dates, and a hold while you decide."
+                      ? "Within 24 hours you'll know whether your dates are free, what the stay costs, and we'll hold them while you decide."
                       : "Thank you for reaching out. We reply within 24 hours."}
                   </p>
                   <button

@@ -21,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "Restaurants Near Rittenhouse Square",
   description:
-    "Where to eat near Rittenhouse Square, Philadelphia — the tables facing the park on 18th Street, the blocks around it, and what changed recently. Verified August 2026.",
+    "Where to eat near Rittenhouse Square, Philadelphia — the tables facing the park on 18th Street, the blocks around it, and what changed recently. Walked again in August 2026.",
   alternates: { canonical: "/rittenhouse-square/restaurants" },
   openGraph: {
     title: "Restaurants Near Rittenhouse Square | The Rittenhouse Residence",
@@ -179,7 +179,7 @@ export default function RittenhouseSquareRestaurantsPage() {
         <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-end px-4 pb-16 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <Eyebrow light className="mb-5">
-              Rittenhouse Square Guide · Verified August 2026
+              Rittenhouse Square Guide · Walked in August 2026
             </Eyebrow>
             <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-white md:text-7xl">
               Restaurants near Rittenhouse Square.
@@ -189,7 +189,7 @@ export default function RittenhouseSquareRestaurantsPage() {
               Philadelphia — sidewalk brasseries on 18th Street, hotel dining
               rooms above the trees, and a Michelin-starred tasting menu three
               blocks away. This guide is written from two blocks south and kept
-              current: every entry below was verified in August 2026.
+              current: we walked the list again in August 2026.
             </p>
           </div>
         </div>

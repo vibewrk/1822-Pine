@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Things to Do in Rittenhouse Square",
   description:
-    "What to do in and around Rittenhouse Square, Philadelphia: the park itself, its annual traditions since 1914, the farmers market, and the museums and shopping a short walk away. Verified August 2026.",
+    "What to do in and around Rittenhouse Square, Philadelphia: the park itself, its annual traditions since 1914, the farmers market, and the museums and shopping a short walk away. Walked again in August 2026.",
   alternates: { canonical: "/rittenhouse-square/things-to-do" },
   openGraph: {
     title: "Things to Do in Rittenhouse Square | The Rittenhouse Residence",
@@ -212,7 +212,7 @@ export default function ThingsToDoPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Rittenhouse Square Guide · Verified August 2026
+            Rittenhouse Square Guide · Walked in August 2026
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             Things to do in Rittenhouse Square.
@@ -262,7 +262,7 @@ export default function ThingsToDoPage() {
           <SectionHeader
             eyebrow="The Annual Calendar"
             title="The Square's traditions, by season."
-            body="Rittenhouse Square has kept some of its rituals for more than a century. Dates below are from the organizers' own sites, verified August 2026."
+            body="Rittenhouse Square has kept some of its rituals for more than a century. Dates below come from the organizers themselves; we checked them in August 2026."
           />
           <p className="-mt-4 mb-9 text-base leading-7 text-stone-700">
             For the citywide picture — conventions, festivals, marathons —{" "}

@@ -169,7 +169,7 @@ export default function WhereToStayPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Rittenhouse Square Guide · Verified August 2026
+            Rittenhouse Square Guide · Walked in August 2026
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             Where to stay near Rittenhouse Square.
@@ -188,7 +188,7 @@ export default function WhereToStayPage() {
           <SectionHeader
             eyebrow="The Hotels"
             title="On and around the Square."
-            body="Six hotels sit on the park or within a couple of blocks of it. Opening years below come from the hotels' own histories; all were verified operating in August 2026."
+            body="Six hotels sit on the park or within a couple of blocks of it. The opening years come from the hotels' own histories, and we checked in August 2026 that each was still taking guests."
           />
           <div className="grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 md:grid-cols-2 lg:grid-cols-3">
             {onSquareHotels.map(([name, address, note, website]) => (

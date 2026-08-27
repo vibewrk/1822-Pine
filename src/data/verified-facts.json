@@ -110,5 +110,45 @@
   {
     "fact": "1854 deed abstract describes “all that certain lot or piece of ground” with the measurements. That phrase is PRE-PRINTED on the form — the 1893 abstract, for a house that indisputably stood, recites it identically — so the absence of a “buildings and improvements” clause is NOT evidence the lot was vacant. The abstract does not establish whether a house stood on 21 April 1854.",
     "source": "raw_documents/1854 Deed abstract (2).jpg; compare raw_documents/1893 Deed abstract.jpg"
+  },
+  {
+    "fact": "BUILD DATE, DIRECT TEST. Highest occupied Pine Street house number by directory volume (pre-1858 numbering): 1849=399, 1850=514, 1851=486, 1852=534, 1853=708, 1854=793, 1855=795. Through 1852 the occupied end of Pine Street stops in the 300s-500s. The 700s do not appear until 1853. 1822 Pine (old 756) sits mid-1800-block.",
+    "source": "McElroy's Philadelphia city directories 1849-1856, full OCR text, https://archive.org/download/mcelroysphiladel<YEAR>amce/mcelroysphiladel<YEAR>amce_djvu.txt (counted 2026-08-27 by regex over every '<nnn> Pine' entry in each volume)"
+  },
+  {
+    "fact": "BUILD DATE, DIRECT TEST. Distinct occupied house numbers in the future 1800 block (old 734-780 Pine): 0 in 1849, 1850, 1851, 1852 and 1853; 9 in 1854; 19 in 1855; 20 in 1856. The adjacent 1700 block (old 700-732) runs 0,0,0,0,6,15,21,25 across the same volumes — so the development front reached the 1700 block in 1853 and the 1800 block in 1854, about one block per year.",
+    "source": "McElroy's Philadelphia city directories 1849-1856, full OCR text, https://archive.org/download/mcelroysphiladel<YEAR>amce/mcelroysphiladel<YEAR>amce_djvu.txt (counted 2026-08-27 by regex over every '<nnn> Pine' entry in each volume)"
+  },
+  {
+    "fact": "BUILD DATE, CONFOUND CLOSED. Early directories often located people descriptively ('Pine ab 18th') rather than by number, which would hide an occupied house from a number-based count. Entries matching Pine near 16th/17th/18th/19th number ZERO in the 1849, 1850, 1851, 1852 and 1853 volumes, despite 120-180 descriptive Pine entries per volume further east. The first such entries -- including 'Pine ab 18th' and 'Pine ab 19th' -- appear in 1854 (17) and 1855 (18). Both listing conventions are empty through 1853 and both fill in 1854.",
+    "source": "McElroy's Philadelphia city directories 1849-1856, full OCR text, https://archive.org/download/mcelroysphiladel<YEAR>amce/mcelroysphiladel<YEAR>amce_djvu.txt (counted 2026-08-27 by regex over every '<nnn> Pine' entry in each volume)"
+  },
+  {
+    "fact": "BUILD DATE, CONCLUSION. The widely repeated 'c. 1845' for 1822 Pine cannot be sustained: in 1845-1852 no one was listed anywhere on Pine west of roughly 15th Street, by number or by description. Sustaining c.1845 would require nineteen finished houses standing empty for eight years, two to four blocks beyond the last occupied house on the street. What the records establish directly is occupancy, not the day the masons finished; the defensible statement is that the house was first conveyed on 21 April 1854 (McCrea to Roset) and that its block went from no listed households to fully occupied between the 1853 and 1855 volumes.",
+    "source": "McElroy's Philadelphia city directories 1849-1856, full OCR text, https://archive.org/download/mcelroysphiladel<YEAR>amce/mcelroysphiladel<YEAR>amce_djvu.txt (counted 2026-08-27 by regex over every '<nnn> Pine' entry in each volume)"
+  },
+  {
+    "fact": "The 1854 document in the archive is a Philadelphia registry 'DESCRIPTION OF PROPERTY' form, not the deed itself: it is printed with 'Bring Deed with this, that it may be endorsed.' and 'Signature of Owner or Agent', and records Jno Roset as PRESENT OWNER and Jno McCrea as FORMER OWNER with DATE OF DEED 'Ap. 21. 1854'. It registers the 1854 conveyance as the source of title; it is not evidence of a construction date.",
+    "source": "raw_documents/1854 Deed abstract (2).jpg"
+  },
+  {
+    "fact": "The 1983 National Register nomination contains 'c. 1845' exactly four times, and the only Pine Street instance is the block to the EAST, verbatim: \"1700-38 4-story, late Greek Revival townhouses, marble trim and door surrounds, modillioned wood cornice, c.1845. Contributing.\" The nomination assigns no c.1845 date to 1800-1836 Pine.",
+    "source": "1983 National Register nomination, Rittenhouse-Fitler Historic District (OCR text, read 2026-08-27)"
+  },
+  {
+    "fact": "The 1995 city inventory's 'c. 1845' occurrences are 1622 Pine (a Notman double cityhouse, dated 'c. 1845-1855'), a Greek Revival rowhouse, 2300 Spruce, 254-260 and 411 — none of them 1800-1836 Pine, which the inventory dates not at all.",
+    "source": "1995 Philadelphia city inventory, Rittenhouse-Fitler (OCR text, read 2026-08-27)"
+  },
+  {
+    "fact": "The City's OPA record for 1822 Pine carries year_built '1800' with the estimate flag set to 'Y' — an explicit placeholder rather than a finding.",
+    "source": "Philadelphia OPA property record, read 2026-08-27"
+  },
+  {
+    "fact": "PHMC applies the same 'c. 1845' to 1905-1913 Pine, a row the National Register describes as vernacular/Italianate — a later style. A single date applied across rows of visibly different periods is a default value, not an independent dating.",
+    "source": "Philadelphia Architects and Buildings database (philadelphiabuildings.org), read 2026-08-27; compare 1983 National Register nomination, Rittenhouse-Fitler Historic District (OCR text, read 2026-08-27)"
+  },
+  {
+    "fact": "Cross-check on survey dates: the National Register dates 1700-38 Pine 'c.1845', but the directories show the 1700 block first occupied in 1853 (six houses) and filling through 1855. Even where a survey date genuinely concerns a block, it runs about eight years early here.",
+    "source": "1983 National Register nomination, Rittenhouse-Fitler Historic District (OCR text, read 2026-08-27); McElroy's Philadelphia city directories 1849-1856"
   }
 ]
