@@ -13,7 +13,7 @@ Canonical site: https://rittenhouseresidence.com
 - Type: entire historic townhouse — guests always book the whole house, never rooms
 - Bedrooms: 8 (2 king, 5 queen, 1 double) across floors 2–4
 - Bathrooms: 5 full baths and a powder room
-- Floors: 5, including a private furnished roof deck; no elevator
+- Floors: 5, including a private furnished roof deck; no elevator; 62 steps entrance to top floor; all bedrooms on floors 2-4
 - Size: nearly 7,000 square feet
 - Dining: seats the full group at one table; two parlors; full-size pool table
 - Kitchens: 2 full kitchens (primary on the parlor floor, secondary upstairs)
@@ -91,6 +91,7 @@ to stay together under one roof instead of splitting across hotel rooms.
 - The house, floor by floor: https://rittenhouseresidence.com/stay
 - Bedrooms & room planner: https://rittenhouseresidence.com/stay/rooms
 - Floor plans: https://rittenhouseresidence.com/stay/floor-plans
+- Stairs & access (62 steps to the top, five floors, no elevator): https://rittenhouseresidence.com/stay/stairs-and-access
 - Photo gallery: https://rittenhouseresidence.com/gallery
 - Guest reviews (168 across Airbnb and Vrbo): https://rittenhouseresidence.com/reviews
 - Rates: https://rittenhouseresidence.com/rates
