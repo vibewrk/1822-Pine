@@ -556,7 +556,7 @@ export default function PhiladelphiaEventsPage() {
             The conventions, festivals, exhibitions, and games headed to
             Philadelphia from now through early 2028 — every date checked
             against the organizer&apos;s own site, the not-yet-announced ones
-            labeled honestly, and the events that <em>aren&apos;t</em>{" "}
+            marked as unannounced, and the events that <em>aren&apos;t</em>{" "}
             happening called out so you don&apos;t plan around a ghost. Written
             by the hosts of an 8-bedroom house two blocks from Rittenhouse
             Square, because event weeks are exactly when a whole house beats
@@ -831,7 +831,7 @@ export default function PhiladelphiaEventsPage() {
               Every date above was verified against the organizer&apos;s own
               site on August 27, 2026. Entries marked &ldquo;dates TBA&rdquo;
               are reliably annual events whose next edition hasn&apos;t been
-              announced — we&apos;d rather say that than guess. Spot an error
+              announced. Spot an error
               or a new announcement?{" "}
               <Link
                 href="/contact"

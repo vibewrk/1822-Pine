@@ -224,8 +224,7 @@ export default function ReviewsPage() {
             {AIRBNB_RATING} across {AIRBNB_COUNT} Airbnb reviews and{" "}
             {VRBO_RATING}/10 across {VRBO_COUNT} on Vrbo — {TOTAL_REVIEWS} in
             total. Every quote on this page is a guest&apos;s own words, copied
-            from the platform they left it on and trimmed only for length. We
-            don&apos;t write reviews, and we don&apos;t edit them.
+            from the platform they left it on and trimmed only for length.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <TrackedLink

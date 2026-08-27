@@ -137,7 +137,7 @@ export default function HotelAlternativePage() {
                 A group of sixteen at a hotel is eight doors on a corridor and a group text about
                 where to meet. The same sixteen people here share two parlors, one dining table,
                 and a roof deck — two blocks from Rittenhouse Square. Here is the comparison,
-                stated honestly in both directions.
+                stated in both directions.
               </p>
             </div>
           </div>

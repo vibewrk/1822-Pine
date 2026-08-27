@@ -263,7 +263,7 @@ export default function StoryIndexPage() {
               Residential Historic District. Every claim in this narrative is
               anchored by primary source documents—deeds, newspaper articles,
               building permits, and directory listings that specifically name
-              this address. Where the record is incomplete, we acknowledge gaps;
+              this address. Where the record is incomplete, the gaps are marked;
               where family tradition suggests details we cannot yet prove, we
               mark them as probable pending verification.
             </p>
