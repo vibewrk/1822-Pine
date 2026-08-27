@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, ExternalLink, Star } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
@@ -25,18 +25,24 @@ function addDaysISO(iso: string, days: number): string {
   return toISODateLocal(dt);
 }
 
+// "Today" is external to React: the server snapshot is undefined so the
+// statically-generated HTML never disagrees with the client about the date;
+// the client snapshot is its local date, not UTC — an Eastern-time guest at
+// 9 PM is still on today's date even though UTC has rolled over. The date
+// string is compared by value, so re-reading the clock each render is stable.
+const subscribeNever = () => () => {};
+const getTodayLocal = (): string | undefined => toISODateLocal(new Date());
+const getTodayServer = (): string | undefined => undefined;
+
 export function BookingDeepLinks() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(16);
-  const [today, setToday] = useState<string | undefined>(undefined);
-
-  // Set after mount so the statically-generated HTML never disagrees with the
-  // client about what "today" is. Local date, not UTC — an Eastern-time guest
-  // at 9 PM is still on today's date even though UTC has rolled over.
-  useEffect(() => {
-    setToday(toISODateLocal(new Date()));
-  }, []);
+  const today = useSyncExternalStore(
+    subscribeNever,
+    getTodayLocal,
+    getTodayServer
+  );
 
   const nights =
     checkIn && checkOut
