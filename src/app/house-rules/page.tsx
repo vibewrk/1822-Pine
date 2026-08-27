@@ -19,10 +19,11 @@ import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
 // rules were withheld until after booking, and "quiet hours apply" was never
 // defined. Both are answered here.
 //
-// Sourced from the Airbnb and Vrbo listings (read 2026-08-27) plus the site's
-// own FAQ. Where a rule is not yet pinned down, it says so rather than
-// guessing — see the quiet-hours note. Update this page and both listings
-// together; a rule that differs between them is worse than no page at all.
+// Sourced from the Airbnb and Vrbo listings (read 2026-08-27), the site's own
+// FAQ, and the owner directly for the quiet hours: 10pm weeknights, 11pm
+// weekends, with sensors flagging sustained noise above 70 dB in that window.
+// Update this page and both listings together; a rule that differs between
+// them is worse than no page at all.
 
 const SITE = "https://rittenhouseresidence.com";
 
@@ -66,7 +67,7 @@ const no = [
 const faqs = [
   {
     q: "What are the quiet hours?",
-    a: "The house shares walls with neighbours who live here year-round, and noise-monitoring sensors run throughout the property. They measure decibel levels only — no audio is recorded. Rather than a clock time, the standard is simple: sixteen people talking, cooking and laughing is fine at any hour; amplified music and a late crowd on the roof deck are not, because sound carries between the houses. If you are planning something specific, ask before booking and we will give you a straight answer.",
+    a: "Ten at night on weekdays, eleven on weekends. During those hours our sensors flag anything sustained above 70 decibels — which is a generous ceiling: sixteen people talking, cooking and laughing sits well under it. What crosses the line is amplified music or a crowd out on the roof deck, because sound carries between these houses. The sensors read volume only; no audio is recorded and nobody is listening.",
   },
   {
     q: "Can we have visitors who are not staying over?",
@@ -197,22 +198,25 @@ export default function HouseRulesPage() {
           </div>
           <div className="space-y-6 text-lg leading-8 text-stone-700">
             <p>
-              1822 Pine is a rowhouse. It shares walls with neighbours who live
+              1822 Pine is a rowhouse. It shares walls with neighbors who live
               here year-round, and sound carries — between houses, up the
               stairwell, and off the roof deck across the back gardens.
             </p>
             <p>
-              Noise-monitoring sensors run throughout the house. They measure
-              decibel levels and nothing else: no audio is recorded, and no one
-              is listening. They exist so that a problem can be flagged early
-              with a text message rather than discovered later by a neighbour&apos;s
-              complaint.
+              So quiet hours run from 10pm on weeknights and 11pm on Friday and
+              Saturday. Our sensors flag anything sustained above 70 decibels in
+              that window — and 70 is a generous ceiling. Sixteen people talking,
+              cooking and laughing sits comfortably under it.
             </p>
             <p>
-              The practical version: sixteen people talking, cooking and
-              laughing is completely fine, at any hour. Amplified music, a
-              crowd on the roof deck late at night, or anything that would
-              carry through a party wall is not. As the evening goes on, bring
+              The sensors read volume and nothing else: no audio is recorded, and
+              no one is listening. They exist so we can send you a friendly text
+              early rather than have a neighbor discover the problem later.
+            </p>
+            <p>
+              The practical version: a full house at dinner is completely fine.
+              Amplified music and a crowd out on the roof deck after quiet hours
+              are what carry through a party wall. As the evening goes on, bring
               it indoors and bring it down.
             </p>
           </div>

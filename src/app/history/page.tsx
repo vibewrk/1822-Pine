@@ -55,6 +55,22 @@ const readingRoom = [
   },
 ];
 
+// The build-date evidence, published because "c. 1845" circulates on the
+// listing sites and is wrong. Counts are from the full OCR text of McElroy's
+// Philadelphia directory for each year: every distinct "<nnn> Pine" house
+// number in the volume, bucketed by block. 1822 Pine was 756 Pine before the
+// 1858 renumbering. Working: research/build-date-2026-08/CONCLUSION.md
+const frontier = [
+  ["1849", "399", 0],
+  ["1850", "514", 0],
+  ["1851", "486", 0],
+  ["1852", "534", 0],
+  ["1853", "708", 0],
+  ["1854", "793", 9],
+  ["1855", "795", 19],
+  ["1856", "795", 20],
+] as const;
+
 const proofNotes = [
   ["1854", "Builder John McCrea sells 1822 Pine to John Roset on April 21; the Rosets are listed at the address by 1855."],
   ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to the Spencer family."],
@@ -84,7 +100,7 @@ export default function HistoryPage() {
               A 170-year witness on Pine Street.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The record opens on April 21, 1854, when the builder John McCrea sold the property to the merchant John Roset. The house was new at about that time — the 1800 block of Pine appears in the city directories only from the mid-1850s, and Roset is listed here in the 1855 volume, canvassed the year before. The deed abstract itself describes only the ground and its measurements, which is the form&rsquo;s standard wording and tells us nothing either way about the house; it is entirely possible the Rosets moved into a finished house in 1854. From there the paper trail runs through Drexel family connections, the Spencer era, turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
+              The record opens on April 21, 1854, when the builder John McCrea sold this house to the merchant John Roset. It was a new house on a brand-new block: until 1853 nobody at all was listed on Pine Street west of about 15th, and then the city moved west a block a year and arrived here. From that first spring the paper trail runs through a Drexel marriage, the Spencer era, the turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
             </p>
           </div>
         </div>
@@ -119,6 +135,95 @@ export default function HistoryPage() {
       </section>
 
       <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <Eyebrow>How Old Is It, Really</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              You will see &ldquo;c. 1845&rdquo; for this house. It is off by
+              nine years, and here is how we know.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-700">
+              Philadelphia&rsquo;s city directory listed every household in the
+              city, year after year, by street number. Count the Pine Street
+              numbers in each volume and you can watch the city itself move
+              west — and see the exact year it reaches this door.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[34rem] border-collapse text-left">
+              <caption className="sr-only">
+                Occupied Pine Street house numbers by city-directory volume,
+                1849&ndash;1856
+              </caption>
+              <thead>
+                <tr className="border-b border-stone-300">
+                  <th scope="col" className="py-3 pr-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    Directory
+                  </th>
+                  <th scope="col" className="py-3 pr-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    Westernmost house on Pine
+                  </th>
+                  <th scope="col" className="py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    Houses occupied on this block
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {frontier.map(([year, highest, here]) => (
+                  <tr key={year} className="border-b border-stone-200">
+                    <td className="py-3 pr-4 font-serif text-2xl font-semibold text-stone-950">
+                      {year}
+                    </td>
+                    <td className="py-3 pr-4 text-base tabular-nums text-stone-600">
+                      no. {highest}
+                    </td>
+                    <td className="py-3">
+                      {here === 0 ? (
+                        <span className="text-base text-stone-400">none</span>
+                      ) : (
+                        <span className="flex items-center gap-3">
+                          <span
+                            aria-hidden="true"
+                            className="h-2.5 rounded-full bg-amber-700"
+                            style={{ width: `${(here / 20) * 9}rem` }}
+                          />
+                          <span className="text-base font-semibold tabular-nums text-stone-950">
+                            {here}
+                          </span>
+                        </span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <p className="text-lg leading-8 text-stone-700">
+              Through 1852 the occupied end of Pine Street stops around 15th.
+              Not one house number in the 700s — this block, under the old
+              numbering — appears in any volume before 1853. Then the frontier
+              moves about a block a year: it reaches the 1700 block in 1853 and
+              this one in 1854. John McCrea sold the house to John Roset on
+              April 21 of that year, and Roset is listed at the address in the
+              next volume printed.
+            </p>
+            <p className="text-lg leading-8 text-stone-700">
+              As for &ldquo;c. 1845&rdquo; — it belongs to the block next door.
+              The 1983 National Register nomination uses that date for
+              1700&ndash;38 Pine, and never for this row. The city&rsquo;s own
+              property record fills the year-built field with &ldquo;1800&rdquo;
+              and flags it as an estimate. A house standing here in 1845 would
+              have sat empty for eight years, four blocks past the last lit
+              window on the street.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <Eyebrow>Reading Room</Eyebrow>

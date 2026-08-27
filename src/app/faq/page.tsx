@@ -81,7 +81,7 @@ const faqSections = [
       },
       {
         q: "Are there quiet hours?",
-        a: "Yes. This is a residential block and a historic house, so quiet hours apply. We send the full house rules before arrival.",
+        a: "Yes — 10pm on weeknights, 11pm on Friday and Saturday. During those hours noise sensors flag anything sustained above 70 decibels, which is a generous ceiling: a full house at dinner sits well under it. They read volume only and record no audio. Full rules are on our house rules page, published before you book.",
       },
       {
         q: "Is smoking allowed?",
@@ -89,7 +89,7 @@ const faqSections = [
       },
       {
         q: "Are parties allowed?",
-        a: "No. The house is for registered overnight guests and is not suitable for parties.",
+        a: "No — we follow the standard no-party rules both Airbnb and Vrbo apply. The house is for the group booked on the reservation. Day visitors within reason are fine, and wedding parties getting ready here are one of our favorite uses of the house; just tell us if you are expecting more than a few extra people.",
       },
       {
         q: "Are pets allowed?",
