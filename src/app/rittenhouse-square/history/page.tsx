@@ -160,7 +160,25 @@ const timeline = [
   ],
 ] as const;
 
+// How the street was built out, counted from the full OCR of McElroy's
+// Philadelphia directory for each year: distinct occupied house numbers per
+// block. Pre-1858 numbering — the 1700 block was old 700-732, the 1800 block
+// old 734-780. Method and caveats: research/build-date-2026-08/CONCLUSION.md
+const blockBuildOut = [
+  ["1849-52", 0, 0],
+  ["1853", 6, 0],
+  ["1854", 15, 9],
+  ["1855", 21, 19],
+  ["1856", 25, 20],
+] as const;
+
 const sources = [
+  {
+    name: "McElroy's Philadelphia City Directory, 1849–1856",
+    detail:
+      "Full-text volumes used to count occupied house numbers per block of Pine Street, year by year.",
+    href: "https://archive.org/details/mcelroysphiladel1855amce",
+  },
   {
     name: "Encyclopedia of Greater Philadelphia — Public Parks",
     detail:
@@ -484,6 +502,92 @@ export default function RittenhouseSquareHistoryPage() {
                 their stories have a page of their own
               </Link>
               .
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="How The Street Was Built"
+            title="Pine Street was built westward, one block at a time."
+            body="Philadelphia's city directory listed every household by street number, year after year. Count the Pine Street numbers in each volume and you can watch the blocks around the Square fill in — and catch the survey dates that got it wrong."
+          />
+
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[32rem] border-collapse text-left">
+              <caption className="sr-only">
+                Occupied houses per block of Pine Street by city-directory
+                volume, 1849&ndash;1856
+              </caption>
+              <thead>
+                <tr className="border-b border-stone-300">
+                  <th scope="col" className="py-3 pr-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    Directory
+                  </th>
+                  <th scope="col" className="py-3 pr-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    1700 block occupied
+                  </th>
+                  <th scope="col" className="py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-500">
+                    1800 block occupied
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {blockBuildOut.map(([label, b17, b18]) => (
+                  <tr key={label} className="border-b border-stone-200">
+                    <td className="py-3 pr-4 font-serif text-2xl font-semibold text-stone-950">
+                      {label}
+                    </td>
+                    {[b17, b18].map((n, i) => (
+                      <td key={i} className="py-3 pr-4">
+                        {n === 0 ? (
+                          <span className="text-base text-stone-400">none</span>
+                        ) : (
+                          <span className="flex items-center gap-3">
+                            <span
+                              aria-hidden="true"
+                              className="h-2.5 rounded-full bg-amber-700"
+                              style={{ width: `${(n / 25) * 7}rem` }}
+                            />
+                            <span className="text-base font-semibold tabular-nums text-stone-950">
+                              {n}
+                            </span>
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+            <p className="text-lg leading-8 text-stone-700">
+              Through 1852 nobody at all is listed on Pine west of about 15th
+              Street. The 1700 block opens in 1853 with six households at its
+              eastern end, nearest 17th. The 1800 block follows a year later.
+              By the 1856 volume both are effectively full. The whole stretch
+              between the Square and 19th Street was settled inside four years
+              — which is why these blocks read as one continuous wall of
+              four-story brick: they went up together.
+            </p>
+            <p className="text-lg leading-8 text-stone-700">
+              It also catches an error worth knowing about. The 1983 National
+              Register nomination dates 1700&ndash;38 Pine to &ldquo;c. 1845,&rdquo;
+              eight years before a single household appears there, and that
+              date has since drifted a block west onto listings for houses on
+              the 1800 block. If you are researching a house on this stretch,
+              the directories are the better authority.{" "}
+              <Link
+                href="/history"
+                className="inline-flex items-center gap-1 font-semibold text-amber-800 transition-colors hover:text-amber-900"
+              >
+                The full working
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </p>
           </div>
         </div>
