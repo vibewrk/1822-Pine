@@ -40,7 +40,7 @@ const rateFacts = [
   ],
   [
     "Sleeps 16",
-    "8 bedrooms — 2 kings and 6 queens on floors 2–4 — with 6 full baths.",
+    "8 bedrooms on floors 2–4 — 3 kings, 4 queens and a double — with five full baths and a powder room.",
   ],
   [
     "One group per date",
@@ -64,13 +64,13 @@ const policies = [
   ],
   [
     "Live pricing",
-    "Vrbo and Airbnb show date-specific rates, taxes, and fees before you reserve. A direct quote itemizes the same for your dates.",
+    "No hidden fees: the price you see on Airbnb or Vrbo includes all fees. Both show date-specific rates and taxes in full before you reserve, so the checkout total is the total.",
   ],
 ];
 
 const included = [
   "The entire 8-bedroom residence",
-  "Six full bathrooms",
+  "Five full bathrooms and a powder room",
   "Two full kitchens",
   "Dining space for 16",
   "Two parlors and a full-size pool table",

@@ -14,11 +14,12 @@
 //   LodgingBusiness, so the checkin/checkout/priceRange fields remain valid).
 //   Pages that reference the house use `@id: ${SITE}/#vacation-rental`.
 // - One aggregateRating only, matching the figure visible on the page
-//   (4.89 / 93 Airbnb reviews, as of Aug 2026). Update both together, and
+//   (4.88 / 102 Airbnb reviews, as of Aug 2026). Update both together, and
 //   keep the on-page "as of" date in sync when refreshing.
 // - Amenities must match what the site actually tells guests (a "Free
 //   parking" claim was removed; the FAQ says guests use paid garages nearby).
-// - Bed inventory must match /stay (2 King + 6 Queen across 8 bedrooms).
+// - Bed inventory must match the Airbnb listing (3 King + 4 Queen + 1 Double
+//   across 8 bedrooms), which is the booking system of record.
 
 const SITE = "https://rittenhouseresidence.com";
 
@@ -61,7 +62,7 @@ export function VacationRentalSchema() {
     name: "The Rittenhouse Residence",
     alternateName: "Rittenhouse Residence",
     description:
-      "The Rittenhouse Residence — whole-home vacation rental for groups in Philadelphia. 8 bedrooms, 6 bathrooms across five floors. Historic 1854 mansion two blocks from Rittenhouse Square.",
+      "The Rittenhouse Residence — whole-home vacation rental for groups in Philadelphia. 8 bedrooms, 5 full baths + powder room across five floors. Historic 1854 mansion two blocks from Rittenhouse Square.",
     url: SITE,
     image: IMAGES,
     address: ADDRESS,
@@ -92,7 +93,7 @@ export function VacationRentalSchema() {
       occupancy: {
         "@type": "QuantitativeValue",
         // Owner-confirmed 2026-08-24: maximum 16 overnight guests, which
-        // matches the 8-bedroom inventory (2 king + 6 queen) and the Airbnb
+        // matches the 8-bedroom inventory (3 king, 4 queen, 1 double) and the Airbnb
         // listing. Keep in sync with the "Sleeps 16" copy sitewide.
         value: 16,
       },
@@ -111,11 +112,11 @@ export function VacationRentalSchema() {
     },
     // Review data sourced from the live Airbnb listing, as of Aug 2026;
     // update periodically and keep in sync with the visible
-    // "4.89 · 93 reviews on Airbnb, as of Aug 2026" on the page.
+    // "4.88 · 102 reviews on Airbnb, as of Aug 2026" on the page.
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.89",
-      reviewCount: "93",
+      ratingValue: "4.88",
+      reviewCount: "102",
       bestRating: "5",
       worstRating: "1",
     },

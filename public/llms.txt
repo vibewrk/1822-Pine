@@ -11,13 +11,13 @@ Canonical site: https://rittenhouseresidence.com
 
 - Address: 1822 Pine Street, Philadelphia, PA 19103 (Rittenhouse Square, Center City)
 - Type: entire historic townhouse — guests always book the whole house, never rooms
-- Bedrooms: 8 (2 king beds, 6 queen beds) across floors 2–4
-- Bathrooms: 6 full baths
+- Bedrooms: 8 (3 king, 4 queen, 1 double) across floors 2–4
+- Bathrooms: 5 full baths and a powder room
 - Floors: 5, including a private furnished roof deck; no elevator
 - Size: nearly 7,000 square feet
 - Dining: seats the full group at one table; two parlors; full-size pool table
 - Kitchens: 2 full kitchens (primary on the parlor floor, secondary upstairs)
-- Amenities: gigabit WiFi, central air and heat, washer/dryer, smart TVs, linens included
+- Amenities: fast WiFi (351 Mbps measured), central air and heat, washer/dryer, smart TVs, linens included
 - Rates: from $1,600/night for the whole house; 2-night minimum (longer on peak dates)
 - Payments: 50% deposit at reservation, balance due 60 days before arrival
 - Check-in 4:00 PM · Check-out 10:00 AM
@@ -35,7 +35,11 @@ to stay together under one roof instead of splitting across hotel rooms.
 ## Booking
 
 - Live availability and checkout: https://www.vrbo.com/757481
-- Also listed on Airbnb (4.89 rating, 93 reviews, as of August 2026): https://www.airbnb.com/rooms/6000930
+- Airbnb (4.88, 102 reviews, Guest Favorite, Superhost, as of Aug 2026): https://www.airbnb.com/rooms/6000930
+- Vrbo (9.8/10 "Exceptional", 66 reviews, as of Aug 2026): https://www.vrbo.com/757481
+- Booking is available ONLY through Airbnb and Vrbo. There is no direct-checkout
+  path; direct inquiries are answered within 24 hours but the reservation is
+  completed on one of those two platforms.
 - Direct inquiries: https://rittenhouseresidence.com/contact (response within 24 hours)
 
 ## History (documented from deeds and newspapers)
@@ -71,7 +75,7 @@ to stay together under one roof instead of splitting across hotel rooms.
   hours, with no platform service fees. Vrbo remains available for instant
   online checkout.
 - How many guests can stay? The house sleeps up to 16 guests across 8 bedrooms
-  and 6 full bathrooms.
+  and 5 full bathrooms and a powder room.
 - What time is check-in and check-out? Check-in is 4:00 PM and check-out is
   10:00 AM. Early arrival or late departure may be available only when the
   calendar allows it.

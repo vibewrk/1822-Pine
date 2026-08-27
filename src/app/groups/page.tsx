@@ -36,7 +36,7 @@ const { occasions } = occasionsData;
 const faqs = occasions.flatMap((occasion) => occasion.faqs);
 
 const stats = [
-  ["Sleeps 16", "8 bedrooms · 6 full baths"],
+  ["Sleeps 16", "8 bedrooms · 5 full baths and a powder room"],
   ["$100", "Per guest per night at full occupancy"],
   ["Seats 16", "At one dining table"],
   ["Five floors", "Two kitchens · two parlors · roof deck"],
@@ -173,8 +173,8 @@ export default function GroupsPage() {
               <Bed className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Where everyone sleeps</h3>
               <p className="mt-3 leading-7 text-stone-700">
-                Eight bedrooms across floors two through four: two king beds and six queens, with
-                six full bathrooms keeping the mornings civil. Bedrooms sit on the upper floors of
+                Eight bedrooms across floors two through four: three kings, four queens and a
+                double, with five full bathrooms and a powder room keeping the mornings civil. Bedrooms sit on the upper floors of
                 a five-floor townhouse — there is no elevator, which is worth knowing before you
                 assign rooms.
               </p>

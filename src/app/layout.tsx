@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion Since 1854",
     description:
-      "An 1854 mansion with 8 bedrooms, 6 bathrooms, original fireplaces and marble mantels. A whole-home rental for groups, two blocks from Rittenhouse Square.",
+      "An 1854 mansion with 8 bedrooms, 5 full baths and a powder room, original fireplaces and marble mantels. A whole-home rental for groups, two blocks from Rittenhouse Square.",
     url: "https://rittenhouseresidence.com",
     siteName: "The Rittenhouse Residence",
     locale: "en_US",
