@@ -35,6 +35,7 @@ const footerNavigation = [
   {
     title: "Visitors",
     links: [
+      { name: "Guest Reviews", href: "/reviews" },
       { name: "Rittenhouse Square", href: "/rittenhouse-square" },
       { name: "Events Calendar", href: "/philadelphia-events" },
       { name: "Things to Do", href: "/rittenhouse-square/things-to-do" },
@@ -158,7 +159,7 @@ export function Footer() {
             </TrackedLink>
             <div className="flex space-x-4">
               <p className="text-xs text-gray-500">
-                Licensed Vacation Rental • Philadelphia, PA
+                Philadelphia STR License #903781 • Licensed Vacation Rental
               </p>
             </div>
           </div>

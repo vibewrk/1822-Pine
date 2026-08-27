@@ -56,7 +56,7 @@ const readingRoom = [
 ];
 
 const proofNotes = [
-  ["1854", "John McCrea conveys the lot to John Roset on April 21; the house is built for him and the family is listed there by 1855."],
+  ["1854", "Builder John McCrea sells 1822 Pine to John Roset on April 21; the Rosets are listed at the address by 1855."],
   ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to the Spencer family."],
   ["1899", "Agnes M. Spencer commissions Duhring, Okie & Ziegler for alterations and additions."],
   ["1915", "Miss Martha Davis of 1822 Pine Street sells Equal Franchise Society luncheon tickets."],
@@ -84,7 +84,7 @@ export default function HistoryPage() {
               A 170-year witness on Pine Street.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The record opens on April 21, 1854, when John McCrea conveyed the lot — &ldquo;all that certain lot or piece of ground&rdquo; on the south side of Pine Street — to the merchant John Roset. No buildings are mentioned and no house number is entered, so the house was almost certainly built for Roset after that sale. He is listed at the address in the 1855 directory, which tells us the house was up and lived in by then; directories were canvassed months before printing, so the family may well have moved in during 1854, as soon as it was finished. From there the paper trail runs through Drexel family connections, the Spencer era, turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
+              The record opens on April 21, 1854, when the builder John McCrea sold the property to the merchant John Roset. The house was new at about that time — the 1800 block of Pine appears in the city directories only from the mid-1850s, and Roset is listed here in the 1855 volume, canvassed the year before. The deed abstract itself describes only the ground and its measurements, which is the form&rsquo;s standard wording and tells us nothing either way about the house; it is entirely possible the Rosets moved into a finished house in 1854. From there the paper trail runs through Drexel family connections, the Spencer era, turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
             </p>
           </div>
         </div>

@@ -354,9 +354,8 @@ export default function SuffragePage() {
           <div className="space-y-6 text-lg leading-8 text-stone-700">
             <p>
               The house&apos;s first long-term owners were John and Mary Ann
-              Laning Roset, who bought the lot in 1854 and had the house up
-              within the year — the deed abstract names the builder John McCrea
-              as the seller. By then their eldest daughter, Ellen Bicking
+              Laning Roset, who bought the house in 1854 — the deed abstract names
+              the builder John McCrea as the seller. By then their eldest daughter, Ellen Bicking
               Rozet (born February 21, 1829; the family name appears as both
               Roset and Rozet in the records), was already married: on August
               13, 1850, she wed the banker Anthony Joseph Drexel in

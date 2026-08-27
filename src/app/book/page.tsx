@@ -39,11 +39,11 @@ const included = [
   ],
   [
     "Practical Amenities",
-    "Fast WiFi (351 Mbps), smart TVs, two full kitchens, washer/dryer, and central air.",
+    "Gigabit WiFi service, smart TVs, two full kitchens, washer/dryer, and central air.",
   ],
   [
     "Flexible Sleeping",
-    "8 bedrooms — three kings, four queens and a double — on floors 2–4 of the five-floor house.",
+    "8 bedrooms — two kings, five queens and a double — on floors 2–4 of the five-floor house.",
   ],
   [
     "Historic Experience",

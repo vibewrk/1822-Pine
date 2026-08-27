@@ -11,13 +11,13 @@ Canonical site: https://rittenhouseresidence.com
 
 - Address: 1822 Pine Street, Philadelphia, PA 19103 (Rittenhouse Square, Center City)
 - Type: entire historic townhouse — guests always book the whole house, never rooms
-- Bedrooms: 8 (3 king, 4 queen, 1 double) across floors 2–4
+- Bedrooms: 8 (2 king, 5 queen, 1 double) across floors 2–4
 - Bathrooms: 5 full baths and a powder room
 - Floors: 5, including a private furnished roof deck; no elevator
 - Size: nearly 7,000 square feet
 - Dining: seats the full group at one table; two parlors; full-size pool table
 - Kitchens: 2 full kitchens (primary on the parlor floor, secondary upstairs)
-- Amenities: fast WiFi (351 Mbps measured), central air and heat, washer/dryer, smart TVs, linens included
+- Amenities: gigabit WiFi service, central air and heat, washer/dryer, smart TVs, linens included
 - Rates: from $1,600/night for the whole house; 2-night minimum (longer on peak dates)
 - Payments: 50% deposit at reservation, balance due 60 days before arrival
 - Check-in 4:00 PM · Check-out 10:00 AM
@@ -92,6 +92,7 @@ to stay together under one roof instead of splitting across hotel rooms.
 - Bedrooms & room planner: https://rittenhouseresidence.com/stay/rooms
 - Floor plans: https://rittenhouseresidence.com/stay/floor-plans
 - Photo gallery: https://rittenhouseresidence.com/gallery
+- Guest reviews (168 across Airbnb and Vrbo): https://rittenhouseresidence.com/reviews
 - Rates: https://rittenhouseresidence.com/rates
 - Group stays (reunions, retreats, celebrations): https://rittenhouseresidence.com/groups
 - Wedding guest housing: https://rittenhouseresidence.com/groups/weddings

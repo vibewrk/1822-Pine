@@ -74,7 +74,7 @@ const occasions = [
 // Review figures sourced from the Airbnb listing; re-verify when updating.
 const trustItems = [
   "4.88 · 102 reviews on Airbnb, as of Aug 2026",
-  "Licensed Philadelphia short-term rental",
+  "Philadelphia STR License #903781",
   "Fully insured",
 ];
 
@@ -187,7 +187,7 @@ export default function HomePage() {
               The House
             </Eyebrow>
             <h2 className="mt-4 max-w-4xl font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
-              One of the last great Victorian townhouses on Pine Street — kept, not gutted.
+              One of the last great Victorian townhouses on Pine Street.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
               Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and appears in the documented record of the city&apos;s suffrage movement. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
@@ -252,7 +252,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Three kings — including a master suite with a four-poster and private bath — plus four queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"

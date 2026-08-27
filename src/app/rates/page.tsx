@@ -40,7 +40,7 @@ const rateFacts = [
   ],
   [
     "Sleeps 16",
-    "8 bedrooms on floors 2–4 — 3 kings, 4 queens and a double — with five full baths and a powder room.",
+    "8 bedrooms on floors 2–4 — 2 kings, 5 queens and a double — with five full baths and a powder room.",
   ],
   [
     "One group per date",
