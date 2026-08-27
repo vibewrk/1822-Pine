@@ -56,7 +56,7 @@ const readingRoom = [
 ];
 
 const proofNotes = [
-  ["1854", "John McCrea sells the newly completed townhouse at 1822 Pine Street to John Roset."],
+  ["1854", "John McCrea conveys the lot to John Roset on April 21; the house is built for him and the family is listed there by 1855."],
   ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to the Spencer family."],
   ["1899", "Agnes M. Spencer commissions Duhring, Okie & Ziegler for alterations and additions."],
   ["1915", "Miss Martha Davis of 1822 Pine Street sells Equal Franchise Society luncheon tickets."],
@@ -84,7 +84,7 @@ export default function HistoryPage() {
               A 170-year witness on Pine Street.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The house begins in the record on April 1, 1854, when John McCrea sold the newly completed townhouse to John Roset. From there the paper trail runs through Drexel family connections, the Spencer era, turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
+              The record opens on April 21, 1854, when John McCrea conveyed the lot — &ldquo;all that certain lot or piece of ground&rdquo; on the south side of Pine Street — to the merchant John Roset. No buildings are mentioned and no house number is entered, so the house was almost certainly built for Roset after that sale. He is listed at the address in the 1855 directory, which tells us the house was up and lived in by then; directories were canvassed months before printing, so the family may well have moved in during 1854, as soon as it was finished. From there the paper trail runs through Drexel family connections, the Spencer era, turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
             </p>
           </div>
         </div>
@@ -189,7 +189,7 @@ export default function HistoryPage() {
           <div>
             <Eyebrow>Documents</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Sleep somewhere with a paper trail.
+              Stay somewhere with a history you can read.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
               Read the deed abstracts, newspaper notices, and supporting files, then come back to the rooms they describe. The archive is not decoration; it is the reason the house can speak so specifically.

@@ -196,14 +196,14 @@ export default function HomePage() {
               , and rooms you&apos;ll actually want to gather in.
             </p>
             <p className="mt-5 max-w-3xl text-base leading-7 text-stone-600">
-              The only Philadelphia rental that publishes its own paper trail —{" "}
               <Link
-                href="/history/documents"
+                href="/history"
                 className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
               >
-                63 primary documents from 1854 onward
-              </Link>
-              .
+                Read the house&apos;s full history
+              </Link>{" "}
+              — deeds, letters and newspaper clippings, all original and all
+              published here.
             </p>
           </div>
         </div>
