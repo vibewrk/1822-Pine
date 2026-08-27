@@ -195,16 +195,6 @@ export default function HomePage() {
               </Link>
               , and rooms you&apos;ll actually want to gather in.
             </p>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-stone-600">
-              <Link
-                href="/history"
-                className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
-              >
-                Read the house&apos;s full history
-              </Link>{" "}
-              — deeds, letters and newspaper clippings, all original and all
-              published here.
-            </p>
           </div>
         </div>
       </section>
