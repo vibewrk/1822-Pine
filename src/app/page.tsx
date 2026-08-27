@@ -75,7 +75,7 @@ const occasions = [
 const trustItems = [
   "168 guest reviews across Airbnb and Vrbo, as of Aug 2026",
   "Philadelphia STR License #903781",
-  "Fully insured",
+  "Superhost · 11 years hosting",
 ];
 
 export default function HomePage() {
