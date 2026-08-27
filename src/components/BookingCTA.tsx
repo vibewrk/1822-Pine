@@ -112,7 +112,7 @@ export function BookingCTA() {
           className="mt-5 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-950"
         >
           <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
-          4.88 · 102 reviews on Airbnb, as of Aug 2026
+          4.88 on Airbnb across 102 reviews, as of Aug 2026
           <ExternalLink className="h-3.5 w-3.5" />
         </TrackedLink>
       </div>

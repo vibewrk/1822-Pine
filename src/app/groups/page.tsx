@@ -39,7 +39,7 @@ const stats = [
   ["Sleeps 16", "8 bedrooms · 5 full baths and a powder room"],
   ["$100", "Per guest per night at full occupancy"],
   ["Seats 16", "At one dining table"],
-  ["Five floors", "Two kitchens · two parlors · roof deck"],
+  ["Four stories", "Two kitchens · two parlors · roof deck"],
 ];
 
 const houseRules = [
@@ -175,7 +175,7 @@ export default function GroupsPage() {
               <p className="mt-3 leading-7 text-stone-700">
                 Eight bedrooms across floors two through four: two kings, five queens and a
                 double, with five full bathrooms and a powder room keeping the mornings civil. Bedrooms sit on the upper floors of
-                a five-floor townhouse — there is no elevator, which is worth knowing before you
+                a four-story townhouse — there is no elevator, which is worth knowing before you
                 assign rooms.
               </p>
               <Link

@@ -13,7 +13,7 @@ import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
 // which makes the grandest bedroom one of the shortest climbs — counterintuitive,
 // commercially useful, and the single most helpful thing on this page.
 // This page exists because a group organiser bringing a parent with limited
-// mobility cannot plan from "five floors, no elevator" — they need the number,
+// mobility cannot plan from "four stories, no elevator" — they need the number,
 // and if they have to email for it, most will simply book elsewhere. Answering
 // it plainly also pre-qualifies: the people who book after reading this are
 // the ones the house actually suits.
@@ -26,12 +26,12 @@ const SITE = "https://rittenhouseresidence.com";
 export const metadata: Metadata = {
   title: "Stairs & Access",
   description:
-    "How the stairs work at The Rittenhouse Residence: 62 steps entrance to top, five levels, no elevator — and why the rear bedrooms, including the master, are a much shorter climb than the front. Written for groups travelling with someone who finds stairs hard.",
+    "How the stairs work at The Rittenhouse Residence: 62 steps entrance to top, four stories, no elevator — and why the rear bedrooms, including the master, are a much shorter climb than the front. Written for groups travelling with someone who finds stairs hard.",
   alternates: { canonical: "/stay/stairs-and-access" },
   openGraph: {
     title: "Stairs & Access | The Rittenhouse Residence",
     description:
-      "62 steps to the top, five floors, no elevator — the numbers you need before you book for a group with mixed mobility.",
+      "62 steps to the top, four stories, no elevator — the numbers you need before you book for a group with mixed mobility.",
     type: "article",
     images: ["/images/property/DSC00112.jpg"],
   },
@@ -99,7 +99,7 @@ export default function StairsAndAccessPage() {
             Sixty-two steps to the top.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            This is an 1850s townhouse on five levels with one staircase and no
+            This is an 1850s townhouse of four stories with one staircase and no
             elevator. If someone in your group finds stairs difficult, that
             single fact decides whether this house works for you — so here is
             the whole picture, with the numbers, before you get as far as

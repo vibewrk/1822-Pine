@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const included = [
   [
     "Full Property Access",
-    "All 5 floors, 8 bedrooms, 5 full baths and a powder room, grand parlors, and the private roof deck.",
+    "The whole house — 8 bedrooms, 5 full baths and a powder room, grand parlors, and the private roof deck.",
   ],
   [
     "Practical Amenities",
@@ -43,7 +43,7 @@ const included = [
   ],
   [
     "Flexible Sleeping",
-    "8 bedrooms — two kings, five queens and a double — on floors 2–4 of the five-floor house.",
+    "8 bedrooms — two kings, five queens and a double — on floors 2–4 of the four-story house.",
   ],
   [
     "Historic Experience",

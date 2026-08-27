@@ -4,11 +4,11 @@ import Image from "next/image";
 export const metadata: Metadata = {
   title: "Floor Plans of the 1854 Mansion",
   description:
-    "Floor plans for all five levels of The Rittenhouse Residence — the parlor floor, three bedroom floors, and the roof deck of the 1854 Philadelphia mansion.",
+    "Floor plans for all four stories of The Rittenhouse Residence — the parlor floor, three bedroom floors, and the roof deck of the 1854 Philadelphia mansion.",
   alternates: { canonical: "/stay/floor-plans" },
   openGraph: {
     title: "Floor Plans | The Rittenhouse Residence",
-    description: "All five levels of the 1854 mansion, floor by floor.",
+    description: "All four stories of the 1854 mansion, floor by floor.",
     images: ["/images/floor-plans/floor-1.jpg"],
   },
 };

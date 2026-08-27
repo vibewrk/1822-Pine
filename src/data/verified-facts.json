@@ -104,11 +104,11 @@
     "source": "raw_documents/1854 Deed abstract (2).jpg"
   },
   {
-    "fact": "1854 deed abstract conveys “all that certain lot or piece of ground” with NO “buildings and improvements thereon erected” clause, on a form requiring the description be “an exact copy, in the wording of the Deed.” The NO. OF HOUSE column carries no number, only “Pine st.” By contrast the 2013 deed conveys “ground with the buildings and improvements thereon erected.” Together these indicate the April 1854 conveyance was of a vacant lot.",
-    "source": "raw_documents/1854 Deed abstract (2).jpg"
-  },
-  {
     "fact": "Methodological caveat for directory evidence: a city-directory listing establishes the LATEST date by which a household was at an address, not the date it arrived. Canvassers compiled volumes months before publication, so the 1855 volume reflects 1854 fieldwork, and absence from an earlier volume is not evidence the house was empty.",
     "source": "research/deep-2026-08/08-census-directories.md"
+  },
+  {
+    "fact": "1854 deed abstract describes “all that certain lot or piece of ground” with the measurements. That phrase is PRE-PRINTED on the form — the 1893 abstract, for a house that indisputably stood, recites it identically — so the absence of a “buildings and improvements” clause is NOT evidence the lot was vacant. The abstract does not establish whether a house stood on 21 April 1854.",
+    "source": "raw_documents/1854 Deed abstract (2).jpg; compare raw_documents/1893 Deed abstract.jpg"
   }
 ]

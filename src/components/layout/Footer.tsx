@@ -75,7 +75,7 @@ export function Footer() {
               8 bedrooms · 5 baths + powder room · Two blocks from Rittenhouse Square
             </p>
             <p className="mt-1 text-sm text-gray-400">
-              4.88 · 102 reviews on Airbnb, as of Aug 2026
+              4.88 on Airbnb across 102 reviews, as of Aug 2026
             </p>
 
             <div className="mt-8">

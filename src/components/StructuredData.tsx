@@ -62,7 +62,7 @@ export function VacationRentalSchema() {
     name: "The Rittenhouse Residence",
     alternateName: "Rittenhouse Residence",
     description:
-      "The Rittenhouse Residence — whole-home vacation rental for groups in Philadelphia. 8 bedrooms, 5 full baths + powder room across five floors. Historic 1854 mansion two blocks from Rittenhouse Square.",
+      "The Rittenhouse Residence — whole-home vacation rental for groups in Philadelphia. 8 bedrooms, 5 full baths + powder room across four stories that live like five. Historic 1854 mansion two blocks from Rittenhouse Square.",
     url: SITE,
     image: IMAGES,
     address: ADDRESS,
@@ -112,7 +112,7 @@ export function VacationRentalSchema() {
     },
     // Review data sourced from the live Airbnb listing, as of Aug 2026;
     // update periodically and keep in sync with the visible
-    // "4.88 · 102 reviews on Airbnb, as of Aug 2026" on the page.
+    // "4.88 on Airbnb across 102 reviews, as of Aug 2026" on the page.
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.88",

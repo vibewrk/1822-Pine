@@ -212,7 +212,7 @@ export default function GalleryPage() {
                 Floor Plans
               </h2>
               <p className="mt-3 text-gray-600">
-                Five floors of living space across nearly 7,000 square feet
+                Four stories of living space across nearly 7,000 square feet
               </p>
             </div>
 
