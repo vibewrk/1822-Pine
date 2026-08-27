@@ -156,6 +156,76 @@ export default function HistoryPage() {
         </div>
       </section>
 
+      {/* The Drexel chain. Every link has a document behind it: the 1854 deed
+          abstract for Roset's ownership, Roset's own 1870 obituary naming
+          A. J. Drexel as a son-in-law, and the public record of Drexel's
+          firms. Keep the framing at "son-in-law" — Drexel married Ellen in
+          1850, four years before her father bought this house, and never
+          lived here. "Family connection" is accurate; "Drexel's house" is
+          not, and would be the easiest claim on the site to disprove. */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <Eyebrow>The Drexel Connection</Eyebrow>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              The first owner&apos;s son-in-law founded a university and a bank.
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-stone-700">
+              This is the house&apos;s most improbable-sounding claim, and it
+              is the easiest one to check. Four links, each with a record
+              behind it:
+            </p>
+          </div>
+
+          <ol className="grid gap-5 md:grid-cols-2">
+            {[
+              [
+                "John Roset buys the house",
+                "April 21, 1854. The deed abstract in this archive names the builder John McCrea as seller and John Roset, merchant, as buyer.",
+              ],
+              [
+                "His daughter marries Anthony J. Drexel",
+                "Ellen Bicking Rozet wed the banker on August 13, 1850. Roset's own obituary, printed in the Evening Telegraph on August 10, 1870, names the sons-in-law: “Mr. Roset's daughters married several of our most prominent citizens, among whom are A. J. Drexel, Dr. J. L. Ludlow, and John A. Brodhead.”",
+              ],
+              [
+                "Drexel founds Drexel University",
+                "He established the Drexel Institute of Art, Science and Industry in 1891 — the institution that became Drexel University. Ellen died on November 27, 1891, weeks before it opened.",
+              ],
+              [
+                "And the bank that became JPMorgan Chase",
+                "On July 1, 1871, Drexel and J. Pierpont Morgan founded Drexel, Morgan & Co. In 1895, two years after Drexel's death, it was reorganised as J.P. Morgan & Co. — which merged with Chase Manhattan in 2000. JPMorgan Chase names Drexel, Morgan & Co. among its original predecessor firms.",
+              ],
+            ].map(([title, body], i) => (
+              <li
+                key={title}
+                className="flex gap-4 rounded-lg border border-stone-200 bg-stone-50 p-6"
+              >
+                <span className="font-serif text-3xl font-semibold text-amber-800">
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold text-stone-950">
+                    {title}
+                  </h3>
+                  <p className="mt-3 text-base leading-7 text-stone-700">
+                    {body}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <p className="mt-8 max-w-3xl text-base leading-7 text-stone-600">
+            One limit worth stating, because it is where this story usually
+            gets overstated elsewhere: Anthony Drexel never lived at 1822 Pine
+            Street. He married Ellen four years before her father bought the
+            house, and the couple lived on Rittenhouse Square itself. The
+            connection runs through the family, not the deed — which is still
+            a remarkable thing for a rowhouse to be able to prove.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-stone-100 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
