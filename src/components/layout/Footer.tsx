@@ -10,7 +10,7 @@ const footerNavigation = [
       { name: "Floor Plans", href: "/stay/floor-plans" },
       { name: "Room Planner", href: "/stay/rooms" },
       { name: "Rates", href: "/rates" },
-      { name: "House Rules", href: "/faq#house" },
+      { name: "House Rules", href: "/house-rules" },
     ],
   },
   {
