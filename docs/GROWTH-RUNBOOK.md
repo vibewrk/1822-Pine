@@ -79,82 +79,52 @@ now probes the insights endpoint instead. The analytics data store
 materialises with the first real browser visit (curl checks don't run JS,
 so they never registered).
 
-## 4. Domain repairs — CORRECTED 2026-08-25 (GoDaddy, NOT Vercel)
+## 4. Domains — RESOLVED 2026-08-27. Nothing left to do.
 
-An earlier draft of this section said to fix these in the Vercel dashboard.
-**That is wrong, and following it would waste your time** — the two broken
-domains are not in the Vercel team at all. Verified from a logged-in machine
-on 2026-08-25:
+**`rittenhouseresidence.com` is the canonical site, and every other domain now
+redirects to it correctly.** Verified live 2026-08-27:
 
 | Domain | Nameservers | Behavior |
 |---|---|---|
-| rittenhouseresidence.com | `ns1/ns2.vercel-dns.com` (**Vercel**) | 200, canonical host — OK |
-| www.rittenhouseresidence.com | Vercel | 307 → apex — OK |
-| 1822pine.com | `ns29/ns30.domaincontrol.com` (**GoDaddy**) | 301 → **http://**rittenhouseresidence.com |
-| therittenhouseresidence.com | `ns03/ns04.domaincontrol.com` (**GoDaddy**) | 301 → **http://**rittenhouseresidence.com |
-| www.1822pine.com | none | NXDOMAIN — no record exists |
+| rittenhouseresidence.com | Vercel | 200, canonical host |
+| www.rittenhouseresidence.com | Vercel | redirects to apex |
+| 1822pine.com | `ns1/ns2.vercel-dns.com` | **308 → https://rittenhouseresidence.com**, one hop, path-preserving |
+| www.1822pine.com | Vercel | **308 → apex**, one hop, path-preserving |
+| therittenhouseresidence.com | `ns1/ns2.vercel-dns.com` | **308 → apex**, one hop, path-preserving |
+| www.therittenhouseresidence.com | Vercel | **308 → apex** |
 
-`vercel domains ls --scope rpcoding` returns 20 domains and **neither
-`1822pine.com` nor `therittenhouseresidence.com` is among them.** Both resolve
-to `3.33.251.168` / `15.197.225.128` and answer with `Server: awselb/2.0` —
-that is GoDaddy's domain-forwarding service, not Vercel. So the insecure hop is
-configured in GoDaddy and can only be changed there.
+The GoDaddy migration described in earlier drafts of this section **has been
+completed** — the domains are off GoDaddy forwarding (`Server: awselb/2.0`)
+and on Vercel nameservers serving proper 308s. The insecure `http://` hop is
+gone. Deep links survive: `https://1822pine.com/rates` →
+`https://rittenhouseresidence.com/rates`.
 
-The actual chain today is two hops, the first one insecure:
+`scripts/verify-seo.sh` now checks resolution, single-hop, https, and path
+preservation for all three redirecting hosts, and all four checks pass for
+each.
 
-```
-http://1822pine.com  →301→  http://rittenhouseresidence.com  →→  https://rittenhouseresidence.com
-```
+> **Note on a phantom failure.** Until 2026-08-27 this script reported
+> "www.1822pine.com does NOT resolve" on macOS even though DNS was correct.
+> The check used `getent`, which is glibc-only; on macOS the name is shadowed
+> by `ugrep`, which exits 1 for *every* host — including google.com. The check
+> is now portable (`host` / `dig` / python fallback). If you saw that failure
+> in an older report, it was never real.
 
-This matters more than it looks: **`1822pine.com` is the domain Google actually
-indexed.** Redirect equity passes through an unencrypted hop, and the forwarding
-is a weaker, slower signal than a redirect served from the site's own edge.
+### The one domain task still open — and it needs your Google account
 
-### Progress 2026-08-25: the Vercel half is DONE
+**Search Console "Change of Address."** `1822pine.com` is the domain Google
+historically indexed. A 308 redirect passes equity, but Change of Address is
+the only mechanism that formally *migrates* it, and it is faster and less
+lossy:
 
-All four domains were added to the `rittenhouse-website` project via the API,
-each configured as a **308 permanent redirect** to `rittenhouseresidence.com`,
-and Vercel accepted ownership verification for all of them:
+1. Search Console → add `1822pine.com` as its own property (Domain type; the
+   DNS TXT record goes in Vercel now, not GoDaddy).
+2. Settings → **Change of Address** → select `rittenhouseresidence.com` as the
+   destination → Validate & Update.
+3. Google verifies the redirects itself (they already pass) and keeps the
+   old property's data visible for ~180 days.
 
-- `1822pine.com`, `www.1822pine.com`
-- `therittenhouseresidence.com`, `www.therittenhouseresidence.com`
-
-**The only step left is at GoDaddy** (both domains are on GoDaddy
-nameservers): for each domain, turn OFF Forwarding, then set nameservers to
-`ns1.vercel-dns.com` / `ns2.vercel-dns.com`. The moment DNS propagates,
-Vercel serves the clean single-hop https 308 and provisions certificates.
-Nothing further to configure on the Vercel side.
-
-### Fix — pick one
-
-**Option A (recommended): move the domains onto Vercel.** Best SEO outcome and
-it puts everything in one dashboard.
-
-1. Vercel → project `rittenhouse-website` → Settings → Domains → Add
-   `1822pine.com`, `www.1822pine.com`, `therittenhouseresidence.com`.
-2. Vercel shows the records to create. In GoDaddy → the domain → DNS, either
-   point the nameservers at `ns1.vercel-dns.com` / `ns2.vercel-dns.com`, or add
-   the A/CNAME records Vercel gives you. Turn **off** GoDaddy Forwarding first —
-   it overrides DNS records while it is on.
-3. In Vercel, set each added domain to **Redirect to** `rittenhouseresidence.com`
-   with status **308 Permanent**. Vercel then serves a single clean
-   `https://` hop and issues certificates automatically.
-
-**Option B (quick patch, ~5 min): keep GoDaddy, just make it HTTPS.**
-GoDaddy → the domain → Forwarding → edit. Set the destination to
-`https://rittenhouseresidence.com` (with the scheme) and forward type
-**Permanent (301)**. Repeat for both domains. Add a forwarding entry or CNAME
-for `www.1822pine.com` so it stops NXDOMAINing. This removes the insecure hop
-but leaves you managing two dashboards.
-
-**Either way, also:** add `1822pine.com` as its own property in Search Console
-and use **Change of Address** → `rittenhouseresidence.com`. That is the only
-mechanism that formally migrates indexed equity; a redirect alone is slower and
-lossier.
-
-*Note: GoDaddy has no usable CLI for forwarding config, and both accounts need
-a browser login — these steps are yours to click, not something this repo can
-automate.*
+Do the same for `therittenhouseresidence.com` if it has any index history.
 
 ## 5. Contact-form email (10 minutes)
 

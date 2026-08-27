@@ -67,9 +67,12 @@ against the live domain, not a preview:
 - homepage says "Sleeps 16", no "coming soon" anywhere
 - logo 51KB, TTFB 0.056s, contact API validates
 
-**The 4 remaining failures are all account actions, not code** — three GoDaddy
-domain items and the Vercel Analytics toggle. See `GROWTH-RUNBOOK.md` §3 and
-§4. Nothing further can be fixed from this repository.
+**Update 2026-08-27: the domain and analytics items are all now DONE.**
+`scripts/verify-seo.sh` reports **46 pass / 0 fail** against production. The
+domains are on Vercel nameservers serving single-hop, path-preserving 308s to
+`rittenhouseresidence.com` (the canonical site), and Vercel Analytics is
+enabled. The only domain task left is Search Console **Change of Address** for
+`1822pine.com`, which needs a Google login — see `GROWTH-RUNBOOK.md` §4.
 
 Also confirmed 2026-08-25: `rittenhouseresidence.com` has **no TXT records at
 all**, so Search Console has never been verified by DNS — the token stored at
@@ -130,14 +133,13 @@ Full click-by-click is in `docs/GROWTH-RUNBOOK.md`. Summary:
    (2026-08-02) found no mapped property collecting. Confirm you own it or
    create a new one, then mark `ota_click` and `contact_submit` as key events.
 3. **Vercel Analytics** — one toggle; the component is already in the layout.
-4. **Domain redirects — in GoDaddy, not Vercel (corrected 2026-08-25).**
-   `therittenhouseresidence.com` and `1822pine.com` both 301 through insecure
-   `http://`, and `1822pine.com` is the domain Google actually indexed.
-   `www.1822pine.com` doesn't resolve at all. Neither broken domain is in the
-   Vercel team — both sit on GoDaddy nameservers using GoDaddy forwarding
-   (`Server: awselb/2.0`), so the Vercel dashboard cannot fix them. Runbook §4
-   now has both routes: move them onto Vercel (recommended) or switch the
-   GoDaddy forwarding to `https://`.
+4. **Domain redirects — DONE (verified 2026-08-27).** `1822pine.com`,
+   `www.1822pine.com` and `therittenhouseresidence.com` are all on Vercel
+   nameservers and serve single-hop, path-preserving **308s** to
+   `rittenhouseresidence.com`. No GoDaddy work remains. The one open item is
+   Search Console **Change of Address** for `1822pine.com` (runbook §4) — the
+   redirect passes equity, but Change of Address formally migrates it.
+
 5. **Resend** — confirm `RESEND_API_KEY` is set in Vercel, then verify the
    domain and set `CONTACT_FROM_EMAIL`. Until then the sandbox sender only
    reliably delivers to the Resend account owner's inbox.
