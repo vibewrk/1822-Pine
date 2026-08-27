@@ -63,3 +63,52 @@ Four deed slugs disagree with their own `extracted_date`:
 - `1822-pine-1985-deed` carries `1979-10-17`
 - `1822-pine-deed-1987` carries `1985-03-15`
 - `1822-pine-1999-deed-1` carries `1991-04-26`
+
+---
+
+## Correction to the 2026-08-27 research pass — read the deeds first
+
+The research pass concluded that "no source anywhere ties John McCrea to 1822
+Pine Street" and that the "Roset family home, 1854–1893" framing was wrong.
+**Both conclusions are mistaken, and the refutation was in this repository the
+whole time.** The agents searched the open web and never opened the deed
+abstract images in `raw_documents/`.
+
+Read directly off the images:
+
+**`1854 Deed abstract (2).jpg`** — PRESENT OWNER *Jno Roset*; FORMER OWNER
+*Jno McCrea*; DATE OF DEED April 1854. McCrea is named as the grantor. The lot
+is described as the south side of Pine, 230 feet west of 18th, 22 feet front,
+90 feet deep to Waverly — the same dimensions the 2013 deed still recites.
+
+**`1893 Deed abstract.jpg`** — the chain of title, in red ink:
+
+> John Roset · By Will · To · Mary Ann Roset · By Will · To · The Penna Co for
+> Ins on Lives &c et al · in Trust
+
+So the Rosets held title continuously from 1854 to the 1893 sale: John Roset,
+then his widow Mary Ann by will, then the Pennsylvania Company as trustee.
+**"The Roset Years, 1854–1893" is correct as an ownership framing.** The
+directory evidence showing tenants in the house from 1859 does not contradict
+it — the family owned the house and rented it out. Ownership and occupancy are
+different claims and must not be collapsed into one.
+
+### A larger error the deeds do expose
+
+**The 1893 purchaser was HOWARD Spencer, not Graham.** The 1893 abstract names
+Howard Spencer as present owner, and the 1899 abstract names the grantors as
+*"William McLean, Henry Pleasants, Executors & Trustees under the will of
+Howard Spencer."* The site attributed both the purchase and the estate to
+Graham. Corrected in `story-chapters.json`.
+
+This also explains the Wilmington obituary's careful wording. Graham's funeral
+was held *"from the residence of his relatives, at No. 1822 Pine street"* —
+because the house was his father's, not his own. Howard died 28 June 1896;
+Graham died 21 November 1896. At Graham's funeral the house sat in Howard's
+estate.
+
+### Method note for the next pass
+
+Search the repository's own primary documents before searching the web. Twelve
+agents and 1,160 lookups produced a confident negative finding that a single
+image in `raw_documents/` refutes.

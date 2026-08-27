@@ -74,5 +74,29 @@
   {
     "fact": "Society listing notes an \"At home\" for Mrs. Henry C. Davis and the Misses Davis at 1822 Pine Street.",
     "source": "raw_documents/The_Philadelphia_Inquirer_1904_12_11_Page_36.pdf"
+  },
+  {
+    "fact": "1854 deed abstract: PRESENT OWNER \"Jno Roset\"; FORMER OWNER \"Jno McCrea\"; DATE OF DEED April 1854. This is the document tying builder John McCrea to this house.",
+    "source": "raw_documents/1854 Deed abstract (2).jpg"
+  },
+  {
+    "fact": "1854 deed abstract describes the lot as the south side of Pine Street, 230 feet west of 18th Street, 22 feet front, 90 feet deep to Waverly Street — the same dimensions recited in the 2013 deed.",
+    "source": "raw_documents/1854 Deed abstract (2).jpg"
+  },
+  {
+    "fact": "1893 deed abstract records the chain of title in red ink: \"John Roset by Will to Mary Ann Roset by Will to The Penna Co for Ins on Lives &c et al in Trust\" — documenting continuous Roset family ownership from 1854 until the 1893 sale.",
+    "source": "raw_documents/1893 Deed abstract.jpg"
+  },
+  {
+    "fact": "1893 deed abstract: PRESENT OWNER \"Howard Spencer\"; FORMER OWNER \"The Penna Co for Ins on Lives &c et al\"; DATE OF DEED 29 June 1893. The 1893 purchaser was HOWARD Spencer, not Graham.",
+    "source": "raw_documents/1893 Deed abstract.jpg"
+  },
+  {
+    "fact": "1899 deed abstract: PRESENT OWNER \"Agnes M. Spencer\"; FORMER OWNER \"William McLean, Henry Pleasants, Executors & Trustees under the will of Howard Spencer\"; DATE OF DEED 3 April 1899. The 1899 conveyance came out of HOWARD Spencer's estate.",
+    "source": "raw_documents/1899 Deed abstract - 1.jpg"
+  },
+  {
+    "fact": "1899 deed abstract, reverse: Registry Office entered 6 April 1899; Lot No. 76, Plan Book 3S page 21, Pine Street, 7th Ward, Division 21 — matching the city registry number 003S210076. The house number is written as 1822.",
+    "source": "raw_documents/1899 Deed abstract - 2.jpg"
   }
 ]
