@@ -264,6 +264,16 @@ export default function ThingsToDoPage() {
             title="The Square's traditions, by season."
             body="Rittenhouse Square has kept some of its rituals for more than a century. Dates below are from the organizers' own sites, verified August 2026."
           />
+          <p className="-mt-4 mb-9 text-base leading-7 text-stone-700">
+            For the citywide picture — conventions, festivals, marathons —{" "}
+            <Link
+              href="/philadelphia-events"
+              className="inline-flex items-center gap-1 font-semibold text-amber-800 transition-colors hover:text-amber-900"
+            >
+              see the Philadelphia events calendar
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </p>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {annualCalendar.map(([event, when, note, href]) => (
               <article

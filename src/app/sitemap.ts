@@ -5,7 +5,7 @@ import archiveData from "@/data/document-archive.json";
 // Content changes when this repo changes; a stable date beats stamping every
 // URL with the build time (which tells crawlers nothing). Bump on real
 // content updates.
-const CONTENT_UPDATED = new Date("2026-08-25");
+const CONTENT_UPDATED = new Date("2026-08-27");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rittenhouseresidence.com";
@@ -38,6 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/rittenhouse-square/things-to-do", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/rittenhouse-square/restaurants", priority: 0.8, changeFrequency: "monthly" as const },
     { url: "/rittenhouse-square/where-to-stay", priority: 0.8, changeFrequency: "monthly" as const },
+  ];
+
+  // Citywide events calendar — refreshed as organizers announce dates.
+  const eventsPages = [
+    { url: "/philadelphia-events", priority: 0.8, changeFrequency: "weekly" as const },
   ];
 
   // History section - rich content for SEO
@@ -85,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...corePages,
     ...groupsPages,
     ...rittenhouseSquarePages,
+    ...eventsPages,
     ...historyPages,
     ...storyChapters,
     ...documentPages,

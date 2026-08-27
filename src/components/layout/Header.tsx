@@ -38,7 +38,8 @@ const navigation = [
     href: "/neighborhood",
     submenu: [
       { name: "Neighborhood Guide", href: "/neighborhood" },
-      { name: "Rittenhouse Square", href: "/rittenhouse-square", highlight: true },
+      { name: "Rittenhouse Square", href: "/rittenhouse-square" },
+      { name: "Events Calendar", href: "/philadelphia-events", highlight: true },
       { name: "Things to Do", href: "/rittenhouse-square/things-to-do" },
       { name: "Restaurants", href: "/rittenhouse-square/restaurants" },
       { name: "Square History", href: "/rittenhouse-square/history" },
