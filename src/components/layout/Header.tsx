@@ -19,6 +19,7 @@ const navigation = [
       { name: "Hotel Alternative", href: "/hotel-alternative" },
       { name: "Group Dining", href: "/neighborhood/group-dining" },
       { name: "Room Planner", href: "/stay/rooms" },
+      { name: "Stairs & Access", href: "/stay/stairs-and-access" },
     ],
   },
   {

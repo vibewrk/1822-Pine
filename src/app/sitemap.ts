@@ -92,6 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const propertyPages = [
     { url: "/stay/floor-plans", priority: 0.6, changeFrequency: "monthly" as const },
     { url: "/stay/rooms", priority: 0.6, changeFrequency: "monthly" as const },
+    { url: "/stay/stairs-and-access", priority: 0.7, changeFrequency: "monthly" as const },
   ];
 
   const allPages = [
