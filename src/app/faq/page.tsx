@@ -55,7 +55,7 @@ const faqSections = [
       },
       {
         q: "How is the house arranged?",
-        a: "The residence spans five floors, with two parlors, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
+        a: "The residence is four stories — five the way the front stacks, because the rear sits on shallower floors — with two parlors, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
       },
       {
         q: "What amenities are included?",
@@ -133,7 +133,7 @@ const faqSections = [
     questions: [
       {
         q: "Is there an elevator?",
-        a: "No. The house is a historic five-floor townhouse with stairs between floors.",
+        a: "No. The house is a historic four-story townhouse with stairs between floors and no elevator.",
       },
       {
         q: "Are bedrooms on the first floor?",
@@ -185,7 +185,7 @@ export default function FaqPage() {
               Practical answers before you book.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-              Booking, payment, house rules, parking, and the realities of staying in a five-floor 1854 townhouse.
+              Booking, payment, house rules, parking, and the realities of staying in a four-story 1854 townhouse.
             </p>
           </div>
         </section>

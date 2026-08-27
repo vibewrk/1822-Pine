@@ -44,7 +44,7 @@ const rateFacts = [
   ],
   [
     "One group per date",
-    "The whole five-floor house is yours privately. There is no per-room pricing.",
+    "The whole four-story house is yours privately. There is no per-room pricing.",
   ],
 ];
 
@@ -167,7 +167,7 @@ export default function RatesPage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
               There is no per-room pricing. Your group has the residence
-              privately — five floors, two kitchens, and the practical setup
+              privately — four stories, two kitchens, and the practical setup
               that makes a large stay work.
             </p>
           </div>

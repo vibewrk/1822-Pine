@@ -73,7 +73,7 @@ const occasions = [
 
 // Review figures sourced from the Airbnb listing; re-verify when updating.
 const trustItems = [
-  "4.88 · 102 reviews on Airbnb, as of Aug 2026",
+  "168 guest reviews across Airbnb and Vrbo, as of Aug 2026",
   "Philadelphia STR License #903781",
   "Fully insured",
 ];
@@ -108,7 +108,7 @@ export default function HomePage() {
               An 8-bedroom Victorian mansion in the heart of Center City Philadelphia — the whole house, for your whole group.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-7 text-stone-100 md:text-lg">
-              Nearly 7,000 square feet across five floors, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
+              Nearly 7,000 square feet over four stories that live like five, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
@@ -134,7 +134,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 transition-colors hover:text-white"
               >
                 <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
-                4.88 · 102 reviews, as of Aug 2026
+                4.88 on Airbnb · 9.8 on Vrbo · 168 reviews
               </TrackedLink>
             </div>
 
@@ -252,7 +252,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"

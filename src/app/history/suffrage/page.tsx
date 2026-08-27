@@ -442,7 +442,7 @@ export default function SuffragePage() {
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
               The rooms where the Davis women lived are the rooms your group
-              stays in — 8 bedrooms across five floors, two blocks from
+              stays in — 8 bedrooms across four stories that live like five, two blocks from
               Rittenhouse Square, with the archive published for anyone to
               read.
             </p>

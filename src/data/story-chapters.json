@@ -1,1209 +1,757 @@
 {
-  "title": "House at the Edge of the Square",
-  "subtitle": "The Story of 1822 Pine Street",
-  "introduction": "You're standing in a long, brick memory. For nearly two centuries, this house has watched Philadelphia transform—from the age of horse-drawn carriages to the digital era. It has hosted merchants and reformers, doctors and debutantes, suffragettes and society brides. Every room holds stories written in marble and mortar, documented in deeds and newspaper columns, preserved in the very fabric of its walls.",
   "chapters": [
-    {
-      "slug": "prologue",
-      "number": 0,
-      "title": "Prologue",
-      "subtitle": "The Marble Remembers",
-      "era": "1854-Present",
-      "yearStart": 1854,
-      "yearEnd": 2024,
-      "excerpt": "I was a slab of white marble when the mason bedded me into Pine Street. Since that day, I have counted every footfall that crossed my threshold.",
-      "heroImage": "/images/property/DSC00064.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I was a slab of white marble when the mason bedded me into Pine Street—cool under dust and hooves. Boots creaked across my edge. A housemaid's broom ticked against my corners each morning. By afternoon the rhythm appeared: tradesmen early, callers after three, a card left on the hall table, a door that knew exactly how wide to open for each visitor."
-        },
-        {
-          "type": "paragraph",
-          "text": "This is the story of 1822 Pine Street, told from the perspective of the house itself. For 170 years, this threshold has been the boundary between Pine Street's public face and the private dramas within. It has witnessed Victorian formality and suffragette determination, wartime sacrifice and peacetime celebration, decline and renaissance."
-        },
-        {
-          "type": "paragraph",
-          "text": "The house stands at the edge of Rittenhouse Square, Philadelphia's most prestigious address. It was built in an era when homes were designed for ritual—for receiving callers, hosting weddings, mourning the dead, and celebrating the living. That architectural DNA remains intact: the side-hall plan that moves guests efficiently from street to parlor, the double parlors that can host intimate dinners or grand celebrations, the service corridor to Waverly Street that keeps the mechanics of hospitality invisible."
-        },
-        {
-          "type": "heading",
-          "text": "How to Read This Story"
-        },
-        {
-          "type": "paragraph",
-          "text": "Each chapter covers an era in the house's life, anchored by documented facts—deeds, newspaper notices, directory listings, and building permits that specifically name 1822 Pine Street. Where the record is silent, we say so. Where family memory suggests details we cannot yet prove, we mark them as probable pending verification."
-        },
-        {
-          "type": "paragraph",
-          "text": "The italicized passages throughout are the voice of the threshold itself—a narrative device that honors the house's role as witness to history. The marble step has no opinion about what it sees; it simply records the weight and rhythm of passing feet, the temperature of the seasons, the difference between a bride's hesitant step and a mourner's heavy tread."
-        },
-        {
-          "type": "callout",
-          "title": "For Today's Guests",
-          "text": "When you cross this threshold, you join a procession that began in 1854. The Rosets brought their children through this door. The Spencers carried grief and hope across it. The Davis women stepped out to fight for the vote and sold suffrage tickets from this address. Doctors, patients, tenants, and visitors—all have left their mark in ways both visible and invisible. Now it's your turn to add your footsteps to the count."
-        }
-      ],
-      "documents": [],
-      "keyFacts": [
-        "Built 1854 by developer John McCrea",
-        "170+ years of continuous history",
-        "Original fireplaces and marble mantels preserved",
-        "Protected as part of Rittenhouse-Fitler Historic District since 1995"
-      ]
-    },
     {
       "slug": "before-the-threshold",
       "number": 1,
       "title": "Before the Threshold",
-      "subtitle": "The Roset Years",
-      "era": "1854-1893",
+      "subtitle": "A speculative brick row two blocks from the square, a house number that changed, and a banking family that never came inside",
+      "era": "1854–1893",
+      "excerpt": "The merchant who bought this ground in 1854 lived here four years and let it out for decades — while his daughters married into the money on the next block.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "I was ground before I was an address. Twenty-two feet across the front, ninety feet running back to the little street behind, and a slab of white marble set at the edge to take the weather. What I learned first was mortar — the whole row going up at once, filling in westward from the corner. Cart ruts. Lime dust turning to paste in the rain. Then, one autumn, boots that wiped themselves before coming in."
+        },
+        {
+          "type": "heading",
+          "text": "Ground, and What Stood on It"
+        },
+        {
+          "type": "paragraph",
+          "text": "On April 21, 1854, a merchant named John Roset bought a lot on the south side of Pine Street, two hundred and thirty feet west of Eighteenth: twenty-two feet of frontage, ninety feet deep, running south to Waverly Street. The abstract recites only the ground and its measurements — the form's standard wording, which tells us nothing either way about the house. Whether brick already stood there that April or rose in the months after, the deed leaves open. The direction of travel is plain enough. The city directory for 1853 lists no Pine Street number anywhere near this stretch; a year later they begin appearing, filling in from the corner like teeth. By 1855 the block is full."
+        },
+        {
+          "type": "pullquote",
+          "text": "All that certain lot or piece of ground, two hundred and thirty feet west of Eighteenth."
+        },
+        {
+          "type": "paragraph",
+          "text": "This was never a mansion, whatever the marble suggests. It was a speculative row: nineteen four-story, two-bay brick houses in the late Greek Revival taste, drawn identically on the atlas — a four-story front block, a three-story back building, and open ground behind it running down to Waverly. Nineteen of the same door, the same window rhythm, the same white step. Individuality arrived with the people, and the people arrived fast."
+        },
+        {
+          "type": "heading",
+          "text": "The Number That Moved"
+        },
+        {
+          "type": "paragraph",
+          "text": "For its first years the house answered to another number. The directory for 1855 prints Roset John, merchant, at 756 Pine. The 1858 volume prints the same man, same trade, at 1822 Pine. Between those two books the city renumbered itself, adding 1,066 to every door on the block at once. Sixteen households shifted in step; 756 became 1822, and its neighbours moved with it. The man who printed the directory lived a few doors east and renumbered his own house in it."
+        },
+        {
+          "type": "narrator",
+          "text": "Coal smoke in the winters, and the sound a new house makes — joists settling, plaster giving up its water, one stair tread finding its complaint and keeping it. I could tell hired feet from invited ones by the hour and by the pause. Invited feet hesitate. Hired feet never do."
+        },
+        {
+          "type": "heading",
+          "text": "The Banker in the Family"
+        },
+        {
+          "type": "paragraph",
+          "text": "Four years before he bought this ground, Roset had given away a daughter. Ellen Bicking Rozet married Anthony J. Drexel on August 13, 1850. He never lived behind this door. He was the owner's son-in-law, which in Philadelphia was a kind of address in itself. From about 1867 his younger brother Joseph W. Drexel held a house on the opposite side of the street, at 1829 Pine — by which time the Rosets had long since let this door out to tenants."
+        },
+        {
+          "type": "heading",
+          "text": "A Fashionable Address, To Let"
+        },
+        {
+          "type": "paragraph",
+          "text": "Here the story turns, because Roset did not stay. He held the property thirty-nine years and lived in it four. The directories hand the door along like a coin: a man they give no trade at all, then an engineer and a widow sharing one entry in a single volume, then a glassworks man, then a grocer with a Market Street counter. Each of them paid rent to somebody else. By 1871 the tenant is Howard Spencer, a company president with an office on South Third, who had brought his household in from Burlington, New Jersey."
+        },
+        {
+          "type": "paragraph",
+          "text": "The address carried its own weight regardless of who paid for it. Two blocks from the Square, on a street the city had decided to take seriously, the number alone was worth printing — and merchants printed it, in lists of the households they wished to be seen supplying."
+        },
+        {
+          "type": "paragraph",
+          "text": "John Roset died on August 9, 1870, in his seventy-sixth year, not here but out in West Philadelphia. The notice the next evening remembered him briefly: in his active days Mr. Roset was a prominent merchant. The property passed by will, and then by will again, and then into a trust company's keeping, and went on letting."
+        },
+        {
+          "type": "narrator",
+          "text": "Thirty-nine years under one name and a new set of feet every few of them. I stopped expecting permanence early. What I kept instead was the shape of an evening: the door held open a beat too long, cold coming in at ankle height, someone in the hall saying goodnight twice because the first one did not take. Nineteen houses went up on this block in a single gesture. Only one of them has this hall, and the goodnights in it still take two tries."
+        }
+      ],
       "yearStart": 1854,
       "yearEnd": 1893,
-      "excerpt": "The house was built for ritual—for receiving callers, hosting weddings, mourning the dead. That DNA remains in every room.",
-      "heroImage": "/images/documents/1854-deed.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "My first memory is of fresh mortar and the smell of sawdust. The masons worked through the spring of 1854, setting brick upon brick, and when they finally bedded me at the threshold, I felt the whole weight of the house settle into place above. I was the last piece—the comma between street and home."
-        },
-        {
-          "type": "heading",
-          "text": "A House Built for Ceremony"
-        },
-        {
-          "type": "paragraph",
-          "text": "In April 1854, developer John McCrea sold the newly completed house at 1822 Pine Street to John Roset, a merchant of French heritage. The transaction was ordinary enough—another townhouse in McCrea's ambitious campaign to fill the blocks west of Broad Street—but it began a chain of ownership we can trace, deed by deed, to the present day."
-        },
-        {
-          "type": "paragraph",
-          "text": "The form is classic Philadelphia side-hall: four stories of dignified red brick, paired front parlors, stairs rising in a quiet arc to the upper floors. The lot runs 22 feet wide and 90 feet deep, all the way back to Waverly Street, where service once entered through a separate door. That geometry still dictates how the house works for caterers and crews today."
-        },
-        {
-          "type": "paragraph",
-          "text": "McCrea was a prolific builder in the mid-nineteenth century, responsible for block after block of respectable townhouses. His signature style bridged late Greek Revival and early Italianate—high ceilings, marble mantels, proportions that whispered 'Proper Philadelphia' in brick and stone. Number 1822 Pine was among his finest work, designed for a family that would entertain, that would receive callers on appointed days, that would host the ceremonies of middle-class Victorian life."
-        },
-        {
-          "type": "heading",
-          "text": "The Roset Family"
-        },
-        {
-          "type": "paragraph",
-          "text": "John and Mary Ann Laning Roset were the first to call this house home in any sustained way. They raised children here, received callers in the front parlors, and established the rhythms of domestic life that would echo through every subsequent era. Their eldest daughter Ellen had already married the young banker Anthony J. Drexel in 1850—a connection that would bind this address to Philadelphia's mercantile and philanthropic elite."
-        },
-        {
-          "type": "paragraph",
-          "text": "The Drexel name carries weight in Philadelphia still. Anthony J. Drexel would go on to found Drexel University, establish one of the nation's most powerful banking houses, and shape the city's cultural landscape. That his in-laws lived at 1822 Pine Street places this house firmly within the orbit of Philadelphia's golden age of industry and philanthropy."
-        },
-        {
-          "type": "paragraph",
-          "text": "When John Roset died in 1870, Mary Ann kept the house. At her death a decade later, it passed into trust with the Pennsylvania Company—a decision suggesting the children had scattered to their own addresses and the old home was rented out during the 1880s while the family waited for the right moment to sell."
-        },
-        {
-          "type": "heading",
-          "text": "Life Behind the Threshold"
-        },
-        {
-          "type": "paragraph",
-          "text": "What did life look like in those early decades? The documentary record is sparse for daily routines, but we can reconstruct the patterns from the physical evidence and the customs of the era."
-        },
-        {
-          "type": "paragraph",
-          "text": "The parlors were the stage. Receiving days brought callers who left their cards on the hall table. Musical evenings gathered the neighborhood around the piano. Weddings were celebrated at home, with the breakfast laid in the dining room and guests flowing between the double parlors. Wakes, too, happened here—the body displayed in the front parlor, visitors paying respects in the same space where parties had been held the week before. Every ritual of Victorian life was framed by these doorways."
-        },
-        {
-          "type": "paragraph",
-          "text": "A house this size required staff: a cook, a housemaid, perhaps a coachman or errand boy. They would have slept in the rear rooms or the attic, their movements timed to avoid the family's notice. Coal scuttles and hot water cans mapped the labor of each day, from the kitchen fires lit before dawn to the last lamp extinguished at night."
-        },
-        {
-          "type": "paragraph",
-          "text": "The seasons shaped everything. Winters meant the family 'in town'—a full social calendar, the house heated and lit, every room in use. Summers brought departure: shuttered windows, a caretaker's rounds, letters posted from the shore while the marble step warmed in the August sun."
-        },
-        {
-          "type": "callout",
-          "title": "What to Notice Today",
-          "text": "Stand in the side hall and imagine the circulation of a busy Victorian household. Tradesmen entered through the rear, while callers came to the front door. The stairs carry family and guests upward, away from the public rooms. The double parlors can open to each other for large gatherings or close off for intimacy. This flow wasn't decorative—it was functional hospitality, and it still works perfectly for modern events."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1854 Deed Abstract",
-          "description": "Original property transfer from John McCrea to John Roset",
-          "slug": "1854-deed-abstract"
-        }
-      ],
+      "heroImage": "/images/airbnb/airbnb_03.jpg",
       "keyFacts": [
-        "April 1854: John McCrea sells to John Roset",
-        "Connection to Anthony J. Drexel through marriage",
-        "1870: John Roset dies; Mary Ann keeps the house",
-        "1880: House enters trust management",
-        "Classic Philadelphia side-hall plan: 22' x 90' lot"
-      ]
+        "Ground, and What Stood on It",
+        "The Number That Moved",
+        "The Banker in the Family"
+      ],
+      "documents": []
     },
     {
-      "slug": "between-mourning-and-modernity",
+      "slug": "a-new-story",
       "number": 2,
-      "title": "Between Mourning and Modernity",
-      "subtitle": "The Spencer Transformation",
-      "era": "1891-1905",
-      "yearStart": 1891,
-      "yearEnd": 1905,
-      "excerpt": "Tragedy preceded transformation. After decades with the Rosets, the house changed hands and underwent a complete architectural reimagining.",
-      "heroImage": "/images/property/DSC00082.jpg",
+      "title": "A New Story",
+      "subtitle": "Kaolin money, two funerals, and the widow who raised the roof",
+      "era": "1871–1899",
+      "excerpt": "A white-clay fortune bought this house at auction in 1893; within three years two Spencers were dead, and a widow answered by adding a floor.",
       "content": [
         {
           "type": "narrator",
-          "text": "By the 1890s my edges had rounded with forty years of callers. Some mornings were quiet—a hush that meant bad news behind the door. Other days brought a parade: florists with green-stained fingers, dressmakers balancing hatboxes, physicians with black bags and serious faces. I learned to read the footsteps. Slow meant sorrow. Quick meant parties. Resolute meant news that had to be faced."
+          "text": "I came into the seventies with my brick settled and my stair rail worn to satin at the second turn. A household arrived from a ferry town across the river, and I learned them by their trunks — the way people who mean to stay set a trunk down, squarely, and go back for the next. Rooms get used constantly. Being lived in is rarer. It begins with where the winter coats go."
         },
         {
           "type": "heading",
-          "text": "A New Century, A New Vision"
+          "text": "The Man from Burlington"
         },
         {
           "type": "paragraph",
-          "text": "In June 1893, after nearly four decades in the Roset family's orbit, the house was sold. The trustee transferred 1822 Pine Street to Howard Spencer for $14,000—a substantial sum that reflects the property's prestige. The Philadelphia Inquirer noted the sale, one of the rare moments when this quiet address made the public record."
+          "text": "In the directory for 1867 Howard Spencer is a company president with a city office and a country address: a desk on South Third Street, a house in Burlington, New Jersey. Four years later the desk has not moved and the door has — same office, new threshold on the south side of Pine, two blocks from the Square. He would live behind that door for twenty-two years before he owned an inch of it."
         },
         {
           "type": "paragraph",
-          "text": "Graham Spencer's ownership was brief. He died in 1896, leaving his executors—Henry S. Pleasants and William McLean—to manage the estate. But the Spencer name would define the house's next great chapter through his widow Agnes."
+          "text": "The house he rented belonged to a dead man's estate. The merchant who took the ground in 1854 had occupied the finished house only a few winters before letting it out, and after his death the title ran through wills into a trust company's hands. The Spencers moved in under trustees, and stayed longer than anyone before them."
+        },
+        {
+          "type": "narrator",
+          "text": "I know money by its smell before I know its name. Coal in the front rooms, beeswax on the rail, and under all of it, on certain sleeves, a fine chalk-white dust that never quite brushed out."
         },
         {
           "type": "heading",
-          "text": "Agnes Spencer's Renaissance"
+          "text": "White Clay"
         },
         {
           "type": "paragraph",
-          "text": "On April 3, 1899, the executors of Howard Spencer's will conveyed the deed to Agnes M. Spencer. She was wealthy, capable, and ready to modernize. Almost immediately, she hired Duhring, Okie & Ziegler—rising stars among Philadelphia's architects—to undertake what the newspapers called 'alterations and additions' to the dwelling."
+          "text": "The dust was kaolin. Howard Spencer was a pioneer of the kaolin and spar workings at Hockessin, Delaware, and drew a large fortune out of the soft white china clay that becomes porcelain in a kiln. The teacups on the mantel and the money that paid for the mantel came out of the same ground. It is a peculiarly Philadelphia fortune: not railroads, not iron, but the powdered whiteness that makes a plate ring when you flick it."
         },
         {
           "type": "paragraph",
-          "text": "The firm was known for tasteful updates that honored existing architecture while bringing houses into the modern age. Their work at 1822 Pine Street, documented in both the Philadelphia Inquirer and the Philadelphia Times, represented a turn-of-century refresh: upgraded plumbing and gas lighting, decorative refinishing, and a clearer separation between the public rooms and private quarters."
-        },
-        {
-          "type": "paragraph",
-          "text": "The project cost approximately $6,000—equivalent to well over $200,000 today—suggesting substantial work rather than superficial updates. Family memory speaks of a rear extension and a back service stair, though we await permit records to confirm the exact scope. What we can prove is the commission itself: client, address, architects, and date, printed in the papers of the time."
+          "text": "Not everything the clay bought could be kept. In the spring of 1891 a Spencer child died in this house of scarlet fever — seven years old, the eldest son of Graham and Agnes, named for his grandfather, who was still very much alive and about to buy the house his grandson had died in. The death notice printed no given name at all, and closed the door on the rest: interment private."
         },
         {
           "type": "heading",
-          "text": "Society Returns"
+          "text": "Bought at the Hammer"
         },
         {
           "type": "paragraph",
-          "text": "With the renovations complete, the house resumed its role as a stage for Philadelphia society. The Philadelphia Times reported in winter 1901 that 'Mrs. Graham Spencer has closed her country house, at Kaolin, Chester county, and returned to 1822 Pine street for the winter'—the classic rhythm of summer in the country, winter in town, that defined Rittenhouse Square life."
+          "text": "That purchase came at the Philadelphia Exchange on Wednesday, May 10, 1893. Howard Spencer was the buyer, and the deed followed on June 29. After thirty-nine years the house stopped being an investment and became a possession."
         },
         {
-          "type": "paragraph",
-          "text": "That same autumn, the parlors hosted joy after years of estate administration and construction. November 1901 brought a wedding breakfast for the Rolin-Plumb nuptials, filling the renovated rooms with celebration. The house had emerged from its chrysalis, ready for a new century."
+          "type": "pullquote",
+          "text": "Pine Street, No. 1822, four-story residence, lot 22 x 90 feet, $14,000."
         },
         {
           "type": "heading",
-          "text": "The Davis Family Arrives"
+          "text": "Eleven O'Clock, November"
         },
         {
           "type": "paragraph",
-          "text": "By 1904, new names appeared at the address. The Philadelphia Inquirer announced 'At Home' days for 'Mrs. Henry C. Davis and the Misses Davis, of 1822 Pine street'—the choreographed afternoons when society ladies received callers. These were the people who would carry the address into the historical record once again—this time on the side of women's suffrage."
+          "text": "He had it three years. Howard Spencer died at Atlantic City on June 28, 1896, aged seventy-five. Five months later, on November 21, his son Graham died in Philadelphia at forty-four, and on the morning of Tuesday, November 24, at eleven o'clock, the funeral went out through this door — from the residence of his relatives, as the notice had it, a man carried out over a step that was not his. Late November light comes through the tall front windows flat and silver. The pocket doors rolled back into the wall to make the two parlors one long room. Cold air pushed in each time the door opened, and hothouse lilies lost an argument with coal smoke."
+        },
+        {
+          "type": "narrator",
+          "text": "Slow feet that morning, and many of them, every one careful on the marble because November leaves it slick. Then the house went quiet in the particular way a house does when the person deciding what happens next is a woman standing alone in the hall."
+        },
+        {
+          "type": "heading",
+          "text": "What the Widow Did"
         },
         {
           "type": "paragraph",
-          "text": "The following year brought one last documented improvement: a fireplace installation by J.N. Long for $130. That hearth still warms gatherings today—the same firebox where Mrs. Davis's guests warmed their hands while discussing politics and art, where suffragettes would soon warm their resolve."
+          "text": "Agnes M. Spencer took title on April 3, 1899, under her father-in-law's will, and did not wait out the summer. By July she had architects; by August she had a contractor and a price. A widow who had buried a son, a father-in-law and a husband inside six years answered by building upward — a whole new floor lifted over the old roof, new rooms with nothing in them yet, standing at the top of the stairs above every room where the mourning had happened."
         },
         {
-          "type": "callout",
-          "title": "The 1905 Fireplace",
-          "text": "Look for the fireplace in the front parlor. It was installed in 1905 at a cost of $130—approximately $4,500 in today's dollars. This same hearth warmed Mrs. Davis's 'At Home' gatherings, witnessed suffrage organizing, and continues to serve as the ceremonial heart of the house. When you light a fire here, you're continuing a tradition that spans more than a century."
+          "type": "narrator",
+          "text": "Sawdust that autumn, and mortar, and the strange warm draft of a house briefly open to the sky. When they closed it again I was five stories tall. I have kept the extra floor. It is the quietest part of me — and at two in the morning it is the only room in Philadelphia where you can hear the street stop."
         }
       ],
-      "documents": [
-        {
-          "title": "1893 Sale Notice",
-          "description": "Philadelphia Inquirer: '1822 Sold for $14,000'",
-          "slug": "1822-sold-for-14-000"
-        },
-        {
-          "title": "1899 Architect Commission",
-          "description": "Duhring, Okie & Ziegler retained for alterations",
-          "slug": "the-philadelphia-inquirer-1899-07-18-page-12"
-        },
-        {
-          "title": "1905 Fireplace Permit",
-          "description": "J.N. Long fireplace installation, $130",
-          "slug": "the-philadelphia-inquirer-1905-08-04-page-6"
-        }
-      ],
+      "yearStart": 1871,
+      "yearEnd": 1899,
+      "heroImage": "/images/airbnb/airbnb_04.jpg",
       "keyFacts": [
-        "1893: Howard Spencer purchases for $14,000",
-        "1899: Agnes M. Spencer commissions Duhring, Okie & Ziegler",
-        "1901: Wedding breakfast for Rolin-Plumb nuptials",
-        "1904: Davis family establishes 'At Home' days",
-        "1905: Fireplace installed, still in use today"
-      ]
+        "The Man from Burlington",
+        "White Clay",
+        "Bought at the Hammer"
+      ],
+      "documents": []
     },
     {
-      "slug": "votes-in-the-parlor",
+      "slug": "what-agnes-built",
       "number": 3,
-      "title": "Votes in the Parlor",
-      "subtitle": "Suffrage and Service",
-      "era": "1913-1918",
-      "yearStart": 1913,
-      "yearEnd": 1918,
-      "excerpt": "The women of this house made the papers for suffrage—tax resistance on principle in December 1913, and Equal Franchise Society tickets sold from this address in 1915.",
-      "heroImage": "/images/property/DSC00088.jpg",
+      "title": "What Agnes Built",
+      "subtitle": "A kaolin fortune, two summers of scaffolding, and the three words in a trade paper that added a floor to the sky",
+      "era": "1899–1905",
+      "excerpt": "A widow with a china-clay fortune hired fashionable architects, and the contract notice gave her whole plan away in three words: a new story.",
       "content": [
         {
           "type": "narrator",
-          "text": "Winter prints itself into stone. I learned new rhythms in the 1910s—the smell of coal smoke and printer's ink, pamphlets tucked beneath sleeves, a murmur at the threshold that wasn't gossip but intent. The door opened and I felt shoulders set with purpose, their weight a different kind of ceremony entirely."
+          "text": "Cold travels through me before it ever reaches a shoe. That summer the trade crossing me changed entirely — men in white overalls, a boy hauling a bucket of nails, a plasterer whose boots left pale prints going out that had not been there coming in. I learned the taste of lime and wet sawdust. For weeks the door stood open in all weathers and the house breathed dust instead of dinner."
         },
         {
           "type": "heading",
-          "text": "A House Learns to Speak"
+          "text": "Title, in Her Own Name"
         },
         {
           "type": "paragraph",
-          "text": "By the early 1910s, Henry C. Davis and Naomi Lawton Davis were the names at the bell. The house functioned as many large Rittenhouse townhouses did in that period: family residence upstairs, professional suite below. Medical directories list Dr. Damon B. Pfeiffer at 1822 Pine Street by 1915, with additional physicians appearing in subsequent years. The building did double duty, healing bodies in the front rooms while daily life continued above."
+          "text": "On April 3, 1899, the property passed to Agnes M. Spencer. The party releasing it was set down as the executors and trustees under the will of Howard Spencer — her husband's father. Three days later the city copied the address into its registry: a lot number, a plan book, a ward and a division. Twenty-two feet of Pine Street frontage, ninety feet running south to Waverly, and a woman's name at the top of the column."
         },
         {
           "type": "paragraph",
-          "text": "But it was the women of the house who would make history. In December 1913, tax-resistance coverage singled out 'Mrs. Henry C. Davis, of 1822 Pine Street' for answering Dr. Anna Howard Shaw's call to refuse taxation without representation: 'Resistance to taxation without representation has my entire sympathy.' That single printed line fixes activism to this exact address—a resident of this house, named in the record, joining a cause that traveled from Pine Street into statewide debate."
+          "text": "She came into the house through two winters of black crape. Her father-in-law bought it at auction in 1893 and was dead by the summer of 1896; her husband Graham followed that November, and the funeral left through the front door on a Tuesday morning. What she inherited was a four-story house full of recent absences."
+        },
+        {
+          "type": "paragraph",
+          "text": "The money under it was white. Graham had developed the kaolin mines his father opened, and her country house sat in the clay country of Chester County, a few miles from the Delaware pits. The porcelain on the mantel and the fortune that bought the mantel came out of the same seam of earth."
         },
         {
           "type": "heading",
-          "text": "Tickets to History"
+          "text": "The Firm on Chestnut Street"
         },
         {
           "type": "paragraph",
-          "text": "The activism continued through the decade and across generations. On January 8, 1915, the Evening Public Ledger announced that Equal Franchise Society luncheon tickets were available from 'Miss Martha Davis, 1822 Pine street.' Mother and daughter had carried what had been society 'At Homes' into political territory—the same address that received callers for tea now distributed tickets for suffrage benefits."
+          "text": "By high summer she had architects. In mid-July the papers reported that Duhring, Okie & Ziegler had finished plans for alterations and additions to Mrs. Graham Spencer's residence at 1822 Pine street, and that the drawings would be turned over to contractors for estimates. The firm kept offices at 1420 Chestnut Street — the kind of practice a widow with clay money hired when she meant to be seen having hired someone."
         },
         {
           "type": "paragraph",
-          "text": "Think about what this meant. The Equal Franchise Society was fighting for Pennsylvania women's right to vote—a battle that would contribute to the Nineteenth Amendment five years later. And the paper trail of that local fight runs straight through this house on Pine Street, where a young woman sold tickets and her mother defied the tax collector on principle."
+          "text": "The estimates came back fast. On August 2 the builders' sheet printed the award: the contract went to J. S. Rodgers, of Stanwick, New Jersey. Then three words that change the elevation — a new story. A few days later a city paper added the figure, about $6,000. The row had gone up in the 1850s as four-story, two-bay brick, and the auctioneer had still called it four stories in 1893. The atlases show the lot already built back nearly to Waverly, with the same narrow slot of light down the western party line. There was no room left to grow sideways and none to grow backward. On twenty-two feet of Philadelphia, the only unclaimed direction is up."
+        },
+        {
+          "type": "pullquote",
+          "text": "A new story. Three words in a trade paper on August 2, 1899 — and a floor that had never existed before, laid over the roofline like a held breath."
+        },
+        {
+          "type": "narrator",
+          "text": "For a season I was the loading dock. Brick came over me in barrows, and lath, and long boards that scraped my western edge until it shone. Then the barrows stopped, and what crossed me instead was paint — a smell so sharp it sat on top of the old coal smell for months without ever covering it."
         },
         {
           "type": "heading",
-          "text": "The Dual Life of the House"
+          "text": "A Second Summer of Ladders"
         },
         {
           "type": "paragraph",
-          "text": "The house's physical layout enabled this dual existence. The double parlors could pivot from waiting room to organizing space with a closing of pocket doors. The back corridor to Waverly Street allowed discrete movement—patients, activists, and household staff each had their routes. The medical registers of the period show Dr. Pfeiffer and later Dr. Stillwell Corson Burns (Surgery, 1916) practicing here, proof that the parlor-as-practice pattern coexisted with political activism."
+          "text": "One campaign was not enough. In September 1900 the trade columns noted alterations again at this address for Mrs. Graham Spencer, and named the contractor and the price a week later: Jacob Myres & Son, alterations to dwelling, cost $1,200. Two summers of ladders against the front, and the house came out of them taller, freshly plastered, and fit for a century that was six months old."
         },
         {
           "type": "paragraph",
-          "text": "This wasn't unusual for the era. Large Rittenhouse townhouses often housed both families and professionals, with the architecture designed to keep the two worlds separate. What was unusual was the activism—the deliberate choice to use a privileged address as a platform for social change."
+          "text": "Then the season closed over it again. In January 1901 a city paper noted that Mrs. Graham Spencer had shut her country house in Chester County and returned to 1822 Pine street for the winter. That was the rhythm of the block — the country in the green months, Pine Street from October to April, the shutters opening on a hall that smelled of cold marble and new paint."
         },
         {
           "type": "heading",
-          "text": "An Ending at the Threshold"
+          "text": "One Hundred and Thirty Dollars"
         },
         {
           "type": "paragraph",
-          "text": "On May 21, 1918, an obituary appeared in the Philadelphia papers: 'Suddenly, at 1822 Pine St., ... NAOMI LAWTON, widow of Henry C. Davis.' It is the simplest kind of evidence—address, date, event—but it anchors the story in the only place that matters for a house history: this exact threshold."
+          "text": "The last stroke of the remaking is the smallest and the easiest to picture: in August 1905, among the day's building permits, a fireplace at this address, cost $130. August, when the family was out of town and the mess could be made in peace. The notice names no room. What is left of that hundred and thirty dollars is a firebox somewhere in this house, cut in, pointed and swept — and a hearth that has been drawing well ever since."
         },
         {
-          "type": "paragraph",
-          "text": "The woman who had refused to pay taxes without representation, who had lent her name and her address to the cause, breathed her last in these rooms. She did not live to see the Nineteenth Amendment ratified in 1920, but her work—documented in newspaper columns that name this address—contributed to that victory."
-        },
-        {
-          "type": "callout",
-          "title": "The Suffrage Connection",
-          "text": "When you stand in the double parlors, hold on to what the record actually shows: in December 1913 a resident of this house, Mrs. Henry C. Davis, publicly embraced tax resistance for the vote, and in January 1915 Equal Franchise Society luncheon tickets—$1.50 each—were sold from this address by Miss Martha Davis, the society's treasurer. Whether the society ever met in these rooms, the paper trail does not say. History isn't always monuments and museums—sometimes it's a newspaper line naming an address on Pine Street."
+          "type": "narrator",
+          "text": "The cold months came back and I felt the difference through my whole length. Warm brick above me now, coal smoke rolling into the street at four o'clock, and high up, past where the roofline used to stop, a window I had never known lit yellow and staying lit. It is still the last light on the block to go out."
         }
       ],
-      "documents": [
-        {
-          "title": "1915 Suffrage Notice",
-          "description": "Evening Public Ledger: Equal Franchise Society tickets from Miss Martha Davis",
-          "slug": "evening-public-ledger-1915-01-08-page-10"
-        }
-      ],
+      "yearStart": 1899,
+      "yearEnd": 1905,
+      "heroImage": "/images/property/DSC00112.jpg",
       "keyFacts": [
-        "December 1913: Mrs. Henry C. Davis adopts suffrage tax resistance",
-        "1915: Martha Davis sells Equal Franchise Society tickets",
-        "1915-1916: Medical practice documented at address",
-        "May 21, 1918: Naomi Lawton Davis dies at 1822 Pine Street",
-        "Nineteenth Amendment ratified 1920"
-      ]
+        "Title, in Her Own Name",
+        "The Firm on Chestnut Street",
+        "A Second Summer of Ladders"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "at-home",
+      "number": 4,
+      "title": "At Home",
+      "subtitle": "Receiving days on the south side of Pine",
+      "era": "1904–1913",
+      "excerpt": "One December, a Philadelphia paper told the city which door on Pine Street would open that winter, and for whom.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "December is when I am most useful. The coal goes on early and the front rooms take an hour to give in to it, so that by three the parlors hold their heat the way a cup holds tea. Nobody comes to this door in winter by accident."
+        },
+        {
+          "type": "heading",
+          "text": "A Door with a Published Schedule"
+        },
+        {
+          "type": "paragraph",
+          "text": "On December 11, 1904, a Philadelphia paper printed eleven words that opened a house: At home—Mrs. Henry C. Davis and the Misses Davis, of 1822 Pine street. That was the whole machine of the season in one line. To be at home was not to be indoors; it was an announcement, set in the paper like a timetable, telling the city which afternoons this particular door on the south side of Pine would stand ready — fire lit, kettle going, the front rooms swept of anything that looked like ordinary life. Two blocks from Rittenhouse Square, a widow and her daughters were letting Philadelphia know when to come."
+        },
+        {
+          "type": "pullquote",
+          "text": "At home—Mrs. Henry C. Davis and the Misses Davis, of 1822 Pine street."
+        },
+        {
+          "type": "paragraph",
+          "text": "The woman receiving was Naomi Lawton Davis, born in Delaware in 1842 to English-born parents and widowed since February 1901. Her husband, Henry Corbit Davis, was a grandson of Lucretia Coffin Mott. Whatever else was carried into these parlors on a winter afternoon, that was in the room too — a tea table three generations from a woman who had spent her life refusing to sit quietly at one."
+        },
+        {
+          "type": "heading",
+          "text": "The Card Tray in the Hall"
+        },
+        {
+          "type": "paragraph",
+          "text": "The choreography began before anyone spoke. A caller stepped up from the pavement, the door was answered by someone whose name the newspapers never bothered to print, and a card went down on the tray in the hall — the small stiff rectangle that did the work of a whole conversation. Then the side hall opened into the front parlor, and the pocket doors stood back so the two parlors ran together as one long room, deep enough that the far windows made a second, paler daylight at the end of it. Twenty-two feet of frontage, ninety feet running back toward Waverly Street: a narrow house that spends all its generosity lengthwise."
+        },
+        {
+          "type": "narrator",
+          "text": "Cards accumulate. I can hear the tray filling from the step — a small sound, like a spoon set down. The stair takes it up and holds it."
+        },
+        {
+          "type": "heading",
+          "text": "Fire, Tea, and the Empty Months"
+        },
+        {
+          "type": "paragraph",
+          "text": "They received under a ceiling newer than they were. The fifth floor over Pine Street was barely five years old when the Davises published their afternoons beneath it, and the plaster upstairs had not yet had time to crack."
+        },
+        {
+          "type": "paragraph",
+          "text": "October was the point. The block ran on a calendar: houses shut in June and opened again for the winter, and the at-home notice was how a household took its place in all that. The young women of this house grew up inside the ritual and then outgrew its purpose — within a decade the same daughters were using the same hall table, the same afternoons and the same gloves for work that had nothing to do with cake."
+        },
+        {
+          "type": "narrator",
+          "text": "After the last of them, the parlors go quiet in stages. Cups first, then chairs pushed back true, then the fire settling into itself. A house that is only used stays cold in the corners. This one keeps its warmth all the way to the front step, and gives it back to anybody standing there at dusk."
+        }
+      ],
+      "yearStart": 1904,
+      "yearEnd": 1913,
+      "heroImage": "/images/airbnb/airbnb_05.jpg",
+      "keyFacts": [
+        "A Door with a Published Schedule",
+        "The Card Tray in the Hall",
+        "Fire, Tea, and the Empty Months"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "below-and-behind",
+      "number": 5,
+      "title": "Below and Behind",
+      "subtitle": "Waverly Street, the back stair, and the people who made the receiving days possible",
+      "era": "1900–1918",
+      "excerpt": "A house this composed runs on a second staircase, a back door onto Waverly Street, and a chambermaid hired only until the first of June.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "I have two doors, and they were never the same door. The front one faces Pine and gets the marble, the boot-scrape, the pause while a glove is worked loose. The other faces south, onto Waverly, and it opens before the light does. Front feet arrive rested. Back feet arrive already carrying something."
+        },
+        {
+          "type": "paragraph",
+          "text": "The lot has never changed shape: twenty-two feet across the front, ninety feet deep, running south from Pine to Waverly Street. That second number is the one that matters here. A house of this kind is a machine with a front and a back, and the back of this one gives out onto a narrow service street where the deliveries came and the ash went. The atlases draw the building pushed out nearly to the Waverly line, with a slim slot of light held open along the western party wall — the sort of shaft that lets a scullery breathe and not much more."
+        },
+        {
+          "type": "heading",
+          "text": "Every Foot of Height Is a Flight of Stairs"
+        },
+        {
+          "type": "paragraph",
+          "text": "When Agnes Spencer put a fifth floor on the house in 1899, she added rooms nobody had to sleep in and stairs somebody had to climb. Coal went up cold and came down as ash. Hot water went up in cans. The taller the house grew, the longer the back stair ran, and the back stair was not built for admiring."
+        },
+        {
+          "type": "paragraph",
+          "text": "The house also ran on a calendar. Closing a country house and opening a city one is not a sentence; it is weeks of work — shutters folded back, flues drawn, carpets down, beds aired, the cold shell of a five-story house brought up to temperature before the first caller was let in."
+        },
+        {
+          "type": "narrator",
+          "text": "Winter is when I work hardest. Someone has to be awake early enough to make warmth look like something that simply happens here. Up heavy with a bucket, down light without one, up heavy again. That rhythm ran under every still drawing room above it."
+        },
+        {
+          "type": "heading",
+          "text": "The Cost of a Receiving Day"
+        },
+        {
+          "type": "paragraph",
+          "text": "Eleven words in a newspaper column announced that this door would open on winter afternoons, and a day's labor stood behind each one. Fires laid at dawn in rooms nobody would enter until three. Silver done the night before. Somebody's hands on every cup that came back."
+        },
+        {
+          "type": "heading",
+          "text": "Wanted Until the First of June"
+        },
+        {
+          "type": "paragraph",
+          "text": "Then, in May 1917, the household speaks in its own voice for the only time anyone has found — six lines deep in the classified columns, paid for by the word."
+        },
+        {
+          "type": "pullquote",
+          "text": "Chambermaid, experienced, wanted until June 1; no washing; references required; carfare paid. Apply Monday a.m., 1822 Pine st."
+        },
+        {
+          "type": "paragraph",
+          "text": "Read it slowly and the whole downstairs assembles itself. A chambermaid is a specialist — beds, water, grates, the upstairs rooms — which means other hands cooked and other hands answered the bell. Experience required, references required: this was a house that expected to be applied to. Carfare paid, so she lived elsewhere in the city and travelled in, arriving at the back and going home at night to a room this address never saw. No wash, because the laundry was somebody else's burden entirely. And the last term sets the season's edge like a knife: the engagement ends in the same week the family leaves town for the summer."
+        },
+        {
+          "type": "paragraph",
+          "text": "The advertisement's opening word was a colour bar, printed and paid for, and it marks the line the city drew across who was permitted to knock on a Monday morning."
+        },
+        {
+          "type": "paragraph",
+          "text": "The front of the house, in those same years, had opinions of its own, and they were carried out to the pavement by people who were never named in print. In May 1918 the widow of the house died in an upstairs room, and even a private funeral is a house full of work — chairs carried up from below, the front hall kept warm, tea made for people who cannot eat it. The papers print not one name of anyone who did it."
+        },
+        {
+          "type": "narrator",
+          "text": "The back stair still turns the way it always turned. Steep, boxed, the treads dished in the middle where a hundred years of feet went up carrying and came down empty. Grand rooms are what a house is for. A stair like that is why the grand rooms still feel effortless at eight in the evening."
+        }
+      ],
+      "yearStart": 1900,
+      "yearEnd": 1918,
+      "heroImage": "/images/property/DSC00088.jpg",
+      "keyFacts": [
+        "Every Foot of Height Is a Flight of Stairs",
+        "The Cost of a Receiving Day",
+        "Wanted Until the First of June"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "votes-on-pine-street",
+      "number": 6,
+      "title": "Votes on Pine Street",
+      "subtitle": "A treasurer's hall table, a neighbour bound for jail, and the winter the house lost its widow",
+      "era": "1915–1919",
+      "excerpt": "Tickets at a dollar and a half were sold from this door — and next door, a neighbour was on her way to prison for the vote.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "I am white marble, and I take the weather so nobody else has to. In those winters I learned a new weight at my edge — women arriving in twos and threes, coats carrying coal smoke and printer's ink, purses opening before the bell was answered. Slow feet mean sorrow. These were not slow."
+        },
+        {
+          "type": "heading",
+          "text": "Tickets at a Dollar Fifty"
+        },
+        {
+          "type": "paragraph",
+          "text": "Winter on this block ran on printed announcements. A decade earlier the papers had told the city which afternoons this door would open, and the hall table existed to take calling cards. By January 1915 the announcements had changed their purpose."
+        },
+        {
+          "type": "paragraph",
+          "text": "Advertising an Equal Franchise Society luncheon, the evening papers printed where a ticket could be had — from a Haverford address, from the society's headquarters downtown, and from Miss Martha Davis, 1822 Pine street. Martha Davis was the society's treasurer. Which means that in the first cold weeks of that year, money for the suffrage cause came to this address: up the step, into the hall, a dollar and a half at a time, counted by a daughter of the house on a table built for calling cards."
+        },
+        {
+          "type": "pullquote",
+          "text": "They are $1.50 apiece and may be bought from … Miss Martha Davis, 1822 Pine street."
+        },
+        {
+          "type": "paragraph",
+          "text": "Several hundred tickets went. The women who worked the booth were the same women who had been receiving each other's cards for twenty years — same afternoons, same gloves, turned to a different account. The machinery of the receiving day had been picked up whole and pointed at the legislature."
+        },
+        {
+          "type": "heading",
+          "text": "The Woman Next Door"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two doors shared one length of pavement. Next door at 1820 Pine, Dora Kelly Lewis ran the national suffrage campaign's Philadelphia headquarters out of a Rittenhouse rowhouse indistinguishable from this one: same brick, same four-story front, same white step. From that door came the campaign that put women at the White House gates with banners. Mrs. Lewis picketed. Mrs. Lewis went to prison. Mrs. Lewis went on hunger strike. Whatever was said at this end of the block in those years was said within a hundred feet of both her hall and this one."
+        },
+        {
+          "type": "narrator",
+          "text": "There is a difference between a room being used and a room being lived in, and the difference arrives at me first. In those mornings the back of the house woke an hour before the front did — a scrape of grate, a kettle, the particular cold that lives in a stairwell before anybody has opened a curtain."
+        },
+        {
+          "type": "heading",
+          "text": "What the Winter Took"
+        },
+        {
+          "type": "paragraph",
+          "text": "On May 21, 1918, the notices were of another kind: suddenly, at 1822 Pine st., the widow of Henry C. Davis, funeral services and interment private. She died in these rooms in the last spring of the war, and the door that had been advertised open on winter afternoons was closed to everyone but family."
+        },
+        {
+          "type": "paragraph",
+          "text": "Her daughter did not stop. Within a year Martha Davis was hosting a congressional-district meeting of the national party at four in the afternoon — the luncheon tickets, the treasurer's ledger and the banners all moving through this block twice a day, in daylight, in ordinary shoes. The vote came the summer after next."
+        },
+        {
+          "type": "narrator",
+          "text": "I have felt brides hesitate and mourners come down heavy, and those years had a tread of their own: quick, level, unhurried by weather. The parlor windows are tall enough to throw a whole afternoon across the floor, and when the door shuts behind you the hall still holds that hush — the one that means something has just been decided."
+        }
+      ],
+      "yearStart": 1915,
+      "yearEnd": 1919,
+      "heroImage": "/images/airbnb/airbnb_01.jpg",
+      "keyFacts": [
+        "Tickets at a Dollar Fifty",
+        "The Woman Next Door",
+        "What the Winter Took"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "the-last-winter",
+      "number": 7,
+      "title": "The Last Winter",
+      "subtitle": "A widow dies in the front of the house, a daughter takes her politics across the street, and the block begins renting itself out by the room",
+      "era": "1918–1922",
+      "excerpt": "On a May morning in 1918 the door opened early and stayed shut, and the long single-family life of 1822 Pine Street began to end.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "Marble holds cold the way a room holds a habit. I learn the year by what comes over me — coal grit in the wet months; in May, the fine pale silt of the street and lilac from a garden I have never seen. That May the door opened early and then stayed shut. No florists. No carriages at four. A few careful pairs of shoes going in slow and coming out slower."
+        },
+        {
+          "type": "heading",
+          "text": "Suddenly, at 1822 Pine"
+        },
+        {
+          "type": "paragraph",
+          "text": "The notice ran on Wednesday, May 22, 1918, set plain and seven lines long: Davis — suddenly, at 1822 Pine st., May 21, Naomi Lawton, widow of Henry C. Davis. Funeral services and int. private. A New York paper carried it the next morning in almost the same words, as though the sentence itself had travelled. She was seventy-five. Which room, which window, who was standing in the doorway — the papers declined to say, and nothing since has said it."
+        },
+        {
+          "type": "pullquote",
+          "text": "Suddenly, at 1822 Pine st., May 21. Funeral services and int. private."
+        },
+        {
+          "type": "paragraph",
+          "text": "The house she died in had grown a story by then, and had not always. What the widow before her spent in 1899 is still legible in the light: the front windows carry a May morning clear across the parlor floor until nearly noon, and the stair above the second landing stays cool and dim even when the street outside is glaring."
+        },
+        {
+          "type": "heading",
+          "text": "Seventeen Winters a Widow"
+        },
+        {
+          "type": "paragraph",
+          "text": "She had been a widow since February 1901. For the seventeen winters after, the household ran on the old machinery — the published afternoons, the cards on the hall table, the double parlors working as a stage with a printed schedule. The last glimpse of its inner workings is not glamorous, which is why it is worth everything: a classified advertisement for a chambermaid, wanted only until the first of June, because by June the family would be gone and the shutters across."
+        },
+        {
+          "type": "heading",
+          "text": "The Daughter's Name in Print"
+        },
+        {
+          "type": "paragraph",
+          "text": "Her daughter Martha had been carrying the family's politics in public for years — suffrage luncheon tickets sold out of this hall at a dollar fifty apiece, several hundred of them. Eleven months after her mother's death, in April 1919, a notice announced that the first district would meet at the residence of Miss Martha Davis, at 1823 Pine street: the odd side, across the way. She had crossed the road and taken the fight with her. The vote those tickets were sold toward came two summers after her mother stopped being at home."
+        },
+        {
+          "type": "paragraph",
+          "text": "Her mother's ashes were not put into the ground until January 1945 — more than twenty-six years after that May morning, in a burial ground where her husband had long been lying. Whatever kept her waiting, the people who would have known were, by then, mostly gone."
+        },
+        {
+          "type": "heading",
+          "text": "What the Block Advertised"
+        },
+        {
+          "type": "paragraph",
+          "text": "The street had already begun rearranging itself. Next door, the house sharing this eastern wall was selling itself by the room. Through all those years, in all those columns, 1822 advertised nothing at all — no apartment, no sale, no permit notice. It simply stood there with its shutters closed while the neighbours learned a new trade. The deed books mark the property changing hands in 1922, and the long single-family life of the house closes on that entry, without a headline."
+        },
+        {
+          "type": "narrator",
+          "text": "After that the arrivals came in different rhythms. Fewer at four in the afternoon, more at odd hours, more with keys of their own. My edges had been rounding for sixty-odd years by then. They are rounder now, and the house behind me has never once stood empty for long."
+        }
+      ],
+      "yearStart": 1918,
+      "yearEnd": 1922,
+      "heroImage": "/images/airbnb/airbnb_02.jpg",
+      "keyFacts": [
+        "Suddenly, at 1822 Pine",
+        "Seventeen Winters a Widow",
+        "The Daughter's Name in Print"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "divided",
+      "number": 8,
+      "title": "Divided",
+      "subtitle": "One address, many keys — the years the block was cut into apartments",
+      "era": "1922–1952",
+      "excerpt": "Next door advertised kitchenettes and a fireplace to burn logs. This house said nothing at all — and was cut into homes anyway, quietly, between two wars.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "Cold gets into marble slowly, and then all at once. I stopped counting callers and started counting arrivals — a night nurse in rubber soles at five, a man with sample cases at nine, a girl coming off the second shift with machine oil on her sleeves. Where there had been one bell there was a plate of buttons. One door still."
+        },
+        {
+          "type": "heading",
+          "text": "The Kitchenette Next Door"
+        },
+        {
+          "type": "paragraph",
+          "text": "The change arrived first at the party wall. In the last days of September 1919 an evening paper carried an advertisement for the house immediately east: housekeeping apartments, the finest in Philadelphia, with all the latest conveniences. One large living room with a beautifully designed open fireplace to burn logs furnished by the owner. One bedroom with large closet space. One bathroom with built-in tub and shower. One large kitchenette, complete to the last detail. It ran again three times in the first nine days of October. By February 1921 the same address was pitching itself as cheerful and ideal for small families and bachelors, at $125 a month. Fifteen years earlier this block had published its receiving days. Now it published its closet space."
+        },
+        {
+          "type": "pullquote",
+          "text": "One large living room with a beautifully designed open fireplace to burn logs furnished by the owner."
+        },
+        {
+          "type": "heading",
+          "text": "A Conversion Without a Notice"
+        },
+        {
+          "type": "paragraph",
+          "text": "1822 said nothing. Through years of columns thick with apartments to let, no advertisement, no listing and no sale notice for this address appears at all, while the house sharing its eastern wall advertised week after week in the same pages. Whatever began happening behind this door began without a line of type. The deeds mark transfers in 1922, 1941, 1947, 1949 and 1952, but a deed only says a house changed hands; it says nothing about how many kettles were on in it."
+        },
+        {
+          "type": "narrator",
+          "text": "Four stories of suppers at once, and all of it comes down the stairwell to me: onions at six, cabbage at seven, coffee at any hour a person can afford it. Milk bottles on my stone by six, empties by eight."
+        },
+        {
+          "type": "heading",
+          "text": "Multiple Family, Attached"
+        },
+        {
+          "type": "paragraph",
+          "text": "The City wrote it down in its own shorthand. On the land-use maps of the 1940s this address carries a notation meaning multiple family, attached, with an accessory use — and read east and west along the row, the whole street's decade is legible in three-letter code. Every house read on either side of it had been cut up but one: the house directly west was still lettered as a single dwelling, holding out against its neighbours. The survey twenty years later repeats the coding here without altering a mark."
+        },
+        {
+          "type": "paragraph",
+          "text": "The partitions left no paper of their own. The building trade press, which had noted every plank of the Spencer campaigns at the turn of the century, falls silent on this address for forty years. So the story a widow added over a house the auctioneers had called four-story becomes, in these years, the longest climb in the building and very likely the cheapest rent in it."
+        },
+        {
+          "type": "narrator",
+          "text": "Nobody up there thought of me as architecture. I am a stone at a doorway, and the weight comes down the same whether it belongs to one family or to nine. Grander houses learned other fates. This one folded itself smaller, took in whoever came, and kept every stair it had — which is why there is still a whole house here to walk up."
+        }
+      ],
+      "yearStart": 1922,
+      "yearEnd": 1952,
+      "heroImage": "/images/property/DSC00112.jpg",
+      "keyFacts": [
+        "The Kitchenette Next Door",
+        "A Conversion Without a Notice",
+        "Multiple Family, Attached"
+      ],
+      "documents": []
+    },
+    {
+      "slug": "made-whole",
+      "number": 9,
+      "title": "Made Whole",
+      "subtitle": "A row house comes back into one piece, and fills",
+      "era": "1995–Today",
+      "excerpt": "For decades it was a building of many keys. Then the locks came out, the rooms found each other again, and the table was set for sixteen.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "For a long stretch I was a house of keys. Different locks, different hours, a stairwell that never carried one family's rhythm from the bottom of me to the top. Then the locks came out. Someone crossed the third floor at midnight and kept walking, and nothing behind any door was a separate address."
+        },
+        {
+          "type": "heading",
+          "text": "A Name on the City's List"
+        },
+        {
+          "type": "paragraph",
+          "text": "On February 8, 1995, 1822 Pine Street went onto the Philadelphia Register of Historic Places — not alone, and that is the whole point of it. It entered as a contributing property of the Rittenhouse-Fitler Residential Historic District, one brick in a longer argument about what this stretch of the city is; the federal district around Rittenhouse Square had been listed a dozen years earlier. The City's own inventory described the south side of Pine in the flattest possible terms: nineteen four-story, two-bay brick houses, late Greek Revival, built to match. A house that was never meant to be singular had finally been counted."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some things about it had not moved at all. The ground is described the same way in 1854 and in the parcel record today: the south side of Pine, two hundred and thirty feet west of Eighteenth, twenty-two feet across the front, ninety feet deep, running back to Waverly Street. Not an inch of difference in a hundred and seventy years."
+        },
+        {
+          "type": "pullquote",
+          "text": "Twenty-two feet is not much of a front. Everything this house has ever done, it has done in depth."
+        },
+        {
+          "type": "heading",
+          "text": "Putting the Rooms Back"
+        },
+        {
+          "type": "paragraph",
+          "text": "The reassembly took a generation. The city's land-use plates still marked this address as multiple family into the 1960s, and the deeds came fast through the middle of the century and kept coming after it, one owner handing it on to the next. Somewhere across those transfers the partitions came down. The pocket doors between the two parlors slide again. The plasterwork stayed; the mantels stayed; the kitchens and the bathrooms did not, and were rebuilt for people who expect hot water at seven in the morning."
+        },
+        {
+          "type": "narrator",
+          "text": "The top of me is younger than the rest and has never quite forgotten it. Newer joists, newer plaster, a floor that arrived late to the argument. Above that, sky. A house that gains a whole story at forty-five learns not to be precious about its edges."
+        },
+        {
+          "type": "heading",
+          "text": "The Story That Was Added"
+        },
+        {
+          "type": "paragraph",
+          "text": "That fifth floor is the reason the roof is worth standing on. A widow put it there in two summers at the turn of the century, over a house that had been sold at auction as four stories, and the roof deck people use now — skyline in front of them, chimney pots below — sits directly on top of her ambition. She built it to hold rooms. It ended up holding the view."
+        },
+        {
+          "type": "heading",
+          "text": "Lights in Every Window"
+        },
+        {
+          "type": "paragraph",
+          "text": "Consider who has come over this step. A merchant who bought the ground in 1854, lived here four years, and let it to tenants for the rest of his life; his estate went on letting it for another twenty-three. A man who made a fortune out of white clay and moved his household in from across the river. A widow who buried her husband's son out of the front room and then added a floor. A mother and her daughters who published which afternoons the door would open — and one of those daughters, twenty years later, selling suffrage tickets from the hall table at a dollar fifty apiece. A household that advertised for a chambermaid one Monday in May, wanted only until the first of June."
+        },
+        {
+          "type": "narrator",
+          "text": "Not tonight. Tonight there are sixteen of them and one table, and the noise comes up the stairwell in waves — loud, then a lull, then louder. Somebody is on the roof in a coat. Somebody has fallen asleep on the fourth floor with the lamp on. Every window on the front of me is lit, which almost never happened in a hundred and seventy years, and I have stopped pretending I do not prefer it."
+        }
+      ],
+      "yearStart": 1995,
+      "yearEnd": 1995,
+      "heroImage": "/images/airbnb/airbnb_07.jpg",
+      "keyFacts": [
+        "A Name on the City's List",
+        "Putting the Rooms Back",
+        "The Story That Was Added"
+      ],
+      "documents": []
     },
     {
       "slug": "walk-the-rooms",
-      "number": 4,
-      "title": "Walk the Rooms",
-      "subtitle": "A Self-Guided Tour",
-      "era": "Then and Now",
-      "yearStart": 1854,
-      "yearEnd": 2024,
-      "excerpt": "Every room has a history. Here's your guide to reading the stories written in marble, plaster, and light.",
-      "heroImage": "/images/property/DSC00090.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I have a map of you—made of thresholds. The first step lifts you off Pine Street and into the side-hall current. Turn right for ceremony, left for work, upward for rest, outward for errands toward Waverly. Follow it, and you'll read the same plan thousands of feet have followed before you."
-        },
-        {
-          "type": "heading",
-          "text": "The Marble Stoop and Threshold"
-        },
-        {
-          "type": "paragraph",
-          "text": "Begin where everyone begins: the white marble step. This is a Philadelphia signature, found on townhouses throughout Center City. The stone has taken iron-rimmed wheels, winter salt, and 170 years of daily wear. It is the narrator of this building—measuring hours by arrivals, seasons by temperature, eras by the shoes that cross it."
-        },
-        {
-          "type": "paragraph",
-          "text": "This same step welcomed the Rosets in 1854, received the Plumb wedding party in 1901, and felt the determined tread of suffragettes in 1915. Touch it, and you're touching the one element of the house that has witnessed everything."
-        },
-        {
-          "type": "heading",
-          "text": "The Side Hall"
-        },
-        {
-          "type": "paragraph",
-          "text": "Step inside and you're in the circulatory system of the house. The side hall is logistics in brick: a card tray sat here during 'At Home' days, umbrellas and overcoats accumulated in winter, staff passed through on their way to answer the bell. Today, caterers and event crews use this same corridor to move between kitchen and parlors without disturbing guests."
-        },
-        {
-          "type": "paragraph",
-          "text": "Notice how the hall runs the full depth of the house, connecting front door to rear service areas. This wasn't accident—it was the genius of the Philadelphia townhouse plan. Movement flows; functions stay separate."
-        },
-        {
-          "type": "heading",
-          "text": "The Double Parlors"
-        },
-        {
-          "type": "paragraph",
-          "text": "Two rooms in a line, with pocket doors that can open them into one grand space or close for intimacy. Imagine a wedding breakfast laid end-to-end, as at the Rolin-Plumb celebration in 1901. Then picture January 1915, when Equal Franchise Society luncheon tickets were sold from this address by Miss Martha Davis—the cause moving through the house's daily life."
-        },
-        {
-          "type": "paragraph",
-          "text": "The 1899 renovation under Duhring, Okie & Ziegler refreshed these rooms—new finishes, updated services, a clearer separation between show and function. The 1905 fireplace still warms the front parlor, the same hearth where Mrs. Davis held her 'At Homes' a hundred and twenty years ago."
-        },
-        {
-          "type": "paragraph",
-          "text": "These proportions weren't decorative. They were designed for hospitality—for receiving, entertaining, celebrating, and yes, for organizing. The same geometry that made Victorian ceremonies possible makes modern events feel natural."
-        },
-        {
-          "type": "heading",
-          "text": "The Dining Room and Rear Corridor"
-        },
-        {
-          "type": "paragraph",
-          "text": "Behind the parlors, the house turns practical. The dining room connects to both the formal spaces and the service world—doors to the garden, the corridor to Waverly Street, the back-of-house logic that keeps a dinner party seamless."
-        },
-        {
-          "type": "paragraph",
-          "text": "The lot runs 90 feet back to Waverly Street, and that depth has always defined how the house works. Service enters from the rear. Delivery happens invisibly. Guests experience only the gracious front while the mechanics stay hidden."
-        },
-        {
-          "type": "heading",
-          "text": "The Stair Hall"
-        },
-        {
-          "type": "paragraph",
-          "text": "Stand at the turn and look down into the hall, up into the light. The staircase is the spine of the house, and it tells you the social logic: public life on the ground floor, semi-public chambers on the second, private quarters above, and service tucked at the rear and top."
-        },
-        {
-          "type": "paragraph",
-          "text": "These same stairs carried the Roset children to their rooms, bore the weight of Victorian mourning, climbed under suffragette feet, and still carry guests to their chambers today. The geometry hasn't changed; only the costumes have."
-        },
-        {
-          "type": "heading",
-          "text": "The Chambers"
-        },
-        {
-          "type": "paragraph",
-          "text": "In the Roset era, the principal bedrooms occupied the second floor—larger, more formal, with better light. Children and guests took the third floor. Servants slept in rear rooms or the attic, their quarters designed for efficiency rather than comfort."
-        },
-        {
-          "type": "paragraph",
-          "text": "Today, the house sleeps sixteen comfortably, with space for eighteen using the sofa bed. The Victorian hierarchy of chambers has been democratized, but the bones remain—different ceiling heights, different exposures, different degrees of formality that guests can still read if they know how to look."
-        },
-        {
-          "type": "callout",
-          "title": "Reading the Layers",
-          "text": "Look for the traces of different eras. Mid-nineteenth-century mantels in marble. Edwardian touches from the 1899 renovation. Capped gas lines from the apartment years. Modern comforts threaded through old walls. Each layer tells part of the story, and none has erased what came before."
-        }
-      ],
-      "documents": [],
-      "keyFacts": [
-        "White marble threshold: Philadelphia signature",
-        "Side-hall plan: optimized for flow and function",
-        "Double parlors: ceremony and intimacy",
-        "Service corridor to Waverly: invisible hospitality",
-        "16-18 sleeping capacity in modern configuration"
-      ]
-    },
-    {
-      "slug": "long-edwardian-afternoon",
-      "number": 5,
-      "title": "The Long Edwardian Afternoon",
-      "subtitle": "Salon and Surgery",
-      "era": "1905-1925",
-      "yearStart": 1905,
-      "yearEnd": 1925,
-      "excerpt": "The house learned to do double duty—society salon in the parlors, medical practice in the front rooms, family life flowing above it all.",
-      "heroImage": "/images/property/DSC00092.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I learned new noises in those years. The tick of a telephone. The quick, bright chime of a bicycle bell outside. The faint, clean sting of carbolic following patients in from Pine. In winter I felt the crowding of coats and purpose; in summer my stone was warm and the key turned only occasionally, a caretaker's step like a whisper."
-        },
-        {
-          "type": "heading",
-          "text": "A House Between Worlds"
-        },
-        {
-          "type": "paragraph",
-          "text": "The first two decades of the twentieth century found 1822 Pine Street adapting to new realities. The grande dames of Pine Street learned to do more than pour tea. The house became a place where front rooms could host callers at four and patients at five, with the household running its old rhythms upstairs while a professional suite took shape below."
-        },
-        {
-          "type": "paragraph",
-          "text": "Medical registers fix this reality with precise, practical lines: 'Dr. Damon B. Pfeiffer — 1822 Pine St.' appears in the College of Physicians roll by 1915. A 1916 register adds 'Stillwell Corson Burns — Surgery, 1822 Pine St.' The building wore a physician's shingle as easily as a calling card—proof of the architectural flexibility built into its bones."
-        },
-        {
-          "type": "heading",
-          "text": "The Rhythm of the Seasons"
-        },
-        {
-          "type": "paragraph",
-          "text": "The old pattern held even as uses multiplied. Winters in town meant a full calendar: 'At Homes' on appointed days, medical appointments on others, the double parlors earning their keep in both roles. Mrs. Graham Spencer's documented return from Chester County 'for the winter' in 1901 established a rhythm that continued through the Edwardian years—the house fully alive from October through May, quieter in summer."
-        },
-        {
-          "type": "paragraph",
-          "text": "Summers brought drawn blinds, reduced staff, a caretaker's routine. The plan—side hall, paired parlors, service corridor to Waverly—made both modes efficient and discrete. The house could hibernate without deteriorating, wake without major preparation."
-        },
-        {
-          "type": "heading",
-          "text": "Service and Staff"
-        },
-        {
-          "type": "paragraph",
-          "text": "Staffing in these years had sharpened into specialized roles: cook, parlor maid, laundress, an errand boy or handyman. The probable back-of-house stair from the 1899 renovation would have enforced privacy between medical patients and household, between the professional world of the front rooms and the domestic world above."
-        },
-        {
-          "type": "paragraph",
-          "text": "This dual use wasn't unusual. Large Center City townhouses often housed both families and professionals, the architecture designed to keep worlds separate while sharing walls. What makes 1822 Pine Street notable is the documentation—we can name the physicians, date the suffrage activism, trace the society calendar through newspaper columns."
-        },
-        {
-          "type": "callout",
-          "title": "Professional Traces",
-          "text": "Look for where a placard or physician's shingle might have hung just inside the door. The records place doctors at this address through the mid-1910s, their practices sharing space with family life. The same adaptability that made this possible then makes the house ideal for modern mixed uses—production offices during filming, planning suites during events."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1904 'At Home' Notice",
-          "description": "Mrs. Henry C. Davis and the Misses Davis receive callers",
-          "slug": "the-philadelphia-inquirer-1904-12-11-page-36"
-        }
-      ],
-      "keyFacts": [
-        "1905-1916: Medical practices documented at address",
-        "December 1913: Tax resistance by Mrs. Davis",
-        "1915: Suffrage ticket sales from 1822 Pine",
-        "May 1918: Naomi Lawton Davis dies at the house",
-        "Dual use: professional below, residential above"
-      ]
-    },
-    {
-      "slug": "apartment-house-years",
-      "number": 6,
-      "title": "The Apartment House Years",
-      "subtitle": "Many Keys, One Address",
-      "era": "1930s-1950s",
-      "yearStart": 1930,
-      "yearEnd": 1955,
-      "excerpt": "The Depression and war years transformed grand houses into apartment buildings. Paradoxically, this practical adaptation preserved what demolition would have destroyed.",
-      "heroImage": "/images/property/DSC08699.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I learned the sound of many keys. A pocket full for a superintendent, a different cut for each tenant. The door opened to quieter arrivals now—a nurse on night shift, a clerk with a paper bag, a young man with a violin case and rent due on Friday. My marble still remembered winter callers and wedding breakfasts, but the city had tightened its belt and rearranged its rooms."
-        },
-        {
-          "type": "heading",
-          "text": "Divided by Necessity"
-        },
-        {
-          "type": "paragraph",
-          "text": "Between the Depression and the post-war years, Center City's grand houses often shifted to professional suites, rooming houses, or small apartments. 1822 Pine Street followed that pattern—a pragmatic adaptation that kept the building occupied and maintained when single-family use was no longer economically viable."
-        },
-        {
-          "type": "paragraph",
-          "text": "The property deeds tell the story of transition: documented transfers in 1922, 1941, 1947, 1949, and 1952 mark multiple ownership changes—the hallmark of the apartment conversion era when large single-family houses became investment properties. Each sale meant a new landlord; each landlord meant ongoing maintenance."
-        },
-        {
-          "type": "heading",
-          "text": "Adaptation Without Destruction"
-        },
-        {
-          "type": "paragraph",
-          "text": "What this means for the building's story is crucial: adaptation preserved rather than destroyed. Parlors became waiting rooms or sitting rooms. Rear chambers gained small kitchens. The service run to Waverly Street handled tradesmen and trash discretely. The side-hall plan—made for flow—proved its worth once again, moving tenants and visitors efficiently through spaces designed a century earlier for very different purposes."
-        },
-        {
-          "type": "paragraph",
-          "text": "The architectural core survived because it was too good to tear out. High ceilings, marble mantels, the long stair—these features remained legible even when partitioned. Conversion kept the house occupied; occupation meant maintenance; maintenance meant survival."
-        },
-        {
-          "type": "heading",
-          "text": "Life in the Stairwell"
-        },
-        {
-          "type": "paragraph",
-          "text": "The block's mood changed during these decades. Tenants read newspapers on the stoop in summer. A doctor's bell rang at odd hours. Letters arrived addressed to '1822 Pine — Apt. 3.' The 1905 fireplace, which had warmed Mrs. Davis's 'At Homes,' now heated a shared parlor where tenants gathered around the radio to hear war news."
-        },
-        {
-          "type": "paragraph",
-          "text": "Yet within these modest lives, nineteenth-century fabric survived. Every rent check meant fresh paint on old moldings. Every new tenant meant working plumbing in original fixtures. The mundane care of apartment living preserved what neglect might have destroyed."
-        },
-        {
-          "type": "callout",
-          "title": "Partition Ghosts",
-          "text": "Look for traces of the apartment years: patched hinge mortises where doors once divided rooms, stray phone jacks from mid-century telecommunications, capped gas lines from converted kitchens. These small scars are layered over 1850s bones—evidence of the practical adaptations that kept the house alive through difficult decades."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1941 Deed Abstract",
-          "description": "Property transfer during WWII era",
-          "slug": "1941-deed-abstract-2"
-        }
-      ],
-      "keyFacts": [
-        "1922-1952: Five documented ownership transfers",
-        "Professional and apartment use typical of era",
-        "Side-hall plan proved adaptable to multiple uses",
-        "Fabric survived through continuous occupation",
-        "Original features preserved under partition walls"
-      ]
-    },
-    {
-      "slug": "grande-dame-returns",
-      "number": 7,
-      "title": "The Grande Dame Returns",
-      "subtitle": "Restoration and Renaissance",
-      "era": "1995-Present",
-      "yearStart": 1995,
-      "yearEnd": 2024,
-      "excerpt": "From historic district designation to modern hospitality, the house returned to unified grandeur while honoring every layer of its past.",
-      "heroImage": "/images/property/DSC00064.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "Scaffolds went up and I learned a new patience—the measured breath of careful work. Hammers spoke a different language now: not demolition, but repair. When the paper was signed that drew the district lines, I felt it in the gentler way people touched the stone."
-        },
-        {
-          "type": "heading",
-          "text": "Recognition and Protection"
-        },
-        {
-          "type": "paragraph",
-          "text": "In 1995, 1822 Pine Street was included in the Rittenhouse-Fitler Residential Historic District on the Philadelphia Register of Historic Places. That listing formalized what the building already embodied—historic integrity in a block of unified red-brick townhouses—and it set guardrails for exterior change."
-        },
-        {
-          "type": "paragraph",
-          "text": "The timing was fortunate. Rittenhouse Square was experiencing a renaissance as young professionals and established families rediscovered Victorian-era townhouses. What had been divided for survival could now be unified for celebration. Protection plus renewed demand brought the house back from apartments to single-family grandeur."
-        },
-        {
-          "type": "heading",
-          "text": "The Restoration"
-        },
-        {
-          "type": "paragraph",
-          "text": "The transformation was meticulous. Partition walls came down, revealing the original flow of the double parlors. The 1905 fireplace was restored to working order. Modern systems were threaded through old walls with surgical precision—climate control that doesn't disturb crown molding, updated wiring that respects original fixtures."
-        },
-        {
-          "type": "paragraph",
-          "text": "By the 2010s, real estate materials described six to eight bedrooms, high ceilings, marble mantels, and a careful return to gracious whole-house living. The spaces once divided for practicality now served gatherings, reunions, and extended stays. The plan's original strengths—double parlors and service corridor to Waverly—proved to be exactly what modern hospitality demands."
-        },
-        {
-          "type": "heading",
-          "text": "A Living History"
-        },
-        {
-          "type": "paragraph",
-          "text": "Today, as the Rittenhouse Residence, the house presents as an authentic working historic interior—not a replica of the past, but a venue where history continues to be made. The same rooms that hosted the Plumb wedding in 1901 now host modern celebrations. The parlors where suffragettes organized now accommodate corporate retreats. The geometry that worked in 1854 still works because good architecture is about proportion, light, and flow, not fashion."
-        },
-        {
-          "type": "paragraph",
-          "text": "The house has come full circle: from single-family elegance through pragmatic subdivision back to unified grandeur. Each era left its mark. None was erased. What you experience today is the sum of 170 years of adaptation—every layer visible to those who know how to look."
-        },
-        {
-          "type": "callout",
-          "title": "Your Chapter Begins",
-          "text": "When you book a stay at 1822 Pine Street, you're adding to this story. The marble threshold will count your footsteps as it has counted millions before. The parlors will hold your group's dinners and conversation as they held wedding breakfasts and 'At Home' receptions. You're not just using a historic space—you're participating in its ongoing life."
-        }
-      ],
-      "documents": [
-        {
-          "title": "2002 Deed",
-          "description": "21st century ownership transfer",
-          "slug": "1822-pine-2002-deed"
-        }
-      ],
-      "keyFacts": [
-        "1995: Rittenhouse-Fitler Historic District designation",
-        "Partition walls removed, original flow restored",
-        "1905 fireplace returned to working order",
-        "Modern systems integrated without destroying fabric",
-        "16-18 sleeping capacity for events and stays"
-      ]
-    },
-    {
-      "slug": "architecture-and-fabric",
-      "number": 8,
-      "title": "Architecture & Fabric",
-      "subtitle": "What Changed, What Endured",
-      "era": "1845-Present",
-      "yearStart": 1845,
-      "yearEnd": 2024,
-      "excerpt": "The house keeps score in stone—brick and marble forming a sober grammar of lintel and sill, with careful substitutions over 170 years that honored what came before.",
-      "heroImage": "/images/property/DSC00090.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I keep score in stone. The first tally was brick and marble, a sober grammar of lintel and sill. Then came the careful substitutions: a brighter jet of light, pipes that sang in winter, more confident paper on the walls. Through all of it, I stayed myself: a long hall for movement, two parlors for ceremony, a service path to the quiet of Waverly."
-        },
-        {
-          "type": "heading",
-          "text": "The Original Idea (c. 1845-1854)"
-        },
-        {
-          "type": "paragraph",
-          "text": "John McCrea's building campaign west of Broad gave this block its unified red-brick front and side-hall plan—late Greek Revival tending toward Italianate in cornice and proportion. Inside: high ceilings, marble mantels, a gracious stair. Outside: the white-marble stoop that still frames the entry. The lot runs 22 feet by 90 feet back to Waverly, setting up the invisible service geometry that continues to make events and load-in seamless today."
-        },
-        {
-          "type": "paragraph",
-          "text": "The April 1854 deed from McCrea to John Roset marks the beginning of the house's documented life at this address—the physical foundation for all that would follow. McCrea was prolific, responsible for multiple Pine, Delancey, and Spruce blockfronts, giving the area its unified red-brick face that still defines Rittenhouse Square's character."
-        },
-        {
-          "type": "heading",
-          "text": "The 1899 Modernization"
-        },
-        {
-          "type": "paragraph",
-          "text": "When Agnes M. Spencer took title on April 3, 1899, she hired Duhring, Okie & Ziegler for 'alterations and additions'—a classic turn-of-century refresh that likely meant upgraded plumbing and lighting, decorative refinishing, and a clearer separation of service from show. This is the provable line—client, address, architects, date—to place beside mantel and stair."
-        },
-        {
-          "type": "paragraph",
-          "text": "Family memory and period patterns suggest a rear extension and back stair; we present those as probable until permit records confirm the exact scope. What we can prove is the commission itself: printed in the newspapers of the time, naming this exact address."
-        },
-        {
-          "type": "paragraph",
-          "text": "The 1905 installation of a fireplace by J.N. Long for $130 represents continued investment in comfort and modernization—small improvements that accumulated into the gracious whole we see today. That hearth still warms gatherings as it warmed Mrs. Davis's 'At Homes' over a century ago."
-        },
-        {
-          "type": "heading",
-          "text": "Adaptation Without Amputation (1900s-1950s)"
-        },
-        {
-          "type": "paragraph",
-          "text": "As medicine moved in, the building gained signage and light partitioning rather than structural surgery: a parlor as waiting room, an inner room as consultation, and the family still moving above. The 1915-1916 medical directories listing Dr. Damon B. Pfeiffer and Stillwell Corson Burns at 1822 Pine demonstrate this flexible use—professional below, residential above."
-        },
-        {
-          "type": "paragraph",
-          "text": "Mid-century, like much of Rittenhouse, 1822 Pine cycled through professional suites and apartments—a pragmatic interval that, paradoxically, protected original fabric by keeping the building in constant use. The deed abstracts from 1922, 1941, 1947, 1949, and 1952 trace this evolution of ownership while the bones of the house remained intact."
-        },
-        {
-          "type": "heading",
-          "text": "Protection and Revival (1995-Present)"
-        },
-        {
-          "type": "paragraph",
-          "text": "The house sits within the Rittenhouse-Fitler Residential Historic District (local register, 1995), which helped preserve its exterior character through late-twentieth-century work and subsequent private restorations. By the 2010s, marketing materials celebrated six to eight bedrooms, high ceilings, and original detailing."
-        },
-        {
-          "type": "paragraph",
-          "text": "Today the home operates as The Rittenhouse Residence—a historic townhouse where Philadelphia's architectural heritage meets modern hospitality. The plan that worked for Victorian ceremonies works perfectly for modern events: side-hall circulation means clear sightlines and minimal cross-traffic, the double parlors expand or contract as needed, and the service corridor to Waverly keeps the mechanics invisible."
-        },
-        {
-          "type": "callout",
-          "text": "Notice how the stair geometry reads the social order: public life below, family life above, service to the rear. The mantels and plaster mark the mid-nineteenth-century core, while a few details skew subtly Edwardian from the 1899 refit. The rear logic—the Waverly axis—still does the house's invisible work, exactly as it did when coal and ice arrived by that route."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1854 Deed Abstract",
-          "description": "Original property transfer from John McCrea to John Roset",
-          "slug": "1854-deed-abstract"
-        },
-        {
-          "title": "1899 Architect Commission",
-          "description": "Duhring, Okie & Ziegler retained for alterations",
-          "slug": "the-philadelphia-inquirer-1899-07-18-page-12"
-        },
-        {
-          "title": "1905 Fireplace Permit",
-          "description": "J.N. Long fireplace installation, $130",
-          "slug": "the-philadelphia-inquirer-1905-08-04-page-6"
-        }
-      ],
-      "keyFacts": [
-        "c. 1845: McCrea builds the block in Greek Revival/Italianate style",
-        "22' x 90' lot running to Waverly Street",
-        "1899: Duhring, Okie & Ziegler modernization",
-        "1905: Fireplace installation, still in use",
-        "1995: Historic district designation protects exterior"
-      ]
-    },
-    {
-      "slug": "room-by-room-field-guide",
-      "number": 9,
-      "title": "Room by Room",
-      "subtitle": "A Field Guide to the Details",
-      "era": "Then and Now",
-      "yearStart": 1854,
-      "yearEnd": 2024,
-      "excerpt": "The house teaches itself to those who pay attention—by crossings and turns, by where sound gathers and where it slips away.",
-      "heroImage": "/images/property/DSC00088.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I know you by your shoes. The cautious heel at midnight, the bright clatter before a party, the felt hush of a caretaker in July. Step up; I'll teach you the house the way people taught me—by crossings and turns, by where sound gathers and where it slips away."
-        },
-        {
-          "type": "heading",
-          "text": "Threshold & Door"
-        },
-        {
-          "type": "paragraph",
-          "text": "A Philadelphia signature—white-marble stoop and threshold fronting a mid-nineteenth-century brick façade. The marble was chosen for hard wear and easy cleaning; it still frames the ceremony of arrival. Look for hinge scars or locksets that show successive security fashions over 170 years of use."
-        },
-        {
-          "type": "paragraph",
-          "text": "This same threshold welcomed the Rosets in 1854, received the Plumb wedding party in 1901, felt suffragette feet in 1915, and now greets your arrival. Protect the marble with low-profile mats during events—but keep the step visible for photos. Guests love a stoop shot that reads 'Rittenhouse.'"
-        },
-        {
-          "type": "heading",
-          "text": "The Side Hall"
-        },
-        {
-          "type": "paragraph",
-          "text": "The house's traffic spine, drawn to separate show from service. It's why the property works so well for events and shoots today—guests flow right, staff flow past. Notice floorboard wear by the stair newel; patched bell-pull escutcheons; an umbrella stand exactly where 1890s etiquette would expect it."
-        },
-        {
-          "type": "paragraph",
-          "text": "This same hall saw suffrage organizers in 1915 and now welcomes wedding guests. The card-tray logic of the front hall—where calling cards accumulated during winter 'At Homes'—explains why the pier table sits where it does. The plan logic hasn't changed; only the cards have become escort cards."
-        },
-        {
-          "type": "heading",
-          "text": "The Double Parlors"
-        },
-        {
-          "type": "paragraph",
-          "text": "Two rooms in file with pocket doors—weddings, wakes, musicales, meetings—the social operating system of the block since the 1850s. The 1899 Duhring, Okie & Ziegler commission likely refreshed finishes, lighting, and circulation here. The 1905 fireplace anchors the front parlor, the same hearth where Mrs. Davis held her 'At Homes.'"
-        },
-        {
-          "type": "paragraph",
-          "text": "Use the aisle down the axis for ceremonies; the second parlor for bar or quartet; close the pocket doors for a reveal. The same proportions that made Victorian ceremonies possible make modern events feel natural. One axis equals ceremony aisle, runway, or dolly track; the other equals bar, breakout, or B-camera position."
-        },
-        {
-          "type": "heading",
-          "text": "Dining Room & Pantry Line"
-        },
-        {
-          "type": "paragraph",
-          "text": "A hospitality hinge between show and service. French doors to the garden and a straight shot to the rear corridor keep catering invisible. Look for odd strips of nail holes at chair-rail height—picture molding history—and lath patches near the bell button, scars from the old staff-call system."
-        },
-        {
-          "type": "paragraph",
-          "text": "The Rolin-Plumb wedding breakfast was served here in 1901. The same table positions that worked for that celebration work for yours."
-        },
-        {
-          "type": "heading",
-          "text": "Rear Corridor to Waverly"
-        },
-        {
-          "type": "paragraph",
-          "text": "The original service axis. The lot runs approximately 22 by 90 feet to Waverly, where stables and coach access once lived. The same geometry makes quiet load-in and load-out effortless now. Stage vendor arrivals on Waverly; protect thresholds; keep the front hall photogenic."
-        },
-        {
-          "type": "heading",
-          "text": "The Stair & Landings"
-        },
-        {
-          "type": "paragraph",
-          "text": "A long, readable side stair—public below, family midway, servants high and rear. Stand on the half-landing and you can see how the house orchestrates privacy with a turn of the rail. These stairs carried the Spencer family's grief in 1891, the Davis women's activism through 1918, doctors' patients through the 1910s, and apartment tenants through the mid-century."
-        },
-        {
-          "type": "heading",
-          "text": "The Chambers"
-        },
-        {
-          "type": "paragraph",
-          "text": "In the Roset-Davis years: second-floor principal chambers, third-floor family and guests, rear and attic for staff. The late-1890s work likely sharpened the service boundary. Today the house sleeps sixteen comfortably, up to eighteen with a sofa-bed—an honest, code-compliant echo of the house's historic capacity to host many, minus the live-in staff."
-        },
-        {
-          "type": "heading",
-          "text": "Materials: How to Read the House"
-        },
-        {
-          "type": "paragraph",
-          "text": "Mantels: Marble profiles that skew Greek Revival to Edwardian show the building's two main stylistic beats. Plaster and medallions: Original ceiling heights and rosettes telegraph mid-nineteenth-century scale; small asymmetries suggest hand work, not catalogue parts. Floors: Wide, old-growth boards in back-of-house; tighter, later oak where a parlor refit likely happened. Hardware: A mixed drawer—earlier classical escutcheons with a few later Eastlake and Colonial Revival pieces after 1899."
-        },
-        {
-          "type": "callout",
-          "text": "Conversation starters for guests: Where did callers wait? Right here—card tray on the pier table, hostess halfway down the hall. What was summer like? Shutters, shade, and a caretaker's lamp; most families decamped while the house dozed. What cause left its mark here? Equal Franchise—in December 1913 Mrs. Davis refused taxes without a vote, and in 1915 Miss Martha Davis sold suffrage luncheon tickets from this address."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1904 'At Home' Notice",
-          "description": "Mrs. Henry C. Davis and the Misses Davis receive callers",
-          "slug": "the-philadelphia-inquirer-1904-12-11-page-36"
-        },
-        {
-          "title": "1905 Fireplace Permit",
-          "description": "J.N. Long fireplace installation",
-          "slug": "the-philadelphia-inquirer-1905-08-04-page-6"
-        }
-      ],
-      "keyFacts": [
-        "White marble threshold: Philadelphia signature",
-        "Side-hall plan: guests flow right, staff flow past",
-        "Double parlors: ceremony and intimacy in one",
-        "Waverly axis: the invisible work edge",
-        "16-18 sleeping capacity in modern configuration"
-      ]
-    },
-    {
-      "slug": "provenance-dossier",
       "number": 10,
-      "title": "Provenance Dossier",
-      "subtitle": "The Documentary Record",
-      "era": "1854-Present",
+      "title": "Walk the Rooms",
+      "subtitle": "Four stories, a narrow lot, and a door that has opened two ways for a hundred and seventy years",
+      "era": "1854–Present",
+      "excerpt": "A floor-by-floor walk through a Rittenhouse townhouse where a funeral once filled the room that now holds a pool table.",
+      "content": [
+        {
+          "type": "narrator",
+          "text": "I am the cold part of the doorway, the piece nobody looks at. Feet tell me everything. Slow means sorrow. Quick means a party already running late. Come in. I will lend you the order the callers used."
+        },
+        {
+          "type": "heading",
+          "text": "The Hall and the Card Tray"
+        },
+        {
+          "type": "paragraph",
+          "text": "The vestibule is narrow on purpose: two doors an arm's length apart, so winter never got past the second one. Beyond them the hall runs back along the western wall, dim at midday, gold at four o'clock, the stair rising out of it like a held note. On a table here callers left cards — and a generation later, in the winter of 1915, a daughter of the house sold suffrage luncheon tickets across the same table at a dollar and a half apiece."
+        },
+        {
+          "type": "paragraph",
+          "text": "The big room on this floor now holds a pool table, green under low light, cues racked where a pier glass would have hung. Stand at its far end and you are standing where the chairs were set on a Tuesday morning in November 1896, when the funeral of Graham Spencer went out through this door at eleven o'clock — a man of forty-four whose family fortune came out of white clay, and whose father had bought this address at auction three years before."
+        },
+        {
+          "type": "pullquote",
+          "text": "Draw the pocket doors out of the wall and you have two rooms. Roll them away and you have the whole house."
+        },
+        {
+          "type": "heading",
+          "text": "Pocket Doors and a Table for Sixteen"
+        },
+        {
+          "type": "paragraph",
+          "text": "The double parlors are one room with a seam in it. A front for receiving, a back for staying — or no seam at all, which is what a hostess wanted by nine in the evening. Marble mantels anchor both ends, and one of the fireboxes was cut in one August for a hundred and thirty dollars, on the order of a man the record names and nothing else explains."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dining sits where the light arrives sideways, off the narrow slot along the western party line that every atlas has drawn since 1885. Set sixteen places and you have rebuilt something precise. In November 1901 a wedding breakfast was served here after a ceremony at St. James's, at the residence of the bride's parents. The table has been doing that ever since, in one form or another."
+        },
+        {
+          "type": "narrator",
+          "text": "Furniture comes in through me one way and goes out the other, and I can tell which by the pauses. Party chairs arrive in a rush and get set down twice. Either way the door stands open longer than the weather likes, and I take the cold for both."
+        },
+        {
+          "type": "heading",
+          "text": "The Back Stairs"
+        },
+        {
+          "type": "paragraph",
+          "text": "The library is the quiet room — books, low chairs, a wet bar doing with ice and glass what a decanter tray once did with more ceremony. Behind it the service stair turns tight and plain, treads worn smooth, invisible from the front hall. Somebody was asked to climb it on a Monday morning in May 1917, to be looked at for a place that ended on the first of June. The Davis years close a year later — suddenly, the notice says, at this address, with the funeral private."
+        },
+        {
+          "type": "heading",
+          "text": "The Story Agnes Added"
+        },
+        {
+          "type": "paragraph",
+          "text": "Bedrooms fill floors two through four, and the windows are the argument for each one. The front rooms take Pine Street whole: tall sashes, deep sills, the particular clean morning light that comes off the brick wall across the way — a wall a Drexel was living behind by 1867, a few doors up the opposite side. Choose a back bedroom instead and you get the other thing: silence, and a stairwell at two in the morning that carries every footstep like a rumor."
+        },
+        {
+          "type": "paragraph",
+          "text": "The top of the house owes its shape to a widow with ladders up in 1899 and again the autumn after. Above it, the roof deck: chimney pots, slate, the backs of a whole block of houses built in one speculative gesture, and two blocks north the trees of Rittenhouse Square going dark before the streets do. Nobody in 1899 stood up here for pleasure. Somebody does now, most evenings, with a glass."
+        },
+        {
+          "type": "narrator",
+          "text": "They come down eventually, all of them, and pass over me on the way out — later than they meant to, quieter than they arrived, one of them carrying shoes. I have felt brides hesitate here and mourners hurry. I only notice that the ones who stayed a few nights step down differently than the ones who merely called: slower, and looking back at the door."
+        }
+      ],
       "yearStart": 1854,
-      "yearEnd": 2024,
-      "excerpt": "The house is made of dates as much as brick—every claim tied to a deed, a newspaper column, a directory listing that names this exact address.",
-      "heroImage": "/images/documents/1854-deed.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I am made of dates as much as brick. I learned the calendar by the weight of footsteps—the day the mason left, the winter the doctor hung a shingle, the spring a tax bill arrived with a principle attached. Here are the moments you can hold up like a lantern and say: it happened here."
-        },
-        {
-          "type": "heading",
-          "text": "Chain of Title: The Core Lines"
-        },
-        {
-          "type": "paragraph",
-          "text": "April 1854: John McCrea (developer) sells 1822 Pine to John Roset, merchant. This anchors the claim that the house was likely new at sale—the first long-term owners taking possession of McCrea's work. The Rosets held the property through 1893, with the house entering trust management after Mary Ann Roset's death in 1880."
-        },
-        {
-          "type": "paragraph",
-          "text": "June 29, 1893: The Roset estate trustee transfers to Howard Spencer. 1896: Howard Spencer dies; his estate is administered by executors Henry S. Pleasants and William McLean. April 3, 1899: They convey the deed to Agnes M. Spencer, who immediately commissions Duhring, Okie & Ziegler for alterations and additions."
-        },
-        {
-          "type": "paragraph",
-          "text": "The 1899 architect commission—printed in both the Philadelphia Inquirer and Philadelphia Times—is the turn-of-century modernization anchor. Client, address, architects, date: all provable against this exact threshold."
-        },
-        {
-          "type": "heading",
-          "text": "Life Events at This Address"
-        },
-        {
-          "type": "paragraph",
-          "text": "January 11, 1901: Mrs. Graham Spencer returns to 1822 Pine Street for winter from her Chester County estate. October 27, 1901: Fayette R. Plumb listed at 1822 Pine Street. November 21, 1901: Rolin-Plumb wedding breakfast served at 1822 Pine Street."
-        },
-        {
-          "type": "paragraph",
-          "text": "December 11, 1904: Mrs. Henry C. Davis and the Misses Davis hold 'At Home' days at 1822 Pine street. August 4, 1905: J.N. Long installs fireplace at 1822 Pine St. for $130—the hearth that still warms gatherings today."
-        },
-        {
-          "type": "paragraph",
-          "text": "December 1913: Mrs. Henry C. Davis, of 1822 Pine Street, identified in tax-resistance coverage—suffragists refusing to pay taxes without the vote. January 8, 1915: Miss Martha Davis, 1822 Pine street, selling Equal Franchise Society tickets. May 21, 1918: 'Suddenly, at 1822 Pine St. ... NAOMI LAWTON'—a life ending at this address."
-        },
-        {
-          "type": "heading",
-          "text": "Professional Use"
-        },
-        {
-          "type": "paragraph",
-          "text": "1915: Dr. Damon B. Pfeiffer, 1822 Pine St. (Fellow, College of Physicians). 1916: Stillwell Corson Burns, Surgery—1822 Pine. The medical listings prove the parlor-to-practice adaptability that kept the house in productive use while family life continued above."
-        },
-        {
-          "type": "heading",
-          "text": "The Apartment Era"
-        },
-        {
-          "type": "paragraph",
-          "text": "1922-1952: Five documented property transfers mark the apartment conversion years. The deed abstracts trace ownership changes while the architectural core remained intact. Pragmatic subdivision preserved rather than destroyed—adaptation kept the building occupied, occupation meant maintenance, maintenance meant survival."
-        },
-        {
-          "type": "heading",
-          "text": "Modern Protection"
-        },
-        {
-          "type": "paragraph",
-          "text": "1995: Rittenhouse-Fitler Residential Historic District includes 1822 Pine, formalizing exterior stewardship. The listing protects the streetscape that makes Rittenhouse Square valuable—neighborhood stability that buyers and appraisers recognize."
-        },
-        {
-          "type": "callout",
-          "text": "This dossier stays conservative on claims and generous with proof. Every line ties directly to 1822 Pine Street via deeds, directories, architect notices, obituaries, and compiled research. When someone asks 'Can you prove it?'—these are the moments you can hold up like a lantern."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1854 Deed Abstract",
-          "description": "McCrea to Roset transfer",
-          "slug": "1854-deed-abstract"
-        },
-        {
-          "title": "1893 Sale Notice",
-          "description": "Philadelphia Inquirer: '1822 Sold for $14,000'",
-          "slug": "1822-sold-for-14-000"
-        },
-        {
-          "title": "1899 Architect Commission",
-          "description": "Duhring, Okie & Ziegler retained",
-          "slug": "the-philadelphia-inquirer-1899-07-18-page-12"
-        },
-        {
-          "title": "1915 Suffrage Notice",
-          "description": "Equal Franchise Society tickets",
-          "slug": "evening-public-ledger-1915-01-08-page-10"
-        }
-      ],
+      "yearEnd": 1854,
+      "heroImage": "/images/airbnb/airbnb_08.jpg",
       "keyFacts": [
-        "Continuous chain of title from 1854",
-        "1899 modernization: client, address, architects, date proven",
-        "1913 & 1915: Suffrage activism documented at this address",
-        "1915-1916: Medical practice proven via directories",
-        "1995: Historic district designation"
-      ]
-    },
-    {
-      "slug": "events-and-filming",
-      "number": 11,
-      "title": "Events & Filming",
-      "subtitle": "Playbook & Floor-Flow",
-      "era": "Practical Guide",
-      "yearStart": 1854,
-      "yearEnd": 2024,
-      "excerpt": "The old geometry holds: ceremony in front, effort along Waverly, celebration in between. The same plan that worked for Victorian weddings works for yours.",
-      "heroImage": "/images/property/DSC00092.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "Feet arrive with intent now: planners with clipboards, a director's quiet shoes, bridesmaids carrying steam. I feel the house choose the right shapes for them—one room for promise, one for talk, the back way for work. The old geometry holds: ceremony in front, effort along Waverly, celebration in between."
-        },
-        {
-          "type": "heading",
-          "text": "Why This House Works for Events"
-        },
-        {
-          "type": "paragraph",
-          "text": "The original side-hall and double-parlor plan was drawn for orchestrated hospitality—callers on schedule, food and service kept discreet. That same geometry, plus the service run to Waverly Street, makes today's weddings, retreats, and productions run cleanly—with guests flowing at the front and vendors loading at the rear."
-        },
-        {
-          "type": "paragraph",
-          "text": "The flow: Street to side-hall (welcome) to first parlor (ceremony/briefing) to second parlor (reception/green room) to dining and garden (service hinge) to Waverly (quiet load-in/out). The same parlors that hosted the Rolin-Plumb wedding breakfast in 1901 and Mrs. Davis's 'At Homes' in 1904 now welcome your celebrations."
-        },
-        {
-          "type": "heading",
-          "text": "Micro-Wedding Setup (30-50 guests)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Welcome in the side-hall with escort cards on the hall table and photos on the marble stoop. Ceremony in the first parlor with chairs facing the street windows and musicians tucked by the 1905 fireplace. Cocktails in the second parlor with bar staged near the garden door. Dinner in the dining room with parlor tables; garden for toasts if weather allows. All back-of-house traffic via the Waverly corridor, keeping kitchen staging out of guest sightlines."
-        },
-        {
-          "type": "heading",
-          "text": "Corporate Off-Site Setup"
-        },
-        {
-          "type": "paragraph",
-          "text": "Plenary sessions in the first parlor in boardroom or U-shape with simple mobile A/V. Breakouts in the second parlor and dining; 'phone zone' in the hall bench area. Catering via rear corridor with rolling service from Waverly. Evening conversation fireside by the 1905 hearth; light terrace and garden use as weather allows."
-        },
-        {
-          "type": "heading",
-          "text": "Filming & Stills Setup"
-        },
-        {
-          "type": "paragraph",
-          "text": "Tech scout to identify power access per room, protect mantels and floors, confirm rigging policy. Talent holding and HMU in the second parlor; wardrobe in dining; steamer in rear corridor. All carts and cases load via Waverly with runners at thresholds; keep front hall photogenic. Treat the façade like a set—stage quietly, mind sightlines on Pine."
-        },
-        {
-          "type": "heading",
-          "text": "House Rules That Protect Fabric"
-        },
-        {
-          "type": "paragraph",
-          "text": "Protect the marble (front and garden thresholds) with low-profile mats during load-in. No adhesive on plaster or mantels—use freestanding or clamp-on solutions with pads. Candles: contained only, no open flame near mantels or draperies. Music and hours: follow city noise guidance; wrap front-of-house activity on schedule."
-        },
-        {
-          "type": "callout",
-          "text": "The 'invisible highway': Follow the rear corridor to Waverly and you're tracing the nineteenth-century service path—today's catering and crew lane. The same rooms that saw the Plumb wedding (1901), suffrage organizing (1915), and medical consultations (1915-1916) now host your events. Proven adaptability across 170 years."
-        }
+        "The Hall and the Card Tray",
+        "Pocket Doors and a Table for Sixteen",
+        "The Back Stairs"
       ],
-      "documents": [
-        {
-          "title": "1901 Wedding Notice",
-          "description": "Rolin-Plumb wedding breakfast at 1822 Pine",
-          "slug": "the-philadelphia-inquirer-1901-11-21"
-        },
-        {
-          "title": "1904 'At Home' Notice",
-          "description": "Mrs. Davis and the Misses Davis",
-          "slug": "the-philadelphia-inquirer-1904-12-11-page-36"
-        }
-      ],
-      "keyFacts": [
-        "First Parlor: 50 standing, 30 seated ceremony",
-        "Combined Parlors: 75 cocktail style",
-        "Full House: 16-18 overnight guests",
-        "1905 working fireplace as ceremonial anchor",
-        "Separate vendor entrance via Waverly"
-      ]
-    },
-    {
-      "slug": "the-seasonal-house",
-      "number": 12,
-      "title": "The Seasonal House",
-      "subtitle": "Winters in Town, Summers Away",
-      "era": "1850s-Present",
-      "yearStart": 1850,
-      "yearEnd": 2024,
-      "excerpt": "The city turned on a hinge of weather—December parlors bright with callers, July shutters drawn against heat and dust. That rhythm shaped every era of this house.",
-      "heroImage": "/images/property/DSC00064.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "Winter comes with boots and card trays; summer leaves with an echo and a caretaker's lamp. I felt the city turn on a hinge of weather—December parlors bright with callers, July shutters drawn against heat and dust. The century changed, but that rhythm hardly did."
-        },
-        {
-          "type": "heading",
-          "text": "Winters in Town (c. 1850-1915)"
-        },
-        {
-          "type": "paragraph",
-          "text": "The Philadelphia social season ran from October through April, when Rittenhouse Square families returned from country estates and shore houses. 1822 Pine came alive with the cold: 'At Homes,' musicales, lectures—the double parlors designed to take coats, serve callers, and host ceremony. The side-hall is the timer that keeps everything moving."
-        },
-        {
-          "type": "paragraph",
-          "text": "Work behind the welcome: a cook and housemaid at minimum; by the 1890s often a parlor maid and laundress. The rear service axis kept all of it offstage. The 1899 modernization under Duhring, Okie & Ziegler readied the house for the new century's winter calendar."
-        },
-        {
-          "type": "paragraph",
-          "text": "Proof moments at this address: January 1901, Mrs. Graham Spencer returns to 1822 Pine Street from her Chester County estate for winter. December 1904, Mrs. Davis's 'At Home' days in full swing. January 1915, Miss Martha Davis selling Equal Franchise Society tickets from the house—activism woven into the winter social calendar."
-        },
-        {
-          "type": "heading",
-          "text": "Summers Away (c. 1850-1915)"
-        },
-        {
-          "type": "paragraph",
-          "text": "When June arrived, Pine Street emptied. Families of this block typically left the heat for shore or hill—house shuttered, light staff retained, deliveries and repairs through Waverly. Dust sheets, summer china, windows on the shade. A caretaker's schedule would include mail, plants, and the occasional tradesman."
-        },
-        {
-          "type": "paragraph",
-          "text": "Society columns tracked departures and returns religiously. Mrs. Spencer's 1901 winter return from Chester County exemplifies the pattern—country summers, city winters. The house stayed alive but quieter, breathing the slow breath of July while its owners breathed sea air."
-        },
-        {
-          "type": "heading",
-          "text": "The Seasonal Arc Through Later Decades"
-        },
-        {
-          "type": "paragraph",
-          "text": "1918: The influenza year muted winter rituals citywide; the obituary line for Naomi L. Davis marks a private end at the house itself, May 21—just as summer departures would have begun. 1930s-1950s: Seasonal social life gives way to apartment and professional rhythms—quieter summers, steady winters—still using the same plan. Year-round occupancy by multiple tenants replaced the seasonal migration."
-        },
-        {
-          "type": "paragraph",
-          "text": "1995 to present: District listing, careful restorations, and the return of whole-house hospitality—winter dinners and holiday stays again feel right in these rooms. Modern climate control has erased the necessity of summer flight, but the house still shows its seasonal DNA."
-        },
-        {
-          "type": "heading",
-          "text": "The House's Seasonal Personality Today"
-        },
-        {
-          "type": "paragraph",
-          "text": "Winter advantages: The 1905 fireplace creates perfect ambiance for holiday parties; high ceilings trap warm air; southern exposure brightens short days. Summer assets: Cross-ventilation from Pine to garden; shutters that still work; the garden as evening refuge. Unlike its historical pattern, the house now operates continuously—weddings in spring and fall, corporate retreats in winter, film shoots anytime."
-        },
-        {
-          "type": "callout",
-          "text": "Stand between parlors at four o'clock in January; watch the house do exactly what it was built to do: hold people and conversation in warm proportion. Open the garden door in July and hear the old quiet that once held summer. The seasonal patterns explain the house's value: this plan proved profitable across centuries—social winters, practical summers, adaptable always."
-        }
-      ],
-      "documents": [
-        {
-          "title": "1901 Winter Return",
-          "description": "Mrs. Spencer returns from Chester County",
-          "slug": "the-philadelphia-times-1901-01-11"
-        },
-        {
-          "title": "1904 'At Home' Notice",
-          "description": "Mrs. Davis's winter social calendar",
-          "slug": "the-philadelphia-inquirer-1904-12-11-page-36"
-        }
-      ],
-      "keyFacts": [
-        "October-April: Peak social season historically",
-        "June-September: Shuttered, skeleton staff",
-        "1901: Documented winter return from country",
-        "1905 fireplace: Winter gathering anchor",
-        "Today: Year-round operation vs. seasonal limits"
-      ]
-    },
-    {
-      "slug": "epilogue",
-      "number": 13,
-      "title": "Epilogue",
-      "subtitle": "Let the Marble Speak",
-      "era": "1854-Forever",
-      "yearStart": 1854,
-      "yearEnd": 2099,
-      "excerpt": "The threshold remembers everything and judges nothing. Step up, step through, be part of the story.",
-      "heroImage": "/images/property/DSC00082.jpg",
-      "content": [
-        {
-          "type": "narrator",
-          "text": "I remember beginnings more than endings: the day the mason left me level with Pine; the moment a bride's shoes paused on my cool edge; the fast step of someone late for an appointment; the careful tread of a woman who would not pay tax for a vote she was denied. A house that honors its uses survives; a city that honors its houses remembers itself."
-        },
-        {
-          "type": "heading",
-          "text": "The Complete Story"
-        },
-        {
-          "type": "paragraph",
-          "text": "1822 Pine Street is a working historic interior—mid-nineteenth-century core, 1899 modernization, early-twentieth-century professional use, mid-century pragmatism, and twenty-first-century return to whole-house hospitality—all documented against this exact address."
-        },
-        {
-          "type": "paragraph",
-          "text": "From the first deed in 1854 to today's celebrations, every era left its mark. The Rosets established the pattern of gracious living. The Spencers brought tragedy and transformation. The Davises made history with suffrage activism. Physicians proved the parlors' adaptability. Apartment dwellers preserved the fabric through pragmatic use. Historic designation protected the exterior integrity. Modern restoration returned the house to unified grandeur."
-        },
-        {
-          "type": "heading",
-          "text": "Why This House Endures"
-        },
-        {
-          "type": "paragraph",
-          "text": "The secret is in the plan. John McCrea's 1840s design—side hall, double parlors, service to Waverly—created a machine for living that works as well for today's events as it did for Victorian 'At Homes.' The 1899 Duhring, Okie & Ziegler updates modernized without destroying. The 1905 fireplace still warms gatherings. Each improvement honored what came before."
-        },
-        {
-          "type": "paragraph",
-          "text": "Architecture that serves people, rather than demanding that people serve it, is architecture that survives. This house has adapted to every use asked of it—family residence, professional suite, apartment building, event venue—because its fundamental proportions are right. Light falls where it should. Movement flows naturally. Ceremony and comfort coexist."
-        },
-        {
-          "type": "heading",
-          "text": "For Future Stewards"
-        },
-        {
-          "type": "paragraph",
-          "text": "Whether you're a guest for a night, a couple planning your wedding, or a future owner in the chain of title, you're part of this continuum. The marble threshold that counted Victorian calling cards counts every guest who crosses today. The parlors that heard suffrage debates host your strategies and celebrations. The service corridor that carried coal carries catering."
-        },
-        {
-          "type": "paragraph",
-          "text": "This isn't mythology. Every claim in this story ties to a document—deeds, newspaper columns, building permits, medical directories, historic district filings. The house earned its story one documented day at a time, and it continues to earn new chapters with every use."
-        },
-        {
-          "type": "callout",
-          "title": "Your Invitation",
-          "text": "The threshold remembers everything and judges nothing. It has welcomed merchants and reformers, doctors and debutantes, suffragettes and society brides. Now it welcomes you. Step up, step through, be part of the story."
-        }
-      ],
-      "documents": [],
-      "keyFacts": [
-        "170+ years of remarkable stories",
-        "8 bedrooms, sleeps 16-18 guests",
-        "Original fireplaces and marble mantels",
-        "Protected historic district since 1995",
-        "Perfect for reunions and celebrations"
-      ]
+      "documents": []
     }
-  ]
+  ],
+  "title": "House at the Edge of the Square",
+  "subtitle": "The Story of 1822 Pine Street",
+  "introduction": "You're standing in a long, brick memory. For nearly two centuries, this house has watched Philadelphia transform—from the age of horse-drawn carriages to the digital era. It has hosted merchants and reformers, doctors and debutantes, suffragettes and society brides. Every room holds stories written in marble and mortar, documented in deeds and newspaper columns, preserved in the very fabric of its walls."
 }

@@ -29,7 +29,7 @@ const stats = [
 const comparisons = [
   [
     "Eight room keys on different floors",
-    "One front door, and five floors that belong to your group alone",
+    "One front door, and a whole house that belongs to your group alone",
   ],
   ["A lobby you pass through", "Two parlors you actually sit in, plus a full-size pool table"],
   [
@@ -46,7 +46,7 @@ const comparisons = [
 
 const tradeoffs = [
   "No daily housekeeping. The house is prepared for your arrival, but nobody resets it each morning.",
-  "No elevator. Five floors of stairs, with all bedrooms on floors two through four.",
+  "No elevator. Four stories of stairs, with all bedrooms above the entrance level.",
   "A 2-night minimum, and longer on some peak dates — this is not a one-night crash pad.",
   "Check-out is 10:00 AM, and check-in is 4:00 PM.",
   "Questions go to your host, not a front desk in the lobby.",
@@ -59,7 +59,7 @@ const faqs = [
   },
   {
     q: "What does a hotel do better?",
-    a: "Daily housekeeping, an elevator, and a 24-hour front desk. The house has none of those — it is a private five-floor historic home with a 2-night minimum and a 10:00 AM check-out. We state the tradeoffs plainly so nobody discovers them on arrival.",
+    a: "Daily housekeeping, an elevator, and a 24-hour front desk. The house has none of those — it is a private four-story historic home with a 2-night minimum and a 10:00 AM check-out. Those are the tradeoffs.",
   },
   {
     q: "What does the house have that eight hotel rooms never will?",

@@ -46,7 +46,7 @@ const timings = [
 ] as const;
 
 const yes = [
-  "The whole house is yours — all five floors, no shared space, no other guests.",
+  "The whole house is yours — every floor, no shared space, no other guests.",
   "Cooking for the group. Two full kitchens and a dining table that seats sixteen.",
   "Bringing in a caterer or private chef for a meal at the house.",
   "A family dinner, a birthday toast, a wedding party getting ready in the morning.",

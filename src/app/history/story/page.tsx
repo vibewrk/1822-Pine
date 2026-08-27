@@ -255,18 +255,15 @@ export default function StoryIndexPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="prose prose-gray max-w-none">
             <h2 className="font-serif text-xl font-bold text-gray-900">
-              About This Historical Narrative
+              About this story
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed">
-              &ldquo;House at the Edge of the Square&rdquo; tells the documented story of
-              1822 Pine Street, a contributing property in the Rittenhouse&ndash;Fitler
-              Residential Historic District. Every claim in this narrative is
-              anchored by primary source documents—deeds, newspaper articles,
-              building permits, and directory listings that specifically name
-              this address. Where the record is incomplete, the gaps are marked;
-              where family tradition suggests details we cannot yet prove, we
-              mark them as probable pending verification.
-            </p>
+              This is a story about a real house. The people in it lived here, the
+              dates are the ones on the deeds and in the newspapers, and the
+              quoted lines are quoted. The weather, the rooms at four o&rsquo;clock and
+              the sound of the stair are ours — a way of walking you through
+              1822 Pine Street rather than handing you a chronology. If you
+              want the paperwork instead, it is all in the archive.</p>
             <p className="text-gray-600 text-sm leading-relaxed">
               This documentation draws from the Philadelphia City Archives,
               Historical Society of Pennsylvania, and extensive newspaper
