@@ -141,9 +141,8 @@ export function SocialProof() {
             {TOTAL_REVIEWS} reviews across Airbnb and Vrbo.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700">
-            Every quote below is a real guest&apos;s own words, taken from the
-            two platforms you can book on. Nothing here is written by us — read
-            them in full on{" "}
+            Every quote below is a guest&apos;s own words, taken from the two
+            platforms you can book on. Read them in full on{" "}
             <TrackedLink
               href={AIRBNB_URL}
               event="ota_click"

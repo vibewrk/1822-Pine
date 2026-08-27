@@ -87,7 +87,7 @@ const annualCalendar = [
   [
     "The Flower Market tradition",
     "Since May 20, 1914",
-    "The first Rittenhouse Square Flower Market was held May 20, 1914, and grew into a beloved children's-charity benefit. Check the Friends of Rittenhouse Square calendar for current-year plans — we don't publish dates we can't verify.",
+    "The first Rittenhouse Square Flower Market was held May 20, 1914, and grew into a beloved children's-charity benefit. Check the Friends of Rittenhouse Square calendar for current-year plans.",
     "https://www.friendsofrittenhouse.org/events",
   ],
 ] as const;

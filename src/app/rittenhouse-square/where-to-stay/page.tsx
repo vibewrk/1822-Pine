@@ -175,11 +175,10 @@ export default function WhereToStayPage() {
             Where to stay near Rittenhouse Square.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            Full disclosure first: we run one of the options on this page — an
-            8-bedroom historic house two blocks from the park. We&apos;re
-            listing the hotels anyway, honestly, because they&apos;re good at
-            what they do and because the right answer depends on your group.
-            Here is how we&apos;d actually choose.
+            We run one of the options on this page — an 8-bedroom historic
+            house two blocks from the park. The hotels are here too, because
+            they&apos;re good at what they do and the right answer depends on
+            your group. Here is how we&apos;d choose.
           </p>
         </div>
       </section>

@@ -164,7 +164,7 @@ export default function GroupsPage() {
                   href="/hotel-alternative"
                   className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
                 >
-                  We wrote that comparison honestly
+                  We wrote that comparison
                 </Link>
                 , tradeoffs included.
               </p>
@@ -318,7 +318,7 @@ export default function GroupsPage() {
             <div className="mb-9">
               <Eyebrow>Group Questions</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                Asked by organizers, answered honestly.
+                Asked by organizers.
               </h2>
             </div>
             <div className="divide-y divide-stone-200 border-y border-stone-200">
