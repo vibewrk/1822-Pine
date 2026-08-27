@@ -15,18 +15,19 @@ import {
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import occasionsData from "@/data/occasions.json";
+import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
 
 export const metadata: Metadata = {
   title: "Group Stays for 16",
   description:
-    "One house for the whole group — 8 bedrooms, sleeps 16, from $1,600/night. Family reunions, corporate retreats, and celebration weekends in Center City.",
+    `One historic Center City house for groups of up to 16, with 8 bedrooms and dining for everyone. ${PRICING_COPY.compact}`,
   alternates: { canonical: "/groups" },
   openGraph: {
     title: "Group Stays for 16 | The Rittenhouse Residence",
     description:
-      "One historic house for the whole group: 8 bedrooms, sleeps 16, dining for 16 at one table, from $1,600/night.",
+      `One historic house for the whole group: 8 bedrooms, sleeps 16, dining for 16 at one table. ${PRICING_COPY.compact}`,
     images: ["/images/property/DSC08821.jpg"],
   },
 };
@@ -37,7 +38,10 @@ const faqs = occasions.flatMap((occasion) => occasion.faqs);
 
 const stats = [
   ["Sleeps 16", "8 bedrooms · 5 full baths and a powder room"],
-  ["$100", "Per guest per night at full occupancy"],
+  [
+    PRICING_COPY.sampleGuestRate,
+    `Sample per guest with 16 staying at a ${PRICING_COPY.sampleRate} weekday rate`,
+  ],
   ["Seats 16", "At one dining table"],
   ["Four stories", "Two kitchens · two parlors · roof deck"],
 ];
@@ -117,7 +121,7 @@ export default function GroupsPage() {
               </h1>
               <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
                 Sixteen people, eight bedrooms, one dining table that seats everyone — two blocks
-                from Rittenhouse Square. Family reunions, corporate retreats, and celebration
+                from Rittenhouse Square. Family reunions, team lodging, and celebration
                 weekends all work here for the same reason: nobody splits across hotel floors, and
                 the evening ends in the same parlor it started in.
               </p>
@@ -143,20 +147,19 @@ export default function GroupsPage() {
             <div>
               <Eyebrow>The Group Math</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                $1,600 a night sounds different divided by sixteen.
+                One house makes the group math kinder.
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-700">
-                The starting rate covers the entire house — every bedroom, both kitchens, both
-                parlors, the dining room, and the roof deck. At full occupancy that works out to
-                $200 per bedroom, or $100 per guest, per night. Final pricing changes by date and
-                season, so treat the math as the starting point and{" "}
+                {PRICING_COPY.long} {PRICING_COPY.example} Every stay includes the entire house —
+                every bedroom, both kitchens, both parlors, the dining room, and the roof deck. For
+                the exact total, tell us your dates and{" "}
                 <Link
                   href="/contact"
                   className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
                 >
-                  request a direct quote
+                  request a personal quote
                 </Link>{" "}
-                for your dates.
+                for your group.
               </p>
               <p className="mt-4 text-lg leading-8 text-stone-700">
                 Comparing against hotel rooms for the same group?{" "}
@@ -261,8 +264,8 @@ export default function GroupsPage() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src="/images/property/DSC00118.jpg"
-                    alt="Red-brick Victorian facade of The Rittenhouse Residence with flower boxes in bloom"
+                    src="/images/property/DSC00122.jpg"
+                    alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -274,7 +277,7 @@ export default function GroupsPage() {
                   </h3>
                   <p className="mt-2 leading-7 text-stone-700">
                     Sixteen of your favorite people under one roof for the wedding weekend — with
-                    an honest account of what the house is not.
+                    clear house rules and plenty of quiet space between the festivities.
                   </p>
                   <span className="mt-4 inline-flex items-center gap-2 font-medium text-amber-800">
                     Read more
@@ -300,8 +303,8 @@ export default function GroupsPage() {
                     The hotel alternative
                   </h3>
                   <p className="mt-2 leading-7 text-stone-700">
-                    Eight scattered hotel rooms versus one house — the structural comparison,
-                    tradeoffs stated plainly, no invented prices.
+                    Eight scattered hotel rooms versus one house — compare the spaces, practical
+                    details, and date-specific totals for your own stay.
                   </p>
                   <span className="mt-4 inline-flex items-center gap-2 font-medium text-amber-800">
                     Read more

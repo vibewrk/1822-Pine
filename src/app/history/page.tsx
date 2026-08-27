@@ -10,12 +10,12 @@ import timeline from "@/data/timeline.json";
 export const metadata: Metadata = {
   title: "History of 1822 Pine Street",
   description:
-    "The documented history of The Rittenhouse Residence: an 1854 townhouse with a Drexel family connection, suffrage-era stories, deeds, and a verified timeline.",
+    "Explore the history of The Rittenhouse Residence: a Philadelphia townhouse documented from 1854, shaped by a Drexel family connection and suffrage-era stories.",
   alternates: { canonical: "/history" },
   openGraph: {
     title: "History | The Rittenhouse Residence",
     description:
-      "Deeds, documents, and 170 years of Philadelphia history at 1822 Pine Street.",
+      "Meet the people and moments woven through 170 years of Philadelphia history at 1822 Pine Street.",
     images: ["/images/documents/1854-deed.jpg"],
   },
 };
@@ -36,22 +36,22 @@ const readingRoom = [
     href: "/history/timeline",
     icon: ScrollText,
     label: `${timelineCount} entries`,
-    title: "Verified Timeline",
-    body: "The documentary chronology, from the 1854 McCrea-to-Roset deed through the later life of the house.",
+    title: "House Timeline",
+    body: "Follow the house from the 1854 McCrea-to-Roset deed through the people and changes that shaped its later life.",
   },
   {
     href: "/history/documents",
     icon: FileText,
     label: `${documentCount}+ documents`,
     title: "Document Archive",
-    body: "Primary-source deeds, clippings, notices, and research files behind the public history.",
+    body: "Open the original deeds, clippings, notices, and research files that brought the house's story to life.",
   },
   {
     href: "/history/provenance",
     icon: Library,
     label: "Chain of title",
     title: "Provenance",
-    body: "Ownership, transfers, and the paper trail that fixes 1822 Pine Street to specific people and dates.",
+    body: "See how the house passed from one custodian to the next, with each transfer connected to its people and time.",
   },
 ];
 
@@ -71,8 +71,8 @@ const frontier = [
   ["1856", "795", 20],
 ] as const;
 
-const proofNotes = [
-  ["1854", "Builder John McCrea sells 1822 Pine to John Roset on April 21; the Rosets are listed at the address by 1855."],
+const historyMilestones = [
+  ["1854", "John McCrea sells the property now numbered 1822 Pine to John Roset on April 21; the Rosets are listed at the address by 1855."],
   ["1893", "The property is reported sold for $14,000, then transferred from the Roset estate to the Spencer family."],
   ["1899", "Agnes M. Spencer commissions Duhring, Okie & Ziegler for alterations and additions."],
   ["1915", "Miss Martha Davis of 1822 Pine Street sells Equal Franchise Society luncheon tickets."],
@@ -94,13 +94,13 @@ export default function HistoryPage() {
         <div className="relative mx-auto flex min-h-[640px] max-w-7xl items-end px-4 pb-16 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <Eyebrow light className="mb-5">
-              Built 1854 · 1822 Pine Street
+              Story documented since 1854 · 1822 Pine Street
             </Eyebrow>
             <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-white md:text-7xl">
               A 170-year witness on Pine Street.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The record opens on April 21, 1854, when the builder John McCrea sold this house to the merchant John Roset. It was a new house on a brand-new block: until 1853 nobody at all was listed on Pine Street west of about 15th, and then the city moved west a block a year and arrived here. From that first spring the paper trail runs through a Drexel marriage, the Spencer era, the turn-of-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
+              The story opens on April 21, 1854, when John McCrea sold this property to the merchant John Roset. The deed describes the ground rather than settling exactly when the masons finished; the Rosets appear at the address by 1855, on a block the city had only just reached. From that first spring, its rooms carry us through a Drexel marriage, the Spencer era, turn-of-the-century alterations, and the Davis women whose parlors became part of Philadelphia&apos;s suffrage movement.
             </p>
           </div>
         </div>
@@ -109,14 +109,14 @@ export default function HistoryPage() {
       <section className="bg-[#fbfaf7] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
           <div>
-            <Eyebrow>The Record</Eyebrow>
+            <Eyebrow>A House with a Memory</Eyebrow>
           </div>
           <div>
             <h2 className="font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              The house is not a legend. It is a stack of receipts.
+              A true Philadelphia story, still unfolding.
             </h2>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
-              The archive fixes the address to names, dates, and printed evidence: Roset, Spencer, Davis; a $14,000 sale; an 1899 architectural commission; a 1905 fireplace job; a 1915 suffrage notice. The best part of the house is that its claims can be checked.
+              Caring for this house also means caring for the stories it has held. Deeds, directory entries, and newspaper notices introduce Roset, Spencer, and Davis; a $14,000 sale; an 1899 architectural commission; a 1905 fireplace job; and a 1915 suffrage notice. We have opened the archive so guests and curious neighbors can meet those earlier custodians for themselves.
             </p>
           </div>
         </div>
@@ -139,14 +139,14 @@ export default function HistoryPage() {
           <div className="mb-10 max-w-3xl">
             <Eyebrow>How Old Is It, Really</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              You will see &ldquo;c. 1845&rdquo; for this house. It is off by
-              nine years, and here is how we know.
+              City directories let us watch the block fill in the mid-1850s.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              Philadelphia&rsquo;s city directory listed every household in the
-              city, year after year, by street number. Count the Pine Street
-              numbers in each volume and you can watch the city itself move
-              west — and see the exact year it reaches this door.
+              The house has often been described as &ldquo;c. 1845,&rdquo; but
+              Philadelphia&rsquo;s annual city directories tell a livelier story.
+              Follow the Pine Street numbers from one volume to the next and
+              you can watch the city itself move west — until it reaches this
+              door.
             </p>
           </div>
 
@@ -206,7 +206,7 @@ export default function HistoryPage() {
               Not one house number in the 700s — this block, under the old
               numbering — appears in any volume before 1853. Then the frontier
               moves about a block a year: it reaches the 1700 block in 1853 and
-              this one in 1854. John McCrea sold the house to John Roset on
+              this one in 1854. John McCrea sold the property to John Roset on
               April 21 of that year, and Roset is listed at the address in the
               next volume printed.
             </p>
@@ -228,10 +228,10 @@ export default function HistoryPage() {
           <div className="mb-10 max-w-3xl">
             <Eyebrow>Reading Room</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Four ways into the evidence.
+              Choose your way into the story.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              Start with the narrative, check the timeline, open the documents, or follow the ownership record. Each path points back to the same address.
+              Settle in with the narrative, follow the timeline, browse the original documents, or trace the people who cared for the house before us. Each path returns to the same rooms.
             </p>
           </div>
 
@@ -264,29 +264,28 @@ export default function HistoryPage() {
       {/* The Drexel chain. Every link has a document behind it: the 1854 deed
           abstract for Roset's ownership, Roset's own 1870 obituary naming
           A. J. Drexel as a son-in-law, and the public record of Drexel's
-          firms. Keep the framing at "son-in-law" — Drexel married Ellen in
-          1850, four years before her father bought this house, and never
-          lived here. "Family connection" is accurate; "Drexel's house" is
-          not, and would be the easiest claim on the site to disprove. */}
+          firms. Keep the framing at "family connection": Drexel married
+          Ellen Bicking Rozet in 1850, four years before her father bought
+          this house. Do not turn that relationship into an ownership claim. */}
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
             <Eyebrow>The Drexel Connection</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              The first owner&apos;s son-in-law founded a university and a bank.
+              The Roset family opens a path to a university and a bank.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              This is the house&apos;s most improbable-sounding claim, and it
-              is the easiest one to check. Four links, each with a record
-              behind it:
+              One marriage connects this Pine Street house to a much larger
+              Philadelphia story. The path from the Roset family to Anthony
+              J. Drexel unfolds in four moments:
             </p>
           </div>
 
           <ol className="grid gap-5 md:grid-cols-2">
             {[
               [
-                "John Roset buys the house",
-                "April 21, 1854. The deed abstract in this archive names the builder John McCrea as seller and John Roset, merchant, as buyer.",
+                "John Roset buys the property",
+                "April 21, 1854. The deed abstract names John McCrea as seller and John Roset, merchant, as buyer; it describes the ground and does not by itself date the finished house.",
               ],
               [
                 "His daughter marries Anthony J. Drexel",
@@ -321,12 +320,11 @@ export default function HistoryPage() {
           </ol>
 
           <p className="mt-8 max-w-3xl text-base leading-7 text-stone-600">
-            One limit worth stating, because it is where this story usually
-            gets overstated elsewhere: Anthony Drexel never lived at 1822 Pine
-            Street. He married Ellen four years before her father bought the
-            house, and the couple lived on Rittenhouse Square itself. The
-            connection runs through the family, not the deed — which is still
-            a remarkable thing for a rowhouse to be able to prove.
+            The connection is precise and personal: Ellen Bicking Rozet,
+            daughter of John Roset, married Anthony J. Drexel four years before
+            her father bought the property. It is a family relationship, not
+            an ownership claim — and a remarkable thread in the story of a
+            Philadelphia rowhouse.
           </p>
         </div>
       </section>
@@ -334,13 +332,13 @@ export default function HistoryPage() {
       <section className="bg-stone-100 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
           <div>
-            <Eyebrow>Proof Points</Eyebrow>
+            <Eyebrow>Turning Points</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
               The dates that hold the story in place.
             </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
-            {proofNotes.map(([year, note]) => (
+            {historyMilestones.map(([year, note]) => (
               <article key={year} className="rounded-lg border border-stone-200 bg-white p-6">
                 <p className="font-serif text-4xl font-semibold text-stone-950">{year}</p>
                 <p className="mt-4 leading-7 text-stone-700">{note}</p>
@@ -367,7 +365,7 @@ export default function HistoryPage() {
               Stay somewhere with a history you can read.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              Read the deed abstracts, newspaper notices, and supporting files, then come back to the rooms they describe. The archive is not decoration; it is the reason the house can speak so specifically.
+              Read the deed abstracts, newspaper notices, and supporting files, then come back to the rooms they describe. We keep the archive open because every old notice adds a voice, a detail, or a little more life to the house guests enjoy today.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link

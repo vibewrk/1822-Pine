@@ -9,16 +9,16 @@ import ImageLightbox, { GalleryImage } from "@/components/ImageLightbox";
 // Excluded: airbnb_00 (clipart), airbnb_06 (people), airbnb_15-22 (icons/portraits)
 const allImages: GalleryImage[] = [
   // Airbnb Professional Photos
-  { src: "/images/airbnb/airbnb_01.jpg", alt: "Master Bedroom with Four-Poster Bed", category: "Bedrooms", location: "Second Floor" },
+  { src: "/images/airbnb/airbnb_01.jpg", alt: "Principal Bedroom with Four-Poster Bed", category: "Bedrooms", location: "Second Floor" },
   { src: "/images/airbnb/airbnb_02.jpg", alt: "Roof Deck with Panoramic City Views", category: "Outdoor", location: "Roof" },
   { src: "/images/airbnb/airbnb_03.jpg", alt: "Grand Parlor with Pool Table", category: "Living Spaces", location: "First Floor" },
   { src: "/images/airbnb/airbnb_04.jpg", alt: "Grand Parlor - Fireplace View", category: "Living Spaces", location: "First Floor" },
   { src: "/images/airbnb/airbnb_05.jpg", alt: "Library Lounge with Period Chairs", category: "Living Spaces", location: "First Floor" },
-  { src: "/images/airbnb/airbnb_07.jpg", alt: "Master Bedroom - Alternative View", category: "Bedrooms", location: "Second Floor" },
+  { src: "/images/airbnb/airbnb_07.jpg", alt: "Principal Bedroom - Alternative View", category: "Bedrooms", location: "Second Floor" },
   { src: "/images/airbnb/airbnb_08.jpg", alt: "Second Floor Guest Bedroom", category: "Bedrooms", location: "Second Floor" },
   { src: "/images/airbnb/airbnb_09.jpg", alt: "Third Floor Bedroom with Built-ins", category: "Bedrooms", location: "Third Floor" },
   { src: "/images/airbnb/airbnb_10.jpg", alt: "Simply furnished queen bedroom with upholstered gray headboard, seafoam carpet and bright double windows", category: "Bedrooms", location: "Fourth Floor" },
-  { src: "/images/airbnb/airbnb_11.jpg", alt: "Attic-level queen bedroom with blue accents, mountain artwork and soft teal carpeting", category: "Bedrooms", location: "Fourth Floor" },
+  { src: "/images/airbnb/airbnb_11.jpg", alt: "Attic-level double bedroom with blue accents, mountain artwork and soft teal carpeting", category: "Bedrooms", location: "Fourth Floor" },
   { src: "/images/airbnb/airbnb_12.jpg", alt: "Spacious bedroom with coral quilt, twin armchairs and kilim-style rug at The Rittenhouse Residence", category: "Bedrooms", location: "Third Floor" },
   { src: "/images/airbnb/airbnb_13.jpg", alt: "Guest Bedroom with Original Floors", category: "Bedrooms", location: "Second Floor" },
   { src: "/images/airbnb/airbnb_14.jpg", alt: "Additional Bedroom Suite", category: "Bedrooms", location: "Third Floor" },
@@ -27,7 +27,7 @@ const allImages: GalleryImage[] = [
   { src: "/images/property/DSC00064.jpg", alt: "Entry vestibule with green zebra-print wallpaper, black double doors and checkerboard marble floor at The Rittenhouse Residence", category: "Living Spaces", location: "Entry" },
   { src: "/images/property/DSC00066.jpg", alt: "Hallway view of the black entry door with ornate leaded-glass transom and original cast-iron radiator", category: "Details", location: "Entry" },
   { src: "/images/property/DSC00068.jpg", alt: "Entry hall with round brass mirror, console table and glass-paneled door crowned by a stained-glass transom", category: "Living Spaces", location: "Entry" },
-  { src: "/images/property/DSC00070.jpg", alt: "Main staircase with red patterned runner and brass lantern pendant, framed by carved black corbels in the 1854 mansion", category: "Details", location: "Main Stair" },
+  { src: "/images/property/DSC00070.jpg", alt: "Main staircase with red patterned runner and brass lantern pendant, framed by carved black corbels in the historic townhouse", category: "Details", location: "Main Stair" },
   { src: "/images/property/DSC00072.jpg", alt: "Grand parlor with pool table opening through towering pocket doors beneath original carved plaster friezes", category: "Living Spaces", location: "First Floor" },
   { src: "/images/property/DSC00074.jpg", alt: "Powder room wrapped in black-and-white chinoiserie wallpaper with a sculpted white mirror and pedestal sink", category: "Bathrooms", location: "First Floor" },
   { src: "/images/property/DSC00078.jpg", alt: "Four-poster bedroom with crystal chandelier and striped bench, opening to a sunlit sitting room beyond", category: "Bedrooms", location: "Throughout" },
@@ -35,7 +35,7 @@ const allImages: GalleryImage[] = [
   { src: "/images/property/DSC00082.jpg", alt: "Four-poster bedroom with deep window seat, crystal chandelier and built-in cabinets with fretwork glass doors", category: "Bedrooms", location: "Throughout" },
   { src: "/images/property/DSC00084.jpg", alt: "Carved four-poster bed beside an original built-in wardrobe with lattice-glass doors and antique dresser", category: "Bedrooms", location: "Throughout" },
   { src: "/images/property/DSC00086.jpg", alt: "Chinoiserie sitting room with black brick fireplace, mounted TV and leaded-glass bay window with coffee station", category: "Living Spaces", location: "Throughout" },
-  { src: "/images/property/DSC00088.jpg", alt: "Sitting room with teal velvet sofa, leaded-glass bay window and hand-painted botanical wallpaper in the 1854 mansion", category: "Living Spaces", location: "Throughout" },
+  { src: "/images/property/DSC00088.jpg", alt: "Sitting room with teal velvet sofa, leaded-glass bay window and hand-painted botanical wallpaper in the historic townhouse", category: "Living Spaces", location: "Throughout" },
   { src: "/images/property/DSC00092.jpg", alt: "View from the wallpapered sitting room into the adjoining four-poster bedroom suite beneath a crystal chandelier", category: "Bedrooms", location: "Throughout" },
   { src: "/images/property/DSC00094.jpg", alt: "Bathroom with leafy woodland wallpaper, white tile wainscot, pedestal sink and ornate antique radiator", category: "Bathrooms", location: "Throughout" },
   { src: "/images/property/DSC00096.jpg", alt: "Pedestal sink with vintage cross-handle faucet beneath tree-print wallpaper in a white-tiled bathroom", category: "Bathrooms", location: "Throughout" },
@@ -43,8 +43,6 @@ const allImages: GalleryImage[] = [
   { src: "/images/property/DSC00106.jpg", alt: "Renovated bathroom with glass walk-in shower, cane-front wood vanity and pivoting chrome mirror", category: "Bathrooms", location: "Throughout" },
   { src: "/images/property/DSC00110.jpg", alt: "Arched center hallway with carved black corbels leading past the parlor to the stained-glass front entry", category: "Living Spaces", location: "First Floor" },
   { src: "/images/property/DSC00112.jpg", alt: "Gallery-hung hallway and cane bench beside the red-carpeted staircase, with the portrait-hung front parlor beyond", category: "Living Spaces", location: "First Floor" },
-  { src: "/images/property/DSC00116.jpg", alt: "Marble front stoop at 1822 Pine Street with the door open to the zebra-papered vestibule of the 1854 mansion", category: "Exterior", location: "Street View" },
-  { src: "/images/property/DSC00118.jpg", alt: "Red-brick Victorian facade with paneled shutters and blooming flower boxes, the front door open to the marble vestibule", category: "Exterior", location: "Street View" },
   { src: "/images/property/DSC00122.jpg", alt: "Looking through the double front doors into the zebra vestibule with leaded-glass transom and checkerboard marble floor", category: "Exterior", location: "Street View" },
 
   // Additional Property Photos
@@ -62,7 +60,6 @@ const allImages: GalleryImage[] = [
   { src: "/images/property/DSC08837.jpg", alt: "Kitchen with Stainless Appliances", category: "Kitchen", location: "First Floor" },
   { src: "/images/property/DSC08839.jpg", alt: "Narrow brick courtyard with bistro seating, planted borders and white lattice between historic brick walls", category: "Outdoor", location: "Garden" },
   { src: "/images/property/DSC08841.jpg", alt: "Private Brick Courtyard Garden", category: "Outdoor", location: "Garden" },
-  { src: "/images/property/DSC08855.jpg", alt: "Historic Brownstone Exterior", category: "Exterior", location: "Street View" },
 ];
 
 const floorPlanImages = [
@@ -259,10 +256,10 @@ export default function GalleryPage() {
               <div className="bg-amber-50 rounded-xl p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Bedrooms & Baths</h3>
                 <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• 8 bedrooms across 5 private suites</li>
+                  <li>• 8 bedrooms across floors 2–4</li>
                   <li>• 2 king · 5 queen · 1 double</li>
                   <li>• 5 full bathrooms and a powder room</li>
-                  <li>• Master suite with private bath</li>
+                  <li>• Principal suite with private bath</li>
                 </ul>
               </div>
               <div className="bg-amber-50 rounded-xl p-6">

@@ -12,40 +12,43 @@
 //   with different @ids — a duplicate-entity risk. They are now collapsed into
 //   the single VacationRental below (VacationRental is a schema.org subtype of
 //   LodgingBusiness, so the checkin/checkout/priceRange fields remain valid).
-//   Pages that reference the house use `@id: ${SITE}/#vacation-rental`.
-// - One aggregateRating only, matching the figure visible on the page
-//   (4.88 / 102 Airbnb reviews, as of Aug 2026). Update both together, and
-//   the counts on the page in sync when refreshing.
+//   Pages that reference the house use the stable `/#vacation-rental` @id.
+// - One aggregateRating only, matching the figure visible on the page.
 // - Amenities must match what the site actually tells guests (a "Free
 //   parking" claim was removed; the FAQ says guests use paid garages nearby).
 // - Bed inventory must match the Airbnb listing (2 King + 5 Queen + 1 Double
 //   across 8 bedrooms), which is the booking system of record.
+// - The exact coordinates are intentionally omitted. Google currently requires
+//   precise latitude/longitude for its VacationRental rich result, so this
+//   privacy choice sacrifices eligibility for that enhanced display. The
+//   generic Schema.org entity remains useful to crawlers and answer engines.
 
-const SITE = "https://rittenhouseresidence.com";
+import {
+  BOOKING_LINKS,
+  PROPERTY_FACTS,
+  PROPERTY_NAME,
+  REVIEW_FACTS,
+  SITE_URL,
+  TOTAL_BATHROOMS,
+} from "@/lib/facts";
 
 const ADDRESS = {
   "@type": "PostalAddress",
-  streetAddress: "1822 Pine Street",
   addressLocality: "Philadelphia",
   addressRegion: "PA",
   postalCode: "19103",
   addressCountry: "US",
 };
 
-const GEO = {
-  "@type": "GeoCoordinates",
-  latitude: 39.9468,
-  longitude: -75.1715,
-};
-
 const IMAGES = [
-  `${SITE}/images/airbnb/airbnb_03.jpg`,
-  `${SITE}/images/airbnb/airbnb_04.jpg`,
-  `${SITE}/images/airbnb/airbnb_01.jpg`,
-  `${SITE}/images/airbnb/airbnb_02.jpg`,
-  `${SITE}/images/airbnb/airbnb_05.jpg`,
-  `${SITE}/images/airbnb/airbnb_07.jpg`,
-  `${SITE}/images/airbnb/airbnb_08.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_03.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_04.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_01.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_02.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_05.jpg`,
+  `${SITE_URL}/images/property/DSC00106.jpg`,
+  `${SITE_URL}/images/airbnb/airbnb_08.jpg`,
+  `${SITE_URL}/images/property/DSC00122.jpg`,
 ];
 
 /**
@@ -57,49 +60,57 @@ export function VacationRentalSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "VacationRental",
-    "@id": `${SITE}/#vacation-rental`,
+    "@id": `${SITE_URL}/#vacation-rental`,
     identifier: "airbnb-6000930",
-    name: "The Rittenhouse Residence",
+    name: PROPERTY_NAME,
     alternateName: "Rittenhouse Residence",
     description:
-      "The Rittenhouse Residence — whole-home vacation rental for groups in Philadelphia. 8 bedrooms, 5 full baths + powder room across four stories that live like five. Historic 1854 mansion two blocks from Rittenhouse Square.",
-    url: SITE,
+      "A lovingly cared-for historic Philadelphia townhouse offered as a whole-home stay for groups. Eight bedrooms, five full baths and a powder room, generous gathering spaces, and room for up to sixteen guests two blocks from Rittenhouse Square.",
+    url: SITE_URL,
     image: IMAGES,
     address: ADDRESS,
-    geo: GEO,
     priceRange: "$$$$",
-    checkinTime: "16:00",
-    checkoutTime: "10:00",
-    numberOfRooms: 8,
-    numberOfBedrooms: 8,
-    numberOfBathroomsTotal: 6,
+    checkinTime: PROPERTY_FACTS.checkInTime,
+    checkoutTime: PROPERTY_FACTS.checkOutTime,
+    numberOfRooms: PROPERTY_FACTS.bedrooms,
+    numberOfBedrooms: PROPERTY_FACTS.bedrooms,
+    numberOfBathroomsTotal: TOTAL_BATHROOMS,
     floorSize: {
       "@type": "QuantitativeValue",
-      value: 7000,
+      value: PROPERTY_FACTS.squareFeet,
       unitCode: "FTK",
     },
-    yearBuilt: 1854,
     petsAllowed: false,
-    tourBookingPage: `${SITE}/book`,
-    sameAs: [
-      "https://www.airbnb.com/rooms/6000930",
-      "https://www.vrbo.com/757481",
-    ],
+    tourBookingPage: `${SITE_URL}/book`,
+    sameAs: [BOOKING_LINKS.airbnb, BOOKING_LINKS.vrbo],
     containsPlace: {
       "@type": "Accommodation",
       additionalType: "EntirePlace",
-      numberOfRooms: 8,
-      numberOfBathroomsTotal: 6,
+      numberOfRooms: PROPERTY_FACTS.bedrooms,
+      numberOfBathroomsTotal: TOTAL_BATHROOMS,
       occupancy: {
         "@type": "QuantitativeValue",
         // Owner-confirmed 2026-08-24: maximum 16 overnight guests, which
         // matches the 8-bedroom inventory (2 king, 5 queen, 1 double) and the Airbnb
         // listing. Keep in sync with the "Sleeps 16" copy sitewide.
-        value: 16,
+        value: PROPERTY_FACTS.sleeps,
       },
       bed: [
-        { "@type": "BedDetails", numberOfBeds: 2, typeOfBed: "King" },
-        { "@type": "BedDetails", numberOfBeds: 6, typeOfBed: "Queen" },
+        {
+          "@type": "BedDetails",
+          numberOfBeds: PROPERTY_FACTS.beds.king,
+          typeOfBed: "King",
+        },
+        {
+          "@type": "BedDetails",
+          numberOfBeds: PROPERTY_FACTS.beds.queen,
+          typeOfBed: "Queen",
+        },
+        {
+          "@type": "BedDetails",
+          numberOfBeds: PROPERTY_FACTS.beds.double,
+          typeOfBed: "Double",
+        },
       ],
       amenityFeature: [
         { "@type": "LocationFeatureSpecification", name: "WiFi", value: true },
@@ -108,15 +119,20 @@ export function VacationRentalSchema() {
         { "@type": "LocationFeatureSpecification", name: "Washer", value: true },
         { "@type": "LocationFeatureSpecification", name: "Dryer", value: true },
         { "@type": "LocationFeatureSpecification", name: "Roof deck", value: true },
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "licenseNum",
+          value: `Philadelphia: ${PROPERTY_FACTS.licenseNumber}`,
+        },
       ],
     },
-    // Review data sourced from the live Airbnb listing, as of Aug 2026;
-    // update periodically and keep in sync with the visible
+    // Review data sourced from the live Airbnb listing; update periodically
+    // and keep in sync with the visible
     // "4.88 on Airbnb across 102 reviews" on the page.
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.88",
-      reviewCount: "102",
+      ratingValue: REVIEW_FACTS.airbnb.rating,
+      reviewCount: String(REVIEW_FACTS.airbnb.count),
       bestRating: "5",
       worstRating: "1",
     },

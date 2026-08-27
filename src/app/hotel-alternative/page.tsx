@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, Calculator, Home, Scale } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "A Hotel Alternative for Groups | The Rittenhouse Residence",
     description:
-      "Eight hotel rooms or one house: the structural comparison for groups of up to 16, tradeoffs stated plainly.",
+      "Eight hotel rooms or one historic house: compare the spaces, shared rooms, and practical details for groups of up to 16.",
     images: ["/images/property/DSC00072.jpg"],
   },
 };
@@ -23,7 +24,10 @@ const stats = [
   ["1 house", "Instead of 8 scattered room keys"],
   ["~7,000 sq ft", "Across five private floors"],
   ["Seats 16", "At one dining table"],
-  ["$100", "Per guest per night at full occupancy"],
+  [
+    PRICING_COPY.sampleGuestRate,
+    `Sample per guest with 16 staying at a ${PRICING_COPY.sampleRate} weekday rate`,
+  ],
 ];
 
 const comparisons = [
@@ -55,7 +59,7 @@ const tradeoffs = [
 const faqs = [
   {
     q: "Is one house really cheaper than eight hotel rooms?",
-    a: "We publish our own rate — from $1,600 per night for the entire house, which works out to $200 per bedroom or $100 per guest at full occupancy — and we would rather you run the comparison yourself: price eight rooms at going rates for your dates, add the cost of gathering sixteen people for breakfast each morning, and compare totals.",
+    a: `${PRICING_COPY.long} ${PRICING_COPY.example} For the useful comparison, price eight hotel rooms for the same dates and put the complete totals side by side.`,
   },
   {
     q: "What does a hotel do better?",
@@ -136,8 +140,8 @@ export default function HotelAlternativePage() {
               <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
                 A group of sixteen at a hotel is eight doors on a corridor and a group text about
                 where to meet. The same sixteen people here share two parlors, one dining table,
-                and a roof deck — two blocks from Rittenhouse Square. Here is the comparison,
-                stated in both directions.
+                and a roof deck — two blocks from Rittenhouse Square. The difference is less about
+                thread count than what happens when everyone can be together between plans.
               </p>
             </div>
           </div>
@@ -188,22 +192,21 @@ export default function HotelAlternativePage() {
         <section className="bg-stone-100 py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
-              <Eyebrow>Do the Math Yourself</Eyebrow>
+              <Eyebrow>Compare the Full Stay</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                We publish our rate. Compare it against eight of theirs.
+                Put one whole house beside eight hotel rooms.
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-700">
-                We will not invent hotel prices to win an argument. The honest method: price eight
-                rooms at going rates for your dates anywhere in Center City, then put the total
-                next to a direct quote for the whole house. Our starting point is public — from
-                $1,600 per night, which is $200 per bedroom or $100 per guest at full occupancy.
+                {PRICING_COPY.long} {PRICING_COPY.example} For a useful comparison, price eight
+                rooms for the same dates anywhere in Center City, include the taxes and fees on
+                both sides, and decide which kind of stay your group would rather share.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-stone-950 px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800"
                 >
-                  Request a Direct Quote
+                  Request a Personal Quote
                   <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link
@@ -219,21 +222,21 @@ export default function HotelAlternativePage() {
               <h3 className="mt-5 font-serif text-2xl font-semibold">The per-person arithmetic</h3>
               <dl className="mt-6 divide-y divide-stone-200">
                 <div className="flex items-baseline justify-between gap-4 py-3">
-                  <dt className="text-stone-600">Whole house, per night</dt>
-                  <dd className="font-serif text-2xl font-semibold">from $1,600</dd>
+                  <dt className="text-stone-600">Sample weekday, whole house</dt>
+                  <dd className="font-serif text-2xl font-semibold">{PRICING_COPY.sampleRate}</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4 py-3">
-                  <dt className="text-stone-600">Per bedroom (8 bedrooms)</dt>
-                  <dd className="font-serif text-2xl font-semibold">$200</dd>
+                  <dt className="text-stone-600">Sample per bedroom (8 bedrooms)</dt>
+                  <dd className="font-serif text-2xl font-semibold">{PRICING_COPY.sampleBedroomRate}</dd>
                 </div>
                 <div className="flex items-baseline justify-between gap-4 py-3">
-                  <dt className="text-stone-600">Per guest (16 guests)</dt>
-                  <dd className="font-serif text-2xl font-semibold">$100</dd>
+                  <dt className="text-stone-600">Sample per guest (16 guests)</dt>
+                  <dd className="font-serif text-2xl font-semibold">{PRICING_COPY.sampleGuestRate}</dd>
                 </div>
               </dl>
               <p className="mt-4 text-sm leading-6 text-stone-600">
-                Starting rate before date-specific taxes, fees, and seasonal changes. Final
-                pricing depends on your dates.
+                This is an example, not a quote. Weekends, holidays, and high-demand dates run
+                higher; taxes and fees also vary by booking path.
               </p>
             </div>
           </div>
@@ -242,7 +245,7 @@ export default function HotelAlternativePage() {
         <section className="bg-white py-16 md:py-24">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
             <div>
-              <Eyebrow>The Honest Tradeoffs</Eyebrow>
+              <Eyebrow>A Few Differences to Know</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
                 What a hotel does that we don&apos;t.
               </h2>
@@ -267,7 +270,7 @@ export default function HotelAlternativePage() {
             <div className="mb-9">
               <Eyebrow>Comparison Questions</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                Asked while comparing, answered straight.
+                Questions worth asking before you choose.
               </h2>
             </div>
             <div className="divide-y divide-stone-200 border-y border-stone-200">
@@ -293,8 +296,8 @@ export default function HotelAlternativePage() {
 
         <section className="relative py-20 md:py-28">
           <Image
-            src="/images/property/DSC00116.jpg"
-            alt="Marble front stoop at The Rittenhouse Residence with the door open to the vestibule"
+            src="/images/property/DSC00122.jpg"
+            alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover"
@@ -305,7 +308,7 @@ export default function HotelAlternativePage() {
               One key. Sixteen people. No hallway.
             </h2>
             <p className="mt-5 text-lg text-stone-200 md:text-xl">
-              Send your dates and group size — a full direct quote comes back within 24 hours.
+              Send your dates and group size — a personal quote comes back within 24 hours.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link

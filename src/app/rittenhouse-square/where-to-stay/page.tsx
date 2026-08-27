@@ -13,13 +13,13 @@ import {
 
 // Hotel facts verified August 2026 against each property's own site (opening
 // years from the hotels' own history pages). This page names our competitors
-// on purpose: an honest lodging guide is more useful — and more credible —
-// than a pitch. Keep the disclosure block; it is the page's spine.
+// on purpose: a useful lodging guide should help the reader choose, even when
+// a hotel is the better fit. Keep the disclosure block; it is the page's spine.
 
 export const metadata: Metadata = {
   title: "Where to Stay Near Rittenhouse Square",
   description:
-    "An honest local guide to staying near Rittenhouse Square, Philadelphia: the hotels on and around the park, what each does best, and the whole-house option for groups of up to 16.",
+    "A local guide to staying near Rittenhouse Square, Philadelphia: the hotels on and around the park, what each does best, and a whole-house option for groups of up to 16.",
   alternates: { canonical: "/rittenhouse-square/where-to-stay" },
   openGraph: {
     title:
@@ -88,7 +88,7 @@ const nearbyHotels = [
 
 const groupMath = [
   ["6–8", "hotel rooms a group of 12–16 typically needs"],
-  ["8", "bedrooms at 1822 Pine under one roof"],
+  ["8", "bedrooms at The Rittenhouse Residence under one roof"],
   ["16", "guests the house sleeps, two blocks from the park"],
   ["1", "dining table that seats the whole group"],
 ] as const;
@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: "Can a group of 12–16 stay together near Rittenhouse Square?",
-    a: "Hotels split a group of that size across six or more rooms, often on different floors. The whole-house alternative is 1822 Pine Street — The Rittenhouse Residence — an 8-bedroom historic townhouse two blocks south of the park that sleeps up to 16 under one roof, with two kitchens and a dining table that seats the full group.",
+    a: "Hotels split a group of that size across six or more rooms, often on different floors. The whole-house alternative is The Rittenhouse Residence — an 8-bedroom historic townhouse two blocks south of the park that sleeps up to 16 under one roof, with two kitchens and a dining table that seats the full group.",
   },
   {
     q: "Where should wedding guests stay near Rittenhouse Square?",
@@ -118,7 +118,7 @@ const articleSchema = {
   "@id": `${SITE}/rittenhouse-square/where-to-stay#article`,
   headline: "Where to Stay Near Rittenhouse Square",
   description:
-    "An honest local guide to the hotels on and around Rittenhouse Square in Philadelphia, and the whole-house option for groups of up to 16.",
+    "A local guide to the hotels on and around Rittenhouse Square in Philadelphia, and the whole-house option for groups of up to 16.",
   url: `${SITE}/rittenhouse-square/where-to-stay`,
   mainEntityOfPage: `${SITE}/rittenhouse-square/where-to-stay`,
   image: [`${SITE}/images/property/DSC00112.jpg`],
@@ -169,7 +169,7 @@ export default function WhereToStayPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Rittenhouse Square Guide · Walked in August 2026
+            A Neighbor&apos;s Rittenhouse Square Guide
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             Where to stay near Rittenhouse Square.
@@ -188,7 +188,7 @@ export default function WhereToStayPage() {
           <SectionHeader
             eyebrow="The Hotels"
             title="On and around the Square."
-            body="Six hotels sit on the park or within a couple of blocks of it. The opening years come from the hotels' own histories, and we checked in August 2026 that each was still taking guests."
+            body="Six hotels sit on the park or within a couple of blocks of it. The opening years come from the hotels' own histories, and we revisit the links and practical details as the neighborhood changes."
           />
           <div className="grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 md:grid-cols-2 lg:grid-cols-3">
             {onSquareHotels.map(([name, address, note, website]) => (
@@ -252,9 +252,9 @@ export default function WhereToStayPage() {
             ))}
           </div>
           <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700">
-            That math is why this house exists as lodging: 1822 Pine Street is
-            an 1854 townhouse two blocks south of the Square with 8 bedrooms, 6
-            baths, two kitchens, and a dining table that seats the whole group
+            That math is why The Rittenhouse Residence exists as lodging: it is
+            a historic townhouse two blocks south of the Square with 8 bedrooms, 5
+            full baths and a powder room, two kitchens, and a dining table that seats the whole group
             — the group stays together, and the Square is still a two-minute
             walk. For a line-by-line comparison against booking a block of
             rooms, see the hotel-alternative page.
@@ -315,7 +315,7 @@ export default function WhereToStayPage() {
       <section className="relative py-20 md:py-28">
         <Image
           src="/images/property/DSC00112.jpg"
-          alt="Gallery-hung hallway and staircase inside The Rittenhouse Residence at 1822 Pine Street"
+          alt="Gallery-hung hallway and staircase inside The Rittenhouse Residence"
           fill
           sizes="100vw"
           className="object-cover"
@@ -326,7 +326,7 @@ export default function WhereToStayPage() {
             The whole group, two blocks from the park.
           </h2>
           <p className="mt-5 text-lg text-stone-200 md:text-xl">
-            8 bedrooms · sleeps 16 · from $1,600/night for the entire house
+            8 bedrooms · sleeps 16 · whole-house pricing by date
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

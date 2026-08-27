@@ -348,7 +348,7 @@ export default function PublicArtPage() {
 
       <StayCta
         title="Sculpture hunt first, dinner after."
-        body="All eight works are a two-block walk from 1822 Pine Street. Send the kids to find Billy and the frog; the house's own 8 bedrooms and two parlors are waiting when the hunt is over."
+        body="All eight works are a two-block walk from The Rittenhouse Residence. Send the kids to find Billy and the frog; the house's own 8 bedrooms and two parlors are waiting when the hunt is over."
       />
 
       <HubCrossLinks currentHref="/rittenhouse-square/public-art" />

@@ -31,7 +31,7 @@ const spaces = [
     name: "Grand Parlor",
     image: "/images/airbnb/airbnb_04.jpg",
     alt: "Grand Parlor with original fireplace, crystal chandelier, and pool table",
-    caption: "Fourteen-foot ceilings · original 1854 fireplace · crystal chandelier · full-size pool table.",
+    caption: "Fourteen-foot ceilings · historic marble fireplace · crystal chandelier · full-size pool table.",
   },
   {
     name: "Library Lounge",
@@ -52,7 +52,7 @@ const occasions = [
     icon: Users,
     title: "Group Stays",
     href: "/groups",
-    body: "Family reunions, corporate retreats, and celebration weekends. Eight bedrooms keep everyone under one roof, with the dining room, parlors, and roof deck as common ground.",
+    body: "Family reunions, team stays, and celebration weekends. Eight bedrooms keep everyone under one roof, with the dining room, parlors, and roof deck as common ground.",
     cta: "Plan a group stay",
   },
   {
@@ -84,7 +84,7 @@ export default function HomePage() {
       <section className="relative h-[85vh] min-h-[600px]">
         <Image
           src="/images/airbnb/airbnb_03.jpg"
-          alt="Grand parlor inside The Rittenhouse Residence, an 1854 Philadelphia mansion"
+          alt="Grand parlor inside The Rittenhouse Residence, a historic Philadelphia townhouse"
           fill
           sizes="100vw"
           priority
@@ -95,7 +95,7 @@ export default function HomePage() {
         <div className="absolute inset-0 flex flex-col justify-end pb-14 md:pb-20">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <Eyebrow light className="mb-4">
-              Rittenhouse Square · Built 1854
+              Rittenhouse Square · Story documented since 1854
             </Eyebrow>
             <h1 className="max-w-5xl font-serif text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-8xl">
               {/* Trailing space is deliberate: without it the H1's text
@@ -176,7 +176,7 @@ export default function HomePage() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-sm">
             <Image
               src="/images/airbnb/airbnb_01.jpg"
-              alt="A master suite at The Rittenhouse Residence — a mahogany four-poster beneath a crystal chandelier, with the home's original 1854 millwork and a leaded-glass cabinet"
+              alt="The principal suite at The Rittenhouse Residence — a mahogany four-poster beneath a crystal chandelier, with historic millwork and a leaded-glass cabinet"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
@@ -190,11 +190,11 @@ export default function HomePage() {
               One of the last great Victorian townhouses on Pine Street.
             </h2>
             <p className="mt-8 max-w-3xl text-lg leading-8 text-stone-700 first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:leading-[0.8] first-letter:text-stone-950">
-              Built in 1854 and lived in for the better part of two centuries, No. 1822 tied its first family to the Drexel banking dynasty by marriage and appears in the documented record of the city&apos;s suffrage movement. We&apos;ve preserved what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. The result is a house with a{" "}
+              Its documented story begins with an 1854 deed, and generations since have given this house a family connection to Anthony J. Drexel and a chapter in Philadelphia&apos;s suffrage story. We&apos;ve cared for what made it remarkable — the fireplaces, the plasterwork, the light — and quietly added what a modern group needs. It is a house with a{" "}
               <Link href="/history" className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900">
-                documented past you can actually read
+                story you can follow room by room
               </Link>
-              , and rooms you&apos;ll actually want to gather in.
+              , and rooms that seem happiest with people gathered in them.
             </p>
           </div>
         </div>
@@ -252,7 +252,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a principal suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -266,7 +266,7 @@ export default function HomePage() {
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
                 src="/images/property/DSC00082.jpg"
-                alt="Master suite with four-poster bed at The Rittenhouse Residence"
+                alt="Principal suite with four-poster bed at The Rittenhouse Residence"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -305,7 +305,7 @@ export default function HomePage() {
               Rittenhouse Square
             </h2>
             <p className="mt-6 max-w-2xl text-xl leading-8 text-stone-700">
-              Philadelphia&apos;s most walkable address. Cafés and world-class restaurants around the corner, the Parkway museums a short walk north, and a tree-lined residential block to come home to.
+              One of Philadelphia&apos;s most walkable neighborhoods. Cafés and world-class restaurants around the corner, the Parkway museums a short walk north, and a tree-lined residential block to come home to.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200">
               {[
@@ -393,7 +393,7 @@ export default function HomePage() {
             Come see the house.
           </h2>
           <p className="mt-5 text-lg text-stone-200 md:text-xl">
-            8 bedrooms · 5 baths + powder · from $1,600 / night
+            8 bedrooms · 5 full baths + powder · sleeps 16
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <TrackedLink
@@ -411,7 +411,7 @@ export default function HomePage() {
               eventParams={{ location: "home_final_cta" }}
               className="inline-flex items-center justify-center rounded-md border border-white/70 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Request a Direct Quote
+              Request a Personal Quote
             </TrackedLink>
           </div>
         </div>

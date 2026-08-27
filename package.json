@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/prepare-archive-assets.mjs",
+    "generate:llms": "tsx scripts/generate-llms.ts",
+    "predev": "npm run generate:llms && node scripts/prepare-archive-assets.mjs",
     "dev": "next dev --webpack",
-    "prebuild": "node scripts/prepare-archive-assets.mjs",
+    "prebuild": "npm run generate:llms && node scripts/prepare-archive-assets.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
@@ -37,6 +38,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }

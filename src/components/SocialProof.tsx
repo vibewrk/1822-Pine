@@ -1,6 +1,7 @@
 import { Award, Star } from "lucide-react";
 import TrackedLink from "@/components/TrackedLink";
 import { Eyebrow } from "@/components/Eyebrow";
+import { BOOKING_LINKS, REVIEW_FACTS, TOTAL_REVIEW_COUNT } from "@/lib/facts";
 
 // Real guest reviews and platform standing, transcribed from the live Airbnb
 // and Vrbo listings on 2026-08-27.
@@ -13,16 +14,16 @@ import { Eyebrow } from "@/components/Eyebrow";
 //   Airbnb; self-publishing platform reviews as schema risks a review-snippet
 //   policy violation. This component is on-page social proof only.
 // - Re-verify the counts and averages quarterly against both listings and
-//   update RATINGS, AIRBNB_* and VRBO_* together.
+//   update RATINGS and src/lib/facts.ts together.
 
-export const AIRBNB_URL = "https://www.airbnb.com/rooms/6000930";
-export const VRBO_URL = "https://www.vrbo.com/757481";
+export const AIRBNB_URL = BOOKING_LINKS.airbnb;
+export const VRBO_URL = BOOKING_LINKS.vrbo;
 
-export const AIRBNB_RATING = "4.88";
-export const AIRBNB_COUNT = 102;
-export const VRBO_RATING = "9.8";
-export const VRBO_COUNT = 66;
-export const TOTAL_REVIEWS = AIRBNB_COUNT + VRBO_COUNT;
+export const AIRBNB_RATING = REVIEW_FACTS.airbnb.rating;
+export const AIRBNB_COUNT = REVIEW_FACTS.airbnb.count;
+export const VRBO_RATING = REVIEW_FACTS.vrbo.rating;
+export const VRBO_COUNT = REVIEW_FACTS.vrbo.count;
+export const TOTAL_REVIEWS = TOTAL_REVIEW_COUNT;
 
 // Airbnb's per-category averages, shown on the listing.
 const RATINGS = [
@@ -140,8 +141,9 @@ export function SocialProof() {
             {TOTAL_REVIEWS} reviews across Airbnb and Vrbo.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700">
-            Every quote below is a guest&apos;s own words, taken from the two
-            platforms you can book on. Read them in full on{" "}
+            Guests have made the house part of wedding weeks, graduations,
+            family gatherings, and weekends with old friends. These are their
+            words; you can read the full reviews on{" "}
             <TrackedLink
               href={AIRBNB_URL}
               event="ota_click"

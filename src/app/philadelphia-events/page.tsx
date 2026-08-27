@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title:
       "Philadelphia Events Calendar 2026–2027 | The Rittenhouse Residence",
     description:
-      "Conventions, festivals, exhibits, and the dates that book out the city — verified against organizers, updated as dates are announced.",
+      "Conventions, festivals, exhibits, and the dates that book out the city — with organizer links and updates as dates are announced.",
     type: "article",
     images: ["/images/neighborhood/philly-skyline.jpg"],
   },
@@ -472,7 +472,7 @@ const articleSchema = {
   "@id": `${SITE}/philadelphia-events#article`,
   headline: "Philadelphia Events Calendar 2026–2027: Dates for Visitors",
   description:
-    "Conventions, festivals, exhibitions, and sports coming to Philadelphia from fall 2026 into early 2028 — every date verified against the organizer, including what is not happening.",
+    "Conventions, festivals, exhibitions, and sports coming to Philadelphia from fall 2026 into early 2028 — with organizer sources, including what is not happening.",
   url: `${SITE}/philadelphia-events`,
   mainEntityOfPage: `${SITE}/philadelphia-events`,
   image: [`${SITE}/images/neighborhood/philly-skyline.jpg`],
@@ -547,17 +547,17 @@ export default function PhiladelphiaEventsPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Checked with the organizers, August 2026
+            Dates Worth Planning Around
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             What&apos;s coming to Philadelphia.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
             The conventions, festivals, exhibitions, and games headed to
-            Philadelphia from now through early 2028 — every date checked
-            with the organizer, the not-yet-announced ones
-            marked as unannounced, and the events that <em>aren&apos;t</em>{" "}
-            happening called out so you don&apos;t plan around a ghost. Written
+            Philadelphia from now through early 2028. We link each listing to
+            its organizer, mark the dates that have not yet been announced,
+            and call out the events that <em>aren&apos;t</em>{" "}happening so you
+            don&apos;t plan around a ghost. Written
             by the hosts of an 8-bedroom house two blocks from Rittenhouse
             Square, because event weeks are exactly when a whole house beats
             six hotel rooms.
@@ -739,7 +739,7 @@ export default function PhiladelphiaEventsPage() {
       <section className="bg-stone-950 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 max-w-3xl">
-            <Eyebrow light>The Honest List</Eyebrow>
+            <Eyebrow light>Before You Make Plans</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">
               What&apos;s not happening.
             </h2>
@@ -800,10 +800,10 @@ export default function PhiladelphiaEventsPage() {
               Marathon crews, lacrosse families, PAX gaming groups, wedding
               parties, Army–Navy alumni contingents — event travel is group
               travel, and hotel blocks split groups across floors at peak
-              rates. 1822 Pine Street sleeps 16 across 8 bedrooms, two blocks
+              rates. The Rittenhouse Residence sleeps 16 across 8 bedrooms, two blocks
               from Rittenhouse Square, with two kitchens and one table that
-              seats everyone. For the big dates above, book early — we hold
-              only one calendar.
+              seats everyone. For the big dates above, book early — the house
+              hosts only one group per date.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -825,13 +825,12 @@ export default function PhiladelphiaEventsPage() {
           <div className="rounded-lg border border-stone-200 bg-white p-8">
             <Landmark className="h-6 w-6 text-amber-800" />
             <p className="mt-5 font-serif text-2xl font-semibold text-stone-950">
-              How this page stays honest
+              Help us keep the calendar useful
             </p>
             <p className="mt-4 text-base leading-7 text-stone-700">
-              We checked every date above against the organizer&apos;s own
-              site on August 27, 2026. Entries marked &ldquo;dates TBA&rdquo;
-              are reliably annual events whose next edition hasn&apos;t been
-              announced. Spot an error
+              We revisit every date against the organizer&apos;s own site. Entries
+              marked &ldquo;dates TBA&rdquo; are reliably annual events whose next
+              edition hasn&apos;t been announced. Spot an error
               or a new announcement?{" "}
               <Link
                 href="/contact"
@@ -847,7 +846,7 @@ export default function PhiladelphiaEventsPage() {
 
       <HubCrossLinks
         currentHref="/philadelphia-events"
-        title="More local guides from 1822 Pine Street."
+        title="More local guides from two blocks south of the Square."
       />
     </div>
   );

@@ -40,6 +40,8 @@ yarn-error.log*
 /public/archive/raw_documents/
 /public/archive/images/web/
 /public/archive/refs/
+/public/floor-plans/
+/tmp/pdfs/
 
 # typescript
 *.tsbuildinfo

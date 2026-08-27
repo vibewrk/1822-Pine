@@ -46,9 +46,9 @@ const floorWalk = [
     floor: "Second floor",
     note: "The principal suite sits above the street.",
     image: "/images/property/DSC00082.jpg",
-    alt: "Master suite with four-poster bed",
+    alt: "Principal suite with four-poster bed",
     rooms: [
-      "Master bedroom with king bed, private sitting room, and private bath.",
+      "Principal bedroom with king bed, private sitting room, and private bath.",
       "Library suite with a queen bed and Pine Street frontage.",
       "Formal library for the guest who wants a quieter hour away from the group.",
     ],
@@ -77,12 +77,12 @@ const floorWalk = [
 ];
 
 const bedrooms = [
-  ["Master Suite", "King bed", "Second floor", "Private bath"],
+  ["Principal Suite", "King bed", "Second floor", "Private bath"],
   ["Library Bedroom", "Queen bed", "Second floor", "Shared full bath nearby"],
   ["Second Bedroom", "Queen bed", "Third floor", "Full bath nearby"],
   ["VIP Bedroom 2", "Queen bed", "Third floor", "Full bath nearby"],
   ["Family Bedroom 1", "Queen bed", "Fourth floor", "Full bath nearby"],
-  ["Family Bedroom 2", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["Family Bedroom 2", "Double bed", "Fourth floor", "Full bath nearby"],
   ["Third Bedroom", "Queen bed", "Fourth floor", "Full bath nearby"],
   ["VIP Bedroom 3", "King bed", "Fourth floor", "Full bath nearby"],
 ];
@@ -218,7 +218,7 @@ export default function StayPage() {
           <div className="max-w-3xl">
             <Eyebrow>Bedrooms</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Eight rooms, labeled plainly.
+              Eight bedrooms, each with its own character.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
               The mix is simple: two kings, five queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
@@ -246,7 +246,7 @@ export default function StayPage() {
             <div>
               <Eyebrow>Amenities</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-                Useful things, grouped by how you use them.
+                The comforts that make a houseful feel at home.
               </h2>
             </div>
             <div className="grid gap-5 md:grid-cols-3">
@@ -342,7 +342,7 @@ export default function StayPage() {
             Bring the whole group under one roof.
           </h2>
           <p className="mt-5 text-lg text-stone-200 md:text-xl">
-            8 bedrooms · 5 baths + powder · from $1,600 / night
+            8 bedrooms · 5 full baths + powder · sleeps 16
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

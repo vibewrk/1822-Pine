@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Things to Do in Rittenhouse Square",
   description:
-    "What to do in and around Rittenhouse Square, Philadelphia: the park itself, its annual traditions since 1914, the farmers market, and the museums and shopping a short walk away. Walked again in August 2026.",
+    "What to do in and around Rittenhouse Square, Philadelphia: the park itself, its annual traditions since 1914, the farmers market, and the museums and shopping a short walk away.",
   alternates: { canonical: "/rittenhouse-square/things-to-do" },
   openGraph: {
     title: "Things to Do in Rittenhouse Square | The Rittenhouse Residence",
@@ -212,14 +212,14 @@ export default function ThingsToDoPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Rittenhouse Square Guide · Walked in August 2026
+            A Neighbor&apos;s Rittenhouse Square Guide
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             Things to do in Rittenhouse Square.
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            The honest answer is that the Square&apos;s main activity is simply
-            being in it — this is Philadelphia&apos;s living room. But the park
+            The pleasure of the Square is simply being in it — this is
+            Philadelphia&apos;s living room. But the park
             keeps a real calendar, from a farmers market that runs twice a week
             to an art show held since 1928, and a short walk in any direction
             holds enough for a full day. Here&apos;s how locals use it.
@@ -262,7 +262,7 @@ export default function ThingsToDoPage() {
           <SectionHeader
             eyebrow="The Annual Calendar"
             title="The Square's traditions, by season."
-            body="Rittenhouse Square has kept some of its rituals for more than a century. Dates below come from the organizers themselves; we checked them in August 2026."
+            body="Rittenhouse Square has kept some of its rituals for more than a century. Dates and schedules below link to the organizers so you can check the latest details."
           />
           <p className="-mt-4 mb-9 text-base leading-7 text-stone-700">
             For the citywide picture — conventions, festivals, marathons —{" "}
@@ -375,7 +375,7 @@ export default function ThingsToDoPage() {
 
       <StayCta
         title="Make the Square your front yard for a weekend."
-        body="1822 Pine Street is two blocks south of the park — an 8-bedroom historic house that sleeps 16. Saturday starts at the farmers market and ends with the whole group around one dining table."
+        body="The Rittenhouse Residence is two blocks south of the park — an 8-bedroom historic house that sleeps 16. Saturday starts at the farmers market and ends with the whole group around one dining table."
       />
 
       <HubCrossLinks currentHref="/rittenhouse-square/things-to-do" />

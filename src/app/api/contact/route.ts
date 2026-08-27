@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const RECIPIENT_EMAIL = process.env.CONTACT_TO_EMAIL || "1822pinestreetpa@gmail.com";
-// Resend requires a verified sender. Until rittenhouseresidence.com is verified
-// in Resend (see docs/GROWTH-RUNBOOK.md), the sandbox sender only delivers to
-// the Resend account owner's address — set CONTACT_FROM_EMAIL after verifying.
+const RECIPIENT_EMAIL = process.env.CONTACT_TO_EMAIL;
+// Resend requires a verified sender. Production sets CONTACT_FROM_EMAIL to an
+// address on rittenhouseresidence.com; the fallback is useful only for local
+// API testing against Resend's sandbox.
 const SENDER_EMAIL =
   process.env.CONTACT_FROM_EMAIL || "Rittenhouse Residence <onboarding@resend.dev>";
 
@@ -148,6 +148,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!RECIPIENT_EMAIL) {
+      console.error(
+        "CONTACT_TO_EMAIL not configured — contact form cannot route inquiries."
+      );
+      return NextResponse.json(
+        {
+          error:
+            "Our inquiry form is temporarily unavailable. Please try again shortly or use the Airbnb or Vrbo booking page.",
+        },
+        { status: 503 }
+      );
+    }
+
     // Check for spam. Soft-fail with a human path instead of silently
     // discarding: a false positive here used to look like a sent message
     // while the inquiry evaporated.
@@ -156,7 +169,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error:
-            `We couldn't send this message automatically. Please email us directly at ${RECIPIENT_EMAIL} — a person reads every message, and we reply within 24 hours.`,
+            "We couldn't send this message automatically. Please adjust your message and try again, or use the Airbnb or Vrbo booking page.",
         },
         { status: 422 }
       );
@@ -209,7 +222,7 @@ This message was sent from the contact form at rittenhouseresidence.com
       return NextResponse.json(
         {
           error:
-            `Our inquiry form is temporarily unavailable. Please email us directly at ${RECIPIENT_EMAIL} — we reply within 24 hours.`,
+            "Our inquiry form is temporarily unavailable. Please try again shortly or use the Airbnb or Vrbo booking page.",
         },
         { status: 503 }
       );
@@ -235,7 +248,8 @@ This message was sent from the contact form at rittenhouseresidence.com
       console.error("Resend API error:", errorData);
       return NextResponse.json(
         {
-          error: `We couldn't send your message just now. Please email us directly at ${RECIPIENT_EMAIL}.`,
+          error:
+            "We couldn't send your message just now. Please try again shortly or use the Airbnb or Vrbo booking page.",
         },
         { status: 502 }
       );

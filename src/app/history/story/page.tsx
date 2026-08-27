@@ -8,7 +8,7 @@ import storyData from "@/data/story-chapters.json";
 export const metadata: Metadata = {
   title: "The Story of 1822 Pine Street",
   description:
-    "The story of 1822 Pine Street in 14 chapters — from its 1854 completion through Gilded Age society, women's suffrage, apartment years, and restoration.",
+    `The story of 1822 Pine Street in ${storyData.chapters.length} chapters — from its beginnings in the 1850s through Gilded Age society, women's suffrage, apartment years, and restoration.`,
   alternates: { canonical: "/history/story" },
   keywords: [
     "Philadelphia history",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Story of 1822 Pine Street | 170 Years of Philadelphia History",
     description:
-      "A documented narrative of one of Philadelphia's most historic addresses, from 1854 to present.",
+      "A Philadelphia townhouse tells the story of the families, gatherings, and changes it has witnessed since 1854.",
     type: "article",
     images: ["/images/property/DSC00064.jpg"],
   },
@@ -64,7 +64,7 @@ export default function StoryIndexPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-medium text-amber-400 mb-4">
-              A Documented Historical Narrative
+              A House Tells Its Story
             </p>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
               {storyData.title}
@@ -88,7 +88,7 @@ export default function StoryIndexPage() {
               </div>
               <div className="flex items-center gap-2 text-gray-300">
                 <FileText className="h-5 w-5 text-amber-400" />
-                <span>Documented Sources</span>
+                <span>Primary Sources</span>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function StoryIndexPage() {
           </div>
 
           <div className="space-y-6">
-            {chapters.map((chapter) => (
+            {chapters.map((chapter, chapterIndex) => (
               <Link
                 key={chapter.slug}
                 href={`/history/story/${chapter.slug}`}
@@ -160,7 +160,7 @@ export default function StoryIndexPage() {
                             <span className="hidden md:inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2 py-1 rounded">
                               {chapter.number === 0
                                 ? "Prologue"
-                                : chapter.number === chapters.length - 1
+                                : chapterIndex === chapters.length - 1
                                   ? "Epilogue"
                                   : `Chapter ${chapter.number}`}
                             </span>
@@ -220,7 +220,7 @@ export default function StoryIndexPage() {
 
             <div className="space-y-8">
               {[
-                { year: "1854", event: "House built by John McCrea, sold to Roset family" },
+                { year: "1854", event: "McCrea sells the property to Roset; the family is listed here by 1855" },
                 { year: "1893", event: "Spencer family acquires property" },
                 { year: "1899", event: "Major renovation by Duhring, Okie & Ziegler" },
                 { year: "1905", event: "Fireplace installed, still in use today" },

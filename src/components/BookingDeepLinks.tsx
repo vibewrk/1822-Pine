@@ -4,11 +4,10 @@ import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, ExternalLink, Star } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
 
-const AIRBNB_URL = "https://www.airbnb.com/rooms/6000930";
 // Vrbo's date/guest URL parameters could not be verified, so Vrbo gets a
 // plain listing link — its calendar is one click away once the page opens.
-const VRBO_URL = "https://www.vrbo.com/757481";
 
 const MS_PER_NIGHT = 86_400_000;
 
@@ -37,7 +36,7 @@ const getTodayServer = (): string | undefined => undefined;
 export function BookingDeepLinks() {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState(16);
+  const [guests, setGuests] = useState<number>(PROPERTY_FACTS.sleeps);
   const today = useSyncExternalStore(
     subscribeNever,
     getTodayLocal,
@@ -51,12 +50,12 @@ export function BookingDeepLinks() {
             MS_PER_NIGHT
         )
       : 0;
-  // The house has a 2-night minimum; a 1-night range is not a valid prefill.
-  const datesValid = nights >= 2;
+  // A range shorter than the house minimum is not a valid prefill.
+  const datesValid = nights >= PROPERTY_FACTS.minimumStayNights;
 
   const airbnbHref = datesValid
-    ? `${AIRBNB_URL}?check_in=${checkIn}&check_out=${checkOut}&adults=${guests}`
-    : AIRBNB_URL;
+    ? `${BOOKING_LINKS.airbnb}?check_in=${checkIn}&check_out=${checkOut}&adults=${guests}`
+    : BOOKING_LINKS.airbnb;
 
   return (
     <div className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
@@ -87,7 +86,11 @@ export function BookingDeepLinks() {
           <input
             id="deep-link-check-out"
             type="date"
-            min={checkIn ? addDaysISO(checkIn, 2) : today}
+            min={
+              checkIn
+                ? addDaysISO(checkIn, PROPERTY_FACTS.minimumStayNights)
+                : today
+            }
             value={checkOut}
             onChange={(event) => setCheckOut(event.target.value)}
             className="mt-2 w-full rounded-md border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-950 focus:border-amber-800 focus:outline-none"
@@ -106,7 +109,10 @@ export function BookingDeepLinks() {
             onChange={(event) => setGuests(Number(event.target.value))}
             className="mt-2 w-full rounded-md border border-stone-300 bg-white px-3 py-2.5 text-sm text-stone-950 focus:border-amber-800 focus:outline-none"
           >
-            {Array.from({ length: 16 }, (_, index) => index + 1).map((n) => (
+            {Array.from(
+              { length: PROPERTY_FACTS.sleeps },
+              (_, index) => index + 1
+            ).map((n) => (
               <option key={n} value={n}>
                 {n} {n === 1 ? "guest" : "guests"}
               </option>
@@ -118,8 +124,8 @@ export function BookingDeepLinks() {
       <p className="mt-3 text-sm text-stone-600" aria-live="polite">
         {checkIn && checkOut && nights <= 0
           ? "Check-out must be after check-in."
-          : nights === 1
-            ? "The house has a 2-night minimum — add at least one more night."
+          : nights > 0 && nights < PROPERTY_FACTS.minimumStayNights
+            ? `The house has a ${PROPERTY_FACTS.minimumStayNights}-night minimum — please extend your stay.`
             : datesValid
               ? `${nights} nights · Airbnb opens with your dates and group size prefilled.`
               : "Pick dates to open Airbnb with your stay prefilled, or jump straight to either calendar."}
@@ -144,7 +150,7 @@ export function BookingDeepLinks() {
           <ExternalLink className="h-4 w-4" />
         </a>
         <a
-          href={VRBO_URL}
+          href={BOOKING_LINKS.vrbo}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() =>
@@ -163,7 +169,7 @@ export function BookingDeepLinks() {
       </div>
 
       <p className="mt-5 text-sm leading-6 text-stone-600">
-        Prefer a person?{" "}
+        Want a little help choosing?{" "}
         <Link
           href={
             datesValid
@@ -176,11 +182,12 @@ export function BookingDeepLinks() {
           className="inline-flex items-center gap-1 font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
         >
           {datesValid
-            ? "Request a direct quote for these dates"
-            : "Request a direct quote"}
+            ? "Ask about these dates"
+            : "Ask about your dates"}
           <ArrowRight className="h-3.5 w-3.5" />
         </Link>{" "}
-        — same house and dates, no platform service fee.
+        — we will reply within 24 hours with availability, an itemized personal
+        quote, and clear next steps.
       </p>
     </div>
   );

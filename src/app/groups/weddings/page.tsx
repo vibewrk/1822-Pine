@@ -4,19 +4,20 @@ import Link from "next/link";
 import { ArrowRight, Coffee, Home, Users, XCircle } from "lucide-react";
 import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
 
 export const metadata: Metadata = {
   title: "Wedding Guest Housing",
   description:
-    "Sleep 16 wedding guests under one roof, two blocks from Rittenhouse Square — 8 bedrooms, group breakfasts at one table, from $1,600/night. Lodging only.",
+    `Wedding guest lodging for up to 16 under one roof near Rittenhouse Square — 8 bedrooms, group breakfasts at one table, and ${PRICING_COPY.compact.toLowerCase()} Lodging only.`,
   alternates: { canonical: "/groups/weddings" },
   openGraph: {
     title: "Wedding Guest Housing | The Rittenhouse Residence",
     description:
-      "One historic house that sleeps 16 wedding guests near Rittenhouse Square — 8 bedrooms, breakfasts for the whole group, honest house rules.",
-    images: ["/images/property/DSC00118.jpg"],
+      "One historic house that sleeps 16 wedding guests near Rittenhouse Square — 8 bedrooms, breakfasts for the whole group, and clear lodging-only house rules.",
+    images: ["/images/property/DSC00122.jpg"],
   },
 };
 
@@ -38,7 +39,7 @@ const faqs = [
   },
   {
     q: "How does payment work for a wedding-weekend booking?",
-    a: "A 50% deposit secures the dates at reservation, and the balance is due 60 days before arrival. Cancellations require 60 days notice for a full refund of the deposit.",
+    a: "Send us your dates and group size, and we will reply within 24 hours with availability, an itemized quote, and the next steps. This website does not have on-site checkout; Airbnb and Vrbo show live pricing, payment terms, and cancellation terms before checkout.",
   },
   {
     q: "Where do sixteen people put their luggage on arrival?",
@@ -50,7 +51,7 @@ const notList = [
   "It is not a place to hold a ceremony or a reception. House rules do not allow parties or events, for any guest, on any date.",
   "It is not a party house. Quiet hours apply, and the block is residential — your guests will sleep, which is the point.",
   "It is not staffed like a hotel. It is a private historic home, and for the weekend it belongs entirely to your people.",
-  "Anything beyond overnight lodging — ask us before you book. You will get a straight answer, not a surprise later.",
+  "Anything beyond overnight lodging — ask us before you book. We are happy to help you decide whether the house fits what you have in mind.",
 ];
 
 function WeddingsJsonLd() {
@@ -100,8 +101,8 @@ export default function WeddingGuestHousingPage() {
       <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
         <section className="relative min-h-[620px] overflow-hidden">
           <Image
-            src="/images/property/DSC00118.jpg"
-            alt="Red-brick Victorian facade of The Rittenhouse Residence with flower boxes and the front door open"
+            src="/images/property/DSC00122.jpg"
+            alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
             fill
             sizes="100vw"
             priority
@@ -189,7 +190,7 @@ export default function WeddingGuestHousingPage() {
         <section className="bg-stone-100 py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl rounded-lg border border-stone-300 bg-stone-950 p-8 text-stone-100 sm:p-10">
-              <Eyebrow light>Honesty, Up Front</Eyebrow>
+              <Eyebrow light>Lodging, Not a Venue</Eyebrow>
               <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">
                 What this house is not.
               </h2>
@@ -202,9 +203,9 @@ export default function WeddingGuestHousingPage() {
                 ))}
               </ul>
               <p className="mt-7 border-t border-stone-700 pt-6 leading-7 text-stone-300">
-                We publish this because the same rules that make the house wrong for a reception
-                are exactly what make it right for the people you love most: a calm, quiet,
-                beautiful place to sleep through the biggest weekend of your year.
+                The same rules that make the house wrong for a reception are exactly what make it
+                right for the people you love most: a calm, quiet, beautiful place to come home to
+                throughout the biggest weekend of your year.
               </p>
             </div>
           </div>
@@ -250,10 +251,10 @@ export default function WeddingGuestHousingPage() {
           <div className="absolute inset-0 bg-black/65" />
           <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="font-serif text-4xl font-semibold leading-tight text-white md:text-5xl">
-              Give your guest list the best address of the weekend.
+              Give your favorite people a home base for the weekend.
             </h2>
             <p className="mt-5 text-lg text-stone-200 md:text-xl">
-              One inquiry covers all sixteen beds. We reply within 24 hours.
+              One inquiry covers the whole eight-bedroom house. We reply within 24 hours.
             </p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link

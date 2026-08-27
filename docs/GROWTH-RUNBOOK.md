@@ -126,44 +126,34 @@ lossy:
 
 Do the same for `therittenhouseresidence.com` if it has any index history.
 
-## 5. Contact-form email (10 minutes)
+## 5. Contact-form email — RESOLVED 2026-08-27
 
-The form delivers via Resend to `1822pinestreetpa@gmail.com`.
+The form delivers through Resend. The production recipient is stored only in
+the encrypted `CONTACT_TO_EMAIL` environment variable; do not put the private
+inbox in client copy, API errors, or repository documentation.
 
-> **URGENT, found 2026-08-25: the `RESEND_API_KEY` in Vercel production is
-> INVALID.** The Resend API rejects it ("API key is invalid") — it was
-> presumably rotated or revoked at some point. The live contact form cannot
-> deliver email right now (it fails loudly with the direct-email fallback, so
-> inquiries aren't silently lost, but they aren't arriving either). Create a
-> new key at https://resend.com/api-keys and replace the env var:
-> `printf 'NEW_KEY' | vercel env add RESEND_API_KEY production` (remove the
-> old one first: `vercel env rm RESEND_API_KEY production`), then redeploy.
+- `rittenhouseresidence.com` is verified in Resend with DKIM/SPF.
+- `CONTACT_FROM_EMAIL` uses the verified domain.
+- `RESEND_API_KEY` is a sending-only key scoped to this domain.
+- The former full-access key was revoked.
+- End-to-end delivery was confirmed after the key rotation and again after the
+  old key was deleted.
 
-1. Confirm `RESEND_API_KEY` is set in Vercel env (all environments). The
-   route now returns a visible error with a direct-email fallback instead of
-   silently pretending success when the key is missing — but it still needs
-   the key to actually deliver.
-2. In https://resend.com → Domains → add `rittenhouseresidence.com`, add the
-   DKIM/SPF records it shows (again in Vercel DNS), then set the Vercel env
-   var `CONTACT_FROM_EMAIL` to e.g.
-   `The Rittenhouse Residence <inquiries@rittenhouseresidence.com>`.
-   Until then the sandbox sender only reliably delivers to the Resend account
-   owner's own inbox.
-3. Optional: `CONTACT_TO_EMAIL` overrides the destination inbox.
-4. Send yourself a test inquiry from the live site and confirm receipt.
+The API fails visibly when delivery is unavailable and points guests toward
+Airbnb or Vrbo; it must never claim success for an unsent inquiry.
 
-## 6. Environment variables — ACTUAL STATE as of 2026-08-25
+## 6. Environment variables — ACTUAL STATE as of 2026-08-27
 
 Read live from `vercel env ls` on project `rpcoding/rittenhouse-website`:
 
 | Var | Set? | Environments | Purpose / action |
 |---|---|---|---|
-| `RESEND_API_KEY` | **YES** | **Production only** | Contact form delivery. Present in Production, so the live form can send. Not set for Preview/Development, so the form fails loudly on preview builds — that is the intended behavior, not a bug, but add it to Preview if you want to test inquiries there. |
+| `RESEND_API_KEY` | **YES** | **Production only** | Sending-only Resend key scoped to the verified domain. |
 | `NEXT_PUBLIC_SUPABASE_URL` | YES | Production | Legacy, unrelated to this work — left alone |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | YES | Production | Legacy, unrelated to this work — left alone |
-| `CONTACT_FROM_EMAIL` | **NO** | — | Set after verifying the domain in Resend (§5). Until then the sandbox sender only reliably reaches the Resend account owner's inbox. |
-| `CONTACT_TO_EMAIL` | no | — | Optional; overrides the destination inbox |
-| `NEXT_PUBLIC_GA_ID` | **NO** | — | Not set, so the build falls back to the hardcoded `G-YYXHNWZ4PK`. If §2 shows you do not own that property, set this to your own ID and redeploy. |
+| `CONTACT_FROM_EMAIL` | **YES** | Production, Development | Verified-domain sender identity. |
+| `CONTACT_TO_EMAIL` | **YES** | Production | Private destination inbox; required by the contact API. |
+| `NEXT_PUBLIC_GA_ID` | **YES** | Production, Preview, Development | Owned GA4 stream ID. |
 | `NEXT_PUBLIC_GTM_ID` | no | — | Falls back to hardcoded `GTM-N5XCRVPL` |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | **NO** | — | Only needed if you verify Search Console by HTML tag instead of DNS (§1, option 6) |
 

@@ -198,10 +198,10 @@ export function HubCrossLinks({
   );
 }
 
-/** Conversion band: the honest pitch, kept identical across the hub. */
+/** Shared invitation to stay near the Square, kept identical across the hub. */
 export function StayCta({
   title = "Stay two blocks from the Square.",
-  body = "This guide is written from 1822 Pine Street — an 8-bedroom historic house two blocks south of Rittenhouse Square that hosts groups of up to 16. The neighborhood in these pages is our daily walk.",
+  body = "This guide is written from The Rittenhouse Residence — an 8-bedroom historic house two blocks south of Rittenhouse Square that hosts groups of up to 16. The neighborhood in these pages is our daily walk.",
 }: {
   title?: string;
   body?: string;
@@ -212,14 +212,14 @@ export function StayCta({
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
           <Image
             src="/images/property/DSC00088.jpg"
-            alt="Interior of The Rittenhouse Residence at 1822 Pine Street, two blocks from Rittenhouse Square"
+            alt="Interior of The Rittenhouse Residence, two blocks from Rittenhouse Square"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
         <div>
-          <Eyebrow>From 1822 Pine Street</Eyebrow>
+          <Eyebrow>From Two Blocks Away</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight text-stone-950 md:text-5xl">
             {title}
           </h2>

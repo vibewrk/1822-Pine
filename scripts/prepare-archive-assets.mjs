@@ -10,6 +10,16 @@ const siteRoot = path.resolve(scriptDir, "..");
 // originals stay out of the Next.js static pipeline until then.
 const SOURCE_ROOT = siteRoot;
 const PUBLIC_ROOT = path.resolve(siteRoot, "public", "archive");
+const PUBLIC_FLOOR_PLAN_ROOT = path.resolve(siteRoot, "public", "floor-plans");
+const SANITIZED_FLOOR_PLAN_ROOT = path.resolve(siteRoot, "output", "pdf");
+
+const FLOOR_PLAN_DOWNLOADS = [
+  ["rittenhouse-residence-first-floor.pdf", "first-floor.pdf"],
+  ["rittenhouse-residence-second-floor.pdf", "second-floor.pdf"],
+  ["rittenhouse-residence-third-floor.pdf", "third-floor.pdf"],
+  ["rittenhouse-residence-fourth-floor.pdf", "fourth-floor.pdf"],
+  ["rittenhouse-residence-roof-deck.pdf", "roof-deck.pdf"],
+];
 
 const COPY_TARGETS = [
   {
@@ -105,6 +115,18 @@ async function main() {
     });
     console.log(`Synced ${target.label} -> ${path.relative(siteRoot, target.dest)}`);
   }
+
+  // The history archive retains source filenames, but the guest-facing floor
+  // plan page uses neutral download URLs that do not expose the house number.
+  await rmIfExists(PUBLIC_FLOOR_PLAN_ROOT);
+  await ensureDir(PUBLIC_FLOOR_PLAN_ROOT);
+  for (const [sourceName, publicName] of FLOOR_PLAN_DOWNLOADS) {
+    await fs.copyFile(
+      path.resolve(SANITIZED_FLOOR_PLAN_ROOT, sourceName),
+      path.resolve(PUBLIC_FLOOR_PLAN_ROOT, publicName)
+    );
+  }
+  console.log("Published guest floor plans with neutral filenames");
 }
 
 await main();

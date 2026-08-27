@@ -1,18 +1,24 @@
 import { Bath, Bed, Calendar, ExternalLink, Star, Users } from "lucide-react";
 import TrackedLink from "@/components/TrackedLink";
+import {
+  BOOKING_LINKS,
+  PROPERTY_FACTS,
+  REVIEW_FACTS,
+} from "@/lib/facts";
+import { PRICING_COPY } from "@/lib/pricing";
 
-const VRBO_URL = "https://www.vrbo.com/757481";
-const AIRBNB_URL = "https://www.airbnb.com/rooms/6000930";
-
-const directSteps = [
-  ["1. Inquire", "Send your dates and group size through the contact page."],
+const inquirySteps = [
   [
-    "2. Quote + hold",
-    "Within 24 hours: confirmed availability, a full direct quote, and a hold on your dates.",
+    "1. Tell us about your stay",
+    "Share your dates, group size, and what is bringing everyone to Philadelphia.",
   ],
   [
-    "3. Reserve",
-    "Sign the rental agreement and secure the booking with a 50% deposit.",
+    "2. Hear from a person",
+    "Within 24 hours, we reply with availability and an itemized personal quote.",
+  ],
+  [
+    "3. Choose your next step",
+    "We will explain the booking options, or you can use Airbnb or Vrbo for secure online checkout.",
   ],
 ];
 
@@ -27,32 +33,32 @@ export function BookingCTA() {
           Reserve The Rittenhouse Residence.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-stone-600">
-          Platforms add a guest service fee at checkout. A direct quote is the
-          same house and dates without it — request one and compare totals
-          yourself.
+          Tell us what you are planning and we will help you see whether the
+          house fits your group. Prefer to reserve online? Airbnb and Vrbo have
+          live calendars and secure checkout.
         </p>
 
         <div className="mt-7 flex flex-wrap justify-center gap-3 text-sm text-stone-700">
           <span className="inline-flex items-center gap-2">
             <Bed className="h-4 w-4 text-amber-700" />
-            8BR
+            {PROPERTY_FACTS.bedrooms} bedrooms
           </span>
           <span className="inline-flex items-center gap-2">
             <Bath className="h-4 w-4 text-amber-700" />
-            6BA
+            {PROPERTY_FACTS.fullBathrooms} full baths + powder room
           </span>
           <span className="inline-flex items-center gap-2">
             <Users className="h-4 w-4 text-amber-700" />
-            Sleeps 16
+            Sleeps {PROPERTY_FACTS.sleeps}
           </span>
           <span className="inline-flex items-center gap-2">
             <Calendar className="h-4 w-4 text-amber-700" />
-            From $1,600/night
+            {PRICING_COPY.short}
           </span>
         </div>
 
         <div className="mt-7 grid gap-3 text-left sm:grid-cols-3">
-          {directSteps.map(([title, body]) => (
+          {inquirySteps.map(([title, body]) => (
             <div
               key={title}
               className="rounded-md border border-stone-200 bg-white p-4"
@@ -70,41 +76,41 @@ export function BookingCTA() {
             eventParams={{ location: "booking_cta" }}
             className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-stone-950 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800 sm:w-auto"
           >
-            Request a Direct Quote
+            Request a Personal Quote
           </TrackedLink>
         </div>
 
         <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
-          Or book instantly on…
+          Or reserve online on…
         </p>
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <TrackedLink
-            href={VRBO_URL}
+            href={BOOKING_LINKS.vrbo}
             event="ota_click"
             eventParams={{ platform: "vrbo", location: "booking_cta" }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-950 transition-colors hover:bg-stone-100"
           >
-            Vrbo — live calendar &amp; checkout
+            Vrbo — live calendar &amp; secure checkout
             <ExternalLink className="h-4 w-4" />
           </TrackedLink>
           <TrackedLink
-            href={AIRBNB_URL}
+            href={BOOKING_LINKS.airbnb}
             event="ota_click"
             eventParams={{ platform: "airbnb", location: "booking_cta" }}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-6 py-3 text-sm font-semibold text-stone-950 transition-colors hover:bg-stone-100"
           >
-            Airbnb — instant book
+            Airbnb — live calendar &amp; secure checkout
             <Star className="h-4 w-4 text-amber-700" />
           </TrackedLink>
         </div>
 
         {/* Review data sourced from Airbnb listing; update periodically. */}
         <TrackedLink
-          href={AIRBNB_URL}
+          href={BOOKING_LINKS.airbnb}
           event="ota_click"
           eventParams={{ platform: "airbnb", location: "booking_cta_reviews" }}
           target="_blank"
@@ -112,7 +118,8 @@ export function BookingCTA() {
           className="mt-5 inline-flex items-center gap-2 text-sm text-stone-600 hover:text-stone-950"
         >
           <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
-          4.88 on Airbnb across 102 reviews
+          {REVIEW_FACTS.airbnb.rating} on Airbnb across{" "}
+          {REVIEW_FACTS.airbnb.count} reviews
           <ExternalLink className="h-3.5 w-3.5" />
         </TrackedLink>
       </div>

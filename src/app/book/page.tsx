@@ -15,19 +15,16 @@ import {
 import { BookingDeepLinks } from "@/components/BookingDeepLinks";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
-
-const VRBO_URL = "https://www.vrbo.com/757481";
-const AIRBNB_URL = "https://www.airbnb.com/rooms/6000930";
+import { BOOKING_LINKS, PROPERTY_FACTS, REVIEW_FACTS } from "@/lib/facts";
+import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Book Your Stay",
-  description:
-    "Three ways to book the 8-bedroom Rittenhouse Residence: request a direct quote, or book instantly on Vrbo or Airbnb. From $1,600/night, sleeps 16.",
+  description: `Ask about your dates for a personal quote, or use Airbnb or Vrbo for live calendars and secure checkout. ${PRICING_COPY.short} Sleeps ${PROPERTY_FACTS.sleeps}.`,
   alternates: { canonical: "/book" },
   openGraph: {
     title: "Book The Rittenhouse Residence",
-    description:
-      "The whole 8-bedroom mansion, two blocks from Rittenhouse Square. From $1,600/night.",
+    description: `The whole 8-bedroom townhouse, two blocks from Rittenhouse Square. ${PRICING_COPY.short}`,
     images: ["/images/airbnb/airbnb_03.jpg"],
   },
 };
@@ -35,7 +32,7 @@ export const metadata: Metadata = {
 const included = [
   [
     "Full Property Access",
-    "The whole house — 8 bedrooms, 5 full baths and a powder room, grand parlors, and the private roof deck.",
+    `The whole house — ${PROPERTY_FACTS.bedrooms} bedrooms, ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room, grand parlors, and the private roof deck.`,
   ],
   [
     "Practical Amenities",
@@ -43,11 +40,11 @@ const included = [
   ],
   [
     "Flexible Sleeping",
-    "8 bedrooms — two kings, five queens and a double — on floors 2–4 of the four-story house.",
+    `${PROPERTY_FACTS.bedrooms} bedrooms — two kings, five queens and a double — on floors 2–4 of the four-story house.`,
   ],
   [
     "Historic Experience",
-    "Original fireplaces and millwork, plus a documented history reaching back to 1854.",
+    `Original fireplaces and millwork, with a house story documented from ${PROPERTY_FACTS.documentedFromYear}.`,
   ],
   [
     "Rittenhouse Location",
@@ -60,22 +57,26 @@ const included = [
 ];
 
 const stayBasics = [
-  ["Check-in", "4:00 PM"],
-  ["Check-out", "10:00 AM"],
-  ["Minimum stay", "2 nights"],
+  ["Check-in", PROPERTY_FACTS.checkIn],
+  ["Check-out", PROPERTY_FACTS.checkOut],
+  ["Minimum stay", `${PROPERTY_FACTS.minimumStayNights} nights`],
   ["ID", "Valid government ID required at check-in"],
 ];
 
 const paymentPolicies = [
   [
-    "Deposit",
-    "A 50% deposit is required at reservation to secure the booking.",
+    "Personal quote",
+    "Within 24 hours, we reply with availability, an itemized total for your dates, and clear booking next steps.",
+    Clock,
+  ],
+  [
+    "Secure checkout",
+    "Airbnb and Vrbo show the date-specific total, payment schedule, and cancellation terms before you reserve.",
     CreditCard,
   ],
-  ["Balance", "The remaining balance is due 60 days before arrival.", Clock],
   [
-    "Cancellation",
-    "Cancellations require 60 days notice for a full refund of the deposit. Cancellations within 60 days of arrival are non-refundable.",
+    "Cancellation terms",
+    "Review the policy shown for the booking path and dates you choose before you reserve.",
     Info,
   ],
 ] as const;
@@ -87,7 +88,7 @@ export default function BookPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/property/DSC00082.jpg"
-            alt="Master suite of The Rittenhouse Residence"
+            alt="Principal suite of The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover opacity-20"
@@ -98,12 +99,11 @@ export default function BookPage() {
             Book
           </Eyebrow>
           <h1 className="font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
-            Three ways to book the house.
+            Three ways to plan your stay.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            Request a direct quote, or book instantly on Vrbo or Airbnb. Same
-            house, same dates — compare the totals and pick the path that suits
-            you.
+            Ask us about your dates for a personal quote, or open Vrbo or Airbnb
+            for live calendars and secure online checkout.
           </p>
         </div>
       </section>
@@ -113,18 +113,19 @@ export default function BookPage() {
           <div className="max-w-3xl">
             <Eyebrow>Your Options</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Honest tradeoffs, side by side.
+              Choose the path that fits your group.
             </h2>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <article className="flex flex-col rounded-lg border-2 border-stone-950 bg-white p-7">
               <BadgeCheck className="h-6 w-6 text-amber-800" />
-              <h3 className="mt-5 font-serif text-2xl font-semibold">Book direct</h3>
+              <h3 className="mt-5 font-serif text-2xl font-semibold">
+                Ask about your dates
+              </h3>
               <p className="mt-3 flex-1 leading-7 text-stone-700">
-                A person answers within 24 hours with confirmed availability, a
-                full quote, and a hold on your dates. No platform service fee — the
-                same house and dates, so compare totals yourself. The tradeoff:
-                it is not instant.
+                Tell us about your group and what is bringing everyone to
+                Philadelphia. Within 24 hours, a person replies with
+                availability, an itemized personal quote, and clear next steps.
               </p>
               <TrackedLink
                 href="/contact"
@@ -132,19 +133,18 @@ export default function BookPage() {
                 eventParams={{ location: "book_paths" }}
                 className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-stone-950 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-stone-800"
               >
-                Request a Direct Quote
+                Request a Personal Quote
               </TrackedLink>
             </article>
             <article className="flex flex-col rounded-lg border border-stone-200 bg-white p-7">
               <CalendarCheck className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Vrbo</h3>
               <p className="mt-3 flex-1 leading-7 text-stone-700">
-                Instant online checkout with the live calendar and date-specific
-                pricing in front of you. The tradeoff: platforms add a guest
-                service fee at checkout.
+                See the live calendar, date-specific total, payment schedule,
+                and cancellation terms before you use secure online checkout.
               </p>
               <TrackedLink
-                href={VRBO_URL}
+                href={BOOKING_LINKS.vrbo}
                 event="ota_click"
                 eventParams={{ platform: "vrbo", location: "book_paths" }}
                 target="_blank"
@@ -159,11 +159,11 @@ export default function BookPage() {
               <Star className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Airbnb</h3>
               <p className="mt-3 flex-1 leading-7 text-stone-700">
-                Instant booking where the reviews live — 4.88 from 102 reviews. The
-                same guest service fee applies at checkout.
+                See the live calendar and read {REVIEW_FACTS.airbnb.count} guest
+                reviews, with date-specific pricing and secure online checkout.
               </p>
               <TrackedLink
-                href={AIRBNB_URL}
+                href={BOOKING_LINKS.airbnb}
                 event="ota_click"
                 eventParams={{ platform: "airbnb", location: "book_paths" }}
                 target="_blank"
@@ -201,13 +201,18 @@ export default function BookPage() {
           <div className="max-w-3xl">
             <Eyebrow>Included</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Every booking path gets the same house.
+              One house, entirely for your group.
             </h2>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {included.map(([title, body]) => (
-              <div key={title} className="rounded-lg border border-stone-200 bg-white p-6">
-                <h3 className="font-serif text-xl font-semibold text-stone-950">{title}</h3>
+              <div
+                key={title}
+                className="rounded-lg border border-stone-200 bg-white p-6"
+              >
+                <h3 className="font-serif text-xl font-semibold text-stone-950">
+                  {title}
+                </h3>
                 <p className="mt-2 text-sm leading-6 text-stone-600">{body}</p>
               </div>
             ))}
@@ -218,9 +223,9 @@ export default function BookPage() {
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <Eyebrow>Policies</Eyebrow>
+            <Eyebrow>Before You Reserve</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Booking policies.
+              The practical details, up front.
             </h2>
           </div>
 
@@ -239,15 +244,21 @@ export default function BookPage() {
 
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {paymentPolicies.map(([title, body, Icon]) => (
-              <article key={title} className="rounded-lg border border-stone-200 bg-stone-50 p-6">
+              <article
+                key={title}
+                className="rounded-lg border border-stone-200 bg-stone-50 p-6"
+              >
                 <Icon className="h-6 w-6 text-amber-800" />
-                <h3 className="mt-5 font-serif text-2xl font-semibold">{title}</h3>
+                <h3 className="mt-5 font-serif text-2xl font-semibold">
+                  {title}
+                </h3>
                 <p className="mt-3 leading-7 text-stone-700">{body}</p>
               </article>
             ))}
           </div>
           <p className="mt-6 text-sm leading-6 text-stone-600">
-            The same terms apply on every booking path. See the{" "}
+            The exact total and terms appear with the booking path you choose.
+            See the{" "}
             <Link
               href="/faq#booking-payment"
               className="font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
@@ -268,15 +279,15 @@ export default function BookPage() {
 
       <section className="bg-[#fbfaf7] py-16 md:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow className="justify-center">Direct Booking</Eyebrow>
+          <Eyebrow className="justify-center">Personal Quote</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Sixteen people is a conversation, not a checkout.
+            A stay this size deserves a real conversation.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-stone-700">
             <Users className="mr-2 inline h-5 w-5 text-amber-800" />
-            Send your dates and group size. Within 24 hours you get confirmed
-            availability, a full direct quote, and a hold on your dates — then a
-            rental agreement and 50% deposit secure the house.
+            Send your dates and group size. Within 24 hours, a person will reply
+            with availability, an itemized personal quote, and the next steps
+            for your stay.
           </p>
           <div className="mt-8 flex justify-center">
             <TrackedLink
@@ -285,7 +296,7 @@ export default function BookPage() {
               eventParams={{ location: "book_footer" }}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-stone-950 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800"
             >
-              Request a Direct Quote
+              Ask About Your Dates
               <ArrowRight className="h-5 w-5" />
             </TrackedLink>
           </div>

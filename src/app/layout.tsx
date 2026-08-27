@@ -6,6 +6,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { VacationRentalSchema, LocalBusinessSchema } from "@/components/StructuredData";
+import { PRICING_COPY } from "@/lib/pricing";
 
 // Measurement IDs are env-overridable so staging/preview deploys don't pollute
 // production analytics. Defaults preserve the live IDs.
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | The Rittenhouse Residence",
   },
   description:
-    "An 1854 Victorian mansion two blocks from Rittenhouse Square. Fourteen-foot ceilings, 8 bedrooms, 5 full baths and a powder room, sleeps 16 — the whole house for your whole group. From $1,600/night.",
+    `A lovingly cared-for historic Philadelphia townhouse two blocks from Rittenhouse Square. Eight bedrooms, five full baths and a powder room, room for 16, and the whole house for your group. ${PRICING_COPY.short}`,
   keywords: [
     "The Rittenhouse Residence",
     "Rittenhouse Residence",
@@ -60,9 +61,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "The Rittenhouse Residence | Historic Philadelphia Mansion Since 1854",
+    title: "The Rittenhouse Residence | Historic Philadelphia Townhouse",
     description:
-      "An 1854 mansion with 8 bedrooms, 5 full baths and a powder room, original fireplaces and marble mantels. A whole-home rental for groups, two blocks from Rittenhouse Square.",
+      "A historic Philadelphia townhouse with 8 bedrooms, 5 full baths and a powder room, original fireplaces and marble mantels. A whole-home rental for groups, two blocks from Rittenhouse Square.",
     url: "https://rittenhouseresidence.com",
     siteName: "The Rittenhouse Residence",
     locale: "en_US",
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
         url: "/images/airbnb/airbnb_03.jpg",
         width: 1200,
         height: 630,
-        alt: "Grand Parlor at The Rittenhouse Residence - Historic 1854 Philadelphia Mansion",
+        alt: "Grand Parlor at The Rittenhouse Residence - Historic Philadelphia Townhouse",
       },
     ],
   },
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion",
     description:
-      "An 1854 mansion with 8 bedrooms, two blocks from Rittenhouse Square. A whole-home Philadelphia rental for groups.",
+      "A historic townhouse with 8 bedrooms, two blocks from Rittenhouse Square. A whole-home Philadelphia rental for groups.",
     images: ["/images/airbnb/airbnb_03.jpg"],
   },
   robots: {
