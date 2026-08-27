@@ -77,7 +77,7 @@ const timeline = [
   [
     "1854",
     "Two blocks south, a townhouse is sold",
-    "The newly built row house at 1822 Pine Street — the house that publishes this page — is sold to merchant John Roset. Its deed chain, published in our archive, runs unbroken from that sale to today.",
+    "John McCrea conveys the lot at 1822 Pine Street — the house that publishes this page — to the merchant John Roset, who builds on it; the family is listed at the address in the 1855 directory. Its deed chain, published in our archive, runs unbroken from that sale to today.",
     "House archive",
   ],
   [

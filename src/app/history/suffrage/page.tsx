@@ -354,7 +354,7 @@ export default function SuffragePage() {
           <div className="space-y-6 text-lg leading-8 text-stone-700">
             <p>
               The house&apos;s first long-term owners were John and Mary Ann
-              Laning Roset, who bought the newly built townhouse in 1854 (period
+              Laning Roset, who bought the lot in 1854 and had the house up within the year (period
               records attribute the block’s development to builder John
               McCrea, though no surviving document ties him to this deed). By then their eldest daughter, Ellen Bicking
               Rozet (born February 21, 1829; the family name appears as both
@@ -439,7 +439,7 @@ export default function SuffragePage() {
           <div>
             <Eyebrow>Stay Here</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              Sleep in the house with the paper trail.
+              Stay in the house where it happened.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
               The rooms where the Davis women lived are the rooms your group
