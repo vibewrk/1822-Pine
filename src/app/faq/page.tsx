@@ -59,7 +59,7 @@ const faqSections = [
       },
       {
         q: "What amenities are included?",
-        a: "Linens, towels, fast WiFi (351 Mbps measured), smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
+        a: "Linens, towels, gigabit WiFi service (measured at 351 Mbps in Airbnb's speed test; it varies by floor in a house this size), smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
       },
       {
         q: "Who decides which guest gets which bedroom?",

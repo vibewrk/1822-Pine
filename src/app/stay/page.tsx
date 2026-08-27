@@ -108,7 +108,7 @@ const amenities = [
   {
     group: "Practical",
     items: [
-      ["Fast WiFi (351 Mbps)", "High-speed connection throughout the residence."],
+      ["Gigabit WiFi service", "Gigabit plan throughout the house; a recent Airbnb speed test measured 351 Mbps. Speeds vary by floor across 7,000 square feet."],
       ["Washer and dryer", "Full-size laundry for longer stays and large groups."],
       ["Parking guidance", "Several garages are within two blocks; exact options are sent before check-in."],
     ],
@@ -221,7 +221,7 @@ export default function StayPage() {
               Eight rooms, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: three kings, four queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
+              The mix is simple: two kings, five queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 

@@ -30,7 +30,7 @@ const SITE = "https://rittenhouseresidence.com";
 
 const stats = [
   ["8 bedrooms", "Floors 2–4"],
-  ["3 kings · 4 queens · 1 double", "The bed mix"],
+  ["2 kings · 5 queens · 1 double", "The bed mix"],
   ["6 baths", "Across the house"],
   ["No elevator", "Stairs between floors"],
 ];
@@ -121,7 +121,7 @@ export default function RoomPlannerPage() {
               Every room, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              {"Three kings, four queens, a double, and enough floor separation that sixteen people can still find a quiet landing. Photos are drawn from the house gallery by floor; the room-by-room tour is in your arrival packet."}
+              {"Two kings, five queens, a double, and enough floor separation that sixteen people can still find a quiet landing. Photos are drawn from the house gallery by floor; the room-by-room tour is in your arrival packet."}
             </p>
           </div>
 

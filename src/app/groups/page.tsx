@@ -173,7 +173,7 @@ export default function GroupsPage() {
               <Bed className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Where everyone sleeps</h3>
               <p className="mt-3 leading-7 text-stone-700">
-                Eight bedrooms across floors two through four: three kings, four queens and a
+                Eight bedrooms across floors two through four: two kings, five queens and a
                 double, with five full bathrooms and a powder room keeping the mornings civil. Bedrooms sit on the upper floors of
                 a five-floor townhouse — there is no elevator, which is worth knowing before you
                 assign rooms.

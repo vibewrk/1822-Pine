@@ -9,6 +9,7 @@ import {
   ExternalLink,
   MapPin,
   ShoppingBag,
+  Car,
   Train,
   TreePine,
 } from "lucide-react";
@@ -72,6 +73,18 @@ const shopping = [
   ["Di Bruno Bros", "Also the best nearby stop for cheese, charcuterie, and prepared food."],
   ["Trader Joe's", "2121 Market Street for budget-friendly groceries, about eight minutes away."],
 ];
+
+// Nearby garages, verified on Parkopedia 2026-08-27. Capacities are their
+// published spot counts. Deliberately no prices — garage rates change
+// constantly and stale numbers are worse than none.
+const parkingGarages = [
+  ["1627 Pine Street", "the closest, two blocks east on our own street; about 69 spaces"],
+  ["Art Alliance garage, 18th & Manning", "a block and a half north, tucked behind the Square; about 38 spaces"],
+  ["Penn Medicine Rittenhouse, 1700 South Street", "two blocks south, the largest option close by at about 350 spaces"],
+  ["1400 Naudain Street", "a few blocks southeast; about 123 spaces"],
+  ["Avenue of the Arts, 1501 Spruce Street", "toward Broad Street, about 690 spaces — the safest bet on a busy night"],
+  ["1845 Walnut Street", "north of the Square, about 424 spaces; handy if you are shopping first"],
+] as const;
 
 const transit = [
   ["Subway", "15th-16th & Locust Station is about an eight-minute walk; City Hall and 15th Street stations are also close."],
@@ -397,13 +410,49 @@ export default function NeighborhoodPage() {
                 </div>
               ))}
               <div className="rounded-lg border border-amber-200 bg-amber-50 p-5 text-amber-950">
-                <h3 className="font-semibold">Parking</h3>
+                <h3 className="font-semibold">
+                  Parking: there is none at the house
+                </h3>
                 <p className="mt-2 text-sm leading-6">
-                  Several garages are within two blocks. We send current garage options before check-in instead of publishing stale rates. Waverly Street can be useful for luggage drop-off before you park. Tell us your group&apos;s arrival plan in{" "}
-                  <Link href="/contact" className="font-semibold underline underline-offset-4 transition-colors hover:text-amber-900">
-                    your inquiry
-                  </Link>{" "}
-                  and we&apos;ll send current garage, shuttle, and luggage-drop options.
+                  1822 Pine has no driveway and no dedicated space — it is a
+                  historic rowhouse on a residential block. Every guest with a
+                  car uses a nearby garage. These are the closest, with their
+                  approximate size; all are a short walk:
+                </p>
+                <ul className="mt-3 space-y-2 text-sm leading-6">
+                  {parkingGarages.map(([name, note]) => (
+                    <li key={name} className="flex gap-2">
+                      <Car className="mt-1 h-4 w-4 flex-none" />
+                      <span>
+                        <strong className="font-semibold">{name}</strong> — {note}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm leading-6">
+                  We deliberately don&apos;t print rates: garage pricing changes
+                  constantly and by day of week. Compare live prices on{" "}
+                  <a
+                    href="https://en.parkopedia.com/parking/rittenhouse_square_philadelphia/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline underline-offset-4 transition-colors hover:text-amber-900"
+                  >
+                    Parkopedia
+                  </a>{" "}
+                  or{" "}
+                  <a
+                    href="https://spothero.com/destination/philadelphia/rittenhouse-square-parking"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold underline underline-offset-4 transition-colors hover:text-amber-900"
+                  >
+                    SpotHero
+                  </a>
+                  , where you can also pre-book a space. Street parking is
+                  permit-heavy — treat it as a short errand, not a plan.
+                  Waverly Street, behind the house, is useful for dropping
+                  luggage before you park.
                 </p>
               </div>
             </div>

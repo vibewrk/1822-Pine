@@ -18,7 +18,7 @@
 //   keep the on-page "as of" date in sync when refreshing.
 // - Amenities must match what the site actually tells guests (a "Free
 //   parking" claim was removed; the FAQ says guests use paid garages nearby).
-// - Bed inventory must match the Airbnb listing (3 King + 4 Queen + 1 Double
+// - Bed inventory must match the Airbnb listing (2 King + 5 Queen + 1 Double
 //   across 8 bedrooms), which is the booking system of record.
 
 const SITE = "https://rittenhouseresidence.com";
@@ -93,7 +93,7 @@ export function VacationRentalSchema() {
       occupancy: {
         "@type": "QuantitativeValue",
         // Owner-confirmed 2026-08-24: maximum 16 overnight guests, which
-        // matches the 8-bedroom inventory (3 king, 4 queen, 1 double) and the Airbnb
+        // matches the 8-bedroom inventory (2 king, 5 queen, 1 double) and the Airbnb
         // listing. Keep in sync with the "Sleeps 16" copy sitewide.
         value: 16,
       },

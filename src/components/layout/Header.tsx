@@ -33,6 +33,7 @@ const navigation = [
     ],
   },
   { name: "Gallery", href: "/gallery" },
+  { name: "Reviews", href: "/reviews" },
   {
     name: "Neighborhood",
     href: "/neighborhood",
