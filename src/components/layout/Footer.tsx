@@ -36,6 +36,7 @@ const footerNavigation = [
     title: "Visitors",
     links: [
       { name: "Rittenhouse Square", href: "/rittenhouse-square" },
+      { name: "Events Calendar", href: "/philadelphia-events" },
       { name: "Things to Do", href: "/rittenhouse-square/things-to-do" },
       { name: "Where to Stay", href: "/rittenhouse-square/where-to-stay" },
       { name: "Neighborhood", href: "/neighborhood" },

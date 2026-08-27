@@ -51,6 +51,13 @@ export const HUB_PAGES = [
       "The tables on and facing the Square, and where locals actually walk one block to eat.",
   },
   {
+    href: "/philadelphia-events",
+    title: "Philadelphia Events Calendar",
+    short: "Events",
+    blurb:
+      "Conventions, festivals, and the dates that book out the city — verified against organizers.",
+  },
+  {
     href: "/rittenhouse-square/where-to-stay",
     title: "Where to Stay Near Rittenhouse Square",
     short: "Where to Stay",
@@ -153,16 +160,19 @@ export function SourceList({ sources }: { sources: Source[] }) {
 }
 
 /** "More from the guide" band — every hub page links its siblings. */
-export function HubCrossLinks({ currentHref }: { currentHref: string }) {
+export function HubCrossLinks({
+  currentHref,
+  title = "More from the Rittenhouse Square guide.",
+}: {
+  currentHref: string;
+  title?: string;
+}) {
   const siblings = HUB_PAGES.filter((page) => page.href !== currentHref);
 
   return (
     <section className="bg-[#fbfaf7] py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Keep Reading"
-          title="More from the Rittenhouse Square guide."
-        />
+        <SectionHeader eyebrow="Keep Reading" title={title} />
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {siblings.map((page) => (
             <Link
