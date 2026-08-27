@@ -40,6 +40,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/rittenhouse-square/where-to-stay", priority: 0.8, changeFrequency: "monthly" as const },
   ];
 
+  const rulesPages = [
+    { url: "/house-rules", priority: 0.7, changeFrequency: "monthly" as const },
+  ];
+
   const reviewsPages = [
     { url: "/reviews", priority: 0.8, changeFrequency: "monthly" as const },
   ];
@@ -96,6 +100,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...rittenhouseSquarePages,
     ...eventsPages,
     ...reviewsPages,
+    ...rulesPages,
     ...historyPages,
     ...storyChapters,
     ...documentPages,
