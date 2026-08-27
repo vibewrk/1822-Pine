@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
+import { SocialProof } from "@/components/SocialProof";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -72,7 +73,7 @@ const occasions = [
 
 // Review figures sourced from the Airbnb listing; re-verify when updating.
 const trustItems = [
-  "4.89 · 93 reviews on Airbnb, as of Aug 2026",
+  "4.88 · 102 reviews on Airbnb, as of Aug 2026",
   "Licensed Philadelphia short-term rental",
   "Fully insured",
 ];
@@ -117,7 +118,7 @@ export default function HomePage() {
               </span>
               <span className="inline-flex items-center gap-2">
                 <Bath className="h-4 w-4" />
-                6 Baths
+                5 Baths + Powder
               </span>
               <span className="inline-flex items-center gap-2">
                 <Users className="h-4 w-4" />
@@ -133,7 +134,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 transition-colors hover:text-white"
               >
                 <Star className="h-4 w-4 fill-amber-300 text-amber-300" />
-                4.89 · 93 reviews, as of Aug 2026
+                4.88 · 102 reviews, as of Aug 2026
               </TrackedLink>
             </div>
 
@@ -251,7 +252,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a master suite with a four-poster and private bath — and six queens across the upper floors; six full bathrooms with period fixtures.
+              Five floors of private space so a group of sixteen sleeps comfortably and still finds a quiet corner. Three kings — including a master suite with a four-poster and private bath — plus four queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -339,23 +340,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-stone-950 py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mb-8 flex justify-center gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-          <blockquote className="font-serif text-2xl italic leading-relaxed text-white md:text-3xl">
-            &ldquo;This house is remarkable. The photos don&apos;t do it justice.
-            We had our family reunion here and everyone was in awe of the beautiful
-            spaces, the history, and the perfect location.&rdquo;
-          </blockquote>
-          <p className="mt-8 text-sm font-semibold uppercase tracking-[0.18em] text-amber-300">
-            — Verified guest · 4.89 across 93 Airbnb reviews, as of Aug 2026
-          </p>
-        </div>
-      </section>
+      {/* Replaced an unattributed "Verified guest" pull-quote with the real,
+          named reviews from the two platforms guests actually book on. */}
+      <SocialProof />
 
       <section className="bg-stone-50 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -35,15 +35,15 @@ export const metadata: Metadata = {
 const included = [
   [
     "Full Property Access",
-    "All 5 floors, 8 bedrooms, 6 bathrooms, grand parlors, and the private roof deck.",
+    "All 5 floors, 8 bedrooms, 5 full baths and a powder room, grand parlors, and the private roof deck.",
   ],
   [
     "Practical Amenities",
-    "Gigabit WiFi, smart TVs, two full kitchens, washer/dryer, and central air.",
+    "Fast WiFi (351 Mbps), smart TVs, two full kitchens, washer/dryer, and central air.",
   ],
   [
     "Flexible Sleeping",
-    "8 bedrooms — two kings and six queens — on floors 2–4 of the five-floor house.",
+    "8 bedrooms — three kings, four queens and a double — on floors 2–4 of the five-floor house.",
   ],
   [
     "Historic Experience",
@@ -159,7 +159,7 @@ export default function BookPage() {
               <Star className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Airbnb</h3>
               <p className="mt-3 flex-1 leading-7 text-stone-700">
-                Instant booking where the reviews live — 4.89 from 93 reviews,
+                Instant booking where the reviews live — 4.88 from 102 reviews,
                 as of Aug 2026. The same guest service fee applies at checkout.
               </p>
               <TrackedLink

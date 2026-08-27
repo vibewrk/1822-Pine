@@ -61,7 +61,7 @@ const floorWalk = [
     rooms: [
       "Two more queen bedrooms on the third floor, including a large VIP suite.",
       "Four bedrooms on the fourth floor: two connecting family rooms, a further queen bedroom, and a king VIP suite.",
-      "Six full bathrooms across the house keep mornings moving.",
+      "Five full bathrooms and a powder room keep mornings moving.",
     ],
   },
   {
@@ -108,7 +108,7 @@ const amenities = [
   {
     group: "Practical",
     items: [
-      ["Gigabit WiFi", "High-speed connection throughout the residence."],
+      ["Fast WiFi (351 Mbps)", "High-speed connection throughout the residence."],
       ["Washer and dryer", "Full-size laundry for longer stays and large groups."],
       ["Parking guidance", "Several garages are within two blocks; exact options are sent before check-in."],
     ],
@@ -221,7 +221,7 @@ export default function StayPage() {
               Eight rooms, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: two kings, six queens, and enough floor separation that a group of sixteen can still find a quiet landing.
+              The mix is simple: three kings, four queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 

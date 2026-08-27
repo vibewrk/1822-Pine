@@ -47,7 +47,7 @@ const faqSections = [
     questions: [
       {
         q: "How many guests can stay?",
-        a: "The house sleeps up to 16 guests across 8 bedrooms and 6 full bathrooms.",
+        a: "The house sleeps up to 16 guests across 8 bedrooms and 5 full bathrooms and a powder room.",
       },
       {
         q: "Do we rent the whole house?",
@@ -59,7 +59,7 @@ const faqSections = [
       },
       {
         q: "What amenities are included?",
-        a: "Linens, towels, gigabit WiFi, smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
+        a: "Linens, towels, fast WiFi (351 Mbps measured), smart TVs, washer/dryer, central air, two full kitchens, dining space for 16, and the private roof deck are included.",
       },
       {
         q: "Who decides which guest gets which bedroom?",

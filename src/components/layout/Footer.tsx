@@ -70,10 +70,10 @@ export function Footer() {
               Book the Rittenhouse Residence
             </h3>
             <p className="mt-2 text-gray-300">
-              8 bedrooms · 6 bathrooms · Two blocks from Rittenhouse Square
+              8 bedrooms · 5 baths + powder room · Two blocks from Rittenhouse Square
             </p>
             <p className="mt-1 text-sm text-gray-400">
-              4.89 · 93 reviews on Airbnb, as of Aug 2026
+              4.88 · 102 reviews on Airbnb, as of Aug 2026
             </p>
 
             <div className="mt-8">
