@@ -145,7 +145,7 @@ export function Footer() {
               Rittenhouse Residence
             </div>
             <p className="text-sm text-gray-600 max-w-xs">
-              A Philadelphia landmark since 1854. 8 bedrooms, original fireplaces, two blocks from Rittenhouse Square.
+              A Pine Street townhouse since 1854. 8 bedrooms, original fireplaces, two blocks from Rittenhouse Square.
             </p>
             <TrackedLink
               href={`mailto:${DIRECT_EMAIL}`}

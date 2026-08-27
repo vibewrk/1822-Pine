@@ -259,8 +259,8 @@ export default function StoryIndexPage() {
             </h2>
             <p className="text-gray-600 text-sm leading-relaxed">
               &ldquo;House at the Edge of the Square&rdquo; tells the documented story of
-              1822 Pine Street, one of Philadelphia&apos;s most historically significant
-              Rittenhouse Square properties. Every claim in this narrative is
+              1822 Pine Street, a contributing property in the Rittenhouse&ndash;Fitler
+              Residential Historic District. Every claim in this narrative is
               anchored by primary source documents—deeds, newspaper articles,
               building permits, and directory listings that specifically name
               this address. Where the record is incomplete, we acknowledge gaps;

@@ -76,8 +76,8 @@ export default function HistoryTimelinePage() {
             170 Years of Stories
           </h1>
             <p className="mt-4 text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore the remarkable history of 1822 Pine Street—from Victorian parlor gatherings
-            to Gilded Age celebrations. This is where Philadelphia&apos;s history happened.
+            Explore the documented history of 1822 Pine Street — the deeds, directory lines and
+            newspaper notices that fix this address to particular people and dates.
             </p>
 
           {/* Stats */}
