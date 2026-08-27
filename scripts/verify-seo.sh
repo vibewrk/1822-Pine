@@ -16,21 +16,43 @@ head_() { printf '\n\033[1m%s\033[0m\n' "$1"; }
 
 fetch() { curl -sS -m 20 "$@"; }
 
+# Portable DNS resolution check. Do NOT use `getent` here: it is glibc-only,
+# and on macOS the name is shadowed by ugrep, which exits 1 for every host —
+# that produced a phantom "www.1822pine.com does NOT resolve" failure for
+# weeks after the DNS was actually correct.
+resolves() {
+  if command -v host >/dev/null 2>&1; then host -W 5 "$1" >/dev/null 2>&1
+  elif command -v dig >/dev/null 2>&1; then [ -n "$(dig +short +time=5 "$1" 2>/dev/null)" ]
+  else python3 -c "import socket,sys; socket.gethostbyname(sys.argv[1])" "$1" >/dev/null 2>&1
+  fi
+}
+
 head_ "Domains & redirect chains"
-for d in therittenhouseresidence.com 1822pine.com; do
+# All non-canonical domains must reach the apex in ONE hop, over https, with
+# the path preserved — a redirect that drops the path loses every deep link's
+# equity. Verified working 2026-08-27: all four are on Vercel nameservers
+# serving 308s.
+for d in therittenhouseresidence.com 1822pine.com www.1822pine.com; do
+  if ! resolves "$d"; then bad "$d does NOT resolve (check DNS)"; continue; fi
+  ok "$d resolves"
+
   loc=$(fetch -o /dev/null -D - "https://$d/" 2>/dev/null | grep -i '^location:' | tr -d '\r' | awk '{print $2}')
   case "$loc" in
     https://rittenhouseresidence.com*) ok "$d -> $loc" ;;
     http://*)  bad "$d redirects to INSECURE $loc (should be https://)" ;;
-    "")        bad "$d returned no redirect (expected 301 to apex)" ;;
+    "")        bad "$d returned no redirect (expected 308 to apex)" ;;
     *)         bad "$d -> unexpected $loc" ;;
   esac
+
+  # One hop, and deep links keep their path.
+  hops=$(curl -sL -m 20 -o /dev/null -w '%{num_redirects}' "https://$d/" 2>/dev/null)
+  [ "${hops:-9}" -le 1 ] && ok "$d reaches apex in $hops hop" || bad "$d takes $hops hops (should be 1)"
+
+  deep=$(fetch -o /dev/null -D - "https://$d/rates" 2>/dev/null | grep -i '^location:' | tr -d '\r' | awk '{print $2}')
+  [ "$deep" = "https://rittenhouseresidence.com/rates" ] \
+    && ok "$d preserves paths (/rates)" \
+    || bad "$d drops the path: /rates -> ${deep:-nothing}"
 done
-if getent hosts www.1822pine.com >/dev/null 2>&1; then
-  ok "www.1822pine.com resolves"
-else
-  bad "www.1822pine.com does NOT resolve (add DNS record)"
-fi
 code=$(fetch -o /dev/null -w '%{http_code}' "$SITE/")
 [ "$code" = "200" ] && ok "apex returns 200" || bad "apex returns $code"
 
