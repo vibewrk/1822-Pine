@@ -4,9 +4,9 @@
       "slug": "before-the-threshold",
       "number": 1,
       "title": "Before the Threshold",
-      "subtitle": "A speculative brick row two blocks from the square, a house number that changed, and a banking family that never came inside",
+      "subtitle": "A new brick row, a changing house number, and a family connection to Anthony J. Drexel",
       "era": "1854–1893",
-      "excerpt": "The merchant who bought this ground in 1854 lived here four years and let it out for decades — while his daughters married into the money on the next block.",
+      "excerpt": "The merchant who bought this property in 1854 began thirty-nine years of Roset family ownership, while his daughter Ellen's marriage to Anthony J. Drexel tied its earliest chapter to a larger Philadelphia story.",
       "content": [
         {
           "type": "narrator",
@@ -26,7 +26,7 @@
         },
         {
           "type": "paragraph",
-          "text": "This was never a mansion, whatever the marble suggests. It was a speculative row: nineteen four-story, two-bay brick houses in the late Greek Revival taste, drawn identically on the atlas — a four-story front block, a three-story back building, and open ground behind it running down to Waverly. Nineteen of the same door, the same window rhythm, the same white step. Individuality arrived with the people, and the people arrived fast."
+          "text": "The marble belonged to a handsome speculative row: nineteen four-story, two-bay brick houses in the late Greek Revival taste, drawn identically on the atlas — a four-story front block, a three-story back building, and open ground behind it running down to Waverly. Nineteen versions of the same door, the same window rhythm, the same white step. Individuality arrived with the people, and the people arrived fast."
         },
         {
           "type": "heading",
@@ -42,11 +42,11 @@
         },
         {
           "type": "heading",
-          "text": "The Banker in the Family"
+          "text": "The Drexel Family Connection"
         },
         {
           "type": "paragraph",
-          "text": "Four years before he bought this ground, Roset had given away a daughter. Ellen Bicking Rozet married Anthony J. Drexel on August 13, 1850. He never lived behind this door. He was the owner's son-in-law, which in Philadelphia was a kind of address in itself. From about 1867 his younger brother Joseph W. Drexel held a house on the opposite side of the street, at 1829 Pine — by which time the Rosets had long since let this door out to tenants."
+          "text": "Four years before he bought this ground, Roset's daughter Ellen Bicking Rozet married Anthony J. Drexel on August 13, 1850. That marriage is the house's Drexel connection: a family relationship, rather than a claim of ownership. From about 1867 Anthony's younger brother Joseph W. Drexel held a house on the opposite side of the street, at 1829 Pine — by which time the Rosets had long since let this door out to tenants."
         },
         {
           "type": "heading",
@@ -75,7 +75,7 @@
       "keyFacts": [
         "Ground, and What Stood on It",
         "The Number That Moved",
-        "The Banker in the Family"
+        "The Drexel Family Connection"
       ],
       "documents": []
     },

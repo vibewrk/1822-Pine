@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Rittenhouse Square Neighborhood Guide | The Rittenhouse Residence",
     description:
-      "Restaurants, coffee, museums, shopping, transit, and practical local notes from 1822 Pine Street.",
+      "Restaurants, coffee, museums, shopping, transit, and practical local notes from two blocks south of Rittenhouse Square.",
     images: ["/images/venues/parc.jpg"],
   },
 };
@@ -414,8 +414,8 @@ export default function NeighborhoodPage() {
                   Parking: there is none at the house
                 </h3>
                 <p className="mt-2 text-sm leading-6">
-                  1822 Pine has no driveway and no dedicated space — it is a
-                  historic rowhouse on a residential block. Every guest with a
+                  The Rittenhouse Residence has no driveway and no dedicated
+                  space — it is a historic rowhouse on a residential block. Every guest with a
                   car uses a nearby garage. These are the closest, with their
                   approximate size; all are a short walk:
                 </p>

@@ -15,13 +15,13 @@ import {
 // Venue facts verified August 2026 against each restaurant's own site plus
 // press coverage (closures cross-checked with the Philadelphia Inquirer).
 // Restaurants close and chefs move — re-verify before editing any entry, and
-// keep the "Recently changed" section honest: stale recommendations are how
+// keep the "Recently changed" section current: stale recommendations are how
 // neighborhood guides lose trust.
 
 export const metadata: Metadata = {
   title: "Restaurants Near Rittenhouse Square",
   description:
-    "Where to eat near Rittenhouse Square, Philadelphia — the tables facing the park on 18th Street, the blocks around it, and what changed recently. Walked again in August 2026.",
+    "Where to eat near Rittenhouse Square, Philadelphia — the tables facing the park on 18th Street, the blocks around it, and what changed recently.",
   alternates: { canonical: "/rittenhouse-square/restaurants" },
   openGraph: {
     title: "Restaurants Near Rittenhouse Square | The Rittenhouse Residence",
@@ -179,7 +179,7 @@ export default function RittenhouseSquareRestaurantsPage() {
         <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-end px-4 pb-16 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <Eyebrow light className="mb-5">
-              Rittenhouse Square Guide · Walked in August 2026
+              A Neighbor&apos;s Rittenhouse Square Guide
             </Eyebrow>
             <h1 className="font-serif text-5xl font-semibold leading-[0.95] text-white md:text-7xl">
               Restaurants near Rittenhouse Square.
@@ -189,7 +189,7 @@ export default function RittenhouseSquareRestaurantsPage() {
               Philadelphia — sidewalk brasseries on 18th Street, hotel dining
               rooms above the trees, and a Michelin-starred tasting menu three
               blocks away. This guide is written from two blocks south and kept
-              current: we walked the list again in August 2026.
+              current: we revisit the list as the neighborhood changes.
             </p>
           </div>
         </div>
@@ -317,7 +317,7 @@ export default function RittenhouseSquareRestaurantsPage() {
 
       <StayCta
         title="Eat your way around the Square, then walk home."
-        body="Every restaurant on this page is within a ten-minute walk of 1822 Pine Street — an 8-bedroom historic house that sleeps 16, with a dining table that seats the whole group when you'd rather bring dinner home."
+        body="Every restaurant on this page is within a ten-minute walk of The Rittenhouse Residence — an 8-bedroom historic house that sleeps 16, with a dining table that seats the whole group when you'd rather bring dinner home."
       />
 
       <HubCrossLinks currentHref="/rittenhouse-square/restaurants" />

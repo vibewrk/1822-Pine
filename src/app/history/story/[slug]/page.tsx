@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const chapterLabel = chapter.number === 0
     ? "Prologue"
-    : chapter.number === chapters.length - 1
+    : chapters.at(-1)?.slug === chapter.slug
       ? "Epilogue"
       : `Chapter ${chapter.number}`;
 
@@ -109,7 +109,7 @@ export default async function ChapterPage({ params }: Props) {
 
   const chapterLabel = chapter.number === 0
     ? "Prologue"
-    : chapter.number === chapters.length - 1
+    : chapterIndex === chapters.length - 1
       ? "Epilogue"
       : `Chapter ${chapter.number}`;
 

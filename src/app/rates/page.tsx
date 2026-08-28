@@ -15,80 +15,89 @@ import {
 import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
+import { PROPERTY_FACTS } from "@/lib/facts";
+import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Rates & Policies",
-  description:
-    "From $1,600 per night for the entire 8-bedroom mansion — $200 per bedroom, $100 per guest at full occupancy. Whole-house pricing with a 2-night minimum.",
+  description: `${PRICING_COPY.long} Whole-house pricing for an ${PROPERTY_FACTS.bedrooms}-bedroom Philadelphia townhouse with a ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
   alternates: { canonical: "/rates" },
   openGraph: {
     title: "Rates & Policies | The Rittenhouse Residence",
-    description:
-      "Whole-house pricing for the 8-bedroom mansion: from $1,600/night, 2-night minimum.",
+    description: `${PRICING_COPY.short} ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
     images: ["/images/airbnb/airbnb_03.jpg"],
   },
 };
 
 const rateFacts = [
   [
-    "From $1,600 / night",
-    "For the whole house — $200 per bedroom, $100 per guest at full occupancy, before date-specific taxes and fees.",
+    `Select weekdays may be available from about ${PRICING_COPY.sampleRate}`,
+    `${PRICING_COPY.example} Exact pricing varies by date.`,
   ],
   [
-    "2-night minimum",
+    `${PROPERTY_FACTS.minimumStayNights}-night minimum`,
     "Certain holidays, peak weekends, and high-demand dates may require longer stays.",
   ],
   [
-    "Sleeps 16",
-    "8 bedrooms on floors 2–4 — 2 kings, 5 queens and a double — with five full baths and a powder room.",
+    `Sleeps ${PROPERTY_FACTS.sleeps}`,
+    `${PROPERTY_FACTS.bedrooms} bedrooms on floors 2–4 — ${PROPERTY_FACTS.beds.king} kings, ${PROPERTY_FACTS.beds.queen} queens and a double — with ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room.`,
   ],
   [
     "One group per date",
-    "The whole four-story house is yours privately. There is no per-room pricing.",
+    `The whole ${PROPERTY_FACTS.stories}-story house is yours privately. There is no per-room pricing.`,
   ],
 ];
 
 const policyIcons = [CreditCard, CreditCard, Info, Clock, Calendar, KeyRound];
 
 const policies = [
-  ["Deposit", "A 50% deposit is required at reservation to secure the booking."],
-  ["Balance", "The remaining balance is due 60 days before arrival."],
   [
-    "Cancellation",
-    "Cancellations require 60 days notice for a full refund of the deposit. Cancellations within 60 days of arrival are non-refundable.",
+    "Personal quote",
+    "Within 24 hours, we reply with availability, an itemized total for your dates, and clear booking next steps.",
   ],
-  ["Check-in & check-out", "Check-in is 4:00 PM and check-out is 10:00 AM."],
+  [
+    "Secure online checkout",
+    "Airbnb and Vrbo show the current total, payment schedule, and cancellation terms before you reserve.",
+  ],
+  [
+    "Cancellation terms",
+    "Review the policy shown for your dates and booking path before you reserve; those are the terms that apply to your stay.",
+  ],
+  [
+    "Check-in & check-out",
+    `Check-in is ${PROPERTY_FACTS.checkIn} and check-out is ${PROPERTY_FACTS.checkOut}.`,
+  ],
   [
     "Minimum stay",
-    "2 nights, with longer minimums possible on holidays and peak weekends.",
+    `${PROPERTY_FACTS.minimumStayNights} nights, with longer minimums possible on holidays and peak weekends.`,
   ],
   [
     "Live pricing",
-    "No hidden fees: the price you see on Airbnb or Vrbo includes all fees. Both show date-specific rates and taxes in full before you reserve, so the checkout total is the total.",
+    "Airbnb and Vrbo show date-specific rates, taxes, fees, and the full checkout total before you reserve.",
   ],
 ];
 
 const included = [
-  "The entire 8-bedroom residence",
-  "Five full bathrooms and a powder room",
+  `The entire ${PROPERTY_FACTS.bedrooms}-bedroom residence`,
+  `${PROPERTY_FACTS.fullBathrooms} full bathrooms and a powder room`,
   "Two full kitchens",
-  "Dining space for 16",
+  `Dining space for ${PROPERTY_FACTS.sleeps}`,
   "Two parlors and a full-size pool table",
   "Private roof deck",
   "Linens, towels, WiFi, central air, and washer/dryer",
 ];
 
 const hotelColumn = [
-  "Eight separate rooms scattered down hallways, at going rates times eight",
-  "Eight bills, eight keys, eight checkout times to coordinate",
+  `${PROPERTY_FACTS.bedrooms} separate rooms scattered down hallways, at going rates times ${PROPERTY_FACTS.bedrooms}`,
+  `${PROPERTY_FACTS.bedrooms} bills, ${PROPERTY_FACTS.bedrooms} keys, ${PROPERTY_FACTS.bedrooms} checkout times to coordinate`,
   "A public lobby as your only gathering space",
-  "Breakfast for 16 at restaurant prices, every morning",
+  `Breakfast for ${PROPERTY_FACTS.sleeps} at restaurant prices, every morning`,
 ];
 
 const houseColumn = [
-  "One rate from $1,600/night for everyone, under one roof",
+  PRICING_COPY.example,
   "One reservation, one arrival, one front door",
-  "Two parlors, a dining table that seats 16, and a private roof deck",
+  `Two parlors, a dining table that seats ${PROPERTY_FACTS.sleeps}, and a private roof deck`,
   "Two full kitchens for group breakfasts on your own schedule",
 ];
 
@@ -104,9 +113,8 @@ export default function RatesPage() {
             Simple whole-house pricing.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            From $1,600 per night for the entire house — $200 per bedroom, $100
-            per guest at full occupancy. Get a direct quote in 24 hours, or see
-            live pricing on Vrbo.
+            {PRICING_COPY.long} Ask for a personal quote and we will reply within
+            24 hours, or open Airbnb or Vrbo for live pricing and secure checkout.
           </p>
         </div>
       </section>
@@ -138,9 +146,9 @@ export default function RatesPage() {
               What to expect before you reserve.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The same terms apply whether you book direct or on a platform —
-              including the part most listings bury: reservations become
-              non-refundable inside 60 days of arrival.
+              The house basics stay simple. Your exact total, payment schedule,
+              and cancellation terms will appear with the personal quote or
+              platform checkout for your dates.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
@@ -190,18 +198,21 @@ export default function RatesPage() {
           <div className="max-w-3xl">
             <Eyebrow>The Math</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              One house vs. eight hotel rooms.
+              One house vs. {PROPERTY_FACTS.bedrooms} hotel rooms.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              Sixteen people in hotels means eight rooms. Compare the nightly
-              rate here against eight rooms at going rates for your dates — then
-              compare what the money buys.
+              {PROPERTY_FACTS.sleeps} people in hotels means{" "}
+              {PROPERTY_FACTS.bedrooms} rooms. Compare the nightly rate here
+              against {PROPERTY_FACTS.bedrooms} rooms at going rates for your
+              dates — then compare what the money buys.
             </p>
           </div>
           <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 lg:grid-cols-2">
             <div className="bg-stone-50 p-8">
               <Building2 className="h-6 w-6 text-stone-500" />
-              <h3 className="mt-5 font-serif text-2xl font-semibold">Eight hotel rooms</h3>
+              <h3 className="mt-5 font-serif text-2xl font-semibold">
+                {PROPERTY_FACTS.bedrooms} hotel rooms
+              </h3>
               <ul className="mt-5 grid gap-3">
                 {hotelColumn.map((item) => (
                   <li key={item} className="flex gap-3 text-sm leading-6 text-stone-600">
@@ -246,15 +257,15 @@ export default function RatesPage() {
 
       <section className="bg-[#fbfaf7] py-16 md:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow>Direct Booking</Eyebrow>
+          <Eyebrow>Personal Quote</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-            Get a direct quote in 24 hours.
+            Let&apos;s talk about your dates.
           </h2>
           <p className="mt-5 text-lg leading-8 text-stone-700">
-            Platforms add a guest service fee at checkout. A direct quote is the
-            same house and dates without it — request one and compare totals
-            yourself. We confirm availability, send a full quote, and hold your
-            dates for 24 hours.
+            Tell us who is coming and what you are planning. Within 24 hours,
+            we will reply with availability, an itemized personal quote, and
+            clear next steps. For immediate online checkout, Airbnb and Vrbo
+            have live calendars.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <TrackedLink
@@ -263,7 +274,7 @@ export default function RatesPage() {
               eventParams={{ location: "rates_footer" }}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-stone-950 px-7 py-4 text-base font-semibold text-white transition-colors hover:bg-stone-800"
             >
-              Request a Direct Quote
+              Request a Personal Quote
             </TrackedLink>
             <Link
               href="/book"

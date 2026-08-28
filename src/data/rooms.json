@@ -1,7 +1,7 @@
 {
   "rooms": [
     {
-      "name": "Master Suite",
+      "name": "Principal Suite",
       "floor": "Second floor",
       "bed": "King bed",
       "bath": "Private bath",
@@ -48,9 +48,9 @@
     {
       "name": "Family Bedroom 2",
       "floor": "Fourth floor",
-      "bed": "Queen bed",
+      "bed": "Double bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "The second of the two connecting family rooms.",
+      "notes": "The second of the two connecting family rooms, furnished with a double bed.",
       "suitability": "Assign alongside Family Bedroom 1 for the family that wants to stay within earshot.",
       "imageSrc": "/images/airbnb/airbnb_11.jpg"
     },

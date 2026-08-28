@@ -6,22 +6,23 @@ import {
   CheckCircle,
   CheckCircle2,
   Clock,
-  Mail,
   MapPin,
   Send,
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
+import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
 
-const DIRECT_EMAIL = "1822pinestreetpa@gmail.com";
-
-const GROUP_SIZES = Array.from({ length: 16 }, (_, i) => i + 1);
+const GROUP_SIZES = Array.from(
+  { length: PROPERTY_FACTS.sleeps },
+  (_, i) => i + 1
+);
 
 const OCCASIONS = [
   ["family-reunion", "Family reunion"],
   ["wedding", "Wedding-related stay"],
-  ["corporate-retreat", "Corporate retreat"],
+  ["corporate-retreat", "Team stay or retreat lodging"],
   ["milestone", "Milestone celebration"],
   ["other", "Other"],
 ];
@@ -33,9 +34,9 @@ const QUESTION_TOPICS = [
 ];
 
 const OUTCOME_PROMISES = [
-  "A straight answer on your dates",
-  "A full direct quote for your stay",
-  "A hold on your dates while you decide",
+  "A personal reply about availability",
+  "An itemized quote for your stay",
+  "Clear booking next steps",
 ];
 
 function addDays(iso: string, days: number): string {
@@ -85,7 +86,11 @@ export default function ContactPage() {
     if (/^\d{4}-\d{2}-\d{2}$/.test(qsArrival)) setArrival(qsArrival);
     if (/^\d{4}-\d{2}-\d{2}$/.test(qsDeparture)) setDeparture(qsDeparture);
     const guestsNum = Number(qsGuests);
-    if (Number.isInteger(guestsNum) && guestsNum >= 1 && guestsNum <= 16) {
+    if (
+      Number.isInteger(guestsNum) &&
+      guestsNum >= 1 &&
+      guestsNum <= PROPERTY_FACTS.sleeps
+    ) {
       setGroupSize(qsGuests);
     }
   }, []);
@@ -114,10 +119,13 @@ export default function ContactPage() {
         setErrorMessage("The arrival date can't be in the past — please pick a future date.");
         return;
       }
-      if (nightsBetween(arrivalValue, departureValue) < 2) {
+      if (
+        nightsBetween(arrivalValue, departureValue) <
+        PROPERTY_FACTS.minimumStayNights
+      ) {
         setFormState("error");
         setErrorMessage(
-          "The house has a 2-night minimum — please choose a departure date at least two nights after arrival."
+          `The house has a ${PROPERTY_FACTS.minimumStayNights}-night minimum — please choose a later departure date.`
         );
         return;
       }
@@ -157,7 +165,7 @@ export default function ContactPage() {
         }
         throw new Error(
           serverError ||
-            "Something went wrong sending your message. Please try again, or email us directly at 1822pinestreetpa@gmail.com."
+            "Something went wrong sending your message. Please try again in a moment, or check availability on Airbnb or Vrbo."
         );
       }
 
@@ -183,15 +191,15 @@ export default function ContactPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            Request a Quote
+            Personal Quote
           </Eyebrow>
           <h1 className="font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
-            Your dates, quoted directly.
+            Tell us what you are planning.
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-            Tell us your dates, group size, and occasion. A person replies within
-            24 hours with your dates answered, a full quote, and a
-            hold on your dates while you decide.
+            Share your dates, group size, and what is bringing everyone to
+            Philadelphia. Within 24 hours, a person replies with availability,
+            an itemized personal quote, and clear next steps.
           </p>
         </div>
       </section>
@@ -219,7 +227,7 @@ export default function ContactPage() {
                   </h3>
                   <p className="mt-2 text-green-700">
                     {mode === "quote"
-                      ? "Within 24 hours you'll know whether your dates are free, what the stay costs, and we'll hold them while you decide."
+                      ? "Within 24 hours you'll hear from a person about availability, the itemized cost of your stay, and the next steps."
                       : "Thank you for reaching out. We reply within 24 hours."}
                   </p>
                   <button
@@ -247,7 +255,42 @@ export default function ContactPage() {
                   {formState === "error" && (
                     <div className="flex items-start gap-3 rounded-lg border border-red-200 bg-red-50 p-4">
                       <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-600" />
-                      <p className="text-sm text-red-700">{errorMessage}</p>
+                      <div>
+                        <p className="text-sm text-red-700">{errorMessage}</p>
+                        <p className="mt-3 text-sm text-red-800">
+                          You can still check live availability and reserve securely:
+                        </p>
+                        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
+                          <TrackedLink
+                            href="/book"
+                            event="booking_fallback_click"
+                            eventParams={{ platform: "website", location: "contact_error" }}
+                            className="text-red-900 underline underline-offset-4 hover:text-red-700"
+                          >
+                            See booking options
+                          </TrackedLink>
+                          <TrackedLink
+                            href={BOOKING_LINKS.airbnb}
+                            event="ota_click"
+                            eventParams={{ platform: "airbnb", location: "contact_error" }}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-900 underline underline-offset-4 hover:text-red-700"
+                          >
+                            Airbnb
+                          </TrackedLink>
+                          <TrackedLink
+                            href={BOOKING_LINKS.vrbo}
+                            event="ota_click"
+                            eventParams={{ platform: "vrbo", location: "contact_error" }}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-900 underline underline-offset-4 hover:text-red-700"
+                          >
+                            Vrbo
+                          </TrackedLink>
+                        </div>
+                      </div>
                     </div>
                   )}
 
@@ -278,13 +321,20 @@ export default function ContactPage() {
                             id="departure"
                             name="departure"
                             required
-                            min={arrival ? addDays(arrival, 2) : today}
+                            min={
+                              arrival
+                                ? addDays(
+                                    arrival,
+                                    PROPERTY_FACTS.minimumStayNights
+                                  )
+                                : today
+                            }
                             value={departure}
                             onChange={(e) => setDeparture(e.target.value)}
                             className={inputClasses}
                           />
                           <p className="mt-1 text-xs text-stone-500">
-                            2-night minimum
+                            {PROPERTY_FACTS.minimumStayNights}-night minimum
                           </p>
                         </div>
                       </div>
@@ -444,7 +494,7 @@ export default function ContactPage() {
                     ) : (
                       <>
                         <Send className="h-5 w-5" />
-                        {mode === "quote" ? "Request My Quote" : "Send Message"}
+                        {mode === "quote" ? "Request My Personal Quote" : "Send Message"}
                       </>
                     )}
                   </button>
@@ -499,31 +549,6 @@ export default function ContactPage() {
                 </ul>
               </div>
 
-              {/* Direct email */}
-              <div className="mt-6 rounded-lg border border-stone-200 bg-white p-6">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100">
-                    <Mail className="h-6 w-6 text-amber-700" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-stone-950">
-                      Prefer email?
-                    </h3>
-                    <p className="mt-1 text-sm leading-6 text-stone-600">
-                      Write to us directly — same inbox, same 24-hour reply.
-                    </p>
-                    <TrackedLink
-                      href={`mailto:${DIRECT_EMAIL}`}
-                      event="direct_email_click"
-                      eventParams={{ location: "contact_page" }}
-                      className="mt-2 inline-block break-all font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
-                    >
-                      {DIRECT_EMAIL}
-                    </TrackedLink>
-                  </div>
-                </div>
-              </div>
-
               {/* Location + response time */}
               <div className="mt-6 space-y-6">
                 <div className="flex items-start gap-4">
@@ -531,7 +556,7 @@ export default function ContactPage() {
                     <MapPin className="h-6 w-6 text-amber-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-stone-950">Address</h3>
+                    <h3 className="font-semibold text-stone-950">Where you&apos;ll stay</h3>
                     <p className="mt-1 text-stone-600">
                       1800 Block of Pine Street
                       <br />

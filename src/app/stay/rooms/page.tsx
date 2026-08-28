@@ -46,7 +46,7 @@ const tips = [
   ],
   [
     "One private bath",
-    "The Master Suite has its own private bath. The other bedrooms share the hall baths between them, and we send you the exact room-to-bath map before you arrive so nobody is guessing on the first morning.",
+    "The Principal Suite has its own private bath. The other bedrooms share the hall baths between them, and we send you the exact room-to-bath map before you arrive so nobody is guessing on the first morning.",
   ],
 ];
 
@@ -80,7 +80,7 @@ export default function RoomPlannerPage() {
       <section className="relative min-h-[560px] overflow-hidden print:hidden">
         <Image
           src="/images/airbnb/airbnb_01.jpg"
-          alt="Master bedroom with four-poster bed at The Rittenhouse Residence"
+          alt="Principal bedroom with four-poster bed at The Rittenhouse Residence"
           fill
           sizes="100vw"
           priority

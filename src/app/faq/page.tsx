@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calendar, CheckCircle2 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PROPERTY_FACTS } from "@/lib/facts";
+import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers on booking an 8-bedroom Philadelphia mansion: rates, deposits, check-in, parking, house rules, accessibility, and group stays near Rittenhouse Square.",
+    `Answers about pricing, booking, check-in, parking, house rules, accessibility, and group stays at an ${PROPERTY_FACTS.bedrooms}-bedroom Philadelphia townhouse near Rittenhouse Square.`,
   alternates: { canonical: "/faq" },
 };
 
@@ -17,27 +19,31 @@ const faqSections = [
     questions: [
       {
         q: "How do I check availability?",
-        a: "Use the booking page to open the live Vrbo calendar. Vrbo shows current availability, date-specific pricing, taxes, fees, and the minimum stay before you reserve.",
+        a: "Use the booking page to open the live Airbnb or Vrbo calendar. Both show current availability and date-specific totals before checkout. You can also send us your dates for a personal reply within 24 hours.",
       },
       {
         q: "What is the minimum stay?",
-        a: "The standard minimum is 2 nights. Peak weekends, holidays, and high-demand periods may require a longer stay.",
+        a: `The standard minimum is ${PROPERTY_FACTS.minimumStayNights} nights. Peak weekends, holidays, and high-demand periods may require a longer stay.`,
       },
       {
-        q: "What deposit is required?",
-        a: "A 50% deposit is required at reservation. The remaining balance is due 60 days before arrival.",
+        q: "What does the house cost?",
+        a: PRICING_COPY.long,
+      },
+      {
+        q: "When is payment due?",
+        a: "Airbnb or Vrbo will show the payment schedule for your dates before you reserve. If you request a personal quote, the reply will include your itemized total and clear booking next steps.",
       },
       {
         q: "What is the cancellation policy?",
-        a: "Cancellations require 60 days notice for a full refund of the deposit. Vrbo will show the applicable policy before checkout.",
+        a: "Cancellation terms depend on the booking path and dates you choose. Review the policy shown with your quote or during Airbnb or Vrbo checkout before you reserve.",
       },
       {
-        q: "What happens if I cancel less than 60 days before arrival?",
-        a: "Inside 60 days the deposit is no longer refundable under the standard policy. The same rule appears before checkout, so there are no surprises after you reserve.",
+        q: "Which booking path should I choose?",
+        a: "Send an inquiry if you would like a person to review your dates and group needs. Choose Airbnb or Vrbo if you prefer a live calendar and secure online checkout right away.",
       },
       {
-        q: "Can I book directly?",
-        a: "Yes. Send an inquiry through the contact page with your dates and group size — we confirm availability and hold dates within 24 hours, with no platform service fees. Vrbo remains available for instant online checkout.",
+        q: "Can I book through this website?",
+        a: "The website accepts inquiries but does not have on-site checkout. Send your dates and group size and, within 24 hours, we will reply with availability, an itemized personal quote, and next steps. Airbnb and Vrbo provide live calendars and secure online checkout.",
       },
     ],
   },
@@ -47,7 +53,7 @@ const faqSections = [
     questions: [
       {
         q: "How many guests can stay?",
-        a: "The house sleeps up to 16 guests across 8 bedrooms and 5 full bathrooms and a powder room.",
+        a: `The house sleeps up to ${PROPERTY_FACTS.sleeps} guests across ${PROPERTY_FACTS.bedrooms} bedrooms, ${PROPERTY_FACTS.fullBathrooms} full bathrooms, and a powder room.`,
       },
       {
         q: "Do we rent the whole house?",
@@ -73,7 +79,7 @@ const faqSections = [
     questions: [
       {
         q: "What time is check-in and check-out?",
-        a: "Check-in is 4:00 PM and check-out is 10:00 AM. Early arrival or late departure may be available only when the calendar allows it.",
+        a: `Check-in is ${PROPERTY_FACTS.checkIn} and check-out is ${PROPERTY_FACTS.checkOut}. Early arrival or late departure may be available only when the calendar allows it.`,
       },
       {
         q: "Is ID required?",
@@ -185,7 +191,8 @@ export default function FaqPage() {
               Practical answers before you book.
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-stone-200 md:text-xl">
-              Booking, payment, house rules, parking, and the realities of staying in a four-story 1854 townhouse.
+              Booking, pricing, house rules, parking, and what it is like to
+              gather in a four-story historic townhouse whose story is documented from {PROPERTY_FACTS.documentedFromYear}.
             </p>
           </div>
         </section>
@@ -269,7 +276,8 @@ export default function FaqPage() {
               Ready to check dates?
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-200">
-              Vrbo has the live calendar, current pricing, and checkout flow.
+              Open the live calendars for secure online checkout, or tell us
+              about your group for a personal reply within 24 hours.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
@@ -283,7 +291,7 @@ export default function FaqPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center rounded-md border border-white/70 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
               >
-                Contact Us
+                Ask About Your Dates
               </Link>
             </div>
           </div>

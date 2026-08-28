@@ -86,6 +86,16 @@ else ok "robots.txt does not block /_next/ (CSS, JS and images crawlable)"
 fi
 lc=$(fetch -o /dev/null -w '%{http_code}' "$SITE/llms.txt")
 [ "$lc" = "200" ] && ok "/llms.txt served" || bad "/llms.txt returns $lc"
+llms=$(fetch "$SITE/llms.txt")
+printf '%s' "$llms" | grep -q 'Select weekdays may be available from about \$1,600' \
+  && ok "/llms.txt qualifies the sample weekday price" \
+  || bad "/llms.txt is missing the qualified sample price"
+printf '%s' "$llms" | grep -q 'website itself has no checkout' \
+  && ok "/llms.txt states the booking mechanism" \
+  || bad "/llms.txt is missing the no-on-site-checkout fact"
+if printf '%s' "$llms" | grep -qiE '1822 Pine|1822pinestreet|no platform service fee|instant booking'; then
+  bad "/llms.txt exposes the exact address or an obsolete booking promise"
+else ok "/llms.txt passes privacy and booking-consistency checks"; fi
 
 head_ "Previously-broken images"
 for u in /images/property/DSC00075.jpg /images/property/DSC00095.jpg /images/airbnb/airbnb_06.jpg /images/documents/deed_1854_p1_web.jpg; do
@@ -106,12 +116,36 @@ for bad_str in "Recent Guest" "starRating" "Free parking"; do
   printf '%s' "$home" | grep -q "$bad_str" && bad "schema still contains '$bad_str'" || ok "no '$bad_str' in schema"
 done
 printf '%s' "$home" | grep -q '"@type":"VacationRental"' && ok "VacationRental schema present" || bad "VacationRental schema missing"
+printf '%s' "$home" | grep -q '"@id":"https://rittenhouseresidence.com/#vacation-rental"' \
+  && ok "VacationRental uses the stable entity id" \
+  || bad "VacationRental stable entity id missing"
+printf '%s' "$home" | grep -q '"numberOfBeds":2,"typeOfBed":"King"' \
+  && printf '%s' "$home" | grep -q '"numberOfBeds":5,"typeOfBed":"Queen"' \
+  && printf '%s' "$home" | grep -q '"numberOfBeds":1,"typeOfBed":"Double"' \
+  && ok "schema bed mix includes 5 queens and 1 double" \
+  || bad "schema bed mix is stale (expect 2 kings, 5 queens, 1 double)"
+printf '%s' "$home" | grep -q '"name":"licenseNum","value":"Philadelphia: 903781"' \
+  && ok "STR license uses Google's VacationRental amenity format" \
+  || bad "STR license missing or in the wrong schema location"
+if printf '%s' "$home" | grep -qE '"streetAddress"|"GeoCoordinates"|39\.9468|-75\.1715'; then
+  bad "homepage schema exposes the precise address or coordinates"
+else ok "homepage schema uses public-area location only (privacy choice; not Google rich-result eligible)"; fi
+
+for private_image in /images/property/DSC00116.jpg /images/property/DSC00118.jpg /images/property/DSC08855.jpg; do
+  c=$(fetch -o /dev/null -w '%{http_code}' "$SITE$private_image")
+  [ "$c" = "404" ] \
+    && ok "$private_image is not publicly served" \
+    || bad "$private_image still serves ($c) and visibly reveals a house number"
+done
 
 head_ "Copy consistency"
 if printf '%s' "$home" | grep -qi "coming soon"; then bad "'coming soon' still on homepage"; else ok "no 'coming soon' on homepage"; fi
 if printf '%s' "$home" | grep -q "Sleeps 16"; then ok "homepage says Sleeps 16"
 elif printf '%s' "$home" | grep -q "Sleeps 21"; then bad "homepage still says Sleeps 21"
 else bad "no capacity stat found on homepage"; fi
+if printf '%s' "$home" | grep -qiE '1822 Pine Street|1822pinestreetpa@gmail\.com'; then
+  bad "homepage exposes the exact address or address-derived inbox"
+else ok "homepage passes exact-address privacy check"; fi
 
 head_ "Performance & measurement"
 sz=$(fetch -o /dev/null -w '%{size_download}' "$SITE/images/brand/logo.jpg")

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Photo Gallery — 1854 Mansion",
+  title: "Photo Gallery — Historic Philadelphia Townhouse",
   description:
-    "Browse photos of The Rittenhouse Residence — 8 bedrooms, 5 full baths and a powder room, grand parlors, roof deck, and historic details in this 1854 Philadelphia mansion.",
+    "Browse photos of The Rittenhouse Residence — 8 bedrooms, 5 full baths and a powder room, grand parlors, roof deck, and historic details in this Philadelphia townhouse.",
   alternates: { canonical: "/gallery" },
   openGraph: {
     title: "Photo Gallery | The Rittenhouse Residence",

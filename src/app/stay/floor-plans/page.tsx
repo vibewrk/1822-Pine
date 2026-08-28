@@ -2,28 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Floor Plans of the 1854 Mansion",
+  title: "Floor Plans of the Historic Townhouse",
   description:
-    "Floor plans for all four stories of The Rittenhouse Residence — the parlor floor, three bedroom floors, and the roof deck of the 1854 Philadelphia mansion.",
+    "Floor plans for all four stories of The Rittenhouse Residence — the parlor floor, three bedroom floors, and the roof deck of a historic Philadelphia townhouse.",
   alternates: { canonical: "/stay/floor-plans" },
   openGraph: {
     title: "Floor Plans | The Rittenhouse Residence",
-    description: "All four stories of the 1854 mansion, floor by floor.",
+    description: "All four stories of the historic townhouse, floor by floor.",
     images: ["/images/floor-plans/floor-1.jpg"],
   },
 };
 
 const plans = [
-  { label: "First Floor", image: "/images/floor-plans/floor-1.jpg", pdf: "1822 1 Floor.pdf" },
-  { label: "Second Floor", image: "/images/floor-plans/floor-2.jpg", pdf: "1822 2 Floor.pdf" },
-  { label: "Third Floor", image: "/images/floor-plans/floor-3.jpg", pdf: "1822 3 Floor.pdf" },
-  { label: "Fourth Floor", image: "/images/floor-plans/floor-4.jpg", pdf: "1822 4 Floor.pdf" },
-  { label: "Roof Deck", image: "/images/floor-plans/roof-deck.jpg", pdf: "1822 Roof Deck.pdf" },
+  { label: "First Floor", image: "/images/floor-plans/floor-1.jpg", pdf: "/floor-plans/first-floor.pdf" },
+  { label: "Second Floor", image: "/images/floor-plans/floor-2.jpg", pdf: "/floor-plans/second-floor.pdf" },
+  { label: "Third Floor", image: "/images/floor-plans/floor-3.jpg", pdf: "/floor-plans/third-floor.pdf" },
+  { label: "Fourth Floor", image: "/images/floor-plans/floor-4.jpg", pdf: "/floor-plans/fourth-floor.pdf" },
+  { label: "Roof Deck", image: "/images/floor-plans/roof-deck.jpg", pdf: "/floor-plans/roof-deck.pdf" },
 ];
-
-function rawDocUrl(filename: string) {
-  return `/archive/raw_documents/${encodeURIComponent(filename)}`;
-}
 
 export default function FloorPlansPage() {
   return (
@@ -56,7 +52,7 @@ export default function FloorPlansPage() {
                 <div className="p-5 border-t border-gray-200">
                   <h2 className="font-semibold text-gray-900">{plan.label}</h2>
                   <a
-                    href={rawDocUrl(plan.pdf)}
+                    href={plan.pdf}
                     className="mt-2 inline-block text-sm font-semibold text-amber-700 hover:text-amber-800"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -72,4 +68,3 @@ export default function FloorPlansPage() {
     </div>
   );
 }
-

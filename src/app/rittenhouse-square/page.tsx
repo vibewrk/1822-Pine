@@ -74,7 +74,7 @@ const faqs = [
   },
   {
     q: "Is Rittenhouse Square safe?",
-    a: "We live two blocks away and cross the park daily, so here is our honest experience rather than a statistic: the square is busy from early-morning dog walks until late evening, well-lit, and constantly trafficked, and the blocks around it stay lively with foot traffic well into the night. Use the same awareness you would in any big city at night. Guests at our house walk to and from the square at all hours.",
+    a: "We live two blocks away and cross the park daily. In our day-to-day experience, the square is busy from early-morning dog walks until late evening, well-lit, and constantly trafficked, and the blocks around it stay lively with foot traffic well into the night. Use the same awareness you would in any big city at night. Guests at our house walk to and from the square at all hours.",
   },
   {
     q: "What are the boundaries of the Rittenhouse Square neighborhood?",
@@ -164,7 +164,7 @@ const webPageSchema = {
   "@id": `${SITE}/rittenhouse-square#webpage`,
   name: "Rittenhouse Square: A Local's Guide",
   description:
-    "A guide to Rittenhouse Square, Philadelphia — the park and the neighborhood — from the publishers of the 1822 Pine Street historical archive, two blocks south.",
+    "A guide to Rittenhouse Square, Philadelphia — the park and the neighborhood — from the caretakers of The Rittenhouse Residence, two blocks south.",
   url: `${SITE}/rittenhouse-square`,
   about: {
     "@type": "Place",
@@ -206,7 +206,7 @@ export default function RittenhouseSquareHubPage() {
       <section className="bg-stone-950 py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Eyebrow light className="mb-5">
-            A Local&apos;s Guide · From 1822 Pine Street
+            A Local&apos;s Guide · From Two Blocks Away
           </Eyebrow>
           <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-tight text-white md:text-7xl">
             Rittenhouse Square.
@@ -215,9 +215,9 @@ export default function RittenhouseSquareHubPage() {
             Philadelphia&apos;s living room: a six-acre park that has anchored
             the city&apos;s southwest quadrant since Penn&apos;s plan, and the
             neighborhood that grew up around it. This guide is written from two
-            blocks south — where we publish our own house&apos;s history the
-            same way we tell the Square&apos;s: documented, sourced, and honest
-            about what isn&apos;t known.
+            blocks south, by people who know the Square as a daily walk and love
+            the stories folded into these streets. When history enters the
+            picture, we link the sources so you can follow it further.
           </p>
         </div>
       </section>
@@ -264,10 +264,11 @@ export default function RittenhouseSquareHubPage() {
               Philadelphia Parks &amp; Recreation with the Friends of
               Rittenhouse Square, the nonprofit steward founded after the 1976
               Bicentennial. The neighborhood has no official boundary; the
-              closest documented one belongs to the Rittenhouse–Fitler
+              clearest formal one belongs to the Rittenhouse–Fitler
               Residential Historic District, which reaches from Walnut Street
-              south to Pine; 1822 Pine Street, the 1854 house this site
-              belongs to, is listed as a contributing property.
+              south to Pine. The Pine Street house behind this site, whose
+              documented story begins in 1854, is
+              listed as a contributing property.
             </p>
           </div>
         </div>
@@ -277,7 +278,7 @@ export default function RittenhouseSquareHubPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader
             eyebrow="The Guide"
-            title="Five pages, everything sourced."
+            title="Five ways to know the Square."
             body="Each page stands alone; together they cover the Square the way a resident would explain it."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -336,7 +337,7 @@ export default function RittenhouseSquareHubPage() {
           <SectionHeader
             eyebrow="Visiting Questions"
             title="What people actually ask."
-            body="Straight answers, with the official rules cited below and our local experience labeled as exactly that."
+            body="Practical answers drawn from the official park rules and what daily life two blocks away feels like."
           />
           <div className="grid gap-5 md:grid-cols-2">
             {faqs.map((faq) => (
@@ -360,11 +361,11 @@ export default function RittenhouseSquareHubPage() {
 
       <section className="bg-stone-950 py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <Eyebrow light>Why Trust This Guide</Eyebrow>
+          <Eyebrow light>A Guide with Deep Roots</Eyebrow>
           <p className="mt-8 font-serif text-3xl leading-tight text-white md:text-4xl">
-            We publish a 63-document primary-source archive about our own
-            house. The Square gets the same treatment: sources on every page,
-            and nothing we can&apos;t back up.
+            Caring for a historic house nearby has made us curious about every layer
+            of this neighborhood. Our house archive holds 63 primary sources;
+            these guides pair that same curiosity with the places we walk every day.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link

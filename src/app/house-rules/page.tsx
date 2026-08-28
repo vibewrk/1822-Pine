@@ -52,7 +52,7 @@ const yes = [
   "Bringing in a caterer or private chef for a meal at the house.",
   "A family dinner, a birthday toast, a wedding party getting ready in the morning.",
   "Using the roof deck, the parlors, the library wet bar and the pool table.",
-  "Working. Gigabit WiFi service and space for a team to spread into breakout groups.",
+  "Keeping up with work. Gigabit WiFi runs throughout the house for ordinary remote work and calls.",
 ] as const;
 
 const no = [
@@ -198,7 +198,7 @@ export default function HouseRulesPage() {
           </div>
           <div className="space-y-6 text-lg leading-8 text-stone-700">
             <p>
-              1822 Pine is a rowhouse. It shares walls with neighbors who live
+              The Rittenhouse Residence is a rowhouse. It shares walls with neighbors who live
               here year-round, and sound carries — between houses, up the
               stairwell, and off the roof deck across the back gardens.
             </p>
