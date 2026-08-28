@@ -21,7 +21,6 @@ const footerNavigation = [
       { name: "Group Stays", href: "/groups" },
       { name: "Wedding Guest Housing", href: "/groups/weddings" },
       { name: "Hotel Alternative", href: "/hotel-alternative" },
-      { name: "Group Dining", href: "/neighborhood/group-dining" },
     ],
   },
   {
@@ -35,17 +34,14 @@ const footerNavigation = [
     ],
   },
   {
-    title: "Visitors",
+    title: "Explore Philadelphia",
     links: [
-      { name: "Guest Reviews", href: "/reviews" },
-      { name: "Rittenhouse Square", href: "/rittenhouse-square" },
       { name: "Events Calendar", href: "/philadelphia-events" },
+      { name: "Rittenhouse Square Guide", href: "/rittenhouse-square" },
+      { name: "Restaurants", href: "/rittenhouse-square/restaurants" },
       { name: "Things to Do", href: "/rittenhouse-square/things-to-do" },
-      { name: "Where to Stay", href: "/rittenhouse-square/where-to-stay" },
-      { name: "Neighborhood", href: "/neighborhood" },
-      { name: "FAQ", href: "/faq" },
-      { name: "Contact", href: "/contact" },
-      { name: "Book Now", href: "/book" },
+      { name: "Public Art", href: "/rittenhouse-square/public-art" },
+      { name: "Group Dining", href: "/neighborhood/group-dining" },
     ],
   },
   {
