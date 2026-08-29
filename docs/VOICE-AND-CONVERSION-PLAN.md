@@ -57,11 +57,23 @@ secret.
 
 ## Search and agent discovery
 
-- Keep one stable VacationRental entity and one canonical domain. Exact
-  coordinates stay out of structured data; this intentionally gives up
-  eligibility for Google's coordinate-required VacationRental rich result in
-  favor of the property's privacy boundary. Generic Schema.org semantics,
-  strong page copy, FAQs, and the historical archive remain the discovery path.
+- Keep one stable, homepage-only JSON-LD graph connecting a `LodgingBusiness`
+  to its contained `House` accommodation, and keep one canonical domain.
+  `LodgingBusiness` preserves LocalBusiness and Organization semantics through
+  Schema.org inheritance.
+- Do not publish `VacationRental`, an exact street address, or coordinates in
+  structured data. This intentionally gives up Google's coordinate-required
+  VacationRental rich result in favor of the property's privacy boundary.
+- Keep verified Airbnb and Vrbo ratings visible to guests, but do not publish
+  `aggregateRating` or `review` JSON-LD for the property. Those third-party
+  figures are not eligible self-authored LocalBusiness review-snippet data.
+- Describe the house with stable, non-sensitive facts: eight bedrooms, five
+  full bathrooms and one powder room, occupancy of sixteen, the verified bed
+  mix, approximate floor area, true amenities, and safe images. Keep the STR
+  license visibly disclosed for trust and compliance, but omit that public
+  registry lookup key from machine-readable property markup.
+- Generic Schema.org semantics, strong page copy, FAQs, and the historical
+  archive remain the discovery path.
 - Generate `llms.txt` from the same fact and pricing modules used by the site.
 - Preserve descriptive page titles, canonicals, breadcrumbs, FAQs, sitemap
   coverage, crawlable images, and the public primary-source archive.
@@ -75,6 +87,9 @@ secret.
 - No unqualified “From $1,600” claim.
 - No contradictory direct-booking or fee promise.
 - No exact address on marketing or machine-readable surfaces.
+- No `VacationRental`, property `aggregateRating`, or property `review` JSON-LD.
+- The `LodgingBusiness` entity appears only on the homepage and uses the stable
+  `/#rittenhouse-residence` identifier.
 - Bed mix is 2 kings, 5 queens, and 1 double everywhere.
 - No Event schema or venue positioning.
 - Every important booking route offers a personal inquiry and an Airbnb/Vrbo

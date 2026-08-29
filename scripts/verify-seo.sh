@@ -115,21 +115,72 @@ home=$(fetch "$SITE/")
 for bad_str in "Recent Guest" "starRating" "Free parking"; do
   printf '%s' "$home" | grep -q "$bad_str" && bad "schema still contains '$bad_str'" || ok "no '$bad_str' in schema"
 done
-printf '%s' "$home" | grep -q '"@type":"VacationRental"' && ok "VacationRental schema present" || bad "VacationRental schema missing"
-printf '%s' "$home" | grep -q '"@id":"https://rittenhouseresidence.com/#vacation-rental"' \
-  && ok "VacationRental uses the stable entity id" \
-  || bad "VacationRental stable entity id missing"
+printf '%s' "$home" | grep -q '"@type":"LodgingBusiness"' \
+  && printf '%s' "$home" | grep -q '"@type":"House"' \
+  && ok "homepage schema connects a LodgingBusiness and House" \
+  || bad "homepage LodgingBusiness/House graph is missing"
+printf '%s' "$home" | grep -q '"@id":"https://rittenhouseresidence.com/#rittenhouse-residence"' \
+  && printf '%s' "$home" | grep -q '"containsPlace":{"@id":"https://rittenhouseresidence.com/#whole-house"}' \
+  && printf '%s' "$home" | grep -q '"@id":"https://rittenhouseresidence.com/#whole-house"' \
+  && ok "homepage schema uses stable, connected entity ids" \
+  || bad "homepage schema entity ids are missing or disconnected"
+if printf '%s' "$home" | grep -q '"@type":"VacationRental"'; then
+  bad "homepage still publishes Google-specific VacationRental markup"
+else ok "homepage has no VacationRental markup"; fi
+for path in /reviews /philadelphia-events /neighborhood/group-dining; do
+  page=$(fetch "$SITE$path")
+  if printf '%s' "$page" | grep -q '"@type":"VacationRental"'; then
+    bad "$path still publishes a sitewide VacationRental item"
+  else ok "$path has no VacationRental item"; fi
+  if printf '%s' "$page" | grep -q '"@type":"LodgingBusiness"'; then
+    bad "$path still inherits the homepage LodgingBusiness"
+  else ok "$path has no homepage-only LodgingBusiness"; fi
+done
+printf '%s' "$home" | grep -q '"numberOfBedrooms":8' \
+  && printf '%s' "$home" | grep -q '"accommodationCategory":"Entire house"' \
+  && printf '%s' "$home" | grep -q '"numberOfFullBathrooms":5' \
+  && printf '%s' "$home" | grep -q '"numberOfPartialBathrooms":1' \
+  && ok "House schema identifies an entire house with 8 bedrooms, 5 full baths, and 1 powder room" \
+  || bad "House type, bedroom, or bathroom facts are stale"
+printf '%s' "$home" | grep -q '"occupancy":{"@type":"QuantitativeValue","value":16,"maxValue":16,"unitCode":"C62","unitText":"guests"}' \
+  && ok "House schema occupancy is 16 guests" \
+  || bad "House occupancy is missing or not 16 guests"
+printf '%s' "$home" | grep -q '"floorSize":{"@type":"QuantitativeValue","value":7000,"unitCode":"FTK"}' \
+  && ok "House schema floor area is 7,000 square feet" \
+  || bad "House floor area is missing or stale"
 printf '%s' "$home" | grep -q '"numberOfBeds":2,"typeOfBed":"King"' \
   && printf '%s' "$home" | grep -q '"numberOfBeds":5,"typeOfBed":"Queen"' \
   && printf '%s' "$home" | grep -q '"numberOfBeds":1,"typeOfBed":"Double"' \
   && ok "schema bed mix includes 5 queens and 1 double" \
   || bad "schema bed mix is stale (expect 2 kings, 5 queens, 1 double)"
-printf '%s' "$home" | grep -q '"name":"licenseNum","value":"Philadelphia: 903781"' \
-  && ok "STR license uses Google's VacationRental amenity format" \
-  || bad "STR license missing or in the wrong schema location"
-if printf '%s' "$home" | grep -qE '"streetAddress"|"GeoCoordinates"|39\.9468|-75\.1715'; then
+printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/airbnb/airbnb_03.jpg"' \
+  && ok "property schema uses the approved public image set" \
+  || bad "property schema approved image set is missing"
+printf '%s' "$home" | grep -q '"name":"Wi-Fi","value":true' \
+  && printf '%s' "$home" | grep -q '"name":"Air conditioning","value":true' \
+  && printf '%s' "$home" | grep -q '"name":"Kitchen","value":true' \
+  && printf '%s' "$home" | grep -q '"name":"Washer","value":true' \
+  && printf '%s' "$home" | grep -q '"name":"Dryer","value":true' \
+  && printf '%s' "$home" | grep -q '"name":"Private roof deck","value":true' \
+  && ok "House schema lists the verified amenities" \
+  || bad "House amenity schema is missing or stale"
+printf '%s' "$home" | grep -q '"sameAs":\["https://www.airbnb.com/rooms/6000930","https://www.vrbo.com/757481"\]' \
+  && ok "property schema links the Airbnb and Vrbo listings" \
+  || bad "property schema OTA sameAs links are missing"
+if printf '%s' "$home" | grep -qE '"aggregateRating":|"review":'; then
+  bad "homepage publishes ineligible property rating/review JSON-LD"
+else ok "homepage property schema omits aggregateRating and review"; fi
+if printf '%s' "$home" | grep -qE '"tourBookingPage":|"licenseNum"|"propertyID":'; then
+  bad "homepage schema exposes a tour field or STR registry lookup key"
+else ok "homepage schema omits tour semantics and the STR registry lookup key"; fi
+if printf '%s' "$home" | grep -qE '"numberOfRooms":|"numberOfBathroomsTotal":'; then
+  bad "homepage schema misuses a total-room or fractional-bath field"
+else ok "homepage schema uses explicit bedroom and bathroom fields"; fi
+if printf '%s' "$home" | grep -qE '"streetAddress":|"geo":|"GeoCoordinates"|"latitude":|"longitude":|39\.9468|-75\.1715'; then
   bad "homepage schema exposes the precise address or coordinates"
-else ok "homepage schema uses public-area location only (privacy choice; not Google rich-result eligible)"; fi
+elif printf '%s' "$home" | grep -q '"addressLocality":"Philadelphia","addressRegion":"PA","postalCode":"19103","addressCountry":"US"'; then
+  ok "homepage schema uses city, region, postal code, and country only"
+else bad "homepage schema public-area address is missing"; fi
 
 for private_image in /images/property/DSC00116.jpg /images/property/DSC00118.jpg /images/property/DSC08855.jpg; do
   c=$(fetch -o /dev/null -w '%{http_code}' "$SITE$private_image")

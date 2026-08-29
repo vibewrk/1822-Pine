@@ -25,10 +25,10 @@ import {
 // user content reads as stuffing. Headings + untouched quotes is both honest
 // and more effective.
 //
-// SCHEMA: deliberately NO Review or AggregateRating JSON-LD here. Publishing
-// reviews collected on another platform as your own review markup is against
-// Google's structured-data guidelines and risks a manual action. The single
-// permitted aggregateRating lives in StructuredData.tsx, sourced from Airbnb.
+// SCHEMA: deliberately NO Review or AggregateRating JSON-LD here. Google does
+// not allow a business to create review-rich-result markup about itself or
+// aggregate ratings collected on Airbnb or Vrbo. The ratings and quotes remain
+// visible social proof with direct links to their source platforms.
 //
 // Quotes are trimmed for length with ellipses, never reworded. Add new ones
 // only by copying from the live listing.

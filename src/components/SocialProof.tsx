@@ -9,10 +9,10 @@ import { BOOKING_LINKS, REVIEW_FACTS, TOTAL_REVIEW_COUNT } from "@/lib/facts";
 // INTEGRITY RULES (same standard as the history archive):
 // - Never write a review. Every quote here is a real guest's words from a
 //   platform listing, trimmed only for length, never reworded.
-// - Do NOT add these to JSON-LD as Review/aggregateRating markup. The site
-//   already publishes one aggregateRating in StructuredData.tsx sourced from
-//   Airbnb; self-publishing platform reviews as schema risks a review-snippet
-//   policy violation. This component is on-page social proof only.
+// - Do NOT add these to JSON-LD as Review/aggregateRating markup. Google does
+//   not allow a business to create review-rich-result markup about itself or
+//   aggregate ratings from another website. This component is on-page social
+//   proof only, with direct links back to the source platforms.
 // - Re-verify the counts and averages quarterly against both listings and
 //   update RATINGS and src/lib/facts.ts together.
 
