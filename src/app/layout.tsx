@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { VacationRentalSchema, LocalBusinessSchema } from "@/components/StructuredData";
 import { PRICING_COPY } from "@/lib/pricing";
 
 // Measurement IDs are env-overridable so staging/preview deploys don't pollute
@@ -109,8 +108,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <VacationRentalSchema />
-        <LocalBusinessSchema />
         {/* Google Tag Manager */}
         <Script
           id="gtm-script"

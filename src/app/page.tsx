@@ -15,6 +15,7 @@ import {
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { SocialProof } from "@/components/SocialProof";
+import { LodgingBusinessSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -81,6 +82,7 @@ const trustItems = [
 export default function HomePage() {
   return (
     <div className="flex flex-col bg-stone-50 text-stone-950">
+      <LodgingBusinessSchema />
       <section className="relative h-[85vh] min-h-[600px]">
         <Image
           src="/images/airbnb/airbnb_03.jpg"

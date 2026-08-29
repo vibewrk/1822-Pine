@@ -98,7 +98,7 @@ const articleSchema = {
     name: "The Rittenhouse Residence",
     url: SITE,
   },
-  about: { "@id": `${SITE}/#vacation-rental` },
+  about: { "@id": `${SITE}/#rittenhouse-residence` },
   isBasedOn: [
     `${SITE}/archive/raw_documents/Evening_Public_Ledger_1915_01_08_Page_10.pdf`,
     `${SITE}/archive/raw_documents/The_Philadelphia_Inquirer_1904_12_11_Page_36.pdf`,
