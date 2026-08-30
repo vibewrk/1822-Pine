@@ -16,6 +16,7 @@ import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
 import {
   parseQuotePrefill,
   QUOTE_PREFILL_SESSION_KEY,
+  stripLegacyQuotePrefillParams,
 } from "@/lib/quote-prefill";
 
 const GROUP_SIZES = Array.from(
@@ -149,15 +150,19 @@ export default function ContactPage() {
       // Storage can be disabled; the form remains fully usable without prefill.
     }
 
-    if (!prefillArrival && window.location.search) {
-      const params = new URLSearchParams(window.location.search);
-      prefillArrival = params.get("arrival") ?? "";
-      prefillDeparture = params.get("departure") ?? "";
-      prefillGuests = params.get("guests") ?? "";
+    const legacy = stripLegacyQuotePrefillParams(window.location.search);
+    if (legacy) {
+      if (!prefillArrival) {
+        prefillArrival = legacy.arrival;
+        prefillDeparture = legacy.departure;
+        prefillGuests = legacy.guests;
+      }
+      // Preserve campaign attribution such as utm_* and gclid while removing
+      // only the legacy stay details that should not reach analytics.
       window.history.replaceState(
         window.history.state,
         "",
-        `${window.location.pathname}${window.location.hash}`
+        `${window.location.pathname}${legacy.cleanedSearch}${window.location.hash}`
       );
     }
 

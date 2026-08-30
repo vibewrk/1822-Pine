@@ -10,6 +10,37 @@ export type QuotePrefill = {
   createdAt: number;
 };
 
+export type LegacyQuotePrefill = {
+  arrival: string;
+  departure: string;
+  guests: string;
+  cleanedSearch: string;
+};
+
+const LEGACY_QUOTE_PARAMS = ["arrival", "departure", "guests"] as const;
+
+export function stripLegacyQuotePrefillParams(
+  search: string
+): LegacyQuotePrefill | null {
+  const params = new URLSearchParams(search);
+  if (!LEGACY_QUOTE_PARAMS.some((parameter) => params.has(parameter))) {
+    return null;
+  }
+
+  const legacy = {
+    arrival: params.get("arrival") ?? "",
+    departure: params.get("departure") ?? "",
+    guests: params.get("guests") ?? "",
+  };
+  for (const parameter of LEGACY_QUOTE_PARAMS) params.delete(parameter);
+  const remaining = params.toString();
+
+  return {
+    ...legacy,
+    cleanedSearch: remaining ? `?${remaining}` : "",
+  };
+}
+
 export function parseQuotePrefill(
   raw: string | null,
   nowMs = Date.now()

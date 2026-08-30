@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   parseQuotePrefill,
   QUOTE_PREFILL_MAX_AGE_MS,
+  stripLegacyQuotePrefillParams,
 } from "@/lib/quote-prefill";
 
 test("accepts a fresh, valid private booking prefill", () => {
@@ -53,5 +54,23 @@ test("rejects stale, malformed, and oversized booking prefills", () => {
       now
     ),
     null
+  );
+});
+
+test("legacy cleanup preserves campaign attribution and ignores ordinary URLs", () => {
+  assert.equal(
+    stripLegacyQuotePrefillParams("?utm_source=google&gclid=abc123"),
+    null
+  );
+  assert.deepEqual(
+    stripLegacyQuotePrefillParams(
+      "?utm_source=google&arrival=2099-05-10&gclid=abc123&departure=2099-05-12&guests=8"
+    ),
+    {
+      arrival: "2099-05-10",
+      departure: "2099-05-12",
+      guests: "8",
+      cleanedSearch: "?utm_source=google&gclid=abc123",
+    }
   );
 });
