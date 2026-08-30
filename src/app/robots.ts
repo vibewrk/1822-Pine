@@ -29,12 +29,12 @@ export default function robots(): MetadataRoute.Robots {
         // Googlebot rendering pages the way a visitor sees them, and makes the
         // whole history archive invisible to Google Images, since those scans
         // are all delivered through the image optimiser.
-        disallow: ["/api/"],
+        disallow: ["/api/", "/stay/guest"],
       },
       ...AI_CRAWLERS.map((userAgent) => ({
         userAgent,
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/stay/guest"],
       })),
     ],
     sitemap: "https://rittenhouseresidence.com/sitemap.xml",
