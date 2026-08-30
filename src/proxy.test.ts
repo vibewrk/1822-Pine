@@ -1,9 +1,26 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
+import { unstable_doesMiddlewareMatch } from "next/experimental/testing/server";
 import { NextRequest } from "next/server";
 
-import { proxy } from "@/proxy";
+import { config, proxy } from "@/proxy";
+
+test("runs proxy only for contact and the guest handoff", () => {
+  for (const url of ["/contact", "/stay/guest"]) {
+    assert.equal(
+      unstable_doesMiddlewareMatch({ config, nextConfig: {}, url }),
+      true
+    );
+  }
+
+  for (const url of ["/", "/book", "/stay", "/_next/static/example.js"]) {
+    assert.equal(
+      unstable_doesMiddlewareMatch({ config, nextConfig: {}, url }),
+      false
+    );
+  }
+});
 
 test("strips stay details before /contact renders and preserves attribution", () => {
   const response = proxy(
@@ -35,4 +52,27 @@ test("leaves ordinary contact URLs and non-GET requests alone", () => {
   );
   assert.equal(post.status, 200);
   assert.equal(post.headers.get("location"), null);
+});
+
+test("strips every query parameter from the public guest handoff", () => {
+  const response = proxy(
+    new NextRequest(
+      "https://rittenhouseresidence.com/stay/guest?reservation=must-not-persist&utm_source=must-not-persist"
+    )
+  );
+
+  assert.equal(response.status, 307);
+  assert.equal(
+    response.headers.get("location"),
+    "https://rittenhouseresidence.com/stay/guest"
+  );
+});
+
+test("serves the clean guest handoff without a redirect", () => {
+  const response = proxy(
+    new NextRequest("https://rittenhouseresidence.com/stay/guest")
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("location"), null);
 });
