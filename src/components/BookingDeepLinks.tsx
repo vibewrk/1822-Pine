@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarCheck, ExternalLink, Star } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
+import { QUOTE_PREFILL_SESSION_KEY } from "@/lib/quote-prefill";
 
 // Vrbo's date/guest URL parameters could not be verified, so Vrbo gets a
 // plain listing link — its calendar is one click away once the page opens.
@@ -171,14 +172,27 @@ export function BookingDeepLinks() {
       <p className="mt-5 text-sm leading-6 text-stone-600">
         Want a little help choosing?{" "}
         <Link
-          href={
-            datesValid
-              ? `/contact?arrival=${checkIn}&departure=${checkOut}&guests=${guests}`
-              : "/contact"
-          }
-          onClick={() =>
-            trackEvent("direct_inquiry_click", { location: "deep_links" })
-          }
+          href="/contact"
+          onClick={() => {
+            try {
+              if (datesValid) {
+                window.sessionStorage.setItem(
+                  QUOTE_PREFILL_SESSION_KEY,
+                  JSON.stringify({
+                    arrival: checkIn,
+                    departure: checkOut,
+                    guests,
+                    createdAt: Date.now(),
+                  })
+                );
+              } else {
+                window.sessionStorage.removeItem(QUOTE_PREFILL_SESSION_KEY);
+              }
+            } catch {
+              // If storage is disabled, /contact still works without prefill.
+            }
+            trackEvent("direct_inquiry_click", { location: "deep_links" });
+          }}
           className="inline-flex items-center gap-1 font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
         >
           {datesValid

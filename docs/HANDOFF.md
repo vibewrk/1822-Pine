@@ -129,9 +129,12 @@ Full click-by-click is in `docs/GROWTH-RUNBOOK.md`. Summary:
    search data to analyze. Add a Domain property, add the TXT record, submit
    the sitemap. *Do this first; nothing else in SEO is measurable until it
    exists.*
-2. **GA4** — tag `G-YYXHNWZ4PK` is in the HTML but your own portfolio audit
-   (2026-08-02) found no mapped property collecting. Confirm you own it or
-   create a new one, then mark `ota_click` and `contact_submit` as key events.
+2. **GA4** — **RESOLVED 2026-08-25.** Production uses the owned 1822 Pine
+   stream `G-ZCR1ZQVTKH`; the dead `G-YYXHNWZ4PK` value remains only as a
+   source-code fallback and is overridden in Vercel. Mark only
+   provider-confirmed `generate_lead` as the direct-inquiry key event. Keep
+   `ota_click`, `inquiry_accepted`, and CTA clicks as diagnostic events; remove
+   the legacy `contact_submit` key event.
 3. **Vercel Analytics** — one toggle; the component is already in the layout.
 4. **Domain redirects — DONE (verified 2026-08-27).** `1822pine.com`,
    `www.1822pine.com` and `therittenhouseresidence.com` are all on Vercel
@@ -140,9 +143,10 @@ Full click-by-click is in `docs/GROWTH-RUNBOOK.md`. Summary:
    Search Console **Change of Address** for `1822pine.com` (runbook §4) — the
    redirect passes equity, but Change of Address formally migrates it.
 
-5. **Resend** — confirm `RESEND_API_KEY` is set in Vercel, then verify the
-   domain and set `CONTACT_FROM_EMAIL`. Until then the sandbox sender only
-   reliably delivers to the Resend account owner's inbox.
+5. **Resend — RESOLVED.** The verified domain sender, production recipient,
+   sending-only API key, and dedicated `CONTACT_FORM_SECRET` are configured.
+   The live Vercel Firewall now adds a global 10-POSTs-per-IP-per-10-minutes
+   ceiling in front of BotID and the application checks.
 
 ## What's left — needs your judgment
 

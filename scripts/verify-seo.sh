@@ -216,8 +216,16 @@ ttfb=$(fetch -o /dev/null -w '%{time_starttransfer}' "$SITE/")
 ok "TTFB ${ttfb}s"
 
 head_ "Contact API"
+challenge=$(fetch "$SITE/api/contact")
+printf '%s' "$challenge" | grep -q '"formToken"' \
+  && ok "contact API issues a no-cache signed form challenge" \
+  || bad "contact API did not issue a signed form challenge"
 r=$(fetch -o /dev/null -w '%{http_code}' -X POST "$SITE/api/contact" -H 'Content-Type: application/json' -d '{"firstName":"","lastName":"","email":"","inquiryType":"","message":""}')
-[ "$r" = "400" ] && ok "contact API validates (400 on empty)" || bad "contact API returned $r on empty payload"
+case "$r" in
+  403) ok "contact API blocks direct non-browser submissions (BotID)" ;;
+  400) ok "contact API validates empty submissions (local development)" ;;
+  *) bad "contact API returned $r on an empty direct submission" ;;
+esac
 
 printf '\n\033[1mSummary:\033[0m %d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ] || exit 1
