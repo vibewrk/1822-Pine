@@ -17,12 +17,12 @@ import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "The House — 8 Bedrooms, 4 Stories",
+  title: "The House — 8 Bedrooms, Sleeps 16",
   description:
-    "Tour the mansion floor by floor — parlors under fourteen-foot ceilings, dining for the whole group, 8 bedrooms, 5 full baths and a powder room, two kitchens, and a private roof deck near Rittenhouse Square.",
+    "Tour an 8-bedroom whole-home Philadelphia vacation rental for 16, with two parlors, two kitchens, dining for 16, and a private roof deck.",
   alternates: { canonical: "/stay" },
   openGraph: {
-    title: "Inside The Rittenhouse Residence",
+    title: "Inside The Rittenhouse Residence | Sleeps 16",
     description:
       "Two parlors, dining for the whole group, 8 bedrooms, 5 full baths and a powder room, and a private roof deck across four stories that live like five.",
     images: ["/images/airbnb/airbnb_04.jpg"],

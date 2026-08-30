@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Filter, ChevronDown } from "lucide-react";
+import { BookingCTA } from "@/components/BookingCTA";
 import ImageLightbox, { GalleryImage } from "@/components/ImageLightbox";
 
 // All property images with metadata
@@ -272,6 +274,23 @@ export default function GalleryPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="bg-white px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-amber-800">
+              <Link href="/stay/rooms" className="underline underline-offset-4 hover:text-amber-950">
+                Plan the bedrooms
+              </Link>
+              <Link href="/stay/floor-plans" className="underline underline-offset-4 hover:text-amber-950">
+                Explore the floor plans
+              </Link>
+              <Link href="/reviews" className="underline underline-offset-4 hover:text-amber-950">
+                Read guest reviews
+              </Link>
+            </div>
+            <BookingCTA />
           </div>
         </section>
 

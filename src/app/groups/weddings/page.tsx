@@ -4,17 +4,16 @@ import Link from "next/link";
 import { ArrowRight, Coffee, Home, Users, XCircle } from "lucide-react";
 import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
-import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
 
 export const metadata: Metadata = {
-  title: "Wedding Guest Housing",
+  title: "Wedding Guest Lodging in Philadelphia",
   description:
-    `Wedding guest lodging for up to 16 under one roof near Rittenhouse Square — 8 bedrooms, group breakfasts at one table, and ${PRICING_COPY.compact.toLowerCase()} Lodging only.`,
+    "Wedding guest lodging in Philadelphia for up to 16 under one roof near Rittenhouse Square, with 8 bedrooms, group breakfasts, and lodging-only rules.",
   alternates: { canonical: "/groups/weddings" },
   openGraph: {
-    title: "Wedding Guest Housing | The Rittenhouse Residence",
+    title: "Wedding Guest Lodging in Philadelphia | Sleeps 16",
     description:
       "One historic house that sleeps 16 wedding guests near Rittenhouse Square — 8 bedrooms, breakfasts for the whole group, and clear lodging-only house rules.",
     images: ["/images/property/DSC00122.jpg"],

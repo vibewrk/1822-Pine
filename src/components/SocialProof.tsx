@@ -1,4 +1,5 @@
 import { Award, Star } from "lucide-react";
+import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
 import { Eyebrow } from "@/components/Eyebrow";
 import { BOOKING_LINKS, REVIEW_FACTS, TOTAL_REVIEW_COUNT } from "@/lib/facts";
@@ -167,6 +168,12 @@ export function SocialProof() {
             </TrackedLink>
             .
           </p>
+          <Link
+            href="/reviews"
+            className="mt-4 inline-flex font-semibold text-amber-800 underline underline-offset-4 hover:text-amber-900"
+          >
+            Read guest reviews by kind of stay
+          </Link>
         </div>
 
         <div className="mb-10 grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 sm:grid-cols-3 lg:grid-cols-6">

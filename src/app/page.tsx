@@ -19,11 +19,13 @@ import { LodgingBusinessSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  // 59ch; `absolute` bypasses the layout's "%s | The Rittenhouse Residence"
+  // `absolute` bypasses the layout's "%s | The Rittenhouse Residence"
   // template, which would otherwise double-append the brand.
   title: {
-    absolute: "The Rittenhouse Residence | Philadelphia Mansion, Sleeps 16",
+    absolute: "Philadelphia Vacation Rental | 8 Bedrooms, Sleeps 16",
   },
+  description:
+    "An 8-bedroom whole-home Philadelphia vacation rental for up to 16 guests, with dining for 16, a private roof deck, and two blocks to Rittenhouse Square.",
   alternates: { canonical: "/" },
 };
 
@@ -107,7 +109,7 @@ export default function HomePage() {
               <span className="block text-amber-100">Rittenhouse Residence</span>
             </h1>
             <p className="mt-6 max-w-3xl text-xl font-medium leading-8 text-white md:text-2xl md:leading-9">
-              An 8-bedroom Victorian mansion in the heart of Center City Philadelphia — the whole house, for your whole group.
+              An 8-bedroom Philadelphia vacation home in the heart of Center City — the whole house, for your whole group.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-7 text-stone-100 md:text-lg">
               Nearly 7,000 square feet over four stories that live like five, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
