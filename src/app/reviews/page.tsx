@@ -34,8 +34,9 @@ import {
 // only by copying from the live listing.
 
 export const metadata: Metadata = {
-  title: "Guest Reviews",
-  description: `Real guest reviews of The Rittenhouse Residence — ${AIRBNB_RATING} from ${AIRBNB_COUNT} Airbnb reviews and ${VRBO_RATING}/10 from ${VRBO_COUNT} on Vrbo. What groups, wedding parties and families say about staying in an 8-bedroom historic house near Rittenhouse Square.`,
+  title: "Philadelphia Group Stay Reviews",
+  description:
+    "Real Airbnb and Vrbo reviews from groups, wedding guests, and families who stayed in this 8-bedroom Philadelphia home near Rittenhouse Square.",
   alternates: { canonical: "/reviews" },
   openGraph: {
     title: "Guest Reviews | The Rittenhouse Residence",

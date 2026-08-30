@@ -20,12 +20,12 @@ import { PRICING_COPY } from "@/lib/pricing";
 const SITE = "https://rittenhouseresidence.com";
 
 export const metadata: Metadata = {
-  title: "Group Stays for 16",
+  title: "Large Group Lodging in Philadelphia",
   description:
-    `One historic Center City house for groups of up to 16, with 8 bedrooms and dining for everyone. ${PRICING_COPY.compact}`,
+    "Whole-house Philadelphia lodging for groups of up to 16: 8 bedrooms, dining for everyone, and two blocks to Rittenhouse Square.",
   alternates: { canonical: "/groups" },
   openGraph: {
-    title: "Group Stays for 16 | The Rittenhouse Residence",
+    title: "Large Group Lodging in Philadelphia | Sleeps 16",
     description:
       `One historic house for the whole group: 8 bedrooms, sleeps 16, dining for 16 at one table. ${PRICING_COPY.compact}`,
     images: ["/images/property/DSC08821.jpg"],

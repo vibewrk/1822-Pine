@@ -11,6 +11,7 @@ const footerNavigation = [
       { name: "Floor Plans", href: "/stay/floor-plans" },
       { name: "Room Planner", href: "/stay/rooms" },
       { name: "Stairs & Access", href: "/stay/stairs-and-access" },
+      { name: "Guest Reviews", href: "/reviews" },
       { name: "Rates", href: "/rates" },
       { name: "House Rules", href: "/house-rules" },
     ],

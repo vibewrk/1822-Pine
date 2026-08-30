@@ -8,12 +8,12 @@ import { PRICING_COPY } from "@/lib/pricing";
 const SITE = "https://rittenhouseresidence.com";
 
 export const metadata: Metadata = {
-  title: "A Hotel Alternative for Groups",
+  title: "Philadelphia Hotel Alternative for Groups",
   description:
     "Skip eight scattered hotel rooms: one historic house that sleeps 16, with two parlors, two kitchens, dining for 16, and a roof deck near Rittenhouse Square.",
   alternates: { canonical: "/hotel-alternative" },
   openGraph: {
-    title: "A Hotel Alternative for Groups | The Rittenhouse Residence",
+    title: "Philadelphia Hotel Alternative for Groups | Sleeps 16",
     description:
       "Eight hotel rooms or one historic house: compare the spaces, shared rooms, and practical details for groups of up to 16.",
     images: ["/images/property/DSC00072.jpg"],

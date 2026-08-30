@@ -14,12 +14,12 @@ import { Eyebrow } from "@/components/Eyebrow";
 import roomsData from "@/data/rooms.json";
 
 export const metadata: Metadata = {
-  title: "Bedrooms & Room Planner",
+  title: "8 Bedrooms for 16 Guests",
   description:
     "Every bedroom at The Rittenhouse Residence — beds, floors, and baths — plus a printable room assignment sheet for groups of up to 16.",
   alternates: { canonical: "/stay/rooms" },
   openGraph: {
-    title: "Bedrooms & Room Planner | The Rittenhouse Residence",
+    title: "8 Bedrooms for 16 Guests | The Rittenhouse Residence",
     description:
       "Eight bedrooms across floors 2–4, labeled plainly, with a printable assignment sheet for the whole group.",
     images: ["/images/airbnb/airbnb_01.jpg"],

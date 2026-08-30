@@ -19,11 +19,11 @@ import { PROPERTY_FACTS } from "@/lib/facts";
 import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: "Rates & Policies",
-  description: `${PRICING_COPY.long} Whole-house pricing for an ${PROPERTY_FACTS.bedrooms}-bedroom Philadelphia townhouse with a ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
+  title: "Philadelphia Vacation Rental Rates",
+  description: `${PRICING_COPY.short} ${PROPERTY_FACTS.bedrooms} bedrooms, sleeps ${PROPERTY_FACTS.sleeps}, with a ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
   alternates: { canonical: "/rates" },
   openGraph: {
-    title: "Rates & Policies | The Rittenhouse Residence",
+    title: "Philadelphia Vacation Rental Rates | The Rittenhouse Residence",
     description: `${PRICING_COPY.short} ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
     images: ["/images/airbnb/airbnb_03.jpg"],
   },

@@ -5,7 +5,6 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { PRICING_COPY } from "@/lib/pricing";
 
 // Measurement IDs are env-overridable so staging/preview deploys don't pollute
 // production analytics. Defaults preserve the live IDs.
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | The Rittenhouse Residence",
   },
   description:
-    `A lovingly cared-for historic Philadelphia townhouse two blocks from Rittenhouse Square. Eight bedrooms, five full baths and a powder room, room for 16, and the whole house for your group. ${PRICING_COPY.short}`,
+    "An 8-bedroom whole-home Philadelphia vacation rental for up to 16 guests, with dining for 16, a private roof deck, and two blocks to Rittenhouse Square.",
   keywords: [
     "The Rittenhouse Residence",
     "Rittenhouse Residence",

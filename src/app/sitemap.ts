@@ -5,7 +5,7 @@ import archiveData from "@/data/document-archive.json";
 // Content changes when this repo changes; a stable date beats stamping every
 // URL with the build time (which tells crawlers nothing). Bump on real
 // content updates.
-const CONTENT_UPDATED = new Date("2026-08-27");
+const CONTENT_UPDATED = new Date("2026-08-30");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rittenhouseresidence.com";
