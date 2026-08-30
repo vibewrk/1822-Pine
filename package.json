@@ -9,7 +9,8 @@
     "prebuild": "npm run generate:llms && node scripts/prepare-archive-assets.mjs",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:contact": "tsx --test src/lib/contact-security.test.ts src/lib/quote-prefill.test.ts src/app/api/contact/route.test.ts src/proxy.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -18,12 +19,13 @@
     "@radix-ui/react-slot": "^1.2.4",
     "@radix-ui/react-tabs": "^1.1.13",
     "@vercel/analytics": "^2.0.1",
+    "botid": "^1.5.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.562.0",
-    "next": "16.1.1",
+    "next": "^16.3.3",
     "react": "19.2.3",
     "react-day-picker": "^9.13.0",
     "react-dom": "19.2.3",
@@ -36,7 +38,7 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "16.1.1",
+    "eslint-config-next": "^16.3.3",
     "tailwindcss": "^4",
     "tsx": "^4.23.12",
     "typescript": "^5"

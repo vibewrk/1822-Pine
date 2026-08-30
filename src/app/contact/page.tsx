@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   AlertCircle,
   CheckCircle,
@@ -13,6 +13,11 @@ import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
 import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
+import {
+  parseQuotePrefill,
+  QUOTE_PREFILL_SESSION_KEY,
+  stripLegacyQuotePrefillParams,
+} from "@/lib/quote-prefill";
 
 const GROUP_SIZES = Array.from(
   { length: PROPERTY_FACTS.sleeps },
@@ -39,6 +44,14 @@ const OUTCOME_PROMISES = [
   "Clear booking next steps",
 ];
 
+type ContactApiResponse = {
+  error?: string;
+  code?: string;
+  accepted?: boolean;
+  inquiryId?: string;
+  lead?: { event?: string; inquiryId?: string };
+};
+
 function addDays(iso: string, days: number): string {
   const d = new Date(iso + "T00:00:00Z");
   d.setUTCDate(d.getUTCDate() + days);
@@ -57,6 +70,17 @@ function nightsBetween(arrival: string, departure: string): number {
   return Number.isFinite(ms) ? Math.round(ms / 86400000) : 0;
 }
 
+function markBrowserEventOnce(key: string): boolean {
+  try {
+    if (window.sessionStorage.getItem(key)) return false;
+    window.sessionStorage.setItem(key, "1");
+  } catch {
+    // Some privacy modes disable storage. Analytics must not turn a delivered
+    // inquiry into a visible form error, so emit once for this submit handler.
+  }
+  return true;
+}
+
 const inputClasses =
   "mt-1 block w-full rounded-md border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder-stone-400 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600";
 
@@ -72,28 +96,90 @@ export default function ContactPage() {
   const [arrival, setArrival] = useState("");
   const [departure, setDeparture] = useState("");
   const [groupSize, setGroupSize] = useState("");
+  const [formToken, setFormToken] = useState("");
+  const [securityError, setSecurityError] = useState("");
+
+  const refreshFormToken = useCallback(async () => {
+    setFormToken("");
+    setSecurityError("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "GET",
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      });
+      const data: unknown = await response.json();
+      const token =
+        data &&
+        typeof data === "object" &&
+        "formToken" in data &&
+        typeof data.formToken === "string"
+          ? data.formToken
+          : "";
+      if (!response.ok || !token) throw new Error("Form protection unavailable");
+      setFormToken(token);
+    } catch {
+      setSecurityError(
+        "We couldn't prepare the secure form. Please try again in a moment."
+      );
+    }
+  }, []);
 
   // Computed after mount so the prerendered HTML never carries a stale date.
-  // Also reads ?arrival=&departure=&guests= so the /book date picker can hand
-  // its dates straight into this form (window.location avoids a Suspense
-  // boundary that useSearchParams would require).
+  // The booking picker hands dates across through short-lived session storage,
+  // not the URL. That keeps stay dates and group size out of browser history,
+  // server logs, referrers, and GA's page_location field. Old query-string
+  // links are stripped by src/proxy.ts before this page renders; the fallback
+  // below also cleans them during local/component-level rendering.
   useEffect(() => {
     setToday(localISODate());
-    const params = new URLSearchParams(window.location.search);
-    const qsArrival = params.get("arrival") ?? "";
-    const qsDeparture = params.get("departure") ?? "";
-    const qsGuests = params.get("guests") ?? "";
-    if (/^\d{4}-\d{2}-\d{2}$/.test(qsArrival)) setArrival(qsArrival);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(qsDeparture)) setDeparture(qsDeparture);
-    const guestsNum = Number(qsGuests);
+    let prefillArrival = "";
+    let prefillDeparture = "";
+    let prefillGuests = "";
+
+    try {
+      const stored = window.sessionStorage.getItem(QUOTE_PREFILL_SESSION_KEY);
+      window.sessionStorage.removeItem(QUOTE_PREFILL_SESSION_KEY);
+      const parsed = parseQuotePrefill(stored);
+      if (parsed) {
+        prefillArrival = parsed.arrival;
+        prefillDeparture = parsed.departure;
+        prefillGuests = String(parsed.guests);
+      }
+    } catch {
+      // Storage can be disabled; the form remains fully usable without prefill.
+    }
+
+    const legacy = stripLegacyQuotePrefillParams(window.location.search);
+    if (legacy) {
+      if (!prefillArrival) {
+        prefillArrival = legacy.arrival;
+        prefillDeparture = legacy.departure;
+        prefillGuests = legacy.guests;
+      }
+      // Preserve campaign attribution such as utm_* and gclid while removing
+      // only the legacy stay details that should not reach analytics.
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${window.location.pathname}${legacy.cleanedSearch}${window.location.hash}`
+      );
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(prefillArrival)) setArrival(prefillArrival);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(prefillDeparture)) {
+      setDeparture(prefillDeparture);
+    }
+    const guestsNum = Number(prefillGuests);
     if (
       Number.isInteger(guestsNum) &&
       guestsNum >= 1 &&
       guestsNum <= PROPERTY_FACTS.sleeps
     ) {
-      setGroupSize(qsGuests);
+      setGroupSize(prefillGuests);
     }
-  }, []);
+    void refreshFormToken();
+  }, [refreshFormToken]);
 
   function switchMode(next: "quote" | "question") {
     setMode(next);
@@ -107,6 +193,15 @@ export default function ContactPage() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    if (!formToken) {
+      setFormState("error");
+      setErrorMessage(
+        "The secure form is still preparing. Please wait a moment and try again."
+      );
+      void refreshFormToken();
+      return;
+    }
 
     if (mode === "quote") {
       const arrivalValue = String(formData.get("arrival") ?? "");
@@ -151,33 +246,65 @@ export default function ContactPage() {
           occasion: formData.get("occasion"),
           message: formData.get("message"),
           website: formData.get("website"),
+          formToken,
         }),
       });
 
+      // A gateway error page isn't JSON — don't surface a parser message.
+      let data: ContactApiResponse = {};
+      try {
+        data = (await response.json()) as ContactApiResponse;
+      } catch {
+        data = {};
+      }
+
       if (!response.ok) {
-        // A gateway error page isn't JSON — don't surface a parser message.
-        let serverError = "";
-        try {
-          const data = await response.json();
-          serverError = typeof data.error === "string" ? data.error : "";
-        } catch {
-          serverError = "";
+        if (data.code === "FORM_EXPIRED" || data.code === "FORM_INVALID") {
+          void refreshFormToken();
         }
         throw new Error(
-          serverError ||
+          data.error ||
             "Something went wrong sending your message. Please try again in a moment, or check availability on Airbnb or Vrbo."
         );
       }
 
-      trackEvent("contact_submit", {
-        status: "success",
-        inquiry_type: inquiryType,
-      });
+      if (data.accepted !== true || typeof data.inquiryId !== "string") {
+        void refreshFormToken();
+        throw new Error(
+          "We couldn't verify that your message was accepted. Please try again."
+        );
+      }
+
+      const inquiryEventKey = `rittenhouse:inquiry-event:${data.inquiryId}`;
+      if (markBrowserEventOnce(inquiryEventKey)) {
+        trackEvent("inquiry_accepted", {
+          inquiry_id: data.inquiryId,
+          inquiry_type: inquiryType,
+          delivery: "queued",
+        });
+      }
+
+      const isConfirmedQuoteLead =
+        inquiryType === "quote" &&
+        data.lead?.event === "generate_lead" &&
+        data.lead.inquiryId === data.inquiryId;
+      const leadEventKey = `rittenhouse:lead-event:${data.inquiryId}`;
+      if (isConfirmedQuoteLead && markBrowserEventOnce(leadEventKey)) {
+        // The marker is stored before emitting so a render/navigation race
+        // cannot double-fire.
+        trackEvent("generate_lead", {
+          inquiry_id: data.inquiryId,
+          method: "direct_quote_form",
+        });
+      }
+
       setFormState("success");
       form.reset();
       setArrival("");
+      setDeparture("");
+      setGroupSize("");
+      void refreshFormToken();
     } catch (err) {
-      trackEvent("contact_submit", { status: "error", inquiry_type: inquiryType });
       setFormState("error");
       setErrorMessage(
         err instanceof Error ? err.message : "Something went wrong. Please try again."
@@ -240,7 +367,10 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                   {/* Honeypot — invisible to people, filled by bots */}
-                  <div className="hidden" aria-hidden="true">
+                  <div
+                    className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden"
+                    aria-hidden="true"
+                  >
                     <label htmlFor="website">Website</label>
                     <input
                       type="text"
@@ -248,7 +378,7 @@ export default function ContactPage() {
                       name="website"
                       tabIndex={-1}
                       aria-hidden="true"
-                      autoComplete="one-time-code"
+                      autoComplete="off"
                     />
                   </div>
 
@@ -483,7 +613,7 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    disabled={formState === "submitting"}
+                    disabled={formState === "submitting" || !formToken}
                     className="flex w-full items-center justify-center gap-2 rounded-md bg-stone-950 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {formState === "submitting" ? (
@@ -491,6 +621,8 @@ export default function ContactPage() {
                         <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                         Sending...
                       </>
+                    ) : !formToken ? (
+                      "Preparing secure form..."
                     ) : (
                       <>
                         <Send className="h-5 w-5" />
@@ -498,6 +630,19 @@ export default function ContactPage() {
                       </>
                     )}
                   </button>
+
+                  {securityError && (
+                    <div className="text-center text-sm text-red-700" role="status">
+                      <p>{securityError}</p>
+                      <button
+                        type="button"
+                        onClick={() => void refreshFormToken()}
+                        className="mt-2 font-semibold underline underline-offset-4 hover:text-red-900"
+                      >
+                        Try preparing the form again
+                      </button>
+                    </div>
+                  )}
 
                   <p className="text-sm text-stone-500">
                     {mode === "quote" ? (

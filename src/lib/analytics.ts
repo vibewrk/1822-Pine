@@ -6,13 +6,17 @@
 //
 //   ota_click            — outbound click to Vrbo/Airbnb      (params: platform, location)
 //   direct_email_click   — mailto click                       (params: location)
-//   contact_submit       — inquiry form result                (params: status, inquiry_type)
+//   inquiry_accepted     — Resend accepted an inquiry         (params: inquiry_id,
+//                          inquiry_type, delivery); diagnostic only
+//   generate_lead        — Resend accepted a quote request    (params: inquiry_id,
+//                          method); the only direct-lead conversion
 //   book_cta_click       — internal click toward /book        (params: location,
 //                          e.g. home_hero, home_final_cta, header)
 //   direct_inquiry_click — internal click toward the /contact
 //                          direct-quote flow                  (params: location)
 //
-// These are the events to register as key events (conversions) in GA4.
+// Only generate_lead represents a vetted direct-inquiry conversion. Navigation
+// clicks and general questions are useful diagnostics, not bookings or leads.
 
 type EventParams = Record<string, string | number | boolean | undefined>;
 

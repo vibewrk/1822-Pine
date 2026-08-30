@@ -60,9 +60,12 @@ real visitor.
 1. Admin → Data streams → the stream still says `1822pine.com` as its default
    URL and "1822 Pine" as its name — update to `https://rittenhouseresidence.com`
    (cosmetic, but keeps reports coherent).
-2. After first data arrives: Admin → Events → toggle **ota_click** and
-   **contact_submit** as key events. (API attempts returned 403 — the service
-   account would need Editor on the account for this to be automatable.)
+2. After first data arrives: Admin → Events → mark **generate_lead** as the
+   direct-inquiry key event. Keep `inquiry_accepted`, `ota_click`,
+   `book_cta_click`, and `direct_inquiry_click` as diagnostic events — they do
+   not prove a quote request or booking. Remove the old `contact_submit` key
+   event if it is still configured. (The service account needs Editor access
+   for this to be automatable.)
 3. Optional: grant `answers-network-analytics@answers-network.iam.gserviceaccount.com`
    **Editor** on the GA account, and future sessions can manage all of this
    headlessly.
@@ -126,7 +129,7 @@ lossy:
 
 Do the same for `therittenhouseresidence.com` if it has any index history.
 
-## 5. Contact-form email — RESOLVED 2026-08-27
+## 5. Contact-form email — RESOLVED AND HARDENED 2026-08-30
 
 The form delivers through Resend. The production recipient is stored only in
 the encrypted `CONTACT_TO_EMAIL` environment variable; do not put the private
@@ -142,7 +145,38 @@ inbox in client copy, API errors, or repository documentation.
 The API fails visibly when delivery is unavailable and points guests toward
 Airbnb or Vrbo; it must never claim success for an unsent inquiry.
 
-## 6. Environment variables — ACTUAL STATE as of 2026-08-27
+The form's abuse and delivery controls were strengthened in August 2026:
+
+- Vercel BotID **Basic** protects `POST /api/contact` invisibly. Basic is free
+  on all Vercel plans; the code explicitly selects Basic and does not enable
+  paid Deep Analysis.
+- A signed, time-bound form token, off-screen honeypot, strict field/body
+  validation, same-site check, content filter, and rate limit provide layered
+  protection without a visible CAPTCHA.
+- A production Vercel Firewall rule limits `POST /api/contact` to 10 requests
+  per IP in 10 minutes at the network edge. It is the shared global ceiling;
+  the application also keeps a 10-per-15-minute per-instance fallback. Vercel
+  charges $0.50 per million allowed rate-limited requests; blocked requests
+  are free.
+- Resend receives a stable `Idempotency-Key` and must return an acceptance ID
+  before the visitor sees success. Safe retries cannot send duplicate email
+  within Resend's 24-hour idempotency window.
+- Logs contain an inquiry UUID and rejection reason, never guest names, email
+  addresses, message text, stay dates, or raw IP addresses.
+- Only an accepted **quote request** enables one browser-side `generate_lead`
+  event. General questions, errors, honeypots, and rejected requests do not.
+- The `/book` date picker transfers its private prefill through 10-minute
+  session storage. Dates and party size are no longer placed in `/contact`
+  URLs where analytics, referrers, browser history, or access logs could copy
+  them.
+
+Run the focused regression suite after contact-form changes:
+
+```bash
+npm run test:contact
+```
+
+## 6. Environment variables — ACTUAL STATE as of 2026-08-30
 
 Read live from `vercel env ls` on project `rpcoding/rittenhouse-website`:
 
@@ -156,6 +190,13 @@ Read live from `vercel env ls` on project `rpcoding/rittenhouse-website`:
 | `NEXT_PUBLIC_GA_ID` | **YES** | Production, Preview, Development | Owned GA4 stream ID. |
 | `NEXT_PUBLIC_GTM_ID` | no | — | Falls back to hardcoded `GTM-N5XCRVPL` |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | **NO** | — | Only needed if you verify Search Console by HTML tag instead of DNS (§1, option 6) |
+
+Additional contact-security variables:
+
+| Var | Required? | Purpose |
+|---|---|---|
+| `CONTACT_FORM_SECRET` | **YES — Production** | Dedicated HMAC secret for signed form challenges, payload digests, and privacy-safe rate-limit identifiers. |
+| `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` | Not needed today | Optional application-layer shared store. The live Vercel Firewall rule already provides the global 10-POSTs-per-IP-per-10-minutes ceiling; without Redis, the code retains a bounded per-instance fallback. `KV_REST_API_URL` + `KV_REST_API_TOKEN` are also recognized. |
 
 To add one from a terminal instead of the dashboard:
 
@@ -211,8 +252,9 @@ correct (or confirm) each — they affect trust, and some affect compliance:
 
 1. GSC → Performance: which queries/pages earn impressions; fix titles where
    CTR lags position.
-2. GA4 → key events: `ota_click` count by platform/location tells you which
-   CTAs and pages sell; `contact_submit` measures direct-inquiry demand.
+2. GA4 → `generate_lead` measures provider-accepted quote requests. Use
+   `ota_click`, `inquiry_accepted`, and CTA events only as supporting funnel
+   diagnostics; none of them proves a booking.
 3. Vercel Analytics: top pages and referrers.
 4. One content improvement per week: a new FAQ answer, a refreshed photo, a
    neighborhood entry. The history archive (63 documents, 14 chapters) is the
@@ -232,11 +274,14 @@ correct (or confirm) each — they affect trust, and some affect compliance:
   check-in/out corrected; `sameAs` OTA links added.
 - AI-chat visibility: `/llms.txt` fact sheet; robots.ts explicitly allows
   GPTBot, ClaudeBot, PerplexityBot, Google-Extended, and peers.
-- Conversion instrumentation: `ota_click` on all outbound Vrbo/Airbnb links,
-  `contact_submit` on the form; "Direct booking is coming soon" dead-ends
-  replaced with a 24-hour direct-inquiry promise sitewide.
+- Conversion instrumentation: `ota_click` on outbound Vrbo/Airbnb links;
+  provider-confirmed quote requests emit `generate_lead`, while general
+  inquiries emit only diagnostic `inquiry_accepted`. "Direct booking is coming
+  soon" dead-ends were replaced with a 24-hour direct-inquiry promise sitewide.
 - Contact API hardened: fails loudly instead of fake-success when
-  unconfigured; honeypot added; env-configurable sender/recipient.
+  unconfigured; BotID Basic, signed form token, rate limit, honeypot, strict
+  validation, safe logs, and provider idempotency added; sender/recipient stay
+  environment-configurable.
 - Media: 30+ generic/wrong alt texts rewritten from actual photo review;
   3.1MB header logo reduced to 52KB; `sizes` added to 23 fill images;
   neighborhood page gained a six-photo band from unused assets; one
