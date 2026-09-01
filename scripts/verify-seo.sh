@@ -227,5 +227,27 @@ case "$r" in
   *) bad "contact API returned $r on an empty direct submission" ;;
 esac
 
+head_ "Availability API (RentalAgent)"
+# Dates far enough ahead to be a legitimate enquiry and stable across runs.
+av_in=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=120))')
+av_out=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=123))')
+av=$(fetch "$SITE/api/availability?checkIn=$av_in&checkOut=$av_out")
+case "$av" in
+  *'"status":"open"'*|*'"status":"booked"'*)
+    ok "availability API returns a confirmed verdict (RentalAgent connected)" ;;
+  *'"status":"unconfirmed"'*)
+    ok "availability API answers unconfirmed (safe; RentalAgent unconfigured or calendar not fresh)" ;;
+  *) bad "availability API returned an unexpected body" ;;
+esac
+# Nothing operational may ever appear in a public availability response.
+if printf '%s' "$av" | grep -Eqi 'reservation|provider|listing|blocker|provenance|issueCode|propertyId'; then
+  bad "availability API leaked operational detail into a public response"
+else
+  ok "availability API exposes only status/dates/nights"
+fi
+# A range under the house minimum must be refused before any upstream call.
+r=$(fetch -o /dev/null -w '%{http_code}' "$SITE/api/availability?checkIn=$av_in&checkOut=$av_in")
+[ "$r" = "400" ] && ok "availability API rejects an invalid range" || bad "availability API returned $r on an invalid range"
+
 printf '\n\033[1mSummary:\033[0m %d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ] || exit 1

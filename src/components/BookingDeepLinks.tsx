@@ -3,6 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, ExternalLink, Star } from "lucide-react";
+import { AvailabilityCheck } from "@/components/AvailabilityCheck";
 import { trackEvent } from "@/lib/analytics";
 import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
 import { QUOTE_PREFILL_SESSION_KEY } from "@/lib/quote-prefill";
@@ -57,6 +58,28 @@ export function BookingDeepLinks() {
   const airbnbHref = datesValid
     ? `${BOOKING_LINKS.airbnb}?check_in=${checkIn}&check_out=${checkOut}&adults=${guests}`
     : BOOKING_LINKS.airbnb;
+
+  // Stay details travel to /contact through short-lived session storage, never
+  // the URL, so they stay out of history, logs, referrers, and analytics.
+  function carryDatesToQuoteForm() {
+    try {
+      if (datesValid) {
+        window.sessionStorage.setItem(
+          QUOTE_PREFILL_SESSION_KEY,
+          JSON.stringify({
+            arrival: checkIn,
+            departure: checkOut,
+            guests,
+            createdAt: Date.now(),
+          })
+        );
+      } else {
+        window.sessionStorage.removeItem(QUOTE_PREFILL_SESSION_KEY);
+      }
+    } catch {
+      // If storage is disabled, /contact still works without prefill.
+    }
+  }
 
   return (
     <div className="rounded-lg border border-stone-200 bg-white p-6 shadow-sm sm:p-8">
@@ -132,6 +155,28 @@ export function BookingDeepLinks() {
               : "Pick dates to open Airbnb with your stay prefilled, or jump straight to either calendar."}
       </p>
 
+      <AvailabilityCheck
+        checkIn={checkIn}
+        checkOut={checkOut}
+        location="book_deep_links"
+        className="mt-4"
+        action={
+          <Link
+            href="/contact"
+            onClick={() => {
+              carryDatesToQuoteForm();
+              trackEvent("direct_inquiry_click", {
+                location: "availability_check",
+              });
+            }}
+            className="inline-flex items-center gap-1 text-sm font-semibold underline underline-offset-4"
+          >
+            Request a quote for these dates
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        }
+      />
+
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
         <a
           href={airbnbHref}
@@ -174,23 +219,7 @@ export function BookingDeepLinks() {
         <Link
           href="/contact"
           onClick={() => {
-            try {
-              if (datesValid) {
-                window.sessionStorage.setItem(
-                  QUOTE_PREFILL_SESSION_KEY,
-                  JSON.stringify({
-                    arrival: checkIn,
-                    departure: checkOut,
-                    guests,
-                    createdAt: Date.now(),
-                  })
-                );
-              } else {
-                window.sessionStorage.removeItem(QUOTE_PREFILL_SESSION_KEY);
-              }
-            } catch {
-              // If storage is disabled, /contact still works without prefill.
-            }
+            carryDatesToQuoteForm();
             trackEvent("direct_inquiry_click", { location: "deep_links" });
           }}
           className="inline-flex items-center gap-1 font-medium text-amber-800 underline underline-offset-4 hover:text-amber-900"
