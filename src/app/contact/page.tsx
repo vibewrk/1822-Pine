@@ -9,6 +9,7 @@ import {
   MapPin,
   Send,
 } from "lucide-react";
+import { AvailabilityCheck } from "@/components/AvailabilityCheck";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
@@ -468,6 +469,12 @@ export default function ContactPage() {
                           </p>
                         </div>
                       </div>
+
+                      <AvailabilityCheck
+                        checkIn={arrival}
+                        checkOut={departure}
+                        location="contact_quote_form"
+                      />
 
                       <div className="grid gap-6 sm:grid-cols-2">
                         <div>
