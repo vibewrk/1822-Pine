@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Philadelphia Vacation Rental Rates | The Rittenhouse Residence",
     description: `${PRICING_COPY.short} ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 

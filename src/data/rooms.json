@@ -1,76 +1,76 @@
 {
   "rooms": [
     {
-      "name": "Principal Suite",
+      "name": "Bedroom 1",
       "floor": "Second floor",
       "bed": "King bed",
       "bath": "Private bath",
       "notes": "The principal suite above the street, with a private sitting room adjoining the bedroom.",
       "suitability": "One flight up, with the house's only private bath — a natural pick for the guests of honor or the trip's organizers.",
-      "imageSrc": "/images/airbnb/airbnb_01.jpg"
+      "imageSrc": "/images/property-tour/28-bedroom-1-02.webp"
     },
     {
-      "name": "Library Bedroom",
+      "name": "Bedroom 2",
       "floor": "Second floor",
       "bed": "Queen bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
       "notes": "Queen bedroom with Pine Street frontage, on the same floor as the formal library.",
       "suitability": "Suits the guest who wants a quieter corner — the formal library is steps away, and the climb stops at one flight.",
-      "imageSrc": "/images/airbnb/airbnb_08.jpg"
+      "imageSrc": "/images/property-tour/29-bedroom-2-01.webp"
     },
     {
-      "name": "Second Bedroom",
+      "name": "Bedroom 3",
       "floor": "Third floor",
-      "bed": "Queen bed",
+      "bed": "King bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "One of two queen bedrooms on the third floor.",
+      "notes": "One of two bedrooms on the third floor, furnished with a king bed.",
       "suitability": "A middle-of-the-house landing — fewer stairs than the fourth floor.",
-      "imageSrc": "/images/airbnb/airbnb_09.jpg"
+      "imageSrc": "/images/property-tour/30-bedroom-3-01.webp"
     },
     {
-      "name": "VIP Bedroom 2",
+      "name": "Bedroom 4",
       "floor": "Third floor",
       "bed": "Queen bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
       "notes": "The large VIP suite on the third floor.",
       "suitability": "Room to spread out without climbing to the top of the house.",
-      "imageSrc": "/images/airbnb/airbnb_12.jpg"
+      "imageSrc": "/images/property-tour/31-bedroom-4-01.webp"
     },
     {
-      "name": "Family Bedroom 1",
-      "floor": "Fourth floor",
-      "bed": "Queen bed",
-      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "One of two connecting family rooms on the fourth floor.",
-      "suitability": "The connecting pair suits parents with kids — doors between the rooms, not floors. The fourth floor is the most stairs in a house with no elevator.",
-      "imageSrc": "/images/airbnb/airbnb_10.jpg"
-    },
-    {
-      "name": "Family Bedroom 2",
+      "name": "Bedroom 5",
       "floor": "Fourth floor",
       "bed": "Double bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "The second of the two connecting family rooms, furnished with a double bed.",
-      "suitability": "Assign alongside Family Bedroom 1 for the family that wants to stay within earshot.",
-      "imageSrc": "/images/airbnb/airbnb_11.jpg"
+      "notes": "One of two connecting family rooms on the fourth floor, furnished with a double bed.",
+      "suitability": "The connecting pair suits parents with kids — doors between the rooms, not floors. The fourth floor is the most stairs in a house with no elevator.",
+      "imageSrc": "/images/property-tour/32-bedroom-5-01.webp"
     },
     {
-      "name": "Third Bedroom",
+      "name": "Bedroom 6",
+      "floor": "Fourth floor",
+      "bed": "Queen bed",
+      "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
+      "notes": "The second of the two connecting family rooms, furnished with a queen bed.",
+      "suitability": "Assign alongside Bedroom 5 for the family that wants to stay within earshot.",
+      "imageSrc": "/images/property-tour/33-bedroom-6-01.webp"
+    },
+    {
+      "name": "Bedroom 7",
       "floor": "Fourth floor",
       "bed": "Queen bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
       "notes": "Queen bedroom at the top of the house.",
       "suitability": "The most stairs and no elevator — assign to the sure-footed.",
-      "imageSrc": "/images/property/DSC08743.jpg"
+      "imageSrc": "/images/property-tour/34-bedroom-7-01.webp"
     },
     {
-      "name": "VIP Bedroom 3",
+      "name": "Bedroom 8",
       "floor": "Fourth floor",
       "bed": "King bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
       "notes": "The king VIP suite on the fourth floor.",
       "suitability": "A king bed for whoever does not mind the climb — the most stairs, no elevator.",
-      "imageSrc": "/images/property/DSC08749.jpg"
+      "imageSrc": "/images/property-tour/35-bedroom-8-01.webp"
     }
   ]
 }

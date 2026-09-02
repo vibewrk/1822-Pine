@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Book The Rittenhouse Residence",
     description: `The whole 8-bedroom townhouse, two blocks from Rittenhouse Square. ${PRICING_COPY.short}`,
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 
@@ -40,7 +40,7 @@ const included = [
   ],
   [
     "Flexible Sleeping",
-    `${PROPERTY_FACTS.bedrooms} bedrooms — two kings, five queens and a double — on floors 2–4 of the four-story house.`,
+    `${PROPERTY_FACTS.bedrooms} bedrooms — three kings, four queens and a double — on floors 2–4 of the four-story house.`,
   ],
   [
     "Historic Experience",
@@ -87,8 +87,8 @@ export default function BookPage() {
       <section className="relative bg-stone-950 py-20 md:py-28">
         <div className="absolute inset-0">
           <Image
-            src="/images/property/DSC00082.jpg"
-            alt="Principal suite of The Rittenhouse Residence"
+            src="/images/property-tour/28-bedroom-1-02.webp"
+            alt="Bedroom 1, the principal suite at The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover opacity-20"

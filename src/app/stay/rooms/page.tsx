@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "8 Bedrooms for 16 Guests | The Rittenhouse Residence",
     description:
       "Eight bedrooms across floors 2–4, labeled plainly, with a printable assignment sheet for the whole group.",
-    images: ["/images/airbnb/airbnb_01.jpg"],
+    images: ["/images/property-tour/28-bedroom-1-02.webp"],
   },
 };
 
@@ -30,7 +30,7 @@ const SITE = "https://rittenhouseresidence.com";
 
 const stats = [
   ["8 bedrooms", "Floors 2–4"],
-  ["2 kings · 5 queens · 1 double", "The bed mix"],
+  ["3 kings · 4 queens · 1 double", "The bed mix"],
   ["5 baths + powder", "Across the house"],
   ["No elevator", "Stairs between floors"],
 ];
@@ -46,7 +46,7 @@ const tips = [
   ],
   [
     "One private bath",
-    "The Principal Suite has its own private bath. The other bedrooms share the hall baths between them, and we send you the exact room-to-bath map before you arrive so nobody is guessing on the first morning.",
+    "Bedroom 1 has its own private bath. The other bedrooms share the hall baths between them, and we send you the exact room-to-bath map before you arrive so nobody is guessing on the first morning.",
   ],
 ];
 
@@ -79,8 +79,8 @@ export default function RoomPlannerPage() {
 
       <section className="relative min-h-[560px] overflow-hidden print:hidden">
         <Image
-          src="/images/airbnb/airbnb_01.jpg"
-          alt="Principal bedroom with four-poster bed at The Rittenhouse Residence"
+          src="/images/property-tour/28-bedroom-1-02.webp"
+          alt="Bedroom 1 with a king bed at The Rittenhouse Residence"
           fill
           sizes="100vw"
           priority
@@ -121,7 +121,7 @@ export default function RoomPlannerPage() {
               Every room, labeled plainly.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              {"Two kings, five queens, a double, and enough floor separation that sixteen people can still find a quiet landing. Photos are drawn from the house gallery by floor; the room-by-room tour is in your arrival packet."}
+              {"Three kings, four queens, a double, and enough floor separation that sixteen people can still find a quiet landing. The room names and photos follow the same numbered sequence as the booking tour."}
             </p>
           </div>
 

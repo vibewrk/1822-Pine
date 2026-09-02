@@ -68,19 +68,19 @@ function teaserDate(event: WhatsOnEvent): string {
 const spaces = [
   {
     name: "Grand Parlor",
-    image: "/images/airbnb/airbnb_04.jpg",
+    image: "/images/property-tour/03-living-room-1-03.webp",
     alt: "Grand Parlor with original fireplace, crystal chandelier, and pool table",
     caption: "Fourteen-foot ceilings · historic marble fireplace · crystal chandelier · full-size pool table.",
   },
   {
     name: "Library Lounge",
-    image: "/images/airbnb/airbnb_05.jpg",
+    image: "/images/property-tour/54-library-01.webp",
     alt: "Library lounge with wet bar and period furnishings",
     caption: "Wet bar · floor-to-ceiling bookshelves · period furnishings.",
   },
   {
     name: "Roof Deck",
-    image: "/images/airbnb/airbnb_02.jpg",
+    image: "/images/property-tour/45-rooftop-01.webp",
     alt: "Private roof deck with Philadelphia skyline views",
     caption: "Private terrace · skyline views · room for morning coffee.",
   },
@@ -142,7 +142,7 @@ export default function HomePage() {
           the highest-traffic page. min-h lets the section grow instead. */}
       <section className="relative flex min-h-[85vh] flex-col justify-end">
         <Image
-          src="/images/airbnb/airbnb_03.jpg"
+          src="/images/property-tour/01-living-room-1-01.webp"
           alt="Grand parlor inside The Rittenhouse Residence, a historic Philadelphia townhouse"
           fill
           sizes="100vw"
@@ -237,8 +237,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-sm">
             <Image
-              src="/images/airbnb/airbnb_01.jpg"
-              alt="The principal suite at The Rittenhouse Residence — a mahogany four-poster beneath a crystal chandelier, with historic millwork and a leaded-glass cabinet"
+              src="/images/property-tour/28-bedroom-1-02.webp"
+              alt="Bedroom 1 at The Rittenhouse Residence, with a king bed and historic details"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
               className="object-cover"
@@ -314,7 +314,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a principal suite with a four-poster and private bath — plus five queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Three kings — including a principal suite with a private bath — plus four queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"
@@ -327,8 +327,8 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src="/images/property/DSC00082.jpg"
-                alt="Principal suite with four-poster bed at The Rittenhouse Residence"
+                src="/images/property-tour/28-bedroom-1-02.webp"
+                alt="Bedroom 1 with a king bed at The Rittenhouse Residence"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -336,8 +336,8 @@ export default function HomePage() {
             </div>
             <div className="relative mt-10 aspect-[3/4] overflow-hidden rounded-lg">
               <Image
-                src="/images/airbnb/airbnb_08.jpg"
-                alt="Upper-floor guest bedroom inside the Philadelphia mansion"
+                src="/images/property-tour/30-bedroom-3-01.webp"
+                alt="Bedroom 3 with a king bed at The Rittenhouse Residence"
                 fill
                 sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
@@ -351,8 +351,8 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative order-2 aspect-[4/3] overflow-hidden rounded-lg lg:order-1">
             <Image
-              src="/images/property/DSC00088.jpg"
-              alt="Historic interior detail inside The Rittenhouse Residence"
+              src="/images/property-tour/58-additional-photos-02.webp"
+              alt="Gallery hall inside The Rittenhouse Residence"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
@@ -482,7 +482,7 @@ export default function HomePage() {
 
       <section className="relative py-20 md:py-28">
         <Image
-          src="/images/airbnb/airbnb_04.jpg"
+          src="/images/property-tour/03-living-room-1-03.webp"
           alt="Grand Parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"

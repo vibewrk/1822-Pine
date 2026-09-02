@@ -19,8 +19,8 @@ export const PROPERTY_FACTS = {
   licenseNumber: "903781",
   documentedFromYear: 1854,
   beds: {
-    king: 2,
-    queen: 5,
+    king: 3,
+    queen: 4,
     double: 1,
   },
 } as const;
