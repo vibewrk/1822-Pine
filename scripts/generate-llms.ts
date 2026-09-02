@@ -60,6 +60,7 @@ The property is guest lodging, not a ceremony, reception, party, or event venue.
 - ${PRICING_COPY.long}
 - Value example: ${PRICING_COPY.example}
 - The website accepts date and group inquiries but does not process checkout on-site
+- The website does not publish an open, booked, or equivalent verdict for submitted dates; a person confirms availability privately
 - An inquiry receives availability, an itemized quote, and booking next steps within 24 hours
 - Live calendars and secure checkout are available on Airbnb and Vrbo
 

@@ -93,7 +93,10 @@ printf '%s' "$llms" | grep -q 'Select weekdays may be available from about \$1,6
 printf '%s' "$llms" | grep -q 'website itself has no checkout' \
   && ok "/llms.txt states the booking mechanism" \
   || bad "/llms.txt is missing the no-on-site-checkout fact"
-printf '%s' "$llms" | grep -q 'Site truth revision: rr-site-2026-09-02.1' \
+printf '%s' "$llms" | grep -q 'does not publish an open, booked, or equivalent verdict' \
+  && ok "/llms.txt states the inquiry-only date policy" \
+  || bad "/llms.txt is missing the inquiry-only date policy"
+printf '%s' "$llms" | grep -q 'Site truth revision: rr-site-2026-09-02.2' \
   && ok "/llms.txt identifies the current site-truth revision" \
   || bad "/llms.txt is missing the current site-truth revision"
 printf '%s' "$llms" | grep -q 'Bedrooms: 8 (2 kings and 6 queens)' \
@@ -265,27 +268,31 @@ case "$r" in
   *) bad "contact API returned $r on an empty direct submission" ;;
 esac
 
-head_ "Availability API (RentalAgent)"
-# Dates far enough ahead to be a legitimate enquiry and stable across runs.
+head_ "Inquiry-only date boundary"
 av_in=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=120))')
 av_out=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=123))')
+av_other_in=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=150))')
+av_other_out=$(python3 -c 'import datetime; print(datetime.date.today() + datetime.timedelta(days=153))')
 av=$(fetch "$SITE/api/availability?checkIn=$av_in&checkOut=$av_out")
-case "$av" in
-  *'"status":"open"'*|*'"status":"booked"'*)
-    ok "availability API returns a confirmed verdict (RentalAgent connected)" ;;
-  *'"status":"unconfirmed"'*)
-    ok "availability API answers unconfirmed (safe; RentalAgent unconfigured or calendar not fresh)" ;;
-  *) bad "availability API returned an unexpected body" ;;
-esac
-# Nothing operational may ever appear in a public availability response.
-if printf '%s' "$av" | grep -Eqi 'reservation|provider|listing|blocker|provenance|issueCode|propertyId'; then
-  bad "availability API leaked operational detail into a public response"
+av_other=$(fetch "$SITE/api/availability?checkIn=$av_other_in&checkOut=$av_other_out")
+if printf '%s' "$av" | grep -q '"mode":"inquiry_only"' \
+  && printf '%s' "$av" | grep -q '"message":"Availability is confirmed personally after an inquiry."'; then
+  ok "compatibility API returns the inquiry-only acknowledgement"
 else
-  ok "availability API exposes only status/dates/nights"
+  bad "compatibility API did not return the inquiry-only acknowledgement"
 fi
-# A range under the house minimum must be refused before any upstream call.
-r=$(fetch -o /dev/null -w '%{http_code}' "$SITE/api/availability?checkIn=$av_in&checkOut=$av_in")
-[ "$r" = "400" ] && ok "availability API rejects an invalid range" || bad "availability API returned $r on an invalid range"
+[ "$av" = "$av_other" ] \
+  && ok "different date queries receive an identical public response" \
+  || bad "compatibility API response changes with the supplied range"
+if printf '%s' "$av" | grep -Eqi '"status"|checkIn|checkOut|nights|"open"|"booked"|"unconfirmed"|reservation|provider|listing|blocker|provenance|issueCode|propertyId'; then
+  bad "compatibility API exposed a date verdict, echoed input, or operational detail"
+else
+  ok "compatibility API exposes no dates, verdict, or operational detail"
+fi
+av_headers=$(fetch -D - -o /dev/null "$SITE/api/availability")
+printf '%s' "$av_headers" | grep -qi '^x-robots-tag: noindex, nofollow, nosnippet' \
+  && ok "compatibility API is excluded from indexing" \
+  || bad "compatibility API is missing its X-Robots-Tag"
 
 printf '\n\033[1mSummary:\033[0m %d passed, %d failed\n' "$PASS" "$FAIL"
 [ "$FAIL" -eq 0 ] || exit 1

@@ -42,9 +42,11 @@ owning source plus its generated consumers.
   the record.
 - Never publish a real tested stay range together with an `open`, `booked`, or
   equivalent result in code, documentation, fixtures, PRs, issues, or handoffs.
-- The public exact-date availability response is an unresolved owner-policy
-  boundary documented in `docs/SITE-TRUTH.md`. Do not call it privacy-approved
-  or remove it without the owner's decision.
+- Public date handling is inquiry-only. The browser must not query a calendar
+  or display `open`, `booked`, `unconfirmed`, or an equivalent verdict.
+- `/api/availability` is a temporary compatibility acknowledgement only. It
+  must return the same response for every request, echo no dates, and touch no
+  RentalAgent credential or calendar.
 - Do not publish credentials, guest data, reservation identifiers, security
   topology, access codes, or private operational evidence.
 - Advertising activation, spend, provider mutations, payout, tax, licensing,
@@ -60,4 +62,14 @@ SITE=https://rittenhouseresidence.com bash scripts/verify-seo.sh
 ```
 
 The live verifier is broad regression evidence. It does not turn external
-account observations or unresolved owner decisions into facts.
+account observations into facts.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

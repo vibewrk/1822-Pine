@@ -40,6 +40,8 @@ lodging for the team—not as a meeting or event venue.
   or per-person figure is explicitly a sample calculation, not a rate.
 - Inquiry: the website accepts dates and group details and replies within 24
   hours with availability, an itemized personal quote, and next steps.
+- Public date status: inquiry-only. The website carries selected dates into the
+  quote form but does not say whether they are open, booked, or unconfirmed.
 - Checkout: the website does not process checkout. Airbnb and Vrbo provide
   live calendars and secure checkout.
 - Location: public marketing identifies the 1800 block of Pine Street, Center

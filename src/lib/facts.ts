@@ -1,6 +1,6 @@
 export const SITE_URL = "https://rittenhouseresidence.com";
 export const PROPERTY_NAME = "The Rittenhouse Residence";
-export const SITE_TRUTH_REVISION = "rr-site-2026-09-02.1";
+export const SITE_TRUTH_REVISION = "rr-site-2026-09-02.2";
 export const REVIEW_FACTS_AS_OF = "2026-09-02";
 export const PRIMARY_PROPERTY_IMAGE =
   "/images/property-tour/07-living-room-1-07.webp";

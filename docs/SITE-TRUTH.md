@@ -1,9 +1,10 @@
 # Rittenhouse Residence site truth
 
 Status: canonical coordinate for the current public website  
-Truth revision: `rr-site-2026-09-02.1`  
+Truth revision: `rr-site-2026-09-02.2`
 Last reconciled: 2026-09-02  
-Last behavior-changing publication baseline: [PR #59](https://github.com/vibewrk/1822-Pine/pull/59), merge `347763664ecb5c97c459915785f6e30fedf2b0f1`
+Pre-inquiry-only behavior baseline: [PR #59](https://github.com/vibewrk/1822-Pine/pull/59), merge `347763664ecb5c97c459915785f6e30fedf2b0f1`
+Owner-approved public date policy: inquiry-only, directed 2026-09-02
 
 This file is the route to truth, not another independent inventory. Use the
 owning source below and treat the values in prose as a dated summary. The
@@ -66,26 +67,23 @@ The intended marketing boundary is defense in depth, not anonymity:
 - booked guests receive exact arrival information through the appropriate
   private channel.
 
-### Exact-date availability is not yet a settled policy
+### Public date handling is inquiry-only
 
-The deployed `/api/availability` route currently accepts one requested range
-and returns an allow-listed `open`, `booked`, or `unconfirmed` result. It hides
-credentials and operational identifiers, fails closed on uncertain data,
-limits range length and request volume, and does not prove that the building is
-physically vacant.
+The owner selected the stricter policy on 2026-09-02. The public website does
+not answer whether requested dates are open, booked, or otherwise available.
+Selected dates remain useful: the site carries them into the personal quote
+form, where a person replies within 24 hours, and Airbnb and Vrbo remain the
+public live-calendar and secure-checkout paths.
 
-Those controls do **not** make the date result private. The endpoint remains a
-machine-readable exact-range status surface, and rate limiting is friction
-rather than a complete privacy boundary. The owner still needs to choose
-between:
+The browser makes no availability request. The former `/api/availability`
+URL remains temporarily as a compatibility route for older cached browser
+code, but it returns the same fixed inquiry acknowledgement for every request,
+echoes no supplied dates, uses no calendar credential, and makes no upstream
+call. It must never regain a public date verdict without a new owner decision
+and truth revision.
 
-1. allowing bounded, one-range-at-a-time status checks; or
-2. returning only an inquiry acknowledgement publicly, with availability
-   answered through a private human or provider path.
-
-Until that decision is recorded, describe the implementation exactly and do
-not claim either policy has been approved. Never publish real tested ranges or
-their results in repository documentation, PRs, issues, or campaign evidence.
+Never publish real tested ranges or their results in repository documentation,
+PRs, issues, handoffs, analytics, or campaign evidence.
 
 ## Measurement and acquisition boundary
 
@@ -110,9 +108,9 @@ future creative readiness but do not by themselves clear those gates.
   currently come from the maintained repository dataset. They are not yet a
   live RentalAgent/provider feed.
 - The website has live inquiry and OTA handoffs but no on-site checkout.
-- The RentalAgent availability integration is read-only from the website's
-  perspective. Repository code cannot by itself attest to a deployed token's
-  scope or an upstream deployment SHA.
+- RentalAgent may support private operational availability work, but the
+  public website does not call it for date status. Repository code cannot by
+  itself attest to a deployed token's scope or an upstream deployment SHA.
 - Hospitable Direct, widget, GVR, payout, property attachment, tax, policy, and
   payment state belong to timestamped Hospitable evidence and remain subject
   to explicit owner approval for changes.

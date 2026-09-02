@@ -21,7 +21,19 @@ function exportedString(source, name) {
   return match[1];
 }
 
-const [facts, agents, readme, siteTruth, handoff, integration, llms] =
+const [
+  facts,
+  agents,
+  readme,
+  siteTruth,
+  handoff,
+  integration,
+  llms,
+  availabilityRoute,
+  availabilityInquiry,
+  bookingDeepLinks,
+  contactPage,
+] =
   await Promise.all([
     read("src/lib/facts.ts"),
     read("AGENTS.md"),
@@ -30,6 +42,10 @@ const [facts, agents, readme, siteTruth, handoff, integration, llms] =
     read("docs/HANDOFF.md"),
     read("docs/RENTALAGENT-INTEGRATION.md"),
     read("public/llms.txt"),
+    read("src/app/api/availability/route.ts"),
+    read("src/components/AvailabilityInquiry.tsx"),
+    read("src/components/BookingDeepLinks.tsx"),
+    read("src/app/contact/page.tsx"),
   ]);
 
 const retiredPlans = await Promise.all(
@@ -63,6 +79,12 @@ invariant(
 invariant(
   llms.includes(`Review snapshot observed: ${reviewFactsAsOf}`),
   "public/llms.txt must date the generated review snapshot"
+);
+invariant(
+  llms.includes(
+    "The website does not publish an open, booked, or equivalent verdict"
+  ),
+  "public/llms.txt must state the inquiry-only date policy"
 );
 invariant(
   agents.includes("docs/SITE-TRUTH.md") && readme.includes("docs/SITE-TRUTH.md"),
@@ -101,6 +123,27 @@ const disclosedAvailabilityEvidence =
 invariant(
   !disclosedAvailabilityEvidence.test(integration),
   "Public integration docs must not preserve a real stay range with its availability result"
+);
+
+invariant(
+  siteTruth.includes("Public date handling is inquiry-only") &&
+    agents.includes("Public date handling is inquiry-only"),
+  "Canonical policy surfaces must record the inquiry-only date boundary"
+);
+invariant(
+  availabilityRoute.includes('mode: "inquiry_only"') &&
+    !availabilityRoute.includes('status:') &&
+    !/(?:fetch\s*\(|process\.env|RENTALAGENT_|check_stay_availability|\/api\/mcp)/.test(
+      availabilityRoute
+    ),
+  "The compatibility route must return inquiry-only without a credential or upstream call"
+);
+invariant(
+  !/fetch\s*\(/.test(availabilityInquiry) &&
+    !/(?:\/api\/availability|availability_check|These dates are open|These dates are already booked)/.test(
+    [availabilityInquiry, bookingDeepLinks, contactPage].join("\n")
+    ),
+  "The browser must not query or render public availability verdicts"
 );
 
 console.log(
