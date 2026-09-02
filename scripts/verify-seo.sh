@@ -148,11 +148,11 @@ printf '%s' "$home" | grep -q '"occupancy":{"@type":"QuantitativeValue","value":
 printf '%s' "$home" | grep -q '"floorSize":{"@type":"QuantitativeValue","value":7000,"unitCode":"FTK"}' \
   && ok "House schema floor area is 7,000 square feet" \
   || bad "House floor area is missing or stale"
-printf '%s' "$home" | grep -q '"numberOfBeds":3,"typeOfBed":"King"' \
-  && printf '%s' "$home" | grep -q '"numberOfBeds":4,"typeOfBed":"Queen"' \
-  && printf '%s' "$home" | grep -q '"numberOfBeds":1,"typeOfBed":"Double"' \
-  && ok "schema bed mix includes 3 kings, 4 queens, and 1 double" \
-  || bad "schema bed mix is stale (expect 3 kings, 4 queens, 1 double)"
+printf '%s' "$home" | grep -q '"numberOfBeds":2,"typeOfBed":"King"' \
+  && printf '%s' "$home" | grep -q '"numberOfBeds":6,"typeOfBed":"Queen"' \
+  && ! printf '%s' "$home" | grep -q '"typeOfBed":"Double"' \
+  && ok "schema bed mix includes 2 kings and 6 queens" \
+  || bad "schema bed mix is stale (expect 2 kings and 6 queens)"
 printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/property-tour/01-living-room-1-01.webp"' \
   && ok "property schema uses the approved public image set" \
   || bad "property schema approved image set is missing"

@@ -234,8 +234,8 @@ export default function StairsAndAccessPage() {
                 Room planner
               </h3>
               <p className="mt-3 text-sm leading-6 text-stone-700">
-                Work out who sleeps where before you arrive — three kings, four
-                queens and a double across eight bedrooms.
+                Work out who sleeps where before you arrive — two kings and six
+                queens across eight bedrooms.
               </p>
             </Link>
             <Link

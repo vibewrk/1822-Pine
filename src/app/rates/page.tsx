@@ -40,7 +40,7 @@ const rateFacts = [
   ],
   [
     `Sleeps ${PROPERTY_FACTS.sleeps}`,
-    `${PROPERTY_FACTS.bedrooms} bedrooms on floors 2–4 — ${PROPERTY_FACTS.beds.king} kings, ${PROPERTY_FACTS.beds.queen} queens and a double — with ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room.`,
+    `${PROPERTY_FACTS.bedrooms} bedrooms on floors 2–4 — ${PROPERTY_FACTS.beds.king} kings and ${PROPERTY_FACTS.beds.queen} queens — with ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room.`,
   ],
   [
     "One group per date",

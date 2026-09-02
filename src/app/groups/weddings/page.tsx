@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  ["Sleeps 16", "8 bedrooms · 3 kings, 4 queens, 1 double"],
+  ["Sleeps 16", "8 bedrooms · 2 kings, 6 queens"],
   ["2 blocks", "From Rittenhouse Square"],
   ["Seats 16", "Group breakfasts at one table"],
   ["24 hours", "To confirm availability and a quote"],
@@ -153,7 +153,7 @@ export default function WeddingGuestHousingPage() {
                 those moments. One house puts a staircase.
               </p>
               <p className="mt-4 text-lg leading-8 text-stone-700">
-                The house sleeps sixteen across eight bedrooms — three kings, four queens and a double on floors
+                The house sleeps sixteen across eight bedrooms — two kings and six queens on floors
                 two through four, with five full baths and a powder room — so grandparents, siblings, and the friends
                 who count as family each get a real bedroom, not a rollaway.
               </p>

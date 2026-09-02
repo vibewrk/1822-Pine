@@ -60,7 +60,7 @@ const floorWalk = [
     alt: "Bedroom 3 with a king bed",
     rooms: [
       "Bedroom 3 has a king bed and Bedroom 4 a queen; both are on the third floor.",
-      "On the fourth floor, Bedrooms 5 and 6 form a connecting double-and-queen pair; Bedroom 7 is a queen and Bedroom 8 a king.",
+      "On the fourth floor, Bedrooms 5 and 6 form a connecting queen-bed pair; Bedrooms 7 and 8 also have queen beds.",
       "Five full bathrooms and a powder room keep mornings moving.",
     ],
   },
@@ -81,10 +81,10 @@ const bedrooms = [
   ["Bedroom 2", "Queen bed", "Second floor", "Shared full bath nearby"],
   ["Bedroom 3", "King bed", "Third floor", "Full bath nearby"],
   ["Bedroom 4", "Queen bed", "Third floor", "Full bath nearby"],
-  ["Bedroom 5", "Double bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 5", "Queen bed", "Fourth floor", "Full bath nearby"],
   ["Bedroom 6", "Queen bed", "Fourth floor", "Full bath nearby"],
   ["Bedroom 7", "Queen bed", "Fourth floor", "Full bath nearby"],
-  ["Bedroom 8", "King bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 8", "Queen bed", "Fourth floor", "Full bath nearby"],
 ];
 
 const amenities = [
@@ -221,7 +221,7 @@ export default function StayPage() {
               Eight bedrooms, each with its own character.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: three kings, four queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
+              The mix is simple: two kings and six queens, with enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 

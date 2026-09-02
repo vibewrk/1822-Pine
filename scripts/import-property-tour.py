@@ -17,6 +17,16 @@ from PIL import Image, ImageOps
 
 
 OMIT_FLAG_TYPES = {"exact_duplicate"}
+VERIFIED_BED_BY_BEDROOM = {
+    "Bedroom 1": "King bed",
+    "Bedroom 2": "Queen bed",
+    "Bedroom 3": "King bed",
+    "Bedroom 4": "Queen bed",
+    "Bedroom 5": "Queen bed",
+    "Bedroom 6": "Queen bed",
+    "Bedroom 7": "Queen bed",
+    "Bedroom 8": "Queen bed",
+}
 CAPTION_OVERRIDES = {
     17: "Chef's kitchen with two convection ovens and a microwave",
     18: "Tea and coffee station with two Nespresso machines and a kettle",
@@ -31,6 +41,14 @@ CAPTION_OVERRIDES = {
     58: "Gallery hall and front parlor",
     59: "Front entry",
 }
+
+
+def bed_for(record: dict) -> str | None:
+    """Prefer the owner-verified bed map over stale OTA photo highlights."""
+    return VERIFIED_BED_BY_BEDROOM.get(
+        record["group"],
+        (record.get("bed_highlights") or [None])[0],
+    )
 
 
 def slugify(value: str) -> str:
@@ -58,7 +76,7 @@ def category_for(group: str) -> str:
 def display_caption(record: dict) -> str:
     order = record["order"]
     group = record["group"]
-    bed = (record.get("bed_highlights") or [None])[0]
+    bed = bed_for(record)
     mismatch = any(
         flag.get("type") == "caption_group_mismatch"
         for flag in record.get("flags", [])
@@ -146,7 +164,7 @@ def main() -> None:
                 "caption": caption,
                 "alt": alt_text(record, caption),
                 "category": category_for(group),
-                "bed": (record.get("bed_highlights") or [None])[0],
+                "bed": bed_for(record),
                 "orientation": (
                     "portrait" if height > width else "landscape"
                 ),

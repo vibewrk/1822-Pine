@@ -40,7 +40,7 @@ const included = [
   ],
   [
     "Flexible Sleeping",
-    `${PROPERTY_FACTS.bedrooms} bedrooms — three kings, four queens and a double — on floors 2–4 of the four-story house.`,
+    `${PROPERTY_FACTS.bedrooms} bedrooms — two kings and six queens — on floors 2–4 of the four-story house.`,
   ],
   [
     "Historic Experience",
