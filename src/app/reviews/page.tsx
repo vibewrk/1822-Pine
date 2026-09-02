@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Guest Reviews | The Rittenhouse Residence",
     description: `${TOTAL_REVIEWS} reviews across Airbnb and Vrbo, in guests' own words.`,
     type: "article",
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 

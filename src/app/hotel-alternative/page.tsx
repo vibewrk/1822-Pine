@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Philadelphia Hotel Alternative for Groups | Sleeps 16",
     description:
       "Eight hotel rooms or one historic house: compare the spaces, shared rooms, and practical details for groups of up to 16.",
-    images: ["/images/property/DSC00072.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 
@@ -121,7 +121,7 @@ export default function HotelAlternativePage() {
       <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
         <section className="relative min-h-[620px] overflow-hidden">
           <Image
-            src="/images/property/DSC00072.jpg"
+            src="/images/property-tour/01-living-room-1-01.webp"
             alt="Grand parlor with pool table opening through towering pocket doors beneath carved plaster friezes"
             fill
             sizes="100vw"
@@ -296,8 +296,8 @@ export default function HotelAlternativePage() {
 
         <section className="relative py-20 md:py-28">
           <Image
-            src="/images/property/DSC00122.jpg"
-            alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
+            src="/images/property-tour/58-additional-photos-02.webp"
+            alt="Gallery hall inside The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover"

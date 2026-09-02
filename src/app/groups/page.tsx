@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Large Group Lodging in Philadelphia | Sleeps 16",
     description:
       `One historic house for the whole group: 8 bedrooms, sleeps 16, dining for 16 at one table. ${PRICING_COPY.compact}`,
-    images: ["/images/property/DSC08821.jpg"],
+    images: ["/images/property-tour/26-dining-area-01.webp"],
   },
 };
 
@@ -103,7 +103,7 @@ export default function GroupsPage() {
       <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
         <section className="relative min-h-[620px] overflow-hidden">
           <Image
-            src="/images/property/DSC08821.jpg"
+            src="/images/property-tour/26-dining-area-01.webp"
             alt="Dining room set for sixteen beneath a crystal chandelier at The Rittenhouse Residence"
             fill
             sizes="100vw"
@@ -176,7 +176,7 @@ export default function GroupsPage() {
               <Bed className="h-6 w-6 text-amber-800" />
               <h3 className="mt-5 font-serif text-2xl font-semibold">Where everyone sleeps</h3>
               <p className="mt-3 leading-7 text-stone-700">
-                Eight bedrooms across floors two through four: two kings, five queens and a
+                Eight bedrooms across floors two through four: three kings, four queens and a
                 double, with five full bathrooms and a powder room keeping the mornings civil. Bedrooms sit on the upper floors of
                 a four-story townhouse — there is no elevator, which is worth knowing before you
                 assign rooms.
@@ -264,8 +264,8 @@ export default function GroupsPage() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src="/images/property/DSC00122.jpg"
-                    alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
+                    src="/images/property-tour/58-additional-photos-02.webp"
+                    alt="Gallery hall inside The Rittenhouse Residence"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -291,7 +291,7 @@ export default function GroupsPage() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src="/images/property/DSC00072.jpg"
+                    src="/images/property-tour/01-living-room-1-01.webp"
                     alt="Grand parlor with pool table opening through towering pocket doors"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -337,7 +337,7 @@ export default function GroupsPage() {
 
         <section className="relative py-20 md:py-28">
           <Image
-            src="/images/airbnb/airbnb_02.jpg"
+            src="/images/property-tour/45-rooftop-01.webp"
             alt="Private roof deck with panoramic Center City views at The Rittenhouse Residence"
             fill
             sizes="100vw"

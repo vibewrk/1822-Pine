@@ -10,6 +10,12 @@ const siteRoot = path.resolve(scriptDir, "..");
 // originals stay out of the Next.js static pipeline until then.
 const SOURCE_ROOT = siteRoot;
 const PUBLIC_ROOT = path.resolve(siteRoot, "public", "archive");
+const PUBLIC_AIRBNB_ARCHIVE_ROOT = path.resolve(
+  PUBLIC_ROOT,
+  "images",
+  "web",
+  "airbnb"
+);
 const PUBLIC_FLOOR_PLAN_ROOT = path.resolve(siteRoot, "public", "floor-plans");
 const SANITIZED_FLOOR_PLAN_ROOT = path.resolve(siteRoot, "output", "pdf");
 
@@ -47,9 +53,18 @@ const ARCHIVE_EXCLUDE_PATTERNS = [
   "scarlet fever",    // Historical illness reference - not appropriate for rental marketing
 ];
 
+const ARCHIVE_EXCLUDE_ROOTS = [
+  path.resolve(SOURCE_ROOT, "images", "web", "airbnb"),
+];
+
 function shouldExcludeArchiveFile(srcPath) {
   const normalized = srcPath.toLowerCase();
-  return ARCHIVE_EXCLUDE_PATTERNS.some((pattern) => normalized.includes(pattern));
+  return (
+    ARCHIVE_EXCLUDE_PATTERNS.some((pattern) => normalized.includes(pattern)) ||
+    ARCHIVE_EXCLUDE_ROOTS.some(
+      (root) => srcPath === root || srcPath.startsWith(`${root}${path.sep}`)
+    )
+  );
 }
 
 async function exists(p) {
@@ -71,6 +86,11 @@ async function ensureDir(p) {
 }
 
 async function main() {
+  // Listing photos belong in the curated, privacy-reviewed property tour,
+  // never in the historical source archive. Remove any copy left by an older
+  // build even when a full archive sync is explicitly skipped.
+  await rmIfExists(PUBLIC_AIRBNB_ARCHIVE_ROOT);
+
   // NOTE: this must run on Vercel/CI too. public/archive is gitignored, so the
   // deployed site has archive imagery ONLY if this build step copies it. (A
   // previous version skipped CI builds, which shipped ~130 broken images

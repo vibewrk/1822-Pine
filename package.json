@@ -6,11 +6,12 @@
     "generate:llms": "tsx scripts/generate-llms.ts",
     "predev": "npm run generate:llms && node scripts/prepare-archive-assets.mjs",
     "dev": "next dev --webpack",
-    "prebuild": "npm run generate:llms && node scripts/prepare-archive-assets.mjs && npm run check:whats-on",
+    "prebuild": "npm run generate:llms && node scripts/prepare-archive-assets.mjs && npm run check:whats-on && npm run check:images",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "check:whats-on": "node scripts/check-whats-on.mjs",
+    "check:images": "node scripts/check-property-images.mjs",
     "test:contact": "tsx --test src/lib/contact-security.test.ts src/lib/quote-prefill.test.ts src/app/api/contact/route.test.ts src/proxy.test.ts",
     "test:availability": "tsx --test src/lib/availability.test.ts src/app/api/availability/route.test.ts"
   },

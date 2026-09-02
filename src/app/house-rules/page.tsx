@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     description:
       "Check-in and checkout, noise, visitors, parties, pets and smoking — the rules in full, before you book.",
     type: "article",
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 

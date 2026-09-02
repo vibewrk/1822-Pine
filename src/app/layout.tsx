@@ -68,9 +68,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/airbnb/airbnb_03.jpg",
-        width: 1200,
-        height: 630,
+        url: "/images/property-tour/01-living-room-1-01.webp",
+        width: 2100,
+        height: 1400,
         alt: "Grand Parlor at The Rittenhouse Residence - Historic Philadelphia Townhouse",
       },
     ],
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion",
     description:
       "A historic townhouse with 8 bedrooms, two blocks from Rittenhouse Square. A whole-home Philadelphia rental for groups.",
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
   robots: {
     index: true,

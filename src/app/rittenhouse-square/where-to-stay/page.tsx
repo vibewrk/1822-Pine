@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "The hotels on and around Rittenhouse Square, what each does best, and the whole-house option for groups — written by locals who run one of the options.",
     type: "article",
-    images: ["/images/property/DSC00112.jpg"],
+    images: ["/images/property-tour/58-additional-photos-02.webp"],
   },
 };
 
@@ -121,7 +121,7 @@ const articleSchema = {
     "A local guide to the hotels on and around Rittenhouse Square in Philadelphia, and the whole-house option for groups of up to 16.",
   url: `${SITE}/rittenhouse-square/where-to-stay`,
   mainEntityOfPage: `${SITE}/rittenhouse-square/where-to-stay`,
-  image: [`${SITE}/images/property/DSC00112.jpg`],
+  image: [`${SITE}/images/property-tour/58-additional-photos-02.webp`],
   datePublished: "2026-08-26",
   dateModified: "2026-08-26",
   author: { "@type": "Organization", name: "The Rittenhouse Residence", url: SITE },
@@ -314,7 +314,7 @@ export default function WhereToStayPage() {
 
       <section className="relative py-20 md:py-28">
         <Image
-          src="/images/property/DSC00112.jpg"
+          src="/images/property-tour/58-additional-photos-02.webp"
           alt="Gallery-hung hallway and staircase inside The Rittenhouse Residence"
           fill
           sizes="100vw"

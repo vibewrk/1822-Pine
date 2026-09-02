@@ -428,8 +428,8 @@ export default function SuffragePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
-              src="/images/property/DSC00088.jpg"
-              alt="Interior of The Rittenhouse Residence at 1822 Pine Street"
+              src="/images/property-tour/26-dining-area-01.webp"
+              alt="Dining room inside The Rittenhouse Residence"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

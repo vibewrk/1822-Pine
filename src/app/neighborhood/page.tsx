@@ -147,7 +147,7 @@ export default function NeighborhoodPage() {
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
       <section className="relative min-h-[620px] overflow-hidden">
         <Image
-          src="/images/property/DSC00112.jpg"
+          src="/images/property-tour/58-additional-photos-02.webp"
           alt="Gallery-hung hallway and staircase inside The Rittenhouse Residence"
           fill
           sizes="100vw"

@@ -28,14 +28,14 @@ const ADDRESS = {
 };
 
 const IMAGES = [
-  `${SITE_URL}/images/airbnb/airbnb_03.jpg`,
-  `${SITE_URL}/images/airbnb/airbnb_04.jpg`,
-  `${SITE_URL}/images/airbnb/airbnb_01.jpg`,
-  `${SITE_URL}/images/airbnb/airbnb_02.jpg`,
-  `${SITE_URL}/images/airbnb/airbnb_05.jpg`,
-  `${SITE_URL}/images/property/DSC00106.jpg`,
-  `${SITE_URL}/images/airbnb/airbnb_08.jpg`,
-  `${SITE_URL}/images/property/DSC00122.jpg`,
+  `${SITE_URL}/images/property-tour/01-living-room-1-01.webp`,
+  `${SITE_URL}/images/property-tour/03-living-room-1-03.webp`,
+  `${SITE_URL}/images/property-tour/28-bedroom-1-02.webp`,
+  `${SITE_URL}/images/property-tour/29-bedroom-2-01.webp`,
+  `${SITE_URL}/images/property-tour/36-full-bathroom-1-01.webp`,
+  `${SITE_URL}/images/property-tour/26-dining-area-01.webp`,
+  `${SITE_URL}/images/property-tour/45-rooftop-01.webp`,
+  `${SITE_URL}/images/property-tour/54-library-01.webp`,
 ];
 
 /**

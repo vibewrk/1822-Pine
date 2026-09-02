@@ -211,7 +211,7 @@ export function StayCta({
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
           <Image
-            src="/images/property/DSC00088.jpg"
+            src="/images/property-tour/58-additional-photos-02.webp"
             alt="Interior of The Rittenhouse Residence, two blocks from Rittenhouse Square"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

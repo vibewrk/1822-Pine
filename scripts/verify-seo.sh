@@ -97,10 +97,10 @@ if printf '%s' "$llms" | grep -qiE '1822 Pine|1822pinestreet|no platform service
   bad "/llms.txt exposes the exact address or an obsolete booking promise"
 else ok "/llms.txt passes privacy and booking-consistency checks"; fi
 
-head_ "Previously-broken images"
-for u in /images/property/DSC00075.jpg /images/property/DSC00095.jpg /images/airbnb/airbnb_06.jpg /images/documents/deed_1854_p1_web.jpg; do
+head_ "Current property-tour images"
+for u in /images/property-tour/01-living-room-1-01.webp /images/property-tour/28-bedroom-1-02.webp /images/property-tour/45-rooftop-01.webp; do
   c=$(fetch -o /dev/null -w '%{http_code}' "$SITE$u")
-  [ "$c" = "404" ] && ok "$u no longer referenced (404 is fine; check pages render)" || ok "$u -> $c"
+  [ "$c" = "200" ] && ok "$u -> 200" || bad "$u returns $c"
 done
 arch=$(fetch "$SITE/history/documents" | grep -o '/archive/images/web/[A-Za-z0-9_.%-]*\.jpg' | head -1)
 if [ -n "$arch" ]; then
@@ -148,12 +148,12 @@ printf '%s' "$home" | grep -q '"occupancy":{"@type":"QuantitativeValue","value":
 printf '%s' "$home" | grep -q '"floorSize":{"@type":"QuantitativeValue","value":7000,"unitCode":"FTK"}' \
   && ok "House schema floor area is 7,000 square feet" \
   || bad "House floor area is missing or stale"
-printf '%s' "$home" | grep -q '"numberOfBeds":2,"typeOfBed":"King"' \
-  && printf '%s' "$home" | grep -q '"numberOfBeds":5,"typeOfBed":"Queen"' \
+printf '%s' "$home" | grep -q '"numberOfBeds":3,"typeOfBed":"King"' \
+  && printf '%s' "$home" | grep -q '"numberOfBeds":4,"typeOfBed":"Queen"' \
   && printf '%s' "$home" | grep -q '"numberOfBeds":1,"typeOfBed":"Double"' \
-  && ok "schema bed mix includes 5 queens and 1 double" \
-  || bad "schema bed mix is stale (expect 2 kings, 5 queens, 1 double)"
-printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/airbnb/airbnb_03.jpg"' \
+  && ok "schema bed mix includes 3 kings, 4 queens, and 1 double" \
+  || bad "schema bed mix is stale (expect 3 kings, 4 queens, 1 double)"
+printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/property-tour/01-living-room-1-01.webp"' \
   && ok "property schema uses the approved public image set" \
   || bad "property schema approved image set is missing"
 printf '%s' "$home" | grep -q '"name":"Wi-Fi","value":true' \
@@ -182,7 +182,11 @@ elif printf '%s' "$home" | grep -q '"addressLocality":"Philadelphia","addressReg
   ok "homepage schema uses city, region, postal code, and country only"
 else bad "homepage schema public-area address is missing"; fi
 
-for private_image in /images/property/DSC00116.jpg /images/property/DSC00118.jpg /images/property/DSC08855.jpg; do
+for private_image in \
+  /images/property/DSC00116.jpg \
+  /images/property/DSC00118.jpg \
+  /images/property/DSC08855.jpg \
+  /archive/images/web/airbnb/airbnb_00.jpg; do
   c=$(fetch -o /dev/null -w '%{http_code}' "$SITE$private_image")
   [ "$c" = "404" ] \
     && ok "$private_image is not publicly served" \

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Photo Gallery | The Rittenhouse Residence",
     description:
       "Tour The Rittenhouse Residence through photos — Victorian elegance, original fireplaces, crystal chandeliers, and modern amenities.",
-    images: ["/images/airbnb/airbnb_03.jpg"],
+    images: ["/images/property-tour/01-living-room-1-01.webp"],
   },
 };
 

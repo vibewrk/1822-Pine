@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Inside The Rittenhouse Residence | Sleeps 16",
     description:
       "Two parlors, dining for the whole group, 8 bedrooms, 5 full baths and a powder room, and a private roof deck across four stories that live like five.",
-    images: ["/images/airbnb/airbnb_04.jpg"],
+    images: ["/images/property-tour/03-living-room-1-03.webp"],
   },
 };
 
@@ -33,7 +33,7 @@ const floorWalk = [
   {
     floor: "Parlor floor",
     note: "The public rooms do the receiving.",
-    image: "/images/airbnb/airbnb_04.jpg",
+    image: "/images/property-tour/03-living-room-1-03.webp",
     alt: "Grand parlor with original fireplace and full-size pool table",
     rooms: [
       "Two parlors for conversation, games, and the first round of coffee.",
@@ -44,30 +44,30 @@ const floorWalk = [
   },
   {
     floor: "Second floor",
-    note: "The principal suite sits above the street.",
-    image: "/images/property/DSC00082.jpg",
-    alt: "Principal suite with four-poster bed",
+    note: "Bedroom 1, the principal suite, sits above the street.",
+    image: "/images/property-tour/28-bedroom-1-02.webp",
+    alt: "Bedroom 1 with a king bed",
     rooms: [
-      "Principal bedroom with king bed, private sitting room, and private bath.",
-      "Library suite with a queen bed and Pine Street frontage.",
+      "Bedroom 1 has a king bed, private sitting room, and private bath.",
+      "Bedroom 2 has a queen bed and Pine Street frontage.",
       "Formal library for the guest who wants a quieter hour away from the group.",
     ],
   },
   {
     floor: "Third and fourth floors",
     note: "Bedrooms stack upward, with space between them.",
-    image: "/images/airbnb/airbnb_08.jpg",
-    alt: "Upper-floor guest bedroom",
+    image: "/images/property-tour/30-bedroom-3-01.webp",
+    alt: "Bedroom 3 with a king bed",
     rooms: [
-      "Two more queen bedrooms on the third floor, including a large VIP suite.",
-      "Four bedrooms on the fourth floor: two connecting family rooms, a further queen bedroom, and a king VIP suite.",
+      "Bedroom 3 has a king bed and Bedroom 4 a queen; both are on the third floor.",
+      "On the fourth floor, Bedrooms 5 and 6 form a connecting double-and-queen pair; Bedroom 7 is a queen and Bedroom 8 a king.",
       "Five full bathrooms and a powder room keep mornings moving.",
     ],
   },
   {
     floor: "Fifth floor",
     note: "The roof deck is the exhale.",
-    image: "/images/airbnb/airbnb_02.jpg",
+    image: "/images/property-tour/45-rooftop-01.webp",
     alt: "Private roof deck with city views",
     rooms: [
       "Private furnished terrace for morning coffee and an evening look over Center City.",
@@ -77,14 +77,14 @@ const floorWalk = [
 ];
 
 const bedrooms = [
-  ["Principal Suite", "King bed", "Second floor", "Private bath"],
-  ["Library Bedroom", "Queen bed", "Second floor", "Shared full bath nearby"],
-  ["Second Bedroom", "Queen bed", "Third floor", "Full bath nearby"],
-  ["VIP Bedroom 2", "Queen bed", "Third floor", "Full bath nearby"],
-  ["Family Bedroom 1", "Queen bed", "Fourth floor", "Full bath nearby"],
-  ["Family Bedroom 2", "Double bed", "Fourth floor", "Full bath nearby"],
-  ["Third Bedroom", "Queen bed", "Fourth floor", "Full bath nearby"],
-  ["VIP Bedroom 3", "King bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 1", "King bed", "Second floor", "Private bath"],
+  ["Bedroom 2", "Queen bed", "Second floor", "Shared full bath nearby"],
+  ["Bedroom 3", "King bed", "Third floor", "Full bath nearby"],
+  ["Bedroom 4", "Queen bed", "Third floor", "Full bath nearby"],
+  ["Bedroom 5", "Double bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 6", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 7", "Queen bed", "Fourth floor", "Full bath nearby"],
+  ["Bedroom 8", "King bed", "Fourth floor", "Full bath nearby"],
 ];
 
 const amenities = [
@@ -122,8 +122,8 @@ export default function StayPage() {
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
       <section className="relative min-h-[620px] overflow-hidden">
         <Image
-          src="/images/property/DSC00066.jpg"
-          alt="Rittenhouse Residence parlor with historic millwork"
+          src="/images/property-tour/01-living-room-1-01.webp"
+          alt="Grand Parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"
           priority
@@ -221,7 +221,7 @@ export default function StayPage() {
               Eight bedrooms, each with its own character.
             </h2>
             <p className="mt-5 text-lg leading-8 text-stone-700">
-              The mix is simple: two kings, five queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
+              The mix is simple: three kings, four queens, a double, and enough floor separation that a group of sixteen can still find a quiet landing.
             </p>
           </div>
 
@@ -279,28 +279,28 @@ export default function StayPage() {
           <div className="grid grid-cols-2 gap-4">
             {[
               {
-                file: "DSC00068",
-                alt: "Entry hall with round brass mirror, console table and glass-paneled door crowned by a stained-glass transom",
+                src: "/images/property-tour/58-additional-photos-02.webp",
+                alt: "Gallery hall inside The Rittenhouse Residence",
               },
               {
-                file: "DSC00070",
-                alt: "Main staircase with red patterned runner and brass lantern pendant, framed by carved black corbels",
+                src: "/images/property-tour/57-additional-photos-01.webp",
+                alt: "Staircase leading to the bedrooms and roof deck",
               },
               {
-                file: "DSC00072",
-                alt: "Grand parlor with pool table opening through towering pocket doors beneath carved plaster friezes",
+                src: "/images/property-tour/01-living-room-1-01.webp",
+                alt: "Grand Parlor at The Rittenhouse Residence",
               },
               {
-                file: "DSC00074",
-                alt: "Powder room wrapped in black-and-white chinoiserie wallpaper with a sculpted white mirror",
+                src: "/images/property-tour/43-half-bathroom-01.webp",
+                alt: "Half bathroom at The Rittenhouse Residence",
               },
-            ].map(({ file, alt }, index) => (
+            ].map(({ src, alt }, index) => (
               <div
-                key={file}
+                key={src}
                 className={`relative overflow-hidden rounded-lg ${index === 0 ? "col-span-2 aspect-[16/10]" : "aspect-[4/3]"}`}
               >
                 <Image
-                  src={`/images/property/${file}.jpg`}
+                  src={src}
                   alt={alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -330,7 +330,7 @@ export default function StayPage() {
 
       <section className="relative py-20 md:py-28">
         <Image
-          src="/images/airbnb/airbnb_03.jpg"
+          src="/images/property-tour/01-living-room-1-01.webp"
           alt="Parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"

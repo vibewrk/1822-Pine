@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description:
       "62 steps to the top, four stories, no elevator — the numbers you need before you book for a group with mixed mobility.",
     type: "article",
-    images: ["/images/property/DSC00112.jpg"],
+    images: ["/images/property-tour/57-additional-photos-01.webp"],
   },
 };
 
@@ -47,11 +47,11 @@ const numbers = [
 const faqs = [
   {
     q: "Can someone with limited mobility stay here?",
-    a: "It depends on what they can manage, and we would rather you decide with the numbers in front of you. There are 62 steps from the front door to the very top, and every one of the eight bedrooms is above the entrance level. But they are not all the same climb: the rear of the house sits on shallower floors than the front, so a back bedroom — the Principal Suite included — is a notably shorter run of stairs than its floor number suggests. Someone who can manage one flight slowly, with a handrail and time, will be comfortable at the back. Someone who cannot manage a flight at all will not be comfortable here, and we will say so rather than take the booking.",
+    a: "It depends on what they can manage, and we would rather you decide with the numbers in front of you. There are 62 steps from the front door to the very top, and every one of the eight bedrooms is above the entrance level. But they are not all the same climb: the rear of the house sits on shallower floors than the front, so a back bedroom — Bedroom 1 included — is a notably shorter run of stairs than its floor number suggests. Someone who can manage one flight slowly, with a handrail and time, will be comfortable at the back. Someone who cannot manage a flight at all will not be comfortable here, and we will say so rather than take the booking.",
   },
   {
     q: "Which bedroom involves the fewest stairs?",
-    a: "One at the rear — and the happy surprise is that the Principal Suite is among them. The house is split-level front to back: the front rooms carry grand ceilings, 14 feet on the entrance level and 12 on the floor above, while the rear section sits on shallower nine-foot floors. Because the two halves are offset, a rear room lands on a half-landing well below the front room that shares its floor number. If someone in your group is counting steps, put them at the back of the house.",
+    a: "One at the rear — and the happy surprise is that Bedroom 1, the principal suite, is among them. The house is split-level front to back: the front rooms carry grand ceilings, 14 feet on the entrance level and 12 on the floor above, while the rear section sits on shallower nine-foot floors. Because the two halves are offset, a rear room lands on a half-landing well below the front room that shares its floor number. If someone in your group is counting steps, put them at the back of the house.",
   },
   {
     q: "Is there a bedroom or full bathroom on the entrance level?",
@@ -140,7 +140,7 @@ export default function StairsAndAccessPage() {
               ],
               [
                 "The rear, at every level",
-                "Nine-foot ceilings and half-landings that sit below the front rooms sharing their floor number. The Principal Suite is back here — the grandest bedroom in the house is also one of the shortest climbs.",
+                "Nine-foot ceilings and half-landings that sit below the front rooms sharing their floor number. Bedroom 1, the principal suite, is back here — the grandest bedroom in the house is also one of the shortest climbs.",
               ],
               [
                 "Second floor, front",
@@ -234,7 +234,7 @@ export default function StairsAndAccessPage() {
                 Room planner
               </h3>
               <p className="mt-3 text-sm leading-6 text-stone-700">
-                Work out who sleeps where before you arrive — two kings, five
+                Work out who sleeps where before you arrive — three kings, four
                 queens and a double across eight bedrooms.
               </p>
             </Link>

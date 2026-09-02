@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     title: "Wedding Guest Lodging in Philadelphia | Sleeps 16",
     description:
       "One historic house that sleeps 16 wedding guests near Rittenhouse Square — 8 bedrooms, breakfasts for the whole group, and clear lodging-only house rules.",
-    images: ["/images/property/DSC00122.jpg"],
+    images: ["/images/property-tour/26-dining-area-01.webp"],
   },
 };
 
 const stats = [
-  ["Sleeps 16", "8 bedrooms · 2 kings, 5 queens, 1 double"],
+  ["Sleeps 16", "8 bedrooms · 3 kings, 4 queens, 1 double"],
   ["2 blocks", "From Rittenhouse Square"],
   ["Seats 16", "Group breakfasts at one table"],
   ["24 hours", "To confirm availability and a quote"],
@@ -100,8 +100,8 @@ export default function WeddingGuestHousingPage() {
       <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
         <section className="relative min-h-[620px] overflow-hidden">
           <Image
-            src="/images/property/DSC00122.jpg"
-            alt="Open double doors looking into the zebra-papered vestibule of The Rittenhouse Residence"
+            src="/images/property-tour/26-dining-area-01.webp"
+            alt="Dining room at The Rittenhouse Residence, ready for the whole group"
             fill
             sizes="100vw"
             priority
@@ -153,7 +153,7 @@ export default function WeddingGuestHousingPage() {
                 those moments. One house puts a staircase.
               </p>
               <p className="mt-4 text-lg leading-8 text-stone-700">
-                The house sleeps sixteen across eight bedrooms — two kings, five queens and a double on floors
+                The house sleeps sixteen across eight bedrooms — three kings, four queens and a double on floors
                 two through four, with five full baths and a powder room — so grandparents, siblings, and the friends
                 who count as family each get a real bedroom, not a rollaway.
               </p>
@@ -241,8 +241,8 @@ export default function WeddingGuestHousingPage() {
 
         <section className="relative py-20 md:py-28">
           <Image
-            src="/images/property/DSC00078.jpg"
-            alt="Four-poster bedroom with crystal chandelier opening to a sunlit sitting room"
+            src="/images/property-tour/28-bedroom-1-02.webp"
+            alt="Bedroom 1 with a king bed at The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover"

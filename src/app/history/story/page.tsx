@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "A Philadelphia townhouse tells the story of the families, gatherings, and changes it has witnessed since 1854.",
     type: "article",
-    images: ["/images/property/DSC00064.jpg"],
+    images: ["/images/property-tour/57-additional-photos-01.webp"],
   },
 };
 
@@ -53,8 +53,8 @@ export default function StoryIndexPage() {
       <section className="relative py-24 bg-gray-900">
         <div className="absolute inset-0">
           <Image
-            src="/images/property/DSC00064.jpg"
-            alt="1822 Pine Street - Historic Philadelphia Mansion"
+            src="/images/property-tour/57-additional-photos-01.webp"
+            alt="Historic staircase inside The Rittenhouse Residence"
             fill
             sizes="100vw"
             className="object-cover opacity-20"

@@ -160,7 +160,7 @@ export default function GroupDiningPage() {
 
       <section className="relative py-20 md:py-28">
         <Image
-          src="/images/airbnb/airbnb_04.jpg"
+          src="/images/property-tour/03-living-room-1-03.webp"
           alt="Grand parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"

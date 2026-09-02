@@ -83,8 +83,8 @@ export default function HistoryPage() {
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
       <section className="relative min-h-[640px] overflow-hidden">
         <Image
-          src="/images/property/DSC00064.jpg"
-          alt="Historic interior at 1822 Pine Street"
+          src="/images/property-tour/57-additional-photos-01.webp"
+          alt="Historic staircase rising through The Rittenhouse Residence"
           fill
           sizes="100vw"
           priority

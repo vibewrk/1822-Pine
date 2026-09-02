@@ -5,9 +5,13 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 export type GalleryImage = {
+  id: string;
   src: string;
   alt: string;
+  label: string;
+  caption: string;
   category: string;
+  bed?: string | null;
   location?: string;
 };
 
@@ -112,11 +116,16 @@ export default function ImageLightbox({
       {/* Footer with metadata */}
       <div className="absolute bottom-0 left-0 right-0 z-10 px-4 py-6 bg-gradient-to-t from-black/80 to-transparent">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-white text-lg font-medium">{currentImage.alt}</p>
+          <p className="text-white text-lg font-medium">{currentImage.caption}</p>
           <div className="mt-2 flex items-center justify-center gap-4 text-white/70 text-sm">
             <span className="px-3 py-1 bg-white/10 rounded-full">
-              {currentImage.category}
+              {currentImage.label}
             </span>
+            {currentImage.bed && (
+              <span className="px-3 py-1 bg-white/10 rounded-full">
+                {currentImage.bed}
+              </span>
+            )}
             {currentImage.location && (
               <span className="flex items-center gap-1">
                 <MapPin className="h-4 w-4" />
@@ -130,8 +139,9 @@ export default function ImageLightbox({
         <div className="mt-4 flex justify-center gap-2 overflow-x-auto pb-2 max-w-4xl mx-auto">
           {images.map((img, idx) => (
             <button
-              key={idx}
+              key={img.id}
               onClick={() => setCurrentIndex(idx)}
+              aria-label={`View photo ${idx + 1} of ${images.length}: ${img.label} — ${img.caption}`}
               className={`relative flex-shrink-0 w-16 h-12 rounded overflow-hidden transition-all ${
                 idx === currentIndex
                   ? "ring-2 ring-white ring-offset-2 ring-offset-black"
