@@ -1,6 +1,6 @@
 import Link from "next/link";
 import TrackedLink from "@/components/TrackedLink";
-import { Calendar, ExternalLink } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { BOOKING_LINKS, PROPERTY_FACTS, REVIEW_FACTS } from "@/lib/facts";
 
 const footerNavigation = [
@@ -60,84 +60,87 @@ export function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-100">
       {/* Booking CTA Section */}
-      <div className="bg-gray-900 py-12">
+      <div className="border-y border-amber-400/20 bg-stone-950 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h3 className="font-serif text-2xl font-bold text-white">
-              Book the Rittenhouse Residence
-            </h3>
-            <p className="mt-2 text-gray-300">
-              {PROPERTY_FACTS.bedrooms} bedrooms ·{" "}
-              {PROPERTY_FACTS.fullBathrooms} baths + powder room · Two blocks
-              from Rittenhouse Square
-            </p>
-            <p className="mt-1 text-sm text-gray-400">
-              {REVIEW_FACTS.airbnb.rating} on Airbnb across{" "}
-              {REVIEW_FACTS.airbnb.count} reviews
-            </p>
+          <div className="grid gap-6 text-center lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-12 lg:text-left">
+            <div>
+              <p className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-amber-300">
+                <span aria-hidden="true" className="h-px w-8 bg-amber-300/70" />
+                Plan Your Stay
+              </p>
+              <h3 className="mt-2 font-serif text-2xl font-semibold leading-tight text-white sm:text-3xl">
+                Have dates in mind?
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-stone-300">
+                {PROPERTY_FACTS.bedrooms} bedrooms ·{" "}
+                {PROPERTY_FACTS.fullBathrooms} full baths + powder room · Sleeps{" "}
+                {PROPERTY_FACTS.sleeps} · Two blocks from Rittenhouse Square
+              </p>
+              <div className="mt-3 flex flex-col items-center gap-2 text-sm text-stone-300 sm:flex-row sm:justify-center sm:gap-5 lg:justify-start">
+                <span className="inline-flex items-center gap-2">
+                  <Star
+                    aria-hidden="true"
+                    className="h-4 w-4 fill-amber-300 text-amber-300"
+                  />
+                  {REVIEW_FACTS.airbnb.rating}/5 ·{" "}
+                  {REVIEW_FACTS.airbnb.count} Airbnb reviews
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Star
+                    aria-hidden="true"
+                    className="h-4 w-4 fill-amber-300 text-amber-300"
+                  />
+                  {REVIEW_FACTS.vrbo.rating}/10 · {REVIEW_FACTS.vrbo.count} Vrbo
+                  reviews
+                </span>
+              </div>
+            </div>
 
-            <div className="mt-8">
+            <div className="lg:min-w-96 lg:text-center">
               <TrackedLink
                 event="direct_inquiry_click"
                 eventParams={{ location: "footer_cta" }}
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-600 px-10 py-4 text-lg font-semibold text-white shadow-md hover:bg-amber-700 hover:shadow-lg transition-all"
+                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-sm bg-amber-700 px-8 py-3.5 text-base font-semibold text-white shadow-md transition-colors hover:bg-amber-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950 sm:w-auto"
               >
-                <Calendar className="h-5 w-5" />
-                Request a Personal Quote
+                Ask About Your Dates
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
               </TrackedLink>
-              <p className="mt-3 text-amber-400 text-sm">
-                We reply within 24 hours — or see live pricing and secure
-                checkout on{" "}
-                <TrackedLink
-                  event="ota_click"
-                  eventParams={{ platform: "vrbo", location: "footer_cta" }}
-                  href={BOOKING_LINKS.vrbo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-amber-300"
-                >
-                  Vrbo
-                </TrackedLink>
+              <p className="mt-2 text-sm leading-6 text-stone-400">
+                Personal reply within 24 hours · exact pricing for your dates
               </p>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-gray-700">
-              <p className="text-gray-400 text-sm mb-4">
-                The Rittenhouse Residence is also listed on:
-              </p>
-              <div className="flex flex-row gap-4 justify-center">
+              <p className="mt-2 text-sm text-stone-300">
+                Live calendars and secure checkout:{" "}
                 <TrackedLink
                   href={BOOKING_LINKS.airbnb}
                   event="ota_click"
-                  eventParams={{ platform: "airbnb", location: "footer_listings" }}
+                  eventParams={{
+                    platform: "airbnb",
+                    location: "footer_cta",
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
+                  className="rounded-sm font-semibold text-amber-300 underline underline-offset-4 transition-colors hover:text-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
                 >
                   Airbnb
-                  <ExternalLink className="h-3 w-3" />
-                </TrackedLink>
-                <span className="text-gray-600">·</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </TrackedLink>{" "}
+                or{" "}
                 <TrackedLink
                   href={BOOKING_LINKS.vrbo}
                   event="ota_click"
-                  eventParams={{ platform: "vrbo", location: "footer_listings" }}
+                  eventParams={{
+                    platform: "vrbo",
+                    location: "footer_cta",
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-sm"
+                  className="rounded-sm font-semibold text-amber-300 underline underline-offset-4 transition-colors hover:text-amber-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-950"
                 >
                   Vrbo
-                  <ExternalLink className="h-3 w-3" />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </TrackedLink>
-                <span className="text-gray-600">·</span>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-white transition-colors text-sm"
-                >
-                  Contact Us
-                </Link>
-              </div>
+              </p>
             </div>
           </div>
         </div>
