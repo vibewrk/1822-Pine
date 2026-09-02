@@ -135,7 +135,12 @@ export default function HomePage() {
   return (
     <div className="flex flex-col bg-stone-50 text-stone-950">
       <LodgingBusinessSchema />
-      <section className="relative h-[85vh] min-h-[600px]">
+      {/* The hero is bottom-anchored, so a FIXED height clips the top of the
+          stack when the content is taller than the box — on a 375x812 phone
+          the copy ran 780px inside 634px of room, pushing the eyebrow to
+          -80px and the wordmark to -32px: the brand name was invisible on
+          the highest-traffic page. min-h lets the section grow instead. */}
+      <section className="relative flex min-h-[85vh] flex-col justify-end">
         <Image
           src="/images/airbnb/airbnb_03.jpg"
           alt="Grand parlor inside The Rittenhouse Residence, a historic Philadelphia townhouse"
@@ -146,26 +151,29 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/20 md:from-black/70 md:via-black/20 md:to-transparent" />
 
-        <div className="absolute inset-0 flex flex-col justify-end pb-14 md:pb-20">
+        <div className="relative w-full pb-14 pt-24 md:pb-20 md:pt-32">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <Eyebrow light className="mb-4">
               Rittenhouse Square · Story documented since 1854
             </Eyebrow>
-            <h1 className="max-w-5xl font-serif text-5xl font-semibold leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+            {/* 48px at 0.95 leading set "Rittenhouse Residence" too wide and
+                too cramped on a 375px screen. The display size and the tight
+                leading both start at sm. */}
+            <h1 className="max-w-5xl font-serif text-4xl font-semibold leading-[1.05] text-white sm:text-6xl sm:leading-[0.95] md:text-7xl lg:text-8xl">
               {/* Trailing space is deliberate: without it the H1's text
                   content reads "TheRittenhouse Residence" when copied or
                   crawled (the blocks only break lines visually). */}
               <span className="block text-white/80">The </span>
               <span className="block text-amber-100">Rittenhouse Residence</span>
             </h1>
-            <p className="mt-6 max-w-3xl text-xl font-medium leading-8 text-white md:text-2xl md:leading-9">
+            <p className="mt-5 max-w-3xl text-lg font-medium leading-7 text-white sm:text-xl sm:leading-8 md:mt-6 md:text-2xl md:leading-9">
               An 8-bedroom Philadelphia vacation home in the heart of Center City — the whole house, for your whole group.
             </p>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-stone-100 md:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-7 text-stone-100 md:mt-5 md:text-lg">
               Nearly 7,000 square feet over four stories that live like five, two blocks from Rittenhouse Square. Sixteen guests under one historic roof, with the city&apos;s best dining, museums, and shopping at the doorstep.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90">
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-white/90 md:mt-8">
               <span className="inline-flex items-center gap-2">
                 <Bed className="h-4 w-4" />
                 8 Bedrooms
@@ -192,7 +200,7 @@ export default function HomePage() {
               </TrackedLink>
             </div>
 
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10">
               <TrackedLink
                 href="/book"
                 event="book_cta_click"
