@@ -1,20 +1,28 @@
 # Growth Runbook — rittenhouseresidence.com
 
-The 15-minute owner setup that turns the site's measurement on, plus the
-recurring loop for growing direct-booking revenue. Written 2026-08-24 as part
-of the SEO/AEO overhaul.
+Measurement and acquisition operating notes for the site. Written 2026-08-24
+as part of the SEO/AEO overhaul and retained as a runbook, not as the current
+truth entrypoint. Read `docs/SITE-TRUTH.md` first.
 
-**State when written:** the site was completely unmeasured — not verified in
+**Historical state when written:** the site was completely unmeasured — not verified in
 Google Search Console, GA property unmapped (per the portfolio measurement
 estate audit of 2026-08-02), Vercel Web Analytics off, and zero conversion
-events. The code side is now fixed; the steps below are the parts only an
-account owner can click.
+events. That baseline is superseded.
+
+**Dated external observation, 2026-09-02:** Search Console, GA4, GTM, and
+Vercel Analytics are present. Booking-path events have been observed, but no
+`generate_lead` or `purchase` stream data was detected; the site does not emit
+`purchase`. Google Ads and Search Console were not linked to GA, and
+Hospitable's GA/Meta fields were blank. Recheck the providers before acting—
+these are account observations, not durable repository facts.
 
 ---
 
-## 1. Google Search Console (10 minutes) — DO THIS FIRST
+## 1. Google Search Console — established; maintain and link
 
-Nothing else in SEO can be evaluated until this exists.
+The property now has reported search data. The setup steps below are retained
+for recovery or an additional domain property; do not repeat them merely
+because an older handoff says Search Console was absent.
 
 1. Go to https://search.google.com/search-console → **Add property**.
 2. Choose **Domain** property. Enter: `rittenhouseresidence.com`.
@@ -212,23 +220,19 @@ inlined at build time, not read at runtime.
 These are published claims with weak or contradictory sourcing. Verify and
 correct (or confirm) each — they affect trust, and some affect compliance:
 
-1. ~~**"Sleeps 21."**~~ **RESOLVED 2026-08-24 (owner-confirmed): the house
-   sleeps 16.** Corrected sitewide — homepage, /stay, /rates, /book, /faq,
+1. **Sleeping capacity — owner-confirmed:** the house sleeps 16. Corrected
+   sitewide — homepage, /stay, /rates, /book, /faq,
    BookingCTA, root metadata, JSON-LD occupancy, and /llms.txt. This matches
    the 8-bedroom inventory (2 king + 6 queen) and the Airbnb listing.
    *Note:* dining copy that read "seats 21" was aligned to 16 in the same
    pass. If the table genuinely seats more than the sleeping capacity (day
    guests), tell me and I'll split the two numbers back apart.
-2. **STR license number — IN PROGRESS (renewal underway as of 2026-08-24).**
-   The site claims "Licensed Philadelphia short-term rental" but publishes no
-   number; Philadelphia requires the license number to be displayed on
-   listings/ads. Once the renewal issues, add the number in exactly two
-   places and it will propagate: the `trustItems` array in
-   `src/app/page.tsx` (e.g. "Philadelphia STR License #XXXXXX") and the
-   footer line in `src/components/layout/Footer.tsx`. Consider also adding
-   it to the JSON-LD as a `license` field on the LodgingBusiness node.
-   The Airbnb listing text currently ends with "Registration Details
-   903781" — confirm whether that is the same number.
+2. **STR identifier and standing.** The site currently displays Philadelphia
+   STR identifier `903781`, sourced from the published listing. Repository
+   presence does not independently prove current licensing, tax, or insurance
+   standing. Verify those through the appropriate authoritative records before
+   paid advertising or Direct activation. Keep the identifier out of
+   machine-readable property schema under the current privacy policy.
 3. **Spencer family naming.** The repo's own research
    (DEEP-RESEARCH-REPORT.md) says the 1893 purchaser/1896 decedent was
    **Graham** Spencer and "Howard" was the young son who died in 1891; the
@@ -240,9 +244,10 @@ correct (or confirm) each — they affect trust, and some affect compliance:
 5. **Drexel framing.** Verified: the first owners' daughter Ellen married
    Anthony J. Drexel (1850). "Home to Drexel banking heirs" on the homepage
    overstates it; consider "with a documented Drexel family connection."
-6. **Review figures (4.89 / 93)** have no as-of date. Recheck quarterly and
-   update `src/components/StructuredData.tsx`, `src/app/page.tsx`, and
-   `src/components/BookingCTA.tsx` together.
+6. **Review figures.** The centralized snapshot was rechecked 2026-09-02:
+   Airbnb 4.88/5 across 102 reviews and Vrbo 9.8/10 across 66 reviews. Update
+   `REVIEW_FACTS_AS_OF` and `REVIEW_FACTS` in `src/lib/facts.ts`; generated and
+   component consumers must read from that module. Recheck quarterly.
 7. **Zoning:** the (deliberately unpublished) 2022 property certificate
    registers the property as multi-family, five dwelling units, zoning RM1.
    Confirm with counsel that current STR licensing matches actual use; keep

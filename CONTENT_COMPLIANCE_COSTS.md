@@ -1,6 +1,12 @@
 # Content, Compliance & Cost Analysis
 ## Rittenhouse Residence - 1822 Pine Street
 
+> **Dated research artifact.** Vendor, cost, compliance, and provider references
+> in this file are not current attestations or approved implementation choices.
+> Guesty was not adopted. Use [`AGENTS.md`](AGENTS.md) and
+> [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md) for present source precedence and
+> reverify legal or provider claims before acting.
+
 **Created:** 2026-01-09
 **Purpose:** Complete analysis of site content strategy, Philadelphia STR compliance, guest lifecycle management, and total operating costs.
 
