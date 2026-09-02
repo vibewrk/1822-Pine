@@ -1,11 +1,13 @@
 import { MetadataRoute } from "next";
 import storyData from "@/data/story-chapters.json";
 import archiveData from "@/data/document-archive.json";
+import { loadWhatsOn } from "@/lib/whats-on";
 
 // Content changes when this repo changes; a stable date beats stamping every
 // URL with the build time (which tells crawlers nothing). Bump on real
 // content updates.
 const CONTENT_UPDATED = new Date("2026-08-30");
+const whatsOn = loadWhatsOn();
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rittenhouseresidence.com";
@@ -111,7 +113,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return allPages.map((page) => ({
     url: `${baseUrl}${page.url}`,
-    lastModified: CONTENT_UPDATED,
+    lastModified:
+      page.url === "/philadelphia-events"
+        ? new Date(`${whatsOn.meta.generatedAt}T00:00:00Z`)
+        : CONTENT_UPDATED,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));

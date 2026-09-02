@@ -17,6 +17,13 @@ import TrackedLink from "@/components/TrackedLink";
 import { SocialProof } from "@/components/SocialProof";
 import { LodgingBusinessSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
+import {
+  addDaysISO,
+  eventsOverlapping,
+  isRecurring,
+  loadWhatsOn,
+  type WhatsOnEvent,
+} from "@/lib/whats-on";
 
 export const metadata: Metadata = {
   // `absolute` bypasses the layout's "%s | The Rittenhouse Residence"
@@ -28,6 +35,35 @@ export const metadata: Metadata = {
     "An 8-bedroom whole-home Philadelphia vacation rental for up to 16 guests, with dining for 16, a private roof deck, and two blocks to Rittenhouse Square.",
   alternates: { canonical: "/" },
 };
+
+export const revalidate = 3600;
+
+const whatsOn = loadWhatsOn();
+
+function todayInTimeZone(timeZone: string): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((item) => item.type === type)?.value;
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
+function teaserDate(event: WhatsOnEvent): string {
+  const format = (iso: string) =>
+    new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(`${iso}T00:00:00Z`));
+
+  return event.start === event.end
+    ? format(event.start)
+    : `${format(event.start)}–${format(event.end)}`;
+}
 
 const spaces = [
   {
@@ -82,6 +118,20 @@ const trustItems = [
 ];
 
 export default function HomePage() {
+  const today = todayInTimeZone(whatsOn.meta.timezone);
+  const thisWeek = eventsOverlapping(
+    whatsOn.events.filter((event) => !isRecurring(event)),
+    today,
+    addDaysISO(today, 6)
+  )
+    .sort(
+      (a, b) =>
+        a.start.localeCompare(b.start) ||
+        a.end.localeCompare(b.end) ||
+        a.title.localeCompare(b.title)
+    )
+    .slice(0, 3);
+
   return (
     <div className="flex flex-col bg-stone-50 text-stone-950">
       <LodgingBusinessSchema />
@@ -343,6 +393,45 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {thisWeek.length > 0 && (
+        <section className="border-y border-stone-200 bg-stone-100 py-12 md:py-14">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+              <div>
+                <Eyebrow>Around the City</Eyebrow>
+                <h2 className="mt-3 font-serif text-3xl font-semibold text-stone-950 md:text-4xl">
+                  This week in Philadelphia.
+                </h2>
+              </div>
+              <Link
+                href="/philadelphia-events#this-week"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-amber-800 transition-colors hover:text-amber-900"
+              >
+                See the week
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="mt-7 grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 md:grid-cols-3">
+              {thisWeek.map((event) => (
+                <Link
+                  key={event.id}
+                  href="/philadelphia-events#this-week"
+                  className="group bg-white p-5 transition-colors hover:bg-amber-50"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">
+                    {teaserDate(event)}
+                  </p>
+                  <h3 className="mt-2 font-serif text-xl font-semibold leading-snug text-stone-950 group-hover:text-amber-900">
+                    {event.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-stone-600">{event.venue}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Replaced an unattributed "Verified guest" pull-quote with the real,
           named reviews from the two platforms guests actually book on. */}
