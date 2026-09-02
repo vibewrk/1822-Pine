@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Bath, Bed, MoveVertical, TriangleAlert } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PhotoHero } from "@/components/PhotoHero";
 import TrackedLink from "@/components/TrackedLink";
 import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
 
@@ -90,8 +91,11 @@ export default function StairsAndAccessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="bg-stone-950 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <PhotoHero
+        src="/images/property-tour/57-additional-photos-01.webp"
+        alt="The main staircase at The Rittenhouse Residence, with its red runner and handrail"
+      >
+        <div className="max-w-4xl">
           <Eyebrow light className="mb-5">
             Before You Book · The Stairs
           </Eyebrow>
@@ -106,7 +110,7 @@ export default function StairsAndAccessPage() {
             choosing dates.
           </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

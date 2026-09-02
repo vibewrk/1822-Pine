@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import {
   AlertCircle,
   CheckCircle,
@@ -682,6 +683,15 @@ export default function ContactPage() {
 
             {/* Info column */}
             <div className="lg:pl-8">
+              <figure className="relative mb-6 aspect-[4/3] overflow-hidden rounded-lg bg-stone-200">
+                <Image
+                  src="/images/property-tour/55-library-02.webp"
+                  alt="Library lounge at The Rittenhouse Residence with sofas, fireplace, and tall windows"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 36vw"
+                  className="object-cover"
+                />
+              </figure>
               {/* Outcome promise */}
               <div className="rounded-lg border border-stone-200 bg-stone-50 p-6">
                 <Eyebrow>What Happens Next</Eyebrow>
