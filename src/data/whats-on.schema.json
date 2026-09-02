@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rittenhouseresidence.com/schemas/whats-on.schema.json",
+  "title": "The Rittenhouse Residence what's-on calendar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "sources", "events", "notHappening"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "meta": { "$ref": "#/$defs/meta" },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/event" }
+    },
+    "notHappening": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/notHappening" }
+    }
+  },
+  "$defs": {
+    "isoDate": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "httpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timezone",
+        "generatedAt",
+        "coverageFrom",
+        "coverageTo",
+        "nextVerify"
+      ],
+      "properties": {
+        "property": { "$ref": "#/$defs/nonEmptyString" },
+        "timezone": { "$ref": "#/$defs/nonEmptyString" },
+        "generatedAt": { "$ref": "#/$defs/isoDate" },
+        "coverageFrom": { "$ref": "#/$defs/isoDate" },
+        "coverageTo": { "$ref": "#/$defs/isoDate" },
+        "method": { "$ref": "#/$defs/nonEmptyString" },
+        "refreshCadence": { "$ref": "#/$defs/nonEmptyString" },
+        "nextVerify": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "url", "kind"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "url": { "$ref": "#/$defs/httpsUrl" },
+        "kind": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "start",
+        "end",
+        "venue",
+        "neighborhood",
+        "category",
+        "note",
+        "sourceId",
+        "sourceUrl",
+        "verifiedAt"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "start": { "$ref": "#/$defs/isoDate" },
+        "end": { "$ref": "#/$defs/isoDate" },
+        "time": { "$ref": "#/$defs/nonEmptyString" },
+        "venue": { "$ref": "#/$defs/nonEmptyString" },
+        "neighborhood": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "sourceId": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceUrl": { "$ref": "#/$defs/httpsUrl" },
+        "verifiedAt": { "$ref": "#/$defs/isoDate" }
+      }
+    },
+    "notHappening": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "note", "verifiedAt"],
+      "properties": {
+        "title": { "$ref": "#/$defs/nonEmptyString" },
+        "note": { "$ref": "#/$defs/nonEmptyString" },
+        "verifiedAt": { "$ref": "#/$defs/isoDate" }
+      }
+    }
+  }
+}

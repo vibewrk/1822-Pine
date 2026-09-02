@@ -11,6 +11,15 @@ import {
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import {
+  addDaysISO,
+  eventsOverlapping,
+  groupByWeek,
+  isRecurring,
+  loadWhatsOn,
+  sourceFor,
+  type WhatsOnEvent,
+} from "@/lib/whats-on";
+import {
   ExternalVenueLink,
   HubCrossLinks,
   SITE,
@@ -46,6 +55,10 @@ export const metadata: Metadata = {
     images: ["/images/neighborhood/philly-skyline.jpg"],
   },
 };
+
+export const revalidate = 3600;
+
+const whatsOn = loadWhatsOn();
 
 const bigFive = [
   [
@@ -387,7 +400,7 @@ const exhibitions = [
   ],
 ] as const;
 
-const notHappening = [
+const legacyNotHappening = [
   "Made in America Festival: not held since 2022 and not scheduled — ignore the fake September 2026 listings with recycled 2021 lineups circulating on ticket-aggregator sites.",
   "The Army–Navy Game in December 2026 is at MetLife Stadium in New Jersey, not Philadelphia. It returns to Lincoln Financial Field on December 11, 2027.",
   "The Wanamaker Building's Christmas Light Show is dark for 2026 and 2027 while the building is renovated — its farewell season was 2025, and it's expected back around 2028.",
@@ -477,7 +490,7 @@ const articleSchema = {
   mainEntityOfPage: `${SITE}/philadelphia-events`,
   image: [`${SITE}/images/neighborhood/philly-skyline.jpg`],
   datePublished: "2026-08-27",
-  dateModified: "2026-08-27",
+  dateModified: whatsOn.meta.generatedAt,
   author: { "@type": "Organization", name: "The Rittenhouse Residence", url: SITE },
   publisher: { "@type": "Organization", name: "The Rittenhouse Residence", url: SITE },
 };
@@ -521,7 +534,128 @@ function EventGrid({
   );
 }
 
+const monthDay = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+const weekdayMonthDay = new Intl.DateTimeFormat("en-US", {
+  weekday: "short",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+const fullDate = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+function dateAtUTC(iso: string): Date {
+  return new Date(`${iso}T00:00:00Z`);
+}
+
+function todayInTimeZone(timeZone: string): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const part = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((item) => item.type === type)?.value;
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
+
+function formatEventDate(event: WhatsOnEvent): string {
+  const start = dateAtUTC(event.start);
+  const end = dateAtUTC(event.end);
+  let dates: string;
+
+  if (event.start === event.end) {
+    dates = weekdayMonthDay.format(start);
+  } else {
+    const [startYear, startMonth] = event.start.split("-");
+    const [endYear, endMonth] = event.end.split("-");
+    if (startYear !== endYear) {
+      dates = `${fullDate.format(start)}–${fullDate.format(end)}`;
+    } else if (startMonth === endMonth) {
+      dates = `${new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        timeZone: "UTC",
+      }).format(start)} ${start.getUTCDate()}–${end.getUTCDate()}`;
+    } else {
+      dates = `${monthDay.format(start)}–${monthDay.format(end)}`;
+    }
+  }
+
+  return event.time ? `${dates} · ${event.time}` : dates;
+}
+
+function sortEvents(events: readonly WhatsOnEvent[]): WhatsOnEvent[] {
+  return [...events].sort(
+    (a, b) =>
+      a.start.localeCompare(b.start) ||
+      a.end.localeCompare(b.end) ||
+      a.title.localeCompare(b.title)
+  );
+}
+
+function RollingEventCards({ events }: { events: readonly WhatsOnEvent[] }) {
+  return (
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {events.map((event) => (
+        <article
+          key={event.id}
+          className="flex flex-col rounded-lg border border-stone-200 bg-white p-6"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">
+            {formatEventDate(event)}
+          </p>
+          <h3 className="mt-3 font-serif text-2xl font-semibold leading-snug text-stone-950">
+            <ExternalVenueLink href={event.sourceUrl}>{event.title}</ExternalVenueLink>
+          </h3>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            <p className="text-sm font-semibold text-stone-700">{event.venue}</p>
+            <span className="rounded-full bg-stone-100 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-stone-500">
+              {event.neighborhood}
+            </span>
+          </div>
+          <p className="mt-4 flex-1 text-sm leading-6 text-stone-700">{event.note}</p>
+          <p className="mt-5 border-t border-stone-100 pt-3 text-xs text-stone-500">
+            Checked {fullDate.format(dateAtUTC(event.verifiedAt))}
+          </p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function PhiladelphiaEventsPage() {
+  const today = todayInTimeZone(whatsOn.meta.timezone);
+  const nonRecurring = whatsOn.events.filter((event) => !isRecurring(event));
+  const thisWeek = sortEvents(
+    eventsOverlapping(nonRecurring, today, addDaysISO(today, 6))
+  );
+  const comingWeeks = groupByWeek(nonRecurring, addDaysISO(today, 7), 8)
+    .map((week) => ({ ...week, events: sortEvents(week.events) }))
+    .filter((week) => week.events.length > 0);
+  const recurring = sortEvents(
+    eventsOverlapping(
+      whatsOn.events.filter(isRecurring),
+      today,
+      addDaysISO(today, 62)
+    )
+  );
+  const staleFullCheck = whatsOn.meta.generatedAt < addDaysISO(today, -14);
+  const oldEventChecks = whatsOn.events.filter(
+    (event) => event.verifiedAt < addDaysISO(today, -45)
+  ).length;
+  const legacyNotHappeningWithoutMadeInAmerica = legacyNotHappening.filter(
+    (item) => !item.startsWith("Made in America Festival:")
+  );
+
   return (
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
       <script
@@ -562,6 +696,81 @@ export default function PhiladelphiaEventsPage() {
             Square, because event weeks are exactly when a whole house beats
             six hotel rooms.
           </p>
+        </div>
+      </section>
+
+      <section id="this-week" className="scroll-mt-20 bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="This Week"
+            title="What's on in Philadelphia this week."
+          />
+          {thisWeek.length > 0 ? (
+            <RollingEventCards events={thisWeek} />
+          ) : (
+            <p className="max-w-2xl text-lg leading-8 text-stone-700">
+              The dated listings resume in the weeks below.
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section id="coming-up" className="scroll-mt-20 bg-[#fbfaf7] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="Next Two Months" title="Coming up." />
+          <div className="space-y-14">
+            {comingWeeks.map((week) => (
+              <div key={week.start}>
+                <h3 className="mb-5 font-serif text-2xl font-semibold text-stone-950 md:text-3xl">
+                  Week of {monthDay.format(dateAtUTC(week.start))}
+                </h3>
+                <RollingEventCards events={week.events} />
+              </div>
+            ))}
+          </div>
+
+          {recurring.length > 0 && (
+            <div className="mt-14 rounded-lg border border-amber-200 bg-amber-50/70 p-6 md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-amber-800">
+                Every week
+              </p>
+              <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {recurring.map((event) => (
+                  <article key={event.id}>
+                    <h3 className="font-serif text-xl font-semibold text-stone-950">
+                      {event.title}
+                    </h3>
+                    {event.time && (
+                      <p className="mt-2 text-sm font-semibold text-amber-900">{event.time}</p>
+                    )}
+                    <p className="mt-1 text-sm text-stone-700">{event.venue}</p>
+                    <p className="mt-3 text-sm font-semibold text-stone-600">
+                      <ExternalVenueLink href={event.sourceUrl}>
+                        {sourceFor(event)?.name ?? "Organizer source"}
+                      </ExternalVenueLink>
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mt-12 border-t border-stone-300 pt-6 text-sm leading-6 text-stone-600">
+            <p>
+              Every listing links to its organizer; last full check {fullDate.format(dateAtUTC(whatsOn.meta.generatedAt))}.
+              {" "}Next to verify: {whatsOn.meta.nextVerify.join("; ")}.
+            </p>
+            {(staleFullCheck || oldEventChecks > 0) && (
+              <p className="mt-2 font-semibold text-amber-900">
+                Refresh status: {staleFullCheck ? "the full check is more than 14 days old" : ""}
+                {staleFullCheck && oldEventChecks > 0 ? "; " : ""}
+                {oldEventChecks > 0
+                  ? `${oldEventChecks} listing${oldEventChecks === 1 ? " is" : "s are"} more than 45 days past its checked date`
+                  : ""}
+                .
+              </p>
+            )}
+          </div>
         </div>
       </section>
 
@@ -750,13 +959,26 @@ export default function PhiladelphiaEventsPage() {
             </p>
           </div>
           <ul className="max-w-4xl space-y-4">
-            {notHappening.map((item) => (
+            {legacyNotHappeningWithoutMadeInAmerica.map((item) => (
               <li
                 key={item}
                 className="flex gap-3 text-base leading-7 text-stone-200"
               >
                 <CircleSlash className="mt-1 h-5 w-5 flex-none text-amber-300" />
                 {item}
+              </li>
+            ))}
+            {whatsOn.notHappening.map((item) => (
+              <li
+                key={item.title}
+                className="flex gap-3 text-base leading-7 text-stone-200"
+              >
+                <CircleSlash className="mt-1 h-5 w-5 flex-none text-amber-300" />
+                <span>
+                  <span className="font-semibold text-white">{item.title}:</span>{" "}
+                  {item.note}{" "}
+                  <span className="text-sm text-stone-400">Checked {fullDate.format(dateAtUTC(item.verifiedAt))}.</span>
+                </span>
               </li>
             ))}
           </ul>
