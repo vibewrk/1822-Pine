@@ -1,5 +1,11 @@
 export const SITE_URL = "https://rittenhouseresidence.com";
 export const PROPERTY_NAME = "The Rittenhouse Residence";
+export const PRIMARY_PROPERTY_IMAGE =
+  "/images/property-tour/07-living-room-1-07.webp";
+export const PRIMARY_PROPERTY_IMAGE_DIMENSIONS = {
+  width: 2100,
+  height: 1575,
+} as const;
 export const PUBLIC_LOCATION =
   "the 1800 block of Pine Street in Center City Philadelphia, two blocks from Rittenhouse Square";
 

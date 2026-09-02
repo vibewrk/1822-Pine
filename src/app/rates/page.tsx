@@ -15,7 +15,7 @@ import {
 import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
-import { PROPERTY_FACTS } from "@/lib/facts";
+import { PRIMARY_PROPERTY_IMAGE, PROPERTY_FACTS } from "@/lib/facts";
 import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Philadelphia Vacation Rental Rates | The Rittenhouse Residence",
     description: `${PRICING_COPY.short} ${PROPERTY_FACTS.minimumStayNights}-night minimum.`,
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
 };
 
@@ -82,7 +82,7 @@ const included = [
   `${PROPERTY_FACTS.fullBathrooms} full bathrooms and a powder room`,
   "Two full kitchens",
   `Dining space for ${PROPERTY_FACTS.sleeps}`,
-  "Two parlors and a full-size pool table",
+  "Three shared living rooms and a full-size pool table",
   "Private roof deck",
   "Linens, towels, WiFi, central air, and washer/dryer",
 ];
@@ -97,7 +97,7 @@ const hotelColumn = [
 const houseColumn = [
   PRICING_COPY.example,
   "One reservation, one arrival, one front door",
-  `Two parlors, a dining table that seats ${PROPERTY_FACTS.sleeps}, and a private roof deck`,
+  `Three shared living rooms, a dining table that seats ${PROPERTY_FACTS.sleeps}, and a private roof deck`,
   "Two full kitchens for group breakfasts on your own schedule",
 ];
 

@@ -15,16 +15,17 @@ import {
 } from "lucide-react";
 import { BookingCTA } from "@/components/BookingCTA";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "The House — 8 Bedrooms, Sleeps 16",
   description:
-    "Tour an 8-bedroom whole-home Philadelphia vacation rental for 16, with two parlors, two kitchens, dining for 16, and a private roof deck.",
+    "Tour an 8-bedroom whole-home Philadelphia vacation rental for 16, with three shared living rooms, a principal-suite sitting room, two kitchens, and a private roof deck.",
   alternates: { canonical: "/stay" },
   openGraph: {
     title: "Inside The Rittenhouse Residence | Sleeps 16",
     description:
-      "Two parlors, dining for the whole group, 8 bedrooms, 5 full baths and a powder room, and a private roof deck across four stories that live like five.",
+      "Three shared living rooms, a principal-suite sitting room, dining for 16, 8 bedrooms, 5 full baths and a powder room, and a private roof deck.",
     images: ["/images/property-tour/03-living-room-1-03.webp"],
   },
 };
@@ -34,9 +35,9 @@ const floorWalk = [
     floor: "Parlor floor",
     note: "The public rooms do the receiving.",
     image: "/images/property-tour/03-living-room-1-03.webp",
-    alt: "Grand parlor with original fireplace and full-size pool table",
+    alt: "Grand Parlor fireplace and antique seating beneath a crystal chandelier",
     rooms: [
-      "Two parlors for conversation, games, and the first round of coffee.",
+      "The Grand Parlor for conversation, games, and the first round of coffee.",
       "Dining room set for the whole group, with room for sixteen at the table.",
       "Primary kitchen and pantry close to the dining room, so the house works for a long meal.",
       "Rear access toward Waverly Street for luggage and practical arrivals.",
@@ -92,7 +93,7 @@ const amenities = [
     group: "For the group",
     items: [
       ["Dining seats 16", "One table for the whole stay, not three scattered reservations."],
-      ["Two parlors", "Fourteen-foot ceilings, original fireplace, crystal chandelier, and a full-size pool table."],
+      ["Four living areas", "The Grand Parlor, Family Room, and Library Lounge are shared; the fourth is the private sitting room within the principal suite."],
       ["Two full kitchens", "Primary kitchen on the parlor floor, secondary kitchen upstairs."],
       ["Roof deck", "Private outdoor space above the house."],
     ],
@@ -122,7 +123,7 @@ export default function StayPage() {
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
       <section className="relative min-h-[620px] overflow-hidden">
         <Image
-          src="/images/property-tour/01-living-room-1-01.webp"
+          src={PRIMARY_PROPERTY_IMAGE}
           alt="Grand Parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"
@@ -139,7 +140,7 @@ export default function StayPage() {
               Seven thousand square feet, arranged for a houseful.
             </h1>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
-              The Rittenhouse Residence is a whole-house stay across four stories that live like five: parlors for gathering under fourteen-foot ceilings, a dining room for sixteen, eight bedrooms, five full baths and a powder room, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
+              The Rittenhouse Residence is a whole-house stay across four stories that live like five: three shared living rooms for gathering, a dining room for sixteen, eight bedrooms, five full baths and a powder room, two kitchens, and a private roof deck two blocks from Rittenhouse Square.
             </p>
             <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold uppercase tracking-[0.14em] text-white/90">
               <span className="inline-flex items-center gap-2"><Bed className="h-4 w-4" />8 bedrooms</span>
@@ -287,7 +288,7 @@ export default function StayPage() {
                 alt: "Staircase leading to the bedrooms and roof deck",
               },
               {
-                src: "/images/property-tour/01-living-room-1-01.webp",
+                src: PRIMARY_PROPERTY_IMAGE,
                 alt: "Grand Parlor at The Rittenhouse Residence",
               },
               {
@@ -330,7 +331,7 @@ export default function StayPage() {
 
       <section className="relative py-20 md:py-28">
         <Image
-          src="/images/property-tour/01-living-room-1-01.webp"
+          src={PRIMARY_PROPERTY_IMAGE}
           alt="Parlor at The Rittenhouse Residence"
           fill
           sizes="100vw"

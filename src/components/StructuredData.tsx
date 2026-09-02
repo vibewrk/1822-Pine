@@ -14,6 +14,7 @@
 
 import {
   BOOKING_LINKS,
+  PRIMARY_PROPERTY_IMAGE,
   PROPERTY_FACTS,
   PROPERTY_NAME,
   SITE_URL,
@@ -28,7 +29,7 @@ const ADDRESS = {
 };
 
 const IMAGES = [
-  `${SITE_URL}/images/property-tour/01-living-room-1-01.webp`,
+  `${SITE_URL}${PRIMARY_PROPERTY_IMAGE}`,
   `${SITE_URL}/images/property-tour/03-living-room-1-03.webp`,
   `${SITE_URL}/images/property-tour/28-bedroom-1-02.webp`,
   `${SITE_URL}/images/property-tour/29-bedroom-2-01.webp`,

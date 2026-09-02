@@ -61,7 +61,7 @@ const faqSections = [
       },
       {
         q: "How is the house arranged?",
-        a: "The residence is four stories — five the way the front stacks, because the rear sits on shallower floors — with two parlors, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
+        a: "The residence is four stories — five the way the front stacks, because the rear sits on shallower floors — with three shared living rooms, a private sitting room within the principal suite, a dining room for 16, two full kitchens, bedrooms on the upper floors, and a private roof deck.",
       },
       {
         q: "What amenities are included?",

@@ -176,7 +176,7 @@ export default function WeddingGuestHousingPage() {
                   Quiet gathering rooms between commitments
                 </h3>
                 <p className="mt-3 leading-7 text-stone-700">
-                  Two parlors and a private roof deck give your guests places to land between the
+                  Three shared living rooms and a private roof deck give your guests places to land between the
                   weekend&apos;s fixed points — coffee and conversation, a hand of cards, an early
                   night for those who need one. All within the house rules that keep the block
                   quiet.

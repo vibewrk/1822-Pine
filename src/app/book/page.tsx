@@ -15,7 +15,12 @@ import {
 import { BookingDeepLinks } from "@/components/BookingDeepLinks";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
-import { BOOKING_LINKS, PROPERTY_FACTS, REVIEW_FACTS } from "@/lib/facts";
+import {
+  BOOKING_LINKS,
+  PRIMARY_PROPERTY_IMAGE,
+  PROPERTY_FACTS,
+  REVIEW_FACTS,
+} from "@/lib/facts";
 import { PRICING_COPY } from "@/lib/pricing";
 
 export const metadata: Metadata = {
@@ -25,14 +30,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Book The Rittenhouse Residence",
     description: `The whole 8-bedroom townhouse, two blocks from Rittenhouse Square. ${PRICING_COPY.short}`,
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
 };
 
 const included = [
   [
     "Full Property Access",
-    `The whole house — ${PROPERTY_FACTS.bedrooms} bedrooms, ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room, grand parlors, and the private roof deck.`,
+    `The whole house — ${PROPERTY_FACTS.bedrooms} bedrooms, ${PROPERTY_FACTS.fullBathrooms} full baths and a powder room, three shared living rooms, and the private roof deck.`,
   ],
   [
     "Practical Amenities",

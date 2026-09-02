@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, Calculator, Home, Scale } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
@@ -10,13 +11,13 @@ const SITE = "https://rittenhouseresidence.com";
 export const metadata: Metadata = {
   title: "Philadelphia Hotel Alternative for Groups",
   description:
-    "Skip eight scattered hotel rooms: one historic house that sleeps 16, with two parlors, two kitchens, dining for 16, and a roof deck near Rittenhouse Square.",
+    "Skip eight scattered hotel rooms: one historic house that sleeps 16, with three shared living rooms, two kitchens, dining for 16, and a roof deck near Rittenhouse Square.",
   alternates: { canonical: "/hotel-alternative" },
   openGraph: {
     title: "Philadelphia Hotel Alternative for Groups | Sleeps 16",
     description:
       "Eight hotel rooms or one historic house: compare the spaces, shared rooms, and practical details for groups of up to 16.",
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
 };
 
@@ -35,7 +36,7 @@ const comparisons = [
     "Eight room keys on different floors",
     "One front door, and a whole house that belongs to your group alone",
   ],
-  ["A lobby you pass through", "Two parlors you actually sit in, plus a full-size pool table"],
+  ["A lobby you pass through", "Three shared living rooms, plus a full-size pool table"],
   [
     "Breakfast for sixteen needs a reservation",
     "A dining table that seats all sixteen, steps from the kitchen",
@@ -67,7 +68,7 @@ const faqs = [
   },
   {
     q: "What does the house have that eight hotel rooms never will?",
-    a: "One front door for the whole group. Two parlors instead of a lobby, a dining table that seats all sixteen, two full kitchens, a full-size pool table, and a private roof deck — nearly 7,000 square feet that belongs to your group alone for the length of the stay.",
+    a: "One front door for the whole group. Three shared living rooms instead of a lobby, a dining table that seats all sixteen, two full kitchens, a full-size pool table, and a private roof deck — nearly 7,000 square feet that belongs to your group alone for the length of the stay.",
   },
   {
     q: "Is there a minimum stay?",
@@ -121,8 +122,8 @@ export default function HotelAlternativePage() {
       <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
         <section className="relative min-h-[620px] overflow-hidden">
           <Image
-            src="/images/property-tour/01-living-room-1-01.webp"
-            alt="Grand parlor with pool table opening through towering pocket doors beneath carved plaster friezes"
+            src={PRIMARY_PROPERTY_IMAGE}
+            alt="Grand Parlor in its regular daily configuration with the pool table at one end"
             fill
             sizes="100vw"
             priority
@@ -139,7 +140,7 @@ export default function HotelAlternativePage() {
               </h1>
               <p className="mt-7 max-w-3xl text-lg leading-8 text-stone-100 md:text-xl">
                 A group of sixteen at a hotel is eight doors on a corridor and a group text about
-                where to meet. The same sixteen people here share two parlors, one dining table,
+                where to meet. The same sixteen people here share three living rooms, one dining table,
                 and a roof deck — two blocks from Rittenhouse Square. The difference is less about
                 thread count than what happens when everyone can be together between plans.
               </p>

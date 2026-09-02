@@ -5,6 +5,10 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import {
+  PRIMARY_PROPERTY_IMAGE,
+  PRIMARY_PROPERTY_IMAGE_DIMENSIONS,
+} from "@/lib/facts";
 
 // Measurement IDs are env-overridable so staging/preview deploys don't pollute
 // production analytics. Defaults preserve the live IDs.
@@ -68,9 +72,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/property-tour/01-living-room-1-01.webp",
-        width: 2100,
-        height: 1400,
+        url: PRIMARY_PROPERTY_IMAGE,
+        ...PRIMARY_PROPERTY_IMAGE_DIMENSIONS,
         alt: "Grand Parlor at The Rittenhouse Residence - Historic Philadelphia Townhouse",
       },
     ],
@@ -80,7 +83,7 @@ export const metadata: Metadata = {
     title: "The Rittenhouse Residence | Historic Philadelphia Mansion",
     description:
       "A historic townhouse with 8 bedrooms, two blocks from Rittenhouse Square. A whole-home Philadelphia rental for groups.",
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
   robots: {
     index: true,

@@ -1,0 +1,230 @@
+{
+  "listingId": "6000930",
+  "capturedOn": "2026-09-02",
+  "primaryLeadOrder": 7,
+  "sourceImageIdsByOrder": [
+    1516785148,
+    1516785143,
+    1429741310,
+    1516784858,
+    1516785168,
+    1885373248,
+    1962018714,
+    1962018720,
+    1516793665,
+    1883615184,
+    1883615196,
+    1885369706,
+    1885369708,
+    1885373247,
+    1429330686,
+    1429741730,
+    1429330769,
+    1516785449,
+    1516793598,
+    1516797075,
+    1516785586,
+    1516794960,
+    1516793952,
+    1883615183,
+    1883626625,
+    1516785298,
+    1885373267,
+    1885373276,
+    1516793182,
+    1516796076,
+    1516795686,
+    1516795378,
+    1516794692,
+    1516794458,
+    1516810018,
+    1429325835,
+    1516786404,
+    1516797088,
+    1885372272,
+    1516795860,
+    1885370531,
+    1885371304,
+    1885371681,
+    1516785752,
+    1516796403,
+    1516796761,
+    1516793953,
+    1516796749,
+    1516796751,
+    1516796772,
+    1516796788,
+    1516794196,
+    1516818938,
+    1516793270,
+    1516793453,
+    1883615186,
+    1516784761,
+    1885373246,
+    1885373252,
+    2379861111,
+    2379861155,
+    2379861163
+  ],
+  "ownerOmittedOrders": [5],
+  "expectedOmittedOrders": [5, 14],
+  "omissionReasons": [
+    "retired Grand Parlor configuration",
+    "one exact duplicate"
+  ],
+  "groups": [
+    {
+      "label": "Grand Parlor (Living Room 1)",
+      "category": "Living Spaces",
+      "sourceOrders": [7, 8, 3, 1, 2, 4, 6]
+    },
+    {
+      "label": "Library Lounge",
+      "category": "Living Spaces",
+      "sourceOrders": [54, 55, 56]
+    },
+    {
+      "label": "Roof Decks",
+      "category": "Outdoor",
+      "sourceOrders": [45, 46, 47, 48, 49, 50, 51]
+    },
+    {
+      "label": "Courtyard",
+      "category": "Outdoor",
+      "sourceOrders": [44]
+    },
+    {
+      "label": "Chef's Kitchen",
+      "category": "Kitchens",
+      "sourceOrders": [15, 16, 17]
+    },
+    {
+      "label": "Coffee & Tea Stations",
+      "category": "Kitchens",
+      "sourceOrders": [18, 20, 21, 22]
+    },
+    {
+      "label": "Family Room (Living Room 2)",
+      "category": "Living Spaces",
+      "sourceOrders": [9, 10, 11]
+    },
+    {
+      "label": "Second Kitchen",
+      "category": "Kitchens",
+      "sourceOrders": [19, 23, 24, 25]
+    },
+    {
+      "label": "Dining Room",
+      "category": "Living Spaces",
+      "sourceOrders": [26]
+    },
+    {
+      "label": "Bedroom 1 · Principal Suite",
+      "category": "Bedrooms",
+      "sourceOrders": [27, 28, 12, 13]
+    },
+    {
+      "label": "Bedroom 2",
+      "category": "Bedrooms",
+      "sourceOrders": [29]
+    },
+    {
+      "label": "Bedroom 3",
+      "category": "Bedrooms",
+      "sourceOrders": [30]
+    },
+    {
+      "label": "Bedroom 4",
+      "category": "Bedrooms",
+      "sourceOrders": [31]
+    },
+    {
+      "label": "Bedroom 5",
+      "category": "Bedrooms",
+      "sourceOrders": [32]
+    },
+    {
+      "label": "Bedroom 6",
+      "category": "Bedrooms",
+      "sourceOrders": [33]
+    },
+    {
+      "label": "Bedroom 7",
+      "category": "Bedrooms",
+      "sourceOrders": [34]
+    },
+    {
+      "label": "Bedroom 8",
+      "category": "Bedrooms",
+      "sourceOrders": [35]
+    },
+    {
+      "label": "Full Bathroom 1",
+      "category": "Bathrooms",
+      "sourceOrders": [36, 37, 38]
+    },
+    {
+      "label": "Full Bathroom 2",
+      "category": "Bathrooms",
+      "sourceOrders": [39]
+    },
+    {
+      "label": "Full Bathroom 3",
+      "category": "Bathrooms",
+      "sourceOrders": [40]
+    },
+    {
+      "label": "Full Bathroom 4",
+      "category": "Bathrooms",
+      "sourceOrders": [41]
+    },
+    {
+      "label": "Full Bathroom 5",
+      "category": "Bathrooms",
+      "sourceOrders": [42]
+    },
+    {
+      "label": "Powder Room",
+      "category": "Bathrooms",
+      "sourceOrders": [43]
+    },
+    {
+      "label": "Laundry Room",
+      "category": "Amenities",
+      "sourceOrders": [52]
+    },
+    {
+      "label": "Exterior",
+      "category": "Exterior",
+      "sourceOrders": [53]
+    },
+    {
+      "label": "House Details & Seasonal Moments",
+      "category": "Details",
+      "sourceOrders": [57, 58, 59, 60, 61, 62]
+    }
+  ],
+  "captionOverrides": {
+    "1": "Pool-table configuration · available by special request",
+    "2": "Pool-table configuration · available by special request",
+    "3": "Grand Parlor fireplace and antique seating",
+    "4": "Pool-table configuration · available by special request",
+    "6": "Pool-table configuration · available by special request",
+    "7": "Grand Parlor · regular daily configuration",
+    "8": "Grand Parlor · regular daily configuration",
+    "12": "Private sitting room within the principal suite",
+    "13": "Principal-suite sitting room opening into Bedroom 1",
+    "17": "Chef's kitchen with two convection ovens and a microwave",
+    "18": "Tea and coffee station with two Nespresso machines and a kettle",
+    "19": "Second kitchen",
+    "20": "Nespresso coffee station",
+    "21": "Tea and coffee station",
+    "22": "Tea and coffee service",
+    "36": "Principal suite bathroom with a shower and jetted tub",
+    "37": "Principal suite bathroom",
+    "40": "Full bathroom 3",
+    "57": "Main staircase to the bedrooms and roof deck",
+    "58": "Gallery hall and front parlor",
+    "59": "Front entry"
+  }
+}
