@@ -1,135 +1,90 @@
-# 1822 Pine Street Historical Documentation System
+# The Rittenhouse Residence website
 
-A comprehensive system for documenting and publishing the history of 1822 Pine Street, Philadelphia.
+Production website for [rittenhouseresidence.com](https://rittenhouseresidence.com),
+a whole-house Philadelphia stay near Rittenhouse Square.
 
-## Quick Start
+The deployed application is a Next.js 16 App Router project hosted on Vercel.
+The canonical repository is `vibewrk/1822-Pine`; merges to `main` create the
+production deployment.
 
-### 1. Install Dependencies
+## Start with current truth
 
-```bash
-# Run the setup script
-chmod +x setup.sh
-./setup.sh
+Before changing facts, copy, privacy, booking, schema, analytics, or campaign
+material, read:
 
-# Install Quarto's PDF support
-quarto install tinytex
-```
+1. [`AGENTS.md`](AGENTS.md) — source precedence and operating rules.
+2. [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md) — current authority map and
+   unresolved boundaries.
+3. [`docs/VOICE-AND-CONVERSION-PLAN.md`](docs/VOICE-AND-CONVERSION-PLAN.md) —
+   public voice, address, schema, and booking policy.
 
-### 2. Process Your Documents
+The aggregate property facts used by the application live in
+`src/lib/facts.ts`; qualified price language lives in `src/lib/pricing.ts`.
+`public/llms.txt` is generated from those modules and must not be hand-edited.
 
-1. Place all your historical documents (PDFs, JPGs, PNGs) in the `raw_documents/` folder
-2. Run the processing script:
+The old `website/**` Quarto tree and root research/build inventories are
+historical source material. They are not the deployed site or current
+property truth.
 
-```bash
-python3 scripts/process_documents.py
-```
-
-This will:
-- Extract text using OCR
-- Identify dates, people, and locations
-- Generate web and print-optimized images
-- Create bibliography entries
-- Build timeline data
-
-### 3. Build the Documentation
+## Local development
 
 ```bash
-# Preview the website locally
-quarto preview
-
-# Generate PDF book
-quarto render --to pdf
-
-# Generate all formats
-quarto render
+npm ci
+npm run dev
 ```
 
-## Project Structure
+The application is available at `http://localhost:3000` by default.
 
-```
-1822-pine/
-├── raw_documents/        # Place your original documents here
-├── images/
-│   ├── web/             # Web-optimized images (auto-generated)
-│   └── print/           # High-res print images (auto-generated)
-├── metadata/            # Extracted metadata and OCR text
-├── data/
-│   └── timeline.yml     # Auto-generated timeline
-├── refs/
-│   └── bibliography.bib # Auto-generated citations
-├── chapters/            # Markdown content files
-└── _site/              # Generated website and PDFs
-```
-
-## Adding Documents
-
-Simply drop new documents into `raw_documents/` and run:
+Useful checks:
 
 ```bash
-python3 scripts/process_documents.py
+npm run lint
+npm run test:contact
+npm run test:availability
+npm run check:images
+npm run build
 ```
 
-The system will:
-1. Automatically extract metadata
-2. Perform OCR on images and PDFs
-3. Generate citations
-4. Update the timeline
-5. Create optimized versions for web and print
+Run the public regression suite against production:
 
-## Document Naming Convention
-
-For best results, name your files with dates when possible:
-- `1891-04-23-inquirer-spencer-obituary.jpg`
-- `1905-deed-transfer.pdf`
-- `1915-01-08-suffrage-meeting.png`
-
-## Publishing
-
-### GitHub Pages
 ```bash
-quarto publish gh-pages
+SITE=https://rittenhouseresidence.com bash scripts/verify-seo.sh
 ```
 
-### Manual Deployment
-Upload the `_site/` folder to any web host.
+## Current application map
 
-## Features
+- `src/app/` — pages, metadata, structured data, and route handlers.
+- `src/components/` — shared conversion, navigation, gallery, and booking UI.
+- `src/lib/facts.ts` — approved aggregate public property facts and OTA review
+  snapshot.
+- `src/lib/pricing.ts` — qualified price language.
+- `src/data/rooms.json` — room-level bed inventory.
+- `src/data/property-images.json` — public photo-tour order and labels.
+- `src/data/whats-on.json` — maintained events dataset.
+- `scripts/generate-llms.ts` — generates the machine-readable public summary.
+- `scripts/verify-seo.sh` — live domain, indexability, schema, privacy,
+  conversion, image, and integration checks.
+- `docs/RENTALAGENT-INTEGRATION.md` — current website/RentalAgent contract.
+- `docs/GROWTH-RUNBOOK.md` — measurement and acquisition operating notes.
 
-- **Automatic OCR**: Extracts text from all documents
-- **Metadata Extraction**: Identifies dates, names, addresses, monetary amounts
-- **Multi-format Output**: Website, PDF book, and EPUB
-- **Responsive Design**: Works on all devices
-- **Print-ready**: Generates high-quality PDFs for physical books
-- **Timeline Generation**: Automatic chronological organization
-- **Bibliography Management**: Proper citations for all sources
-- **Image Optimization**: Separate versions for web and print
+## Booking and privacy model
 
-## Customization
+The website accepts quote inquiries. Airbnb and Vrbo provide online calendars
+and checkout; the website does not process payment. Public marketing uses a
+block-level location and omits exact address and coordinates from machine
+markup. Historical source records may retain an address when it is part of the
+historical subject.
 
-### Styling
-Edit `styles/theme.css` for visual customization.
+The exact-date public availability response is a documented, unresolved owner
+policy. Do not infer a decision from its current implementation; see
+[`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md#exact-date-availability-is-not-yet-a-settled-policy).
 
-### Content Structure
-Modify `_quarto.yml` to change chapter organization.
+## Deployment
 
-### Metadata Extraction
-Enhance `scripts/process_documents.py` to extract additional fields.
+Use a feature branch and pull request. Verify locally, merge through GitHub,
+wait for the Vercel production deployment to report `Ready`, and then run the
+live regression suite. A canceled preview deployment can be expected when the
+feature commit is not GitHub-verified; GitHub's verified merge commit still
+drives production.
 
-## Requirements
-
-- macOS or Linux (Windows with WSL)
-- Python 3.7+
-- Quarto
-- ImageMagick
-- Tesseract OCR
-- Poppler (for PDF processing)
-
-## Support
-
-For issues or questions about the historical content, please review the documentation in the `refs/` folder.
-
-For technical issues with the system, check that all dependencies are installed correctly.
-
-## License
-
-This documentation system is provided for historical preservation purposes. All historical documents remain the property of their respective copyright holders where applicable. Documents over 100 years old are generally in the public domain.
+See [`docs/HANDOFF.md`](docs/HANDOFF.md) for the concise current handoff.

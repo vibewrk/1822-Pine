@@ -5,6 +5,7 @@
 > Select weekdays may be available from about $1,600 for the whole house; exact pricing varies by date.
 
 Canonical site: https://rittenhouseresidence.com
+Site truth revision: rr-site-2026-09-02.1
 
 ## Property facts
 
@@ -44,7 +45,8 @@ The property is guest lodging, not a ceremony, reception, party, or event venue.
 
 - Airbnb: https://www.airbnb.com/rooms/6000930
 - Vrbo: https://www.vrbo.com/757481
-- Airbnb standing: 4.88 across 102 reviews; Guest Favorite; Superhost
+- Review snapshot observed: 2026-09-02
+- Airbnb standing: 4.88/5 across 102 reviews; Guest Favorite; Superhost
 - Vrbo standing: 9.8/10 across 66 reviews
 - Total published reviews across both platforms: 168
 - Personal quote or group-fit question: https://rittenhouseresidence.com/contact

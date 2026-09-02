@@ -1,5 +1,11 @@
 # Operations Manual Brief - 1822 Pine Street
 
+> **Superseded operations proposal.** This Guesty-centered brief is retained as
+> historical planning material, not a description of the current stack.
+> Hospitable through RentalAgent is the present reservation operating path.
+> Read [`AGENTS.md`](AGENTS.md) and
+> [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md) before reusing it.
+
 This is the definitive operations brief for a premium short-term rental managed in **Guesty**, with an on-site cleaning team and a high standard for guest experience, safety, and asset preservation. It is structured to become the full operations manual and house manager guide.
 
 ---

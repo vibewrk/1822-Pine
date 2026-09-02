@@ -1,6 +1,12 @@
 # Master Content Index - 1822 Pine Street Project
 *Complete hierarchical catalog of all content for book and website publication*
 
+> **Historical planning index.** This file predates the deployed Next.js site
+> and contains superseded provider and implementation assumptions, including
+> Guesty. It is not current website or operating truth. Start with
+> [`AGENTS.md`](AGENTS.md) and [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md); the
+> current reservation platform is Hospitable through RentalAgent.
+
 ---
 
 ## Project Intent (2026-01-04)

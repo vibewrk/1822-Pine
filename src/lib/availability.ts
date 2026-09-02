@@ -9,10 +9,12 @@
 //      coverage gaps, review flags, upstream errors, an unconfigured
 //      integration — collapses to "unconfirmed", which promises a human reply
 //      rather than an availability claim.
-//   2. Nothing operational leaks. RentalAgent's reply carries reservation
-//      ids, provider names, source event ids and provenance explanations.
-//      None of it crosses into the public response; the route rebuilds a
-//      small allow-listed object instead of forwarding fields.
+//   2. No internal operational metadata leaks. RentalAgent's reply carries
+//      reservation ids, provider names, source event ids and provenance
+//      explanations. None of that crosses into the public response; the route
+//      rebuilds a small allow-listed object instead of forwarding fields. The
+//      requested range and its three-state result remain public pending the
+//      owner policy recorded in docs/SITE-TRUTH.md.
 //
 // See docs/RENTALAGENT-INTEGRATION.md for the architecture and failure modes.
 

@@ -4,6 +4,10 @@ Written 2026-08-31, updated 2026-09-02 after the second shipping pass. Covers
 the architecture, the auth model, every failure mode, what shipped, and what
 the owner still has to decide.
 
+This document owns the integration contract, not all property or provider
+truth. Read `docs/SITE-TRUTH.md` first for source precedence and the unresolved
+public-availability privacy boundary.
+
 **RentalAgent** (repo `RPLogic-Inc/rentalclaw`, production
 `https://rentalclaw.vercel.app`) is the AI operations agent for the house:
 reservations, guest messaging, vendors, inspections, evidence packets, owner
@@ -55,6 +59,13 @@ The mapper is an allow-list. Stale rows, a review flag, an unreachable
 RentalAgent, a 401, an unrecognised payload, an unset credential — all
 collapse to `unconfirmed`. A wrong "available!" is far worse than no answer.
 
+This minimizes the upstream response; it does not make exact-date status
+private. The public route still answers a machine-readable requested range.
+The owner has not yet selected whether bounded exact-range checks remain
+acceptable or whether the public response should become inquiry-only. See
+`docs/SITE-TRUTH.md`; do not describe the present implementation as an approved
+privacy policy.
+
 ### Failure modes
 
 | Situation | Behaviour |
@@ -81,31 +92,24 @@ as `RENTALAGENT_ACCESS_TOKEN` (Production and Preview), with
 `NEXT_PUBLIC_*`; both are `.trim()`ed on read because Vercel renders a
 trailing newline as an orange `↵`.
 
-### The calendar-freshness blocker — fixed
+### The calendar-freshness blocker — fixed in RentalAgent
 
-On 2026-08-31 every check through 2026-12-29 returned `unconfirmed`. Cause:
-`property_calendar_days` held fresh `airbnb-official` rows (Hospitable cron
-every 30 min) beside `vrbo` rows last written 2026-07-02, and RentalAgent's
-freshness took the *oldest* row. The Vrbo rows were leftovers from an earlier
-sync path — Hospitable now returns one calendar per property, and in
-Hospitable the Vrbo listing is "partially managed" with calendar sync from
-the Airbnb lead listing, so the fresh rows already carry cross-channel
-blocks. (An earlier draft of this document blamed a missing `VRBO_ICAL_URL`;
-that was wrong — that cron writes a different provider id.)
+RentalAgent previously combined fresh primary calendar rows with dormant rows
+from an older provider path and then used the oldest row to determine overall
+freshness. That made otherwise well-supported requests degrade to
+`unconfirmed`. The dormant rows are leftovers from an earlier sync path;
+Hospitable now returns one calendar for the unified property and carries
+cross-channel blocks through that current source. An earlier draft blamed a
+missing iCal variable, but that path writes a different provider id.
 
 `RPLogic-Inc/rentalclaw#212` introduces a **dormant provider** rule: a
 source whose newest row is older than the 8-hour ceiling is set aside only
 when a fresh source covers every night, and any disagreement (dormant says
 blocked, fresh says open) still fails closed with `dormant_provider_conflict`.
-Verified read-only against production data: 2026-09-14 → 17 went from
-`needs_review` to `available`; 2027-01-15 → 18 unchanged.
-
-What still returns `unconfirmed`, correctly: nights the Airbnb calendar shows
-blocked without a matching reservation record in RentalAgent
-(`provider_reservation_unmatched` — seen on 2026-10-15 → 18 and
-2026-11-20 → 23). Those are real blocks RentalAgent cannot attribute; the site
-says "we'll confirm" rather than "booked". RentalAgent's
-`get_provider_divergence_log` explains each one.
+Production was checked read-only without preserving real stay ranges or their
+results in this public repository. Unattributed calendar blocks still degrade
+to `unconfirmed`; RentalAgent's internal `get_provider_divergence_log` explains
+those cases without exposing them through the website.
 
 ---
 
@@ -142,16 +146,19 @@ being up, and a wrong number propagates to 113 pages. First make the brief
 agree with `src/lib/facts.ts` field by field, add a CI divergence check, then
 consider inverting the direction.
 
-**`booked` against live data.** Unit-tested and mapped end-to-end, but no
-confirmable booked nights exist yet inside the window where RentalAgent will
-confirm anything.
+**Publication-grade availability evidence.** The mapping is unit-tested and
+the upstream path has been exercised read-only, but public evidence must never
+include a real range and its result. Any future proof belongs in a private,
+access-controlled evidence store.
 
 ---
 
 ## 4. Operating notes
 
-- `bash scripts/verify-seo.sh` checks the availability API (safe verdicts, no
-  leakage, invalid-range rejection) alongside everything else — 76 checks.
+- `bash scripts/verify-seo.sh` checks the availability API's allow-listed
+  response, fail-closed behavior, and invalid-range rejection alongside the
+  rest of the site. It does not settle the owner-policy question about exposing
+  exact-date status.
 - Test locally without the production token: run RentalAgent's `next dev`
   with the production `DATABASE_URL` and a locally chosen access key, and
   point `RENTALAGENT_BASE_URL` at it. `check_stay_availability` is read-only.

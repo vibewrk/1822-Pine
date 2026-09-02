@@ -1,5 +1,10 @@
 # Guest persona review — 27 August 2026
 
+> **Dated research snapshot.** Several findings below were addressed after this
+> review. It is input to design work, not current site truth. Read
+> [`SITE-TRUTH.md`](SITE-TRUTH.md) and verify the live page before carrying a
+> finding into a new plan.
+
 Five personas walked the live site through Codex and reported twice: once
 deciding whether to book, once as a booked guest researching the stay.
 
@@ -1086,4 +1091,3 @@ What I actually want is one private, mobile-friendly guest link combining those 
 ### What is missing once I have committed
 
 The site is built almost entirely to acquire a booking. After the deposit, it does not become a stay-planning tool. The missing layer is a proper guest guide: arrival, access, definitive rules, kitchen and chef logistics, exact parking, house operations, emergency help, and checkout. For a group organizer, that is the difference between feeling hosted and feeling responsible for extracting every operational detail by email.
-

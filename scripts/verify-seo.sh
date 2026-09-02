@@ -93,6 +93,12 @@ printf '%s' "$llms" | grep -q 'Select weekdays may be available from about \$1,6
 printf '%s' "$llms" | grep -q 'website itself has no checkout' \
   && ok "/llms.txt states the booking mechanism" \
   || bad "/llms.txt is missing the no-on-site-checkout fact"
+printf '%s' "$llms" | grep -q 'Site truth revision: rr-site-2026-09-02.1' \
+  && ok "/llms.txt identifies the current site-truth revision" \
+  || bad "/llms.txt is missing the current site-truth revision"
+printf '%s' "$llms" | grep -q 'Bedrooms: 8 (2 kings and 6 queens)' \
+  && ok "/llms.txt carries the verified bed inventory" \
+  || bad "/llms.txt bed inventory is stale"
 if printf '%s' "$llms" | grep -qiE '1822 Pine|1822pinestreet|no platform service fee|instant booking'; then
   bad "/llms.txt exposes the exact address or an obsolete booking promise"
 else ok "/llms.txt passes privacy and booking-consistency checks"; fi

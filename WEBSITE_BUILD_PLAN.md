@@ -3,6 +3,13 @@
 **Property:** 1822 Pine Street, Philadelphia, PA 19103
 **Created:** 2026-01-09
 
+> **Superseded build proposal.** This document preserves the January 2026 plan
+> and is not the deployed architecture, current provider plan, or approved
+> public-property truth. In particular, Guesty was never adopted; Hospitable
+> through RentalAgent is the current reservation operating path. Read
+> [`AGENTS.md`](AGENTS.md) and [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md) before
+> using any material from this file.
+
 ---
 
 ## Executive Summary

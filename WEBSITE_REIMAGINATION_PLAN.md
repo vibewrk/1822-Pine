@@ -1,5 +1,11 @@
 # Website Reimagination Plan - Rittenhouse Residence (1822 Pine St)
 
+> **Superseded planning artifact.** This proposal contains pre-launch provider
+> and architecture assumptions and is not current operating truth. Guesty was
+> not adopted. Begin with [`AGENTS.md`](AGENTS.md) and
+> [`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md); current reservations are operated
+> in Hospitable through RentalAgent.
+
 This plan defines the scope, content, integrations, and risk controls for the new website at `rittenhouseresidence.com`. It treats the site as both a premium guest-facing experience and an operational backbone tied to the existing tech stack and insurance requirements.
 
 ---

@@ -10,7 +10,9 @@ import {
   PROPERTY_NAME,
   PUBLIC_LOCATION,
   REVIEW_FACTS,
+  REVIEW_FACTS_AS_OF,
   SITE_URL,
+  SITE_TRUTH_REVISION,
   TOTAL_REVIEW_COUNT,
 } from "../src/lib/facts";
 import { PRICING_COPY } from "../src/lib/pricing";
@@ -25,6 +27,7 @@ const content = `# ${PROPERTY_NAME}
 > ${PRICING_COPY.short}
 
 Canonical site: ${SITE_URL}
+Site truth revision: ${SITE_TRUTH_REVISION}
 
 ## Property facts
 
@@ -64,7 +67,8 @@ The property is guest lodging, not a ceremony, reception, party, or event venue.
 
 - Airbnb: ${BOOKING_LINKS.airbnb}
 - Vrbo: ${BOOKING_LINKS.vrbo}
-- Airbnb standing: ${REVIEW_FACTS.airbnb.rating} across ${REVIEW_FACTS.airbnb.count} reviews; Guest Favorite; Superhost
+- Review snapshot observed: ${REVIEW_FACTS_AS_OF}
+- Airbnb standing: ${REVIEW_FACTS.airbnb.rating}/5 across ${REVIEW_FACTS.airbnb.count} reviews; Guest Favorite; Superhost
 - Vrbo standing: ${REVIEW_FACTS.vrbo.rating}/10 across ${REVIEW_FACTS.vrbo.count} reviews
 - Total published reviews across both platforms: ${TOTAL_REVIEW_COUNT}
 - Personal quote or group-fit question: ${SITE_URL}${BOOKING_LINKS.inquiry}
