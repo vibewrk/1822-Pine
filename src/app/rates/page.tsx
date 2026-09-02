@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -195,17 +196,28 @@ export default function RatesPage() {
 
       <section className="bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Eyebrow>The Math</Eyebrow>
-            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
-              One house vs. {PROPERTY_FACTS.bedrooms} hotel rooms.
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-stone-700">
-              {PROPERTY_FACTS.sleeps} people in hotels means{" "}
-              {PROPERTY_FACTS.bedrooms} rooms. Compare the nightly rate here
-              against {PROPERTY_FACTS.bedrooms} rooms at going rates for your
-              dates — then compare what the money buys.
-            </p>
+          <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+            <div>
+              <Eyebrow>The Math</Eyebrow>
+              <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+                One house vs. {PROPERTY_FACTS.bedrooms} hotel rooms.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-stone-700">
+                {PROPERTY_FACTS.sleeps} people in hotels means{" "}
+                {PROPERTY_FACTS.bedrooms} rooms. Compare the nightly rate here
+                against {PROPERTY_FACTS.bedrooms} rooms at going rates for your
+                dates — then compare what the money buys.
+              </p>
+            </div>
+            <figure className="relative aspect-[3/2] overflow-hidden rounded-lg bg-stone-200">
+              <Image
+                src="/images/property-tour/26-dining-area-01.webp"
+                alt="Dining room with a long table beneath a crystal chandelier"
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
           <div className="mt-10 grid gap-px overflow-hidden rounded-lg border border-stone-200 bg-stone-200 lg:grid-cols-2">
             <div className="bg-stone-50 p-8">

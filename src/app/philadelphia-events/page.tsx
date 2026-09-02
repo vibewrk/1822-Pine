@@ -10,6 +10,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PhotoHero } from "@/components/PhotoHero";
 import {
   addDaysISO,
   eventsOverlapping,
@@ -678,8 +679,11 @@ export default function PhiladelphiaEventsPage() {
         }}
       />
 
-      <section className="bg-stone-950 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <PhotoHero
+        src="/images/property-tour/49-rooftop-05.webp"
+        alt="Philadelphia skyline seen from the roof deck at The Rittenhouse Residence"
+      >
+        <div className="max-w-4xl">
           <Eyebrow light className="mb-5">
             Dates Worth Planning Around
           </Eyebrow>
@@ -697,7 +701,7 @@ export default function PhiladelphiaEventsPage() {
             six hotel rooms.
           </p>
         </div>
-      </section>
+      </PhotoHero>
 
       <section id="this-week" className="scroll-mt-20 bg-white py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -1052,8 +1056,8 @@ export default function PhiladelphiaEventsPage() {
             <p className="mt-4 text-base leading-7 text-stone-700">
               We revisit every date against the organizer&apos;s own site. Entries
               marked &ldquo;dates TBA&rdquo; are reliably annual events whose next
-              edition hasn&apos;t been announced. Spot an error
-              or a new announcement?{" "}
+              edition hasn&apos;t been announced. Spot an error or a new
+              announcement?{" "}
               <Link
                 href="/contact"
                 className="font-semibold text-amber-800 hover:text-amber-900"

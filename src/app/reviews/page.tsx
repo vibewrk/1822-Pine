@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Award, Star } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
+import { PhotoHero } from "@/components/PhotoHero";
 import TrackedLink from "@/components/TrackedLink";
 import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 import {
@@ -213,8 +215,11 @@ function ReviewCard({ r }: { r: Review }) {
 export default function ReviewsPage() {
   return (
     <div className="flex flex-col bg-[#fbfaf7] text-stone-950">
-      <section className="bg-stone-950 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <PhotoHero
+        src="/images/property-tour/45-rooftop-01.webp"
+        alt="Private roof deck at The Rittenhouse Residence with the Philadelphia skyline beyond"
+      >
+        <div className="max-w-4xl">
           <Eyebrow light className="mb-5">
             Guest Reviews
           </Eyebrow>
@@ -252,7 +257,7 @@ export default function ReviewsPage() {
             </TrackedLink>
           </div>
         </div>
-      </section>
+      </PhotoHero>
 
       <section className="bg-white py-12 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -276,6 +281,45 @@ export default function ReviewsPage() {
             Airbnb&rdquo; — hosted by a Superhost with 11 years of hosting and a
             100% response rate.
           </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                src: "/images/property-tour/26-dining-area-01.webp",
+                alt: "Dining room at The Rittenhouse Residence with a long table beneath a crystal chandelier",
+                caption: "Dinner together",
+              },
+              {
+                src: "/images/property-tour/07-living-room-1-07.webp",
+                alt: "Grand Parlor with sofas, fireplace, chandelier, and pool table",
+                caption: "Room to gather",
+              },
+              {
+                src: "/images/property-tour/58-additional-photos-02.webp",
+                alt: "Gallery hall and red-carpeted staircase inside The Rittenhouse Residence",
+                caption: "Historic character, thoughtfully kept",
+              },
+            ].map((photo) => (
+              <figure
+                key={photo.src}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg bg-stone-200"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"
+                />
+                <figcaption className="absolute inset-x-0 bottom-0 p-4 text-sm font-semibold text-white">
+                  {photo.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
