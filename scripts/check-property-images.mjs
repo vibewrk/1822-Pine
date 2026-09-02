@@ -6,10 +6,12 @@ import { fileURLToPath } from "node:url";
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(scriptDir, "..");
 const dataPath = path.join(siteRoot, "src", "data", "property-images.json");
+const roomsDataPath = path.join(siteRoot, "src", "data", "rooms.json");
 const imageRoot = path.join(siteRoot, "public", "images", "property-tour");
 
 const payload = JSON.parse(await fs.readFile(dataPath, "utf8"));
 const { images, source } = payload;
+const { rooms } = JSON.parse(await fs.readFile(roomsDataPath, "utf8"));
 
 function invariant(condition, message) {
   if (!condition) throw new Error(message);
@@ -50,15 +52,44 @@ for (const image of images) {
 const bedrooms = images.filter(
   (image) => image.label.startsWith("Bedroom") && image.withinGroupOrder === 1
 );
+const expectedBedByBedroom = new Map([
+  ["Bedroom 1", "King bed"],
+  ["Bedroom 2", "Queen bed"],
+  ["Bedroom 3", "King bed"],
+  ["Bedroom 4", "Queen bed"],
+  ["Bedroom 5", "Queen bed"],
+  ["Bedroom 6", "Queen bed"],
+  ["Bedroom 7", "Queen bed"],
+  ["Bedroom 8", "Queen bed"],
+]);
 const bedCounts = bedrooms.reduce((counts, image) => {
   counts[image.bed] = (counts[image.bed] ?? 0) + 1;
   return counts;
 }, {});
 invariant(bedrooms.length === 8, "Expected eight labeled bedrooms");
 invariant(
-  bedCounts["King bed"] === 3 && bedCounts["Queen bed"] === 4 && bedCounts["Double bed"] === 1,
-  "Expected the Airbnb bed mix: three kings, four queens, one double"
+  bedCounts["King bed"] === 2 &&
+    bedCounts["Queen bed"] === 6 &&
+    !bedCounts["Double bed"],
+  "Expected the verified bed mix: two kings and six queens"
 );
+for (const [bedroom, expectedBed] of expectedBedByBedroom) {
+  const bedroomImages = images.filter((image) => image.label === bedroom);
+  invariant(bedroomImages.length > 0, `Missing gallery images for ${bedroom}`);
+  invariant(
+    bedroomImages.every(
+      (image) =>
+        image.bed === expectedBed &&
+        image.caption.includes(expectedBed) &&
+        image.alt.includes(expectedBed)
+    ),
+    `${bedroom} gallery labels must identify a ${expectedBed.toLowerCase()}`
+  );
+  invariant(
+    rooms.find((room) => room.name === bedroom)?.bed === expectedBed,
+    `${bedroom} room data must identify a ${expectedBed.toLowerCase()}`
+  );
+}
 
 const deployedFiles = (await fs.readdir(imageRoot)).filter((name) => name.endsWith(".webp"));
 invariant(deployedFiles.length === 61, "Property-tour directory must contain exactly 61 WebP files");

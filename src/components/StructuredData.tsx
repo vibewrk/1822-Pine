@@ -101,11 +101,6 @@ export function LodgingBusinessSchema() {
             numberOfBeds: PROPERTY_FACTS.beds.queen,
             typeOfBed: "Queen",
           },
-          {
-            "@type": "BedDetails",
-            numberOfBeds: PROPERTY_FACTS.beds.double,
-            typeOfBed: "Double",
-          },
         ],
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "Wi-Fi", value: true },

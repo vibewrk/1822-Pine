@@ -90,7 +90,7 @@ secret.
 - No `VacationRental`, property `aggregateRating`, or property `review` JSON-LD.
 - The `LodgingBusiness` entity appears only on the homepage and uses the stable
   `/#rittenhouse-residence` identifier.
-- Bed mix is 2 kings, 5 queens, and 1 double everywhere.
+- Bed mix is 2 kings and 6 queens everywhere.
 - No Event schema or venue positioning.
 - Every important booking route offers a personal inquiry and an Airbnb/Vrbo
   live-checkout path.

@@ -242,7 +242,7 @@ export default function GalleryPage() {
                 <h3 className="font-semibold text-gray-900 mb-3">Bedrooms & Baths</h3>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li>• 8 bedrooms across floors 2–4</li>
-                  <li>• 3 king · 4 queen · 1 double</li>
+                  <li>• 2 king · 6 queen</li>
                   <li>• 5 full bathrooms and a powder room</li>
                   <li>• Principal suite with private bath</li>
                 </ul>

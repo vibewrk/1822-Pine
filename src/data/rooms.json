@@ -39,9 +39,9 @@
     {
       "name": "Bedroom 5",
       "floor": "Fourth floor",
-      "bed": "Double bed",
+      "bed": "Queen bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "One of two connecting family rooms on the fourth floor, furnished with a double bed.",
+      "notes": "One of two connecting family rooms on the fourth floor, furnished with a queen bed.",
       "suitability": "The connecting pair suits parents with kids — doors between the rooms, not floors. The fourth floor is the most stairs in a house with no elevator.",
       "imageSrc": "/images/property-tour/32-bedroom-5-01.webp"
     },
@@ -66,10 +66,10 @@
     {
       "name": "Bedroom 8",
       "floor": "Fourth floor",
-      "bed": "King bed",
+      "bed": "Queen bed",
       "bath": "Shared hall bath — exact mapping confirmed in your arrival packet",
-      "notes": "The king VIP suite on the fourth floor.",
-      "suitability": "A king bed for whoever does not mind the climb — the most stairs, no elevator.",
+      "notes": "The VIP suite on the fourth floor, furnished with a queen bed.",
+      "suitability": "A roomy top-floor retreat for whoever does not mind the climb — the most stairs, no elevator.",
       "imageSrc": "/images/property-tour/35-bedroom-8-01.webp"
     }
   ]

@@ -314,7 +314,7 @@ export default function HomePage() {
               Eight bedrooms. Nobody drives home.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-700">
-              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Three kings — including a principal suite with a private bath — plus four queens and a double across the upper floors; five full bathrooms and a powder room with period fixtures.
+              Fourteen-foot ceilings on the parlor floor, twelve on the floor above — the proportions of a house built to be seen in. Four stories of private space — five, the way the front of the house stacks so a group of sixteen sleeps comfortably and still finds a quiet corner. Two kings — including a principal suite with a private bath — plus six queens across the upper floors; five full bathrooms and a powder room with period fixtures.
             </p>
             <Link
               href="/stay"

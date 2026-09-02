@@ -19,9 +19,8 @@ export const PROPERTY_FACTS = {
   licenseNumber: "903781",
   documentedFromYear: 1854,
   beds: {
-    king: 3,
-    queen: 4,
-    double: 1,
+    king: 2,
+    queen: 6,
   },
 } as const;
 
@@ -45,7 +44,7 @@ export const BOOKING_LINKS = {
   inquiry: "/contact",
 } as const;
 
-export const BED_MIX_SHORT = `${PROPERTY_FACTS.beds.king} kings, ${PROPERTY_FACTS.beds.queen} queens, 1 double`;
+export const BED_MIX_SHORT = `${PROPERTY_FACTS.beds.king} kings and ${PROPERTY_FACTS.beds.queen} queens`;
 export const BATH_MIX_SHORT = `${PROPERTY_FACTS.fullBathrooms} full baths and a powder room`;
 export const TOTAL_BATHROOMS =
   PROPERTY_FACTS.fullBathrooms + PROPERTY_FACTS.powderRooms * 0.5;
