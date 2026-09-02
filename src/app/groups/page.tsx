@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import occasionsData from "@/data/occasions.json";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 import { PRICING_COPY } from "@/lib/pricing";
 
 const SITE = "https://rittenhouseresidence.com";
@@ -43,7 +44,7 @@ const stats = [
     `Sample per guest with 16 staying at a ${PRICING_COPY.sampleRate} weekday rate`,
   ],
   ["Seats 16", "At one dining table"],
-  ["Four stories", "Two kitchens · two parlors · roof deck"],
+  ["Four stories", "Two kitchens · three shared living rooms · roof deck"],
 ];
 
 const houseRules = [
@@ -151,7 +152,7 @@ export default function GroupsPage() {
               </h2>
               <p className="mt-5 text-lg leading-8 text-stone-700">
                 {PRICING_COPY.long} {PRICING_COPY.example} Every stay includes the entire house —
-                every bedroom, both kitchens, both parlors, the dining room, and the roof deck. For
+                every bedroom, both kitchens, all three shared living rooms, the dining room, and the roof deck. For
                 the exact total, tell us your dates and{" "}
                 <Link
                   href="/contact"
@@ -291,8 +292,8 @@ export default function GroupsPage() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
-                    src="/images/property-tour/01-living-room-1-01.webp"
-                    alt="Grand parlor with pool table opening through towering pocket doors"
+                    src={PRIMARY_PROPERTY_IMAGE}
+                    alt="Grand Parlor in its regular daily configuration with the pool table at one end"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"

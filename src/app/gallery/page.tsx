@@ -21,6 +21,12 @@ const floorPlanImages = [
 // Get unique categories
 const categories = ["All", ...Array.from(new Set(allImages.map((img) => img.category)))];
 
+const galleryGroupId = (label: string) =>
+  `gallery-${label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
+
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [showFilters, setShowFilters] = useState(false);
@@ -63,9 +69,9 @@ export default function GalleryPage() {
                 Rittenhouse Residence Gallery
               </h1>
               <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-                Walk through the parlors and kitchens, all eight labeled bedrooms,
-                every bath, the courtyard, and the roof deck—in the same order you
-                would encounter them on our booking tour.
+                Begin with the Grand Parlor in its regular arrangement, then move
+                through the Library, outdoor spaces, kitchens, all eight bedrooms,
+                and every bath. Optional room configurations are clearly noted.
               </p>
               <p className="mt-4 text-amber-400">
                 {allImages.length} current photos · Click any image to view full size
@@ -129,14 +135,14 @@ export default function GalleryPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="space-y-14 md:space-y-16">
               {groupedImages.map((group) => (
-                <section key={group.label} aria-labelledby={`gallery-${group.label.replaceAll(" ", "-").toLowerCase()}`}>
+                <section key={group.label} aria-labelledby={galleryGroupId(group.label)}>
                   <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-b border-stone-200 pb-4">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-800">
                         {group.images[0].category}
                       </p>
                       <h2
-                        id={`gallery-${group.label.replaceAll(" ", "-").toLowerCase()}`}
+                        id={galleryGroupId(group.label)}
                         className="mt-1 font-serif text-3xl font-semibold capitalize text-stone-950"
                       >
                         {group.label}
@@ -232,10 +238,10 @@ export default function GalleryPage() {
               <div className="bg-amber-50 rounded-xl p-6">
                 <h3 className="font-semibold text-gray-900 mb-3">Living Spaces</h3>
                 <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• Grand Parlor with pool table</li>
+                  <li>• Grand Parlor with full-size pool table</li>
                   <li>• Library Lounge with wet bar</li>
-                  <li>• 70&quot; 4K TV entertainment center</li>
-                  <li>• Three separate living areas</li>
+                  <li>• Family Room with 70&quot; 4K TV</li>
+                  <li>• Private sitting room within the principal suite</li>
                 </ul>
               </div>
               <div className="bg-amber-50 rounded-xl p-6">

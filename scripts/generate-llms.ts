@@ -34,7 +34,8 @@ Canonical site: ${SITE_URL}
 - Bathrooms: ${BATH_MIX_SHORT}
 - Floors: ${PROPERTY_FACTS.stories} stories plus a private furnished roof deck; no elevator; ${PROPERTY_FACTS.stairsToTop} steps from entrance to roof deck; every bedroom is above the entrance level
 - Size: nearly ${PROPERTY_FACTS.squareFeet.toLocaleString("en-US")} square feet; 14-foot ceilings on the parlor floor
-- Gathering spaces: dining table for 16, two parlors, full-size pool table, and private roof deck
+- Living areas: three shared rooms — the Grand Parlor (also called Living Room 1), Family Room (Living Room 2), and Library Lounge — plus a private sitting room within the principal suite
+- Gathering features: dining table for 16, full-size pool table, and private roof deck
 - Kitchens: two full kitchens
 - Amenities: gigabit WiFi service, central air and heat, washer/dryer, smart TVs, and linens
 - Pricing: ${PRICING_COPY.long}

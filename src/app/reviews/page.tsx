@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Award, Star } from "lucide-react";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 import {
   AIRBNB_COUNT,
   AIRBNB_RATING,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     title: "Guest Reviews | The Rittenhouse Residence",
     description: `${TOTAL_REVIEWS} reviews across Airbnb and Vrbo, in guests' own words.`,
     type: "article",
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
 };
 

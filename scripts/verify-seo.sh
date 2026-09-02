@@ -98,9 +98,32 @@ if printf '%s' "$llms" | grep -qiE '1822 Pine|1822pinestreet|no platform service
 else ok "/llms.txt passes privacy and booking-consistency checks"; fi
 
 head_ "Current property-tour images"
-for u in /images/property-tour/01-living-room-1-01.webp /images/property-tour/28-bedroom-1-02.webp /images/property-tour/45-rooftop-01.webp; do
+for u in /images/property-tour/07-living-room-1-07.webp /images/property-tour/28-bedroom-1-02.webp /images/property-tour/45-rooftop-01.webp; do
   c=$(fetch -o /dev/null -w '%{http_code}' "$SITE$u")
   [ "$c" = "200" ] && ok "$u -> 200" || bad "$u returns $c"
+done
+retired_code=$(fetch -o /dev/null -w '%{http_code}' "$SITE/images/property-tour/05-living-room-1-05.webp")
+[ "$retired_code" = "404" ] \
+  && ok "retired Grand Parlor photo is not deployed" \
+  || bad "retired Grand Parlor photo returns $retired_code (expected 404)"
+
+gallery=$(fetch "$SITE/gallery")
+gallery_text=$(printf '%s' "$gallery" | sed 's/<[^>]*>/ /g' | tr '\n' ' ' | tr -s ' ')
+printf '%s' "$gallery_text" | grep -q '60 current photos' \
+  && ok "gallery displays the current 60-photo total" \
+  || bad "gallery does not display the current 60-photo total"
+printf '%s' "$gallery" | grep -q 'Grand Parlor (Living Room 1)' \
+  && printf '%s' "$gallery" | grep -q 'Library Lounge' \
+  && ok "gallery names the Grand Parlor and Library separately" \
+  || bad "gallery room names are missing or stale"
+for path in "" /stay /groups /hotel-alternative; do
+  lead_page=$(fetch "$SITE$path")
+  if printf '%s' "$lead_page" | grep -q '/images/property-tour/07-living-room-1-07.webp' \
+    && ! printf '%s' "$lead_page" | grep -q '/images/property-tour/01-living-room-1-01.webp'; then
+    ok "${path:-/} uses the regular Grand Parlor configuration as its lead"
+  else
+    bad "${path:-/} uses a stale or special-request Grand Parlor lead"
+  fi
 done
 arch=$(fetch "$SITE/history/documents" | grep -o '/archive/images/web/[A-Za-z0-9_.%-]*\.jpg' | head -1)
 if [ -n "$arch" ]; then
@@ -112,6 +135,11 @@ fi
 
 head_ "Schema integrity"
 home=$(fetch "$SITE/")
+printf '%s' "$home" | grep -q 'property="og:image" content="https://rittenhouseresidence.com/images/property-tour/07-living-room-1-07.webp"' \
+  && printf '%s' "$home" | grep -q 'property="og:image:width" content="2100"' \
+  && printf '%s' "$home" | grep -q 'property="og:image:height" content="1575"' \
+  && ok "homepage social image and dimensions match the regular Grand Parlor photo" \
+  || bad "homepage social image URL or dimensions are stale"
 for bad_str in "Recent Guest" "starRating" "Free parking"; do
   printf '%s' "$home" | grep -q "$bad_str" && bad "schema still contains '$bad_str'" || ok "no '$bad_str' in schema"
 done
@@ -153,7 +181,7 @@ printf '%s' "$home" | grep -q '"numberOfBeds":2,"typeOfBed":"King"' \
   && ! printf '%s' "$home" | grep -q '"typeOfBed":"Double"' \
   && ok "schema bed mix includes 2 kings and 6 queens" \
   || bad "schema bed mix is stale (expect 2 kings and 6 queens)"
-printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/property-tour/01-living-room-1-01.webp"' \
+printf '%s' "$home" | grep -q '"image":\["https://rittenhouseresidence.com/images/property-tour/07-living-room-1-07.webp"' \
   && ok "property schema uses the approved public image set" \
   || bad "property schema approved image set is missing"
 printf '%s' "$home" | grep -q '"name":"Wi-Fi","value":true' \

@@ -12,6 +12,7 @@ import {
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { AIRBNB_URL, VRBO_URL } from "@/components/SocialProof";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 
 // The rules, published BEFORE booking rather than after.
 //
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     description:
       "Check-in and checkout, noise, visitors, parties, pets and smoking — the rules in full, before you book.",
     type: "article",
-    images: ["/images/property-tour/01-living-room-1-01.webp"],
+    images: [PRIMARY_PROPERTY_IMAGE],
   },
 };
 
@@ -51,7 +52,7 @@ const yes = [
   "Cooking for the group. Two full kitchens and a dining table that seats sixteen.",
   "Bringing in a caterer or private chef for a meal at the house.",
   "A family dinner, a birthday toast, a wedding party getting ready in the morning.",
-  "Using the roof deck, the parlors, the library wet bar and the pool table.",
+  "Using the roof deck, the shared living rooms, the library wet bar and the pool table.",
   "Keeping up with work. Gigabit WiFi runs throughout the house for ordinary remote work and calls.",
 ] as const;
 

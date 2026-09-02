@@ -17,6 +17,7 @@ import TrackedLink from "@/components/TrackedLink";
 import { SocialProof } from "@/components/SocialProof";
 import { LodgingBusinessSchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
+import { PRIMARY_PROPERTY_IMAGE } from "@/lib/facts";
 import {
   addDaysISO,
   eventsOverlapping,
@@ -69,7 +70,7 @@ const spaces = [
   {
     name: "Grand Parlor",
     image: "/images/property-tour/03-living-room-1-03.webp",
-    alt: "Grand Parlor with original fireplace, crystal chandelier, and pool table",
+    alt: "Grand Parlor fireplace and antique seating beneath a crystal chandelier",
     caption: "Fourteen-foot ceilings · historic marble fireplace · crystal chandelier · full-size pool table.",
   },
   {
@@ -91,7 +92,7 @@ const occasions = [
     icon: Users,
     title: "Group Stays",
     href: "/groups",
-    body: "Family reunions, team stays, and celebration weekends. Eight bedrooms keep everyone under one roof, with the dining room, parlors, and roof deck as common ground.",
+    body: "Family reunions, team stays, and celebration weekends. Eight bedrooms keep everyone under one roof, with three shared living rooms, the dining room, and roof deck as common ground.",
     cta: "Plan a group stay",
   },
   {
@@ -105,7 +106,7 @@ const occasions = [
     icon: Building2,
     title: "A Hotel Alternative",
     href: "/hotel-alternative",
-    body: "One house instead of eight scattered hotel rooms. Two parlors in place of a lobby, two kitchens instead of room service, and every door on the same staircase.",
+    body: "One house instead of eight scattered hotel rooms. Three shared living rooms in place of a lobby, two kitchens instead of room service, and every door on the same staircase.",
     cta: "Compare with hotels",
   },
 ];
@@ -142,7 +143,7 @@ export default function HomePage() {
           the highest-traffic page. min-h lets the section grow instead. */}
       <section className="relative flex min-h-[85vh] flex-col justify-end">
         <Image
-          src="/images/property-tour/01-living-room-1-01.webp"
+          src={PRIMARY_PROPERTY_IMAGE}
           alt="Grand parlor inside The Rittenhouse Residence, a historic Philadelphia townhouse"
           fill
           sizes="100vw"
