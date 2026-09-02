@@ -10,7 +10,7 @@ import {
   MapPin,
   Send,
 } from "lucide-react";
-import { AvailabilityCheck } from "@/components/AvailabilityCheck";
+import { AvailabilityInquiry } from "@/components/AvailabilityInquiry";
 import { Eyebrow } from "@/components/Eyebrow";
 import TrackedLink from "@/components/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
@@ -390,7 +390,7 @@ export default function ContactPage() {
                       <div>
                         <p className="text-sm text-red-700">{errorMessage}</p>
                         <p className="mt-3 text-sm text-red-800">
-                          You can still check live availability and reserve securely:
+                          You can still view booking options or use a live calendar:
                         </p>
                         <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold">
                           <TrackedLink
@@ -471,10 +471,9 @@ export default function ContactPage() {
                         </div>
                       </div>
 
-                      <AvailabilityCheck
+                      <AvailabilityInquiry
                         checkIn={arrival}
                         checkOut={departure}
-                        location="contact_quote_form"
                       />
 
                       <div className="grid gap-6 sm:grid-cols-2">

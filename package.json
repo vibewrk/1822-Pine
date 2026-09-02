@@ -14,7 +14,7 @@
     "check:whats-on": "node scripts/check-whats-on.mjs",
     "check:images": "node scripts/check-property-images.mjs",
     "test:contact": "tsx --test src/lib/contact-security.test.ts src/lib/quote-prefill.test.ts src/app/api/contact/route.test.ts src/proxy.test.ts",
-    "test:availability": "tsx --test src/lib/availability.test.ts src/app/api/availability/route.test.ts"
+    "test:availability": "tsx --test src/app/api/availability/route.test.ts"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

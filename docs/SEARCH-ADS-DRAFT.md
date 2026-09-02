@@ -4,7 +4,7 @@
 **State:** Draft only. No campaign, budget, billing, or ad has been created or
 enabled in Google Ads.
 **Truth input:** [`SITE-TRUTH.md`](SITE-TRUTH.md), revision
-`rr-site-2026-09-02.1`. Reconcile the revision and all dated provider
+`rr-site-2026-09-02.2`. Reconcile the revision and all dated provider
 observations before activation.
 
 ## Launch gate

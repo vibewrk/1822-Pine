@@ -1,11 +1,11 @@
 # RentalAgent ↔ rittenhouseresidence.com — integration plan
 
-Written 2026-08-31, updated 2026-09-02 after the second shipping pass. Covers
-the architecture, the auth model, every failure mode, what shipped, and what
-the owner still has to decide.
+Written 2026-08-31, updated 2026-09-02 after the owner selected inquiry-only
+public date handling. Covers the current integration boundary, what shipped,
+and what remains private or deferred.
 
 This document owns the integration contract, not all property or provider
-truth. Read `docs/SITE-TRUTH.md` first for source precedence and the unresolved
+truth. Read `docs/SITE-TRUTH.md` first for source precedence and the approved
 public-availability privacy boundary.
 
 **RentalAgent** (repo `RPLogic-Inc/rentalclaw`, production
@@ -22,94 +22,41 @@ without a deploy.
 
 ---
 
-## 1. Live availability (shipped 2026-09-01, credentialed 2026-09-02)
+## 1. Public availability is inquiry-only (owner decision 2026-09-02)
 
-`/book` and `/contact` ask RentalAgent's read-only `check_stay_availability`
-tool and answer inline.
+`/book` and `/contact` keep the useful part of the date journey without
+exposing calendar state. Visitors choose dates, the site calculates the stay
+length locally, and those dates carry into the personal quote form. A person
+replies within 24 hours with availability and an itemized quote. Airbnb and
+Vrbo remain the public live-calendar and secure-checkout options.
 
+The browser does not call RentalAgent or any availability endpoint. The old
+`/api/availability` URL remains temporarily for compatibility with a cached
+pre-change browser bundle. It ignores the request and always returns:
+
+```json
+{
+  "mode": "inquiry_only",
+  "message": "Availability is confirmed personally after an inquiry."
+}
 ```
-browser
-  │  GET /api/availability?checkIn=…&checkOut=…      (no credential, no PII)
-  ▼
-rittenhouseresidence.com  ·  src/app/api/availability/route.ts
-  │  validate range → rate-limit by IP → single hard-coded tool name
-  │  POST /api/mcp  {"method":"tools/call","params":{"name":"check_stay_availability", …}}
-  │  Authorization: Bearer $RENTALAGENT_ACCESS_TOKEN     (server-side only)
-  ▼
-RentalAgent  ·  rentalclaw.vercel.app
-  ▼  full operational result (reservation ids, providers, provenance, blockers)
-route handler collapses it to  { status, checkIn, checkOut, nights }
-```
 
-Design choices: GET (idempotent, edge-cacheable, clear of the Firewall's
-POST ceiling that protects the contact form); the canonical `/api/mcp`
-endpoint rather than the deprecated bridge; a rebuilt four-field reply rather
-than a forwarded one, asserted by a route test and by
-`scripts/verify-seo.sh` against production.
+The response is `no-store` and `noindex`; it includes no requested dates,
+night count, calendar verdict, provider metadata, or operational identifiers.
+The route does not read a RentalAgent environment variable, use a credential,
+or make an upstream request. Different requests therefore reveal identical
+information.
 
-### The public vocabulary
+RentalAgent may still answer availability questions inside a private,
+access-controlled owner or staff workflow. That private operational capability
+does not authorize a public date-status bridge. The previously installed
+website read-only credential is not required by current source; its live
+provider configuration is a dated external observation until separately
+verified or revoked.
 
-| `status` | Requires | Visitor sees |
-|---|---|---|
-| `open` | fresh evidence, `requiresReview === false`, no coverage gap, verdict and night counts agree | "These dates are open." |
-| `booked` | same gates, verdict `unavailable` | "These dates are already booked." |
-| `unconfirmed` | anything else at all | "We'll confirm these dates for you." — **no claim** |
-
-The mapper is an allow-list. Stale rows, a review flag, an unreachable
-RentalAgent, a 401, an unrecognised payload, an unset credential — all
-collapse to `unconfirmed`. A wrong "available!" is far worse than no answer.
-
-This minimizes the upstream response; it does not make exact-date status
-private. The public route still answers a machine-readable requested range.
-The owner has not yet selected whether bounded exact-range checks remain
-acceptable or whether the public response should become inquiry-only. See
-`docs/SITE-TRUTH.md`; do not describe the present implementation as an approved
-privacy policy.
-
-### Failure modes
-
-| Situation | Behaviour |
-|---|---|
-| `RENTALAGENT_*` unset | `unconfirmed`, no outbound request |
-| RentalAgent down / slow / 5xx | 6 s timeout → `unconfirmed`, HTTP 200 |
-| Token wrong or revoked | `unconfirmed`, logged server-side |
-| Calendar evidence stale (> 8 h) or a review flag | `unconfirmed` |
-| Range invalid | HTTP 400 before the credential is used |
-| Too many checks | 40 / 15 min / IP → 429 with `Retry-After` |
-
-Confirmed verdicts are cached `s-maxage=120`; `unconfirmed` is `no-store`.
-
-### Auth model — fixed
-
-RentalAgent now has a second, long-lived bearer secret,
-`RENTALCLAW_READ_ONLY_ACCESS_KEY`, that resolves to MCP scope `read:core`
-only and records a distinguishable actor in RentalAgent's audit ledger
-(`RPLogic-Inc/rentalclaw#211`). It cannot call write, audit, or approval
-tools, and does not authorize RentalAgent's HTTP bridge, operator APIs,
-dashboard, or cron routes. The website holds that key — not the admin key —
-as `RENTALAGENT_ACCESS_TOKEN` (Production and Preview), with
-`RENTALAGENT_BASE_URL = https://rentalclaw.vercel.app`. Neither is
-`NEXT_PUBLIC_*`; both are `.trim()`ed on read because Vercel renders a
-trailing newline as an orange `↵`.
-
-### The calendar-freshness blocker — fixed in RentalAgent
-
-RentalAgent previously combined fresh primary calendar rows with dormant rows
-from an older provider path and then used the oldest row to determine overall
-freshness. That made otherwise well-supported requests degrade to
-`unconfirmed`. The dormant rows are leftovers from an earlier sync path;
-Hospitable now returns one calendar for the unified property and carries
-cross-channel blocks through that current source. An earlier draft blamed a
-missing iCal variable, but that path writes a different provider id.
-
-`RPLogic-Inc/rentalclaw#212` introduces a **dormant provider** rule: a
-source whose newest row is older than the 8-hour ceiling is set aside only
-when a fresh source covers every night, and any disagreement (dormant says
-blocked, fresh says open) still fails closed with `dormant_provider_conflict`.
-Production was checked read-only without preserving real stay ranges or their
-results in this public repository. Unattributed calendar blocks still degrade
-to `unconfirmed`; RentalAgent's internal `get_provider_divergence_log` explains
-those cases without exposing them through the website.
+The prior three-state implementation and its freshness rules remain in Git
+history for auditability. They are historical design evidence, not the current
+website contract.
 
 ---
 
@@ -146,23 +93,16 @@ being up, and a wrong number propagates to 113 pages. First make the brief
 agree with `src/lib/facts.ts` field by field, add a CI divergence check, then
 consider inverting the direction.
 
-**Publication-grade availability evidence.** The mapping is unit-tested and
-the upstream path has been exercised read-only, but public evidence must never
-include a real range and its result. Any future proof belongs in a private,
-access-controlled evidence store.
+**Private availability assistance.** Any future RentalAgent date-status work
+belongs in an access-controlled owner or staff workflow. Public evidence must
+never include a real range and its result.
 
 ---
 
 ## 4. Operating notes
 
-- `bash scripts/verify-seo.sh` checks the availability API's allow-listed
-  response, fail-closed behavior, and invalid-range rejection alongside the
-  rest of the site. It does not settle the owner-policy question about exposing
-  exact-date status.
-- Test locally without the production token: run RentalAgent's `next dev`
-  with the production `DATABASE_URL` and a locally chosen access key, and
-  point `RENTALAGENT_BASE_URL` at it. `check_stay_availability` is read-only.
-- Rotating the key: set a new `RENTALCLAW_READ_ONLY_ACCESS_KEY` in the
-  `rentalclaw` Vercel project, redeploy RentalAgent, then update
-  `RENTALAGENT_ACCESS_TOKEN` here. During the gap the site answers
-  `unconfirmed`; nothing breaks.
+- `bash scripts/verify-seo.sh` checks that the compatibility URL returns only
+  the fixed inquiry acknowledgement, echoes no dates, and exposes no calendar
+  verdict or operational detail.
+- The public website needs no RentalAgent base URL or access token for this
+  behavior. Do not add one back without a new owner decision and truth revision.

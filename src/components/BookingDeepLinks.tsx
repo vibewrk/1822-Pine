@@ -3,7 +3,7 @@
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { ArrowRight, CalendarCheck, ExternalLink, Star } from "lucide-react";
-import { AvailabilityCheck } from "@/components/AvailabilityCheck";
+import { AvailabilityInquiry } from "@/components/AvailabilityInquiry";
 import { trackEvent } from "@/lib/analytics";
 import { BOOKING_LINKS, PROPERTY_FACTS } from "@/lib/facts";
 import { QUOTE_PREFILL_SESSION_KEY } from "@/lib/quote-prefill";
@@ -155,10 +155,9 @@ export function BookingDeepLinks() {
               : "Pick dates to open Airbnb with your stay prefilled, or jump straight to either calendar."}
       </p>
 
-      <AvailabilityCheck
+      <AvailabilityInquiry
         checkIn={checkIn}
         checkOut={checkOut}
-        location="book_deep_links"
         className="mt-4"
         action={
           <Link
@@ -166,7 +165,7 @@ export function BookingDeepLinks() {
             onClick={() => {
               carryDatesToQuoteForm();
               trackEvent("direct_inquiry_click", {
-                location: "availability_check",
+                location: "date_inquiry",
               });
             }}
             className="inline-flex items-center gap-1 text-sm font-semibold underline underline-offset-4"

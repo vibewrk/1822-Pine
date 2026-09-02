@@ -4,7 +4,7 @@
 **Status:** Research complete; organic and AI work may begin. Paid campaigns remain paused drafts.
 **Business outcome:** More qualified whole-house inquiries and bookings, not more undifferentiated traffic.
 **Truth input:** [`SITE-TRUTH.md`](SITE-TRUTH.md), revision
-`rr-site-2026-09-02.1`. Metrics below are dated observations, not a current
+`rr-site-2026-09-02.2`. Metrics below are dated observations, not a current
 provider read.
 
 ## Decision

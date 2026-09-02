@@ -75,9 +75,10 @@ block-level location and omits exact address and coordinates from machine
 markup. Historical source records may retain an address when it is part of the
 historical subject.
 
-The exact-date public availability response is a documented, unresolved owner
-policy. Do not infer a decision from its current implementation; see
-[`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md#exact-date-availability-is-not-yet-a-settled-policy).
+Public date handling is inquiry-only. Selected dates carry into the personal
+quote form, but the website does not disclose a calendar verdict. Airbnb and
+Vrbo remain the public live-calendar paths. See
+[`docs/SITE-TRUTH.md`](docs/SITE-TRUTH.md#public-date-handling-is-inquiry-only).
 
 ## Deployment
 

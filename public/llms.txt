@@ -5,7 +5,7 @@
 > Select weekdays may be available from about $1,600 for the whole house; exact pricing varies by date.
 
 Canonical site: https://rittenhouseresidence.com
-Site truth revision: rr-site-2026-09-02.1
+Site truth revision: rr-site-2026-09-02.2
 
 ## Property facts
 
@@ -38,6 +38,7 @@ The property is guest lodging, not a ceremony, reception, party, or event venue.
 - Select weekdays may be available from about $1,600 for the whole house. Weekends, holidays, and high-demand dates run higher, and your quote or platform checkout will show the exact total for your stay.
 - Value example: At a sample $1,600 weekday rate, that works out to $200 per bedroom — or $100 per guest with sixteen staying.
 - The website accepts date and group inquiries but does not process checkout on-site
+- The website does not publish an open, booked, or equivalent verdict for submitted dates; a person confirms availability privately
 - An inquiry receives availability, an itemized quote, and booking next steps within 24 hours
 - Live calendars and secure checkout are available on Airbnb and Vrbo
 
