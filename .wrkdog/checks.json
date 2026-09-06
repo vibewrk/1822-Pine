@@ -1,0 +1,37 @@
+{
+  "schema_version": "wrkdog.agent-mission-target.v1",
+  "enabled": true,
+  "repository": "vibewrk/1822-pine",
+  "allowed_account_ids": [
+    "7b0466bf-fe06-4fac-9f51-b71459b3c26a"
+  ],
+  "allowed_business_uuids": [
+    "ecbeeb50-2ca3-499d-ac5e-a840e91e24e7"
+  ],
+  "allowed_profile_ids": [
+    "wrkdog-tested-pr-v1"
+  ],
+  "editable_paths": [
+    "src/data/whats-on.json"
+  ],
+  "limits": {
+    "max_cost_cents": 150,
+    "max_validity_seconds": 3600,
+    "max_changed_files": 1,
+    "max_changed_bytes": 1000000,
+    "max_tokens": 100000,
+    "max_wall_clock_seconds": 300
+  },
+  "checks": {
+    "pine-whats-on-data": {
+      "runner": "node",
+      "entrypoint": "scripts/check-whats-on.mjs",
+      "args": []
+    },
+    "pine-build": {
+      "runner": "node",
+      "entrypoint": "scripts/pine-build-check.mjs",
+      "args": []
+    }
+  }
+}
