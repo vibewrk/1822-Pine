@@ -46,3 +46,13 @@ The pages revalidate hourly, so the server-rendered windows move forward without
 5. Update `meta.nextVerify` with the remaining gaps, extend the coverage dates as needed, and set `meta.generatedAt` to the date of the completed full check.
 6. Run `npm run check:whats-on` and fix every error. Review warnings rather than suppressing them.
 7. Open a pull request with the data changes and any source notes reviewers need.
+
+## wrk.dog target registry
+
+Governed weekly refresh missions (via RentalAgent / wrk.dog) run against the target check registry defined in `.wrkdog/checks.json`. A signed agent mission pins this file by path (`check_registry_path`) and SHA-256 digest (`check_registry_digest`).
+
+The registry declares two required checks:
+- `pine-whats-on-data`: runs `scripts/check-whats-on.mjs` to validate the listings data format, source references, and date window constraints.
+- `pine-build`: runs `scripts/pine-build-check.mjs` to verify the site's Next.js production build (`next build --webpack`) succeeds without invoking a shell.
+
+Because the signed mission pins `.wrkdog/checks.json` by its cryptographic hash, changing any byte of the registry changes the digest that the next mission must pin.
